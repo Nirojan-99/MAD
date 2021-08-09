@@ -6,29 +6,28 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class LogIn extends AppCompatActivity {
+public class BothSignUp extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_log_in);
+        setContentView(R.layout.activity_both_sign_up);
 
         getSupportActionBar().hide();
 
 
     }
 
-    public void onClickFogetPassword(View view){
+    public void OnLogInClick(View view){
+        Intent intent1 = new Intent(this,LogIn.class);
+        startActivity(intent1);
+    }
+
+    public void OnSalonSignUpClick(View view){
 
     }
 
-    public void onClickLogIn(View view){
+    public void OnCustomerSignUpClick(View view){
 
     }
-
-    public void onClickSignUp(View view){
-        Intent intSign = new Intent(this,BothSignUp.class);
-        startActivity(intSign);
-    }
-
 }
