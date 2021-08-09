@@ -7,4 +7,6 @@
     <string name="dontHaveAccount">Don\'t have account?</string>
     <string name="signup">Sign Up</string>
     <string name="description">Image</string>
+    <string name="saloonregister">Register As Salon</string>
+    <string name="customerregister">Register As Customer</string>
 </resources>
