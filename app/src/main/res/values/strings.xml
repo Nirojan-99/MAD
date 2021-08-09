@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">HairDo</string>
+    <string name="LogInTitle">Log In</string>
+    <string name="userName">Email</string>
+    <string name="password">Password</string>
+    <string name="forgetPassword">Forgot Password?</string>
+    <string name="dontHaveAccount">Don\'t have account?</string>
+    <string name="signup">Sign Up</string>
+    <string name="description">Image</string>
 </resources>

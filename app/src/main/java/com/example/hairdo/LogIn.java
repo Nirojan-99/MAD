@@ -3,6 +3,7 @@ package com.example.hairdo;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 
 public class LogIn extends AppCompatActivity {
 
@@ -12,6 +13,20 @@ public class LogIn extends AppCompatActivity {
         setContentView(R.layout.activity_log_in);
 
         getSupportActionBar().hide();
+
+
+    }
+
+    public void onClickFogetPassword(View view){
+
+    }
+
+    public void onClickLogIn(View view){
+
+    }
+
+    public void onClickSignUp(View view){
+
     }
 
 }
