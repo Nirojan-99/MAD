@@ -99,10 +99,10 @@
 
                     <ImageView
                         android:layout_width="30dp"
-                        android:onClick="OnLogInClick"
                         android:layout_height="30dp"
                         android:layout_gravity="center_vertical"
                         android:foregroundGravity="left"
+                        android:onClick="OnLogInClick"
                         android:src="@drawable/ic_baseline_chevron_left_24" />
 
                     <TextView
@@ -115,8 +115,6 @@
                         android:onClick="OnLogInClick"
                         android:text="@string/LogInTitle" />
                 </LinearLayout>
-
-
 
 
             </LinearLayout>

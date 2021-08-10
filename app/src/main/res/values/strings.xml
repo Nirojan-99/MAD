@@ -9,4 +9,6 @@
     <string name="description">Image</string>
     <string name="saloonregister">Register As Salon</string>
     <string name="customerregister">Register As Customer</string>
+    <string name="offers">OFFERS</string>
+    <string name="offericon">10% OFF</string>
 </resources>

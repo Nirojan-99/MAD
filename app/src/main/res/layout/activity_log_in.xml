@@ -108,7 +108,7 @@
                     android:textColor="@color/primary_black" />
 
                 <Button
-                    android:layout_width="285dp"
+                    android:layout_width="287dp"
                     android:layout_height="60dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="10dp"

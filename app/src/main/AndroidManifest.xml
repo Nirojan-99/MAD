@@ -9,7 +9,13 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.HairDo">
-        <activity android:name=".BothSignUp"></activity>
+        <meta-data
+            android:name="com.google.android.actions"
+            android:resource="@xml/textborder" />
+
+        <activity android:name=".offer" />
+        <activity android:name=".Offers" />
+        <activity android:name=".BothSignUp" />
         <activity android:name=".LogIn" />
         <activity android:name=".MainActivity">
             <intent-filter>
