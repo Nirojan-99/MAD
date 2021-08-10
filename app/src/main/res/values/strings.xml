@@ -9,4 +9,12 @@
     <string name="description">Image</string>
     <string name="saloonregister">Register As Salon</string>
     <string name="customerregister">Register As Customer</string>
+    <string name="salonname">Salon Name</string>
+    <string name="address">Address</string>
+    <string name="contactnumber">Contact Number</string>
+    <string name="salon">Salon</string>
+    <string name="register">Register</string>
+    <string name="user">User</string>
+    <string name="username">User Name</string>
+    <string name="acceptTerms">Accept Terms And Conditions</string>
 </resources>

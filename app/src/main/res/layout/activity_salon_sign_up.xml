@@ -26,15 +26,14 @@
 
 
             <ImageView
-                app:layout_constraintTop_toTopOf="parent"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginVertical="0sp"
                 android:contentDescription="@string/description"
                 android:foregroundGravity="center_vertical"
-                android:src="@drawable/path1"
                 android:scaleY="1.2"
-                />
+                android:src="@drawable/path1"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -57,14 +56,51 @@
                     android:orientation="vertical"
                     android:padding="20dp">
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:fontFamily="@font/robotoblack"
+                            android:text="@string/salon"
+                            android:textColor="@color/white"
+                            android:textSize="30dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:layout_marginHorizontal="10sp"
+                            android:fontFamily="@font/robotoblack"
+                            android:gravity="bottom"
+                            android:text="@string/register"
+                            android:textColor="@color/white"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:fontFamily="@font/robotoblack"
-                        android:text="@string/LogInTitle"
-                        android:textColor="@color/white"
-                        android:textSize="30dp" />
+                        android:layout_gravity="left"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/opensansbold"
+                        android:text="@string/salonname"
+                        android:textColor="@color/primary_black"
+                        android:textSize="15dp" />
+
+                    <EditText
+                        android:id="@+id/SignUpSalonName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/primary_orange"
+                        android:textColor="@color/white" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -77,7 +113,25 @@
                         android:textSize="15dp" />
 
                     <EditText
-                        android:id="@+id/LogInUsername"
+                        android:id="@+id/SignUpSalonEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/primary_orange"
+                        android:inputType="textEmailAddress"
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/opensansbold"
+                        android:text="@string/address"
+                        android:textColor="@color/primary_black"
+                        android:textSize="15dp" />
+
+                    <EditText
+                        android:id="@+id/SignUpSalonAddress"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/primary_orange"
@@ -89,26 +143,52 @@
                         android:layout_gravity="left"
                         android:layout_marginTop="20dp"
                         android:fontFamily="@font/opensansbold"
-                        android:text="@string/password"
+                        android:text="@string/contactnumber"
                         android:textColor="@color/primary_black"
                         android:textSize="15dp" />
 
                     <EditText
-                        android:id="@+id/LogInPassword"
+                        android:id="@+id/SignUpSalonContact"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/primary_orange"
+                        android:inputType="phone"
                         android:textColor="@color/white" />
 
                     <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/opensansbold"
+                        android:text="@string/password"
+                        android:textColor="@color/primary_black"
+                        android:textSize="15sp" />
+
+                    <EditText
+                        android:id="@+id/SignUpSalonPassword"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:fontFamily="@font/opensanssemibold"
+                        android:backgroundTint="@color/primary_orange"
+                        android:inputType="textPassword"
+                        android:textColor="@color/white" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
-                        android:onClick="onClickFogetPassword"
-                        android:text="@string/forgetPassword"
-                        android:textColor="@color/primary_black" />
+                        android:orientation="horizontal">
+
+                        <CheckBox
+                            android:id="@+id/SalonTerms"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/opensanssemibold"
+                            android:text="@string/acceptTerms"
+                            android:textColor="@color/primary_black"
+                            app:buttonTint="@color/primary_black" />
+                    </LinearLayout>
+
 
                     <Button
                         android:layout_width="285sp"
@@ -117,51 +197,10 @@
                         android:layout_marginTop="10dp"
                         android:background="@drawable/custombutton"
                         android:fontFamily="@font/robotoblack"
-                        android:onClick="onClickLogIn"
                         android:shadowColor="#A1000000"
-                        android:text="@string/LogInTitle"
+                        android:text="@string/signup"
                         android:textColor="@color/primary_black"
                         android:textSize="23sp" />
-
-                    <RelativeLayout
-                        android:id="@+id/relative"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginTop="25dp"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentTop="true"
-                            android:layout_alignParentBottom="true"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginBottom="10dp"
-                            android:fontFamily="@font/opensanssemibold"
-                            android:text="@string/dontHaveAccount"
-                            android:textColor="@color/primary_black"
-                            android:textSize="19dp" />
-
-                        <Button
-                            android:id="@+id/button"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentTop="true"
-                            android:layout_alignParentEnd="true"
-                            android:layout_alignParentRight="true"
-                            android:layout_alignParentBottom="true"
-                            android:layout_marginStart="47dp"
-                            android:layout_marginLeft="47dp"
-                            android:layout_marginTop="0dp"
-                            android:layout_marginEnd="0dp"
-                            android:layout_marginRight="0dp"
-                            android:layout_marginBottom="2dp"
-                            android:backgroundTint="@color/primary_black"
-                            android:onClick="onClickSignUp"
-                            android:text="@string/signup" />
-
-
-                    </RelativeLayout>
 
 
                 </LinearLayout>
