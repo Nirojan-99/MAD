@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary_orange"
+    tools:context=".ui.notifications.NotificationsFragment"
+    android:layout_marginBottom="50sp"
+    android:padding="0sp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginRight="0dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:padding="15sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <RelativeLayout
+                android:clickable="true"
+                android:onClick="nulla"
+                android:layout_width="match_parent"
+                android:layout_height="60sp"
+                android:background="@drawable/card"
+                android:backgroundTint="@color/white_dark"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="20sp">
+
+                <TextView
+                    android:id="@+id/dummy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginBottom="0dp"
+                    android:fontFamily="@font/opensansbold"
+                    android:gravity="start|center_vertical"
+                    android:paddingLeft="20sp"
+                    android:text="@string/manageServices"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/primary_black"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:layout_width="50sp"
+                    android:layout_height="50sp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="right|end"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginRight="0dp"
+                    android:layout_marginBottom="5dp"
+                    android:src="@drawable/ic_baseline_arrow_right_24" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:clickable="true"
+                android:onClick="nulla"
+                android:layout_width="match_parent"
+                android:layout_height="60sp"
+                android:background="@drawable/card"
+                android:backgroundTint="@color/white_dark"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="20sp">
+
+                <TextView
+                    android:id="@+id/dummy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginBottom="0dp"
+                    android:fontFamily="@font/opensansbold"
+                    android:gravity="start|center_vertical"
+                    android:paddingLeft="20sp"
+                    android:text="@string/customerReview"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/primary_black"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:layout_width="50sp"
+                    android:layout_height="50sp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="right|end"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginRight="0dp"
+                    android:layout_marginBottom="5dp"
+                    android:src="@drawable/ic_baseline_arrow_right_24" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:clickable="true"
+                android:onClick="nulla"
+                android:layout_width="match_parent"
+                android:layout_height="60sp"
+                android:background="@drawable/card"
+                android:backgroundTint="@color/white_dark"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="20sp">
+
+                <TextView
+                    android:id="@+id/dummy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginBottom="0dp"
+                    android:fontFamily="@font/opensansbold"
+                    android:gravity="start|center_vertical"
+                    android:paddingLeft="20sp"
+                    android:text="@string/manageOffers"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/primary_black"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:layout_width="50sp"
+                    android:layout_height="50sp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="right|end"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginRight="0dp"
+                    android:layout_marginBottom="5dp"
+                    android:src="@drawable/ic_baseline_arrow_right_24" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:clickable="true"
+                android:onClick="nulla"
+                android:layout_width="match_parent"
+                android:layout_height="60sp"
+                android:background="@drawable/card"
+                android:backgroundTint="@color/white_dark"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="20sp">
+
+                <TextView
+                    android:id="@+id/dummy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginBottom="0dp"
+                    android:fontFamily="@font/opensansbold"
+                    android:gravity="start|center_vertical"
+                    android:paddingLeft="20sp"
+                    android:text="@string/manageUpcomingAppointments"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/primary_black"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:layout_width="50sp"
+                    android:layout_height="50sp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="right|end"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginRight="0dp"
+                    android:layout_marginBottom="5dp"
+                    android:src="@drawable/ic_baseline_arrow_right_24" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:clickable="true"
+                android:onClick="nulla"
+                android:layout_width="match_parent"
+                android:layout_height="60sp"
+                android:background="@drawable/card"
+                android:backgroundTint="@color/white_dark"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="20sp">
+
+                <TextView
+                    android:id="@+id/dummy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginBottom="0dp"
+                    android:fontFamily="@font/opensansbold"
+                    android:gravity="start|center_vertical"
+                    android:paddingLeft="20sp"
+                    android:text="@string/viewCalendar"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/primary_black"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:layout_width="50sp"
+                    android:layout_height="50sp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="right|end"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginRight="0dp"
+                    android:layout_marginBottom="5dp"
+                    android:src="@drawable/ic_baseline_arrow_right_24" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:clickable="true"
+                android:onClick="nulla"
+                android:layout_width="match_parent"
+                android:layout_height="60sp"
+                android:background="@drawable/card"
+                android:backgroundTint="@color/white_dark"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="20sp">
+
+                <TextView
+                    android:id="@+id/dummy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginBottom="0dp"
+                    android:fontFamily="@font/opensansbold"
+                    android:gravity="start|center_vertical"
+                    android:paddingLeft="20sp"
+                    android:text="@string/summaryEvents"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/primary_black"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:layout_width="50sp"
+                    android:layout_height="50sp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="right|end"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginRight="0dp"
+                    android:layout_marginBottom="5dp"
+                    android:src="@drawable/ic_baseline_arrow_right_24" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:clickable="true"
+                android:onClick="nulla"
+                android:layout_width="match_parent"
+                android:layout_height="60sp"
+                android:background="@drawable/card"
+                android:backgroundTint="@color/white_dark"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="20sp">
+
+                <TextView
+                    android:id="@+id/dummy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginBottom="0dp"
+                    android:fontFamily="@font/opensansbold"
+                    android:gravity="start|center_vertical"
+                    android:paddingLeft="20sp"
+                    android:text="@string/editDetails"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/primary_black"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:layout_width="50sp"
+                    android:layout_height="50sp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="right|end"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginRight="0dp"
+                    android:layout_marginBottom="5dp"
+                    android:src="@drawable/ic_baseline_arrow_right_24" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:clickable="true"
+                android:onClick="nulla"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10sp"
+                android:background="@drawable/card"
+                android:backgroundTint="@color/secondary_blue"
+                android:gravity="center_horizontal"
+                android:layout_gravity="center_vertical"
+                android:layout_marginBottom="20sp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/logout"
+                    android:textSize="15sp"
+                    android:textColor="@color/primary_black"
+                    android:fontFamily="@font/opensansbold"
+                    android:gravity="center_horizontal"
+                    android:layout_gravity="center_vertical"
+                    />
+
+
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

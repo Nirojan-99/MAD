@@ -29,7 +29,7 @@ public class BothSignUp extends AppCompatActivity {
     }
 
     public void OnCustomerSignUpClick(View view){
-        Intent intent3 = new Intent(this,offer.class);
+        Intent intent3 = new Intent(this,UserSignUp.class);
         startActivity(intent3);
     }
 }
