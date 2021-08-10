@@ -24,10 +24,12 @@ public class BothSignUp extends AppCompatActivity {
     }
 
     public void OnSalonSignUpClick(View view){
-
+        Intent intent2 = new Intent(this,SalonSignUp.class);
+        startActivity(intent2);
     }
 
     public void OnCustomerSignUpClick(View view){
-
+        Intent intent3 = new Intent(this,UserSignUp.class);
+        startActivity(intent3);
     }
 }
