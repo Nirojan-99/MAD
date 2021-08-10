@@ -19,4 +19,26 @@
     <string name="user">User</string>
     <string name="username">User Name</string>
     <string name="acceptTerms">Accept Terms And Conditions</string>
+    <string name="otp">OTP</string>
+    <string name="resendOTP">Resend OTP</string>
+    <string name="verify">VERIFY</string>
+    <string name="title_activity_salon_profile">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Setting</string>
+    <string name="todayAppointment">TODAY\'S APPOINTMENT</string>
+    <string name="total">Total</string>
+    <string name="completed">Completed</string>
+    <string name="upComingAppintments">UPCOMING APPOINTMENTS</string>
+    <string name="paymentSummary">PAYMENT SUMMARY</string>
+    <string name="todayPayout">TODAY PAYOUT</string>
+    <string name="previousPayout">PREVIOUS PAYOUT</string>
+    <string name="manageServices">MANAGE SERVICES</string>
+    <string name="customerReview">CUSTOMER REVIEW</string>
+    <string name="manageOffers">MANAGE OFFERS</string>
+    <string name="manageUpcomingAppointments">MANAGE APPOINTMENTS</string>
+    <string name="viewCalendar">VIEW CALENDAR</string>
+    <string name="summaryEvents">SUMMARY EVENTS</string>
+    <string name="editDetails">EDIT DETAILS</string>
+    <string name="logout">LOG OUT</string>
 </resources>

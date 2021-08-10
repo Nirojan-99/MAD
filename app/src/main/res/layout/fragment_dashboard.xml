@@ -1,0 +1,707 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="50sp"
+    android:background="@color/primary_orange"
+    tools:context=".ui.dashboard.DashboardFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50sp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/card"
+                android:backgroundTint="@color/white_dark"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="9sp"
+                    android:fontFamily="@font/opensansbold"
+                    android:gravity="center_horizontal"
+                    android:text="@string/todayAppointment"
+                    android:textColor="@color/primary_black"
+                    android:textSize="19sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1sp"
+                    android:layout_marginVertical="11sp"
+                    android:background="@color/primary_black" />
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <TableRow
+                        android:gravity="center_horizontal"
+                        android:padding="10sp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:layout_marginHorizontal="20sp"
+                            android:fontFamily="@font/opensansbold"
+                            android:text="@string/total"
+                            android:textColor="@color/primary_black"
+                            android:textSize="19sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_marginHorizontal="20sp"
+                            android:fontFamily="@font/opensansbold"
+                            android:text="@string/completed"
+                            android:textColor="@color/primary_black"
+                            android:textSize="19sp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:gravity="center_horizontal"
+                        android:padding="10sp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:layout_marginHorizontal="20sp"
+                            android:fontFamily="@font/opensansbold"
+                            android:text="10"
+                            android:textColor="@color/secondary_blue"
+                            android:textSize="19sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_marginHorizontal="20sp"
+                            android:fontFamily="@font/opensansbold"
+                            android:text="20"
+                            android:textColor="@color/secondary_blue"
+                            android:textSize="19sp" />
+                    </TableRow>
+
+                </TableLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="20sp"
+                android:background="@drawable/card"
+                android:backgroundTint="@color/white"
+                android:orientation="vertical"
+                android:padding="10sp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    android:padding="10sp">
+
+                    <ImageView
+                        android:layout_width="32sp"
+                        android:layout_height="32sp"
+                        android:src="@drawable/ic_calendar" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10sp"
+                        android:fontFamily="@font/opensansbold"
+                        android:text="@string/upComingAppintments"
+                        android:textColor="@color/primary_black"
+                        android:textSize="18sp" />
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1sp"
+                    android:layout_marginVertical="11sp"
+                    android:background="@color/primary_black" />
+
+
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+
+                    <ImageView
+                        android:layout_width="49sp"
+                        android:layout_height="49sp"
+                        android:background="@drawable/card"
+                        android:backgroundTint="@color/gray"
+                        android:padding="10sp"
+                        android:src="@drawable/ic_friends" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10sp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/opensansbold"
+                            android:text="User Name"
+                            android:textColor="@color/primary_black"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/opensansbold"
+                            android:text="Date / Time"
+                            android:textColor="@color/secondary_blue"
+                            android:textSize="12sp"
+
+                            />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="34sp"
+                        android:layout_height="34sp"
+                        android:layout_marginLeft="70sp"
+                        android:background="@drawable/card"
+                        android:backgroundTint="@color/gray"
+                        android:clickable="true"
+                        android:src="@drawable/ic_baseline_edit_24" />
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1sp"
+                    android:layout_marginHorizontal="20sp"
+                    android:layout_marginVertical="11sp"
+                    android:background="@color/white_dark" />
+
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+
+                    <ImageView
+                        android:layout_width="49sp"
+                        android:layout_height="49sp"
+                        android:background="@drawable/card"
+                        android:backgroundTint="@color/gray"
+                        android:padding="10sp"
+                        android:src="@drawable/ic_friends" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10sp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/opensansbold"
+                            android:text="User Name"
+                            android:textColor="@color/primary_black"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/opensansbold"
+                            android:text="Date / Time"
+                            android:textColor="@color/secondary_blue"
+                            android:textSize="12sp"
+
+                            />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="34sp"
+                        android:layout_height="34sp"
+                        android:layout_marginLeft="70sp"
+                        android:background="@drawable/card"
+                        android:backgroundTint="@color/gray"
+                        android:clickable="true"
+                        android:src="@drawable/ic_baseline_edit_24" />
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1sp"
+                    android:layout_marginHorizontal="20sp"
+                    android:layout_marginVertical="11sp"
+                    android:background="@color/white_dark" />
+
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+
+                    <ImageView
+                        android:layout_width="49sp"
+                        android:layout_height="49sp"
+                        android:background="@drawable/card"
+                        android:backgroundTint="@color/gray"
+                        android:padding="10sp"
+                        android:src="@drawable/ic_friends" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10sp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/opensansbold"
+                            android:text="User Name"
+                            android:textColor="@color/primary_black"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/opensansbold"
+                            android:text="Date / Time"
+                            android:textColor="@color/secondary_blue"
+                            android:textSize="12sp"
+
+                            />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="34sp"
+                        android:layout_height="34sp"
+                        android:layout_marginLeft="70sp"
+                        android:background="@drawable/card"
+                        android:backgroundTint="@color/gray"
+                        android:clickable="true"
+                        android:src="@drawable/ic_baseline_edit_24" />
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1sp"
+                    android:layout_marginHorizontal="20sp"
+                    android:layout_marginVertical="11sp"
+                    android:background="@color/white_dark" />
+
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+
+                    <ImageView
+                        android:layout_width="49sp"
+                        android:layout_height="49sp"
+                        android:background="@drawable/card"
+                        android:backgroundTint="@color/gray"
+                        android:padding="10sp"
+                        android:src="@drawable/ic_friends" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10sp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/opensansbold"
+                            android:text="User Name"
+                            android:textColor="@color/primary_black"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/opensansbold"
+                            android:text="Date / Time"
+                            android:textColor="@color/secondary_blue"
+                            android:textSize="12sp"
+
+                            />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="34sp"
+                        android:layout_height="34sp"
+                        android:layout_marginLeft="70sp"
+                        android:background="@drawable/card"
+                        android:backgroundTint="@color/gray"
+                        android:clickable="true"
+                        android:src="@drawable/ic_baseline_edit_24" />
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1sp"
+                    android:layout_marginHorizontal="20sp"
+                    android:layout_marginVertical="11sp"
+                    android:background="@color/white_dark" />
+
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+
+                    <ImageView
+                        android:layout_width="49sp"
+                        android:layout_height="49sp"
+                        android:background="@drawable/card"
+                        android:backgroundTint="@color/gray"
+                        android:padding="10sp"
+                        android:src="@drawable/ic_friends" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10sp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/opensansbold"
+                            android:text="User Name"
+                            android:textColor="@color/primary_black"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/opensansbold"
+                            android:text="Date / Time"
+                            android:textColor="@color/secondary_blue"
+                            android:textSize="12sp"
+
+                            />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="34sp"
+                        android:layout_height="34sp"
+                        android:layout_marginLeft="70sp"
+                        android:background="@drawable/card"
+                        android:backgroundTint="@color/gray"
+                        android:clickable="true"
+                        android:src="@drawable/ic_baseline_edit_24" />
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1sp"
+                    android:layout_marginHorizontal="20sp"
+                    android:layout_marginVertical="11sp"
+                    android:background="@color/white_dark" />
+
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+
+                    <ImageView
+                        android:layout_width="49sp"
+                        android:layout_height="49sp"
+                        android:background="@drawable/card"
+                        android:backgroundTint="@color/gray"
+                        android:padding="10sp"
+                        android:src="@drawable/ic_friends" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10sp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/opensansbold"
+                            android:text="User Name"
+                            android:textColor="@color/primary_black"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/opensansbold"
+                            android:text="Date / Time"
+                            android:textColor="@color/secondary_blue"
+                            android:textSize="12sp"
+
+                            />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="34sp"
+                        android:layout_height="34sp"
+                        android:layout_marginLeft="70sp"
+                        android:background="@drawable/card"
+                        android:backgroundTint="@color/gray"
+                        android:clickable="true"
+                        android:src="@drawable/ic_baseline_edit_24" />
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1sp"
+                    android:layout_marginHorizontal="20sp"
+                    android:layout_marginVertical="11sp"
+                    android:background="@color/white_dark" />
+
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+
+                    <ImageView
+                        android:layout_width="49sp"
+                        android:layout_height="49sp"
+                        android:background="@drawable/card"
+                        android:backgroundTint="@color/gray"
+                        android:padding="10sp"
+                        android:src="@drawable/ic_friends" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10sp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/opensansbold"
+                            android:text="User Name"
+                            android:textColor="@color/primary_black"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/opensansbold"
+                            android:text="Date / Time"
+                            android:textColor="@color/secondary_blue"
+                            android:textSize="12sp"
+
+                            />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="34sp"
+                        android:layout_height="34sp"
+                        android:layout_marginLeft="70sp"
+                        android:background="@drawable/card"
+                        android:backgroundTint="@color/gray"
+                        android:clickable="true"
+                        android:src="@drawable/ic_baseline_edit_24" />
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1sp"
+                    android:layout_marginHorizontal="20sp"
+                    android:layout_marginVertical="11sp"
+                    android:background="@color/white_dark" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/card"
+                android:backgroundTint="@color/white_dark"
+                android:orientation="vertical"
+                android:padding="10sp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="10sp"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:backgroundTint="@color/primary_black"
+                        android:layout_width="36sp"
+                        android:layout_height="36sp"
+                        android:src="@drawable/ic_baseline_monetization_on_24" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="15sp"
+                        android:fontFamily="@font/opensansbold"
+                        android:text="@string/paymentSummary"
+                        android:textColor="@color/primary_black"
+                        android:textSize="17sp" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1sp"
+                    android:layout_marginVertical="11sp"
+                    android:background="@color/primary_black" />
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TableRow
+                        android:layout_marginVertical="10sp"
+                        android:gravity="center_horizontal"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginHorizontal="15sp">
+
+                        <TextView
+                            android:layout_marginHorizontal="35sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/todayPayout"
+                            android:fontFamily="@font/opensansbold"
+                            android:textSize="15sp"
+                            android:textColor="@color/primary_black"/>
+                        <TextView
+                            android:textAlignment="center"
+                            android:gravity="center_horizontal"
+                            android:width="75sp"
+                            android:background="@drawable/card"
+                            android:backgroundTint="@color/primary_black"
+                            android:layout_marginHorizontal="35sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1200/-"
+                            android:fontFamily="@font/opensanssemibold"
+                            android:textSize="14sp"
+                            android:textColor="@color/white"/>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_marginVertical="10sp"
+                        android:gravity="center_horizontal"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginHorizontal="15sp">
+
+                        <TextView
+                            android:layout_marginHorizontal="35sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/previousPayout"
+                            android:fontFamily="@font/opensansbold"
+                            android:textSize="15sp"
+                            android:textColor="@color/primary_black"/>
+                        <TextView
+                            android:textAlignment="center"
+                            android:gravity="center_horizontal"
+                            android:width="75sp"
+                            android:background="@drawable/card"
+                            android:backgroundTint="@color/primary_black"
+                            android:layout_marginHorizontal="35sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1200/-"
+                            android:fontFamily="@font/opensanssemibold"
+                            android:textSize="14sp"
+                            android:textColor="@color/white"/>
+                    </TableRow>
+                </TableLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
