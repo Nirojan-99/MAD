@@ -9,12 +9,17 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.HairDo">
+
         <meta-data
             android:name="com.google.android.actions"
             android:resource="@xml/textborder" />
 
         <activity android:name=".offer" />
         <activity android:name=".Offers" />
+
+        <activity android:name=".UserSignUp"></activity>
+        <activity android:name=".SalonSignUp" />
+
         <activity android:name=".BothSignUp" />
         <activity android:name=".LogIn" />
         <activity android:name=".MainActivity">

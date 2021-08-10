@@ -4,120 +4,125 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BothSignUp"
-    android:background="@color/primary_orange">
+    android:background="@color/primary_orange"
+    tools:context=".BothSignUp">
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="0dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:orientation="vertical">
 
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginLeft="0dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginEnd="0dp"
-            android:layout_marginRight="0dp"
-            android:layout_marginBottom="438dp"
-            android:contentDescription="@string/description"
-            android:foregroundGravity="top"
-            android:src="@drawable/path1" />
-
-        <LinearLayout
+        <RelativeLayout
+            android:id="@+id/relativeA"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="18dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
 
             <ImageView
-                android:layout_width="186dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginVertical="0sp"
+                android:layout_marginTop="0sp"
                 android:contentDescription="@string/description"
-                android:src="@drawable/logo" />
+                android:foregroundGravity="center_vertical"
+                android:scaleY="1.2"
+                android:src="@drawable/path1"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:background="@drawable/card"
-                android:orientation="vertical"
-                android:padding="20dp">
+                android:layout_height="match_parent"
+                android:layout_margin="18dp"
+                android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <ImageView
+                    android:layout_width="186dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:fontFamily="@font/robotoblack"
-                    android:text="@string/signup"
-                    android:textColor="@color/white"
-                    android:textSize="30dp" />
-
-                <Button
-                    android:layout_width="285dp"
-                    android:layout_height="54dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_margin="15dp"
-                    android:background="@drawable/custombutton"
-                    android:fontFamily="@font/robotoblack"
-                    android:onClick="OnSalonSignUpClick"
-                    android:shadowColor="#A1000000"
-                    android:text="@string/saloonregister"
-                    android:textAllCaps="false"
-                    android:textColor="@color/primary_black"
-                    android:textSize="20dp" />
-
-                <Button
-                    android:layout_width="285dp"
-                    android:layout_height="54dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_margin="15dp"
-                    android:background="@drawable/custombutton"
-                    android:fontFamily="@font/robotoblack"
-                    android:onClick="OnCustomerSignUpClick"
-                    android:shadowColor="#A1000000"
-                    android:text="@string/customerregister"
-                    android:textAllCaps="false"
-                    android:textColor="@color/primary_black"
-                    android:textSize="20dp" />
+                    android:contentDescription="@string/description"
+                    android:src="@drawable/logo" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginRight="30dp"
-                    android:orientation="horizontal">
 
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_gravity="center_vertical"
-                        android:foregroundGravity="left"
-                        android:onClick="OnLogInClick"
-                        android:src="@drawable/ic_baseline_chevron_left_24" />
+                    android:layout_marginTop="50dp"
+                    android:background="@drawable/card"
+                    android:orientation="vertical"
+                    android:padding="20dp">
 
                     <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginRight="0dp"
-                        android:fontFamily="@font/opensansbold"
-                        android:gravity="center_vertical"
-                        android:onClick="OnLogInClick"
-                        android:text="@string/LogInTitle" />
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:fontFamily="@font/robotoblack"
+                        android:text="@string/signup"
+                        android:textColor="@color/white"
+                        android:textSize="30dp" />
+
+                    <Button
+                        android:layout_width="285dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_margin="15dp"
+                        android:background="@drawable/custombutton"
+                        android:fontFamily="@font/robotoblack"
+                        android:onClick="OnSalonSignUpClick"
+                        android:shadowColor="#A1000000"
+                        android:text="@string/saloonregister"
+                        android:textAllCaps="false"
+                        android:textColor="@color/primary_black"
+                        android:textSize="23sp" />
+
+                    <Button
+                        android:layout_width="285dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_margin="15dp"
+                        android:background="@drawable/custombutton"
+                        android:fontFamily="@font/robotoblack"
+                        android:onClick="OnCustomerSignUpClick"
+                        android:shadowColor="#A1000000"
+                        android:text="@string/customerregister"
+                        android:textAllCaps="false"
+                        android:textColor="@color/primary_black"
+                        android:textSize="20sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center_vertical"
+                            android:foregroundGravity="left"
+                            android:onClick="OnLogInClick"
+                            android:src="@drawable/ic_baseline_chevron_left_24" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginRight="0dp"
+                            android:fontFamily="@font/opensansbold"
+                            android:gravity="center_vertical"
+                            android:onClick="OnLogInClick"
+                            android:text="@string/LogInTitle" />
+                    </LinearLayout>
+
+
                 </LinearLayout>
 
-
             </LinearLayout>
-        </LinearLayout>
-    </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
