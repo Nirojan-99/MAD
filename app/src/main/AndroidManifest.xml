@@ -9,7 +9,8 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.HairDo">
-        <activity android:name=".UserSignUp"></activity>
+        <activity android:name=".appointment"></activity>
+        <activity android:name=".UserSignUp" />
         <activity android:name=".SalonSignUp" />
         <activity android:name=".BothSignUp" />
         <activity android:name=".offer" />
