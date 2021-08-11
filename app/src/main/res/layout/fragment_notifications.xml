@@ -30,17 +30,17 @@
             >
 
             <RelativeLayout
-                android:clickable="true"
-                android:onClick="nulla"
+                android:id="@+id/serviceBtn"
                 android:layout_width="match_parent"
                 android:layout_height="60sp"
+                android:layout_marginBottom="20sp"
                 android:background="@drawable/card"
                 android:backgroundTint="@color/white_dark"
-                android:gravity="center_vertical"
-                android:layout_marginBottom="20sp">
+                android:clickable="true"
+                android:gravity="center_vertical">
 
                 <TextView
-                    android:id="@+id/dummy"
+                    android:id="@+id/ww"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
@@ -72,8 +72,8 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/customerReview"
                 android:clickable="true"
-                android:onClick="nulla"
                 android:layout_width="match_parent"
                 android:layout_height="60sp"
                 android:background="@drawable/card"
@@ -325,7 +325,6 @@
 
             <LinearLayout
                 android:clickable="true"
-                android:onClick="nulla"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10sp"
@@ -348,8 +347,6 @@
 
 
             </LinearLayout>
-
-
 
 
         </LinearLayout>

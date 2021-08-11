@@ -9,10 +9,13 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.HairDo">
+        <activity android:name=".Reviews"></activity>
+        <activity
+            android:name=".ManageServices"
+            android:parentActivityName=".SalonProfile" />
         <activity
             android:name=".SalonProfile"
-            android:label="@string/title_activity_salon_profile"
-            ></activity>
+            android:label="@string/title_activity_salon_profile" />
         <activity android:name=".OTP" />
         <activity android:name=".UserSignUp" />
         <activity android:name=".SalonSignUp" />
