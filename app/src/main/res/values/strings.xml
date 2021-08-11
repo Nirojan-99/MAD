@@ -41,4 +41,7 @@
     <string name="summaryEvents">SUMMARY EVENTS</string>
     <string name="editDetails">EDIT DETAILS</string>
     <string name="logout">LOG OUT</string>
+    <string name="services">SERVICES</string>
+    <string name="reviews">REVIEWS</string>
+
 </resources>
