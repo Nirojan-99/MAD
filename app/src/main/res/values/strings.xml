@@ -43,5 +43,8 @@
     <string name="logout">LOG OUT</string>
     <string name="services">SERVICES</string>
     <string name="reviews">REVIEWS</string>
+    <string name="serviceName">Service Name</string>
+    <string name="add">ADD</string>
+    <string name="reply">REPLY</string>
 
 </resources>

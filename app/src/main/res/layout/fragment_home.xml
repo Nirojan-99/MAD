@@ -392,6 +392,7 @@
                             android:background="@drawable/card"
                             android:backgroundTint="@color/primary_black"
                             android:fontFamily="@font/opensanssemibold"
+                            android:onClick="onClickServices"
                             android:paddingHorizontal="10sp"
                             android:paddingVertical="3sp"
                             android:text="@string/username"
