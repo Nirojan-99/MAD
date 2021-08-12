@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:padding="10sp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <ImageView
+            android:backgroundTint="@color/primary_black"
+            android:padding="10sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/card"
+            />
+        <TextView
+            android:id="@+id/paymentDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date of payment"
+            android:textSize="14sp"
+            android:fontFamily="@font/opensanssemibold"
+            android:layout_marginHorizontal="10sp"/>
+        <TextView
+            android:id="@+id/paymentAmount"
+            android:gravity="right"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/secondary_blue"
+            android:text="1200"
+            android:textSize="19sp"
+            android:fontFamily="@font/opensansbold"
+            android:layout_marginHorizontal="10sp"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:layout_marginHorizontal="10sp"
+        android:layout_marginVertical="11sp"
+        android:background="@color/light_black" />
+
+</LinearLayout>

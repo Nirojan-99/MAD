@@ -19,10 +19,13 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.hairdo.BothSignUp;
+import com.example.hairdo.ContactUs;
 import com.example.hairdo.EditDetails;
 import com.example.hairdo.Calendar;
+import com.example.hairdo.LogIn;
 import com.example.hairdo.MainActivity;
 import com.example.hairdo.ManageServices;
+import com.example.hairdo.PaymentSummary;
 import com.example.hairdo.R;
 import com.example.hairdo.Reviews;
 import com.example.hairdo.SalonProfile;
@@ -40,6 +43,7 @@ public class NotificationsFragment extends Fragment {
     RelativeLayout rlt5;
     RelativeLayout rlt6;
     LinearLayout rlt7;
+    RelativeLayout rlt8;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -54,6 +58,7 @@ public class NotificationsFragment extends Fragment {
         rlt5 = root.findViewById(R.id.summary);
         rlt6 = root.findViewById(R.id.editDetails);
         rlt7 = root.findViewById(R.id.logout);
+        rlt8 = root.findViewById(R.id.contactUs);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,7 +112,14 @@ public class NotificationsFragment extends Fragment {
         rlt7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //startActivity(new Intent(getActivity(), .class));
+                startActivity(new Intent(getActivity(), PaymentSummary.class));
+            }
+        });
+
+        rlt8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), ContactUs.class));
             }
         });
 

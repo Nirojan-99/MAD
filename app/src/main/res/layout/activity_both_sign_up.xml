@@ -71,13 +71,13 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_margin="15dp"
                         android:background="@drawable/custombutton"
-                        android:fontFamily="@font/robotoblack"
+                        android:fontFamily="@font/opensansbold"
                         android:onClick="OnSalonSignUpClick"
                         android:shadowColor="#A1000000"
                         android:text="@string/saloonregister"
                         android:textAllCaps="false"
                         android:textColor="@color/primary_black"
-                        android:textSize="23sp" />
+                        android:textSize="20sp" />
 
                     <Button
                         android:layout_width="285dp"
@@ -85,7 +85,7 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_margin="15dp"
                         android:background="@drawable/custombutton"
-                        android:fontFamily="@font/robotoblack"
+                        android:fontFamily="@font/opensansbold"
                         android:onClick="OnCustomerSignUpClick"
                         android:shadowColor="#A1000000"
                         android:text="@string/customerregister"
