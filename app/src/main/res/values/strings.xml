@@ -46,5 +46,8 @@
     <string name="serviceName">Service Name</string>
     <string name="add">ADD</string>
     <string name="reply">REPLY</string>
+    <string name="tv_Calendar">CALENADER</string>
+    <string name="btn_holidays">Holidays</string>
+    <string name="tv_holidays">HOLIDAYS</string>
 
 </resources>
