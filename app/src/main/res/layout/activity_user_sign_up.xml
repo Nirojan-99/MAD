@@ -72,10 +72,10 @@
                             android:textSize="30dp" />
 
                         <TextView
-                            android:layout_marginHorizontal="10sp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="bottom"
+                            android:layout_marginHorizontal="10sp"
                             android:fontFamily="@font/robotoblack"
                             android:gravity="bottom"
                             android:text="@string/register"
@@ -100,6 +100,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/primary_orange"
+                        android:maxLines="1"
                         android:textColor="@color/white" />
 
                     <TextView
@@ -118,6 +119,7 @@
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/primary_orange"
                         android:inputType="textEmailAddress"
+                        android:maxLines="1"
                         android:textColor="@color/white" />
 
                     <TextView
@@ -135,6 +137,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/primary_orange"
+                        android:maxLines="1"
                         android:textColor="@color/white" />
 
                     <TextView
@@ -153,6 +156,7 @@
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/primary_orange"
                         android:inputType="phone"
+                        android:maxLines="1"
                         android:textColor="@color/white" />
 
                     <TextView
@@ -171,6 +175,7 @@
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/primary_orange"
                         android:inputType="textPassword"
+                        android:maxLines="1"
                         android:textColor="@color/white" />
 
                     <LinearLayout
@@ -199,7 +204,8 @@
                         android:shadowColor="#A1000000"
                         android:text="@string/signup"
                         android:textColor="@color/primary_black"
-                        android:textSize="23sp" />
+                        android:textSize="23sp"
+                        android:clickable="true"/>
 
 
                 </LinearLayout>

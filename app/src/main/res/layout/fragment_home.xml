@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary_orange"
+    tools:context=".ui.home.HomeFragment">
+
+    <ScrollView
+        android:layout_marginBottom="50sp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="15sp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/card"
+                android:backgroundTint="@color/white_dark"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingHorizontal="10sp"
+                android:paddingTop="20sp"
+                android:paddingBottom="15sp">
+
+                <RelativeLayout
+                    android:layout_width="120sp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_horizontal">
+
+                    <ImageView
+                        android:layout_width="120sp"
+                        android:layout_height="120sp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginVertical="10sp"
+                        android:background="@drawable/rounded_corner"
+                        android:backgroundTint="@color/gray"
+                        android:padding="20sp"
+                        android:src="@drawable/ic_friends" />
+
+                    <ImageView
+                        android:layout_width="40sp"
+                        android:layout_height="40sp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginEnd="0dp"
+                        android:layout_marginRight="0dp"
+                        android:layout_marginBottom="8dp"
+                        android:clickable="true"
+                        android:src="@drawable/ic_baseline_photo_library_24" />
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10sp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/robotoblack"
+                        android:text="@string/salonname"
+                        android:textAllCaps="true"
+                        android:textColor="@color/dark_black"
+                        android:textSize="23sp" />
+
+                    <RatingBar
+                        android:id="@+id/salonRating"
+                        style="@style/Base.Widget.AppCompat.RatingBar.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="10sp"
+                        android:isIndicator="true"
+                        android:max="5"
+                        android:numStars="5"
+                        android:rating="3"
+                        android:stepSize=".5" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10sp"
+                    android:layout_marginTop="5sp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="22sp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_location_on_24" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="10sp"
+                        android:fontFamily="@font/opensanssemibold"
+                        android:text="address,lane"
+                        android:textColor="@color/dark_black"
+                        android:textSize="13sp"
+
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10sp"
+                    android:layout_marginTop="5sp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="22sp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_email_24" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="10sp"
+                        android:fontFamily="@font/opensanssemibold"
+                        android:text="info@gmail.com"
+                        android:textColor="@color/dark_black"
+                        android:textSize="13sp"
+
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10sp"
+                    android:layout_marginTop="5sp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="22sp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_call_24" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="10sp"
+                        android:fontFamily="@font/opensanssemibold"
+                        android:text="0778862173"
+                        android:textColor="@color/dark_black"
+                        android:textSize="13sp"
+
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10sp"
+                    android:layout_marginTop="5sp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="22sp"
+                        android:layout_height="22sp"
+                        android:src="@drawable/ic_like" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="10sp"
+                        android:fontFamily="@font/opensanssemibold"
+                        android:text="(300)"
+                        android:textColor="@color/dark_black"
+                        android:textSize="13sp"
+
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginVertical="10sp"
+                android:layout_marginLeft="5sp"
+                android:fontFamily="@font/opensansbold"
+                android:text="@string/services"
+                android:textColor="@color/dark_black"
+                android:textSize="17sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/card"
+                android:backgroundTint="@color/white_dark"
+                android:orientation="vertical"
+                android:padding="0sp">
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5sp"
+                    android:layout_marginRight="5sp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="10sp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="5sp"
+                            android:background="@drawable/card"
+                            android:backgroundTint="@color/primary_black"
+                            android:clickable="true"
+                            android:paddingHorizontal="15sp"
+                            android:paddingVertical="5sp"
+                            android:text="Facial"
+                            android:textColor="@color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="5sp"
+                            android:background="@drawable/card"
+                            android:backgroundTint="@color/primary_black"
+                            android:clickable="true"
+                            android:paddingHorizontal="15sp"
+                            android:paddingVertical="5sp"
+                            android:text="Facial"
+                            android:textColor="@color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="5sp"
+                            android:background="@drawable/card"
+                            android:backgroundTint="@color/primary_black"
+                            android:clickable="true"
+                            android:paddingHorizontal="15sp"
+                            android:paddingVertical="5sp"
+                            android:text="Facial"
+                            android:textColor="@color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="5sp"
+                            android:background="@drawable/card"
+                            android:backgroundTint="@color/primary_black"
+                            android:clickable="true"
+                            android:paddingHorizontal="15sp"
+                            android:paddingVertical="5sp"
+                            android:text="Facial"
+                            android:textColor="@color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="5sp"
+                            android:background="@drawable/card"
+                            android:backgroundTint="@color/primary_black"
+                            android:clickable="true"
+                            android:paddingHorizontal="15sp"
+                            android:paddingVertical="5sp"
+                            android:text="Facial"
+                            android:textColor="@color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="5sp"
+                            android:background="@drawable/card"
+                            android:backgroundTint="@color/primary_black"
+                            android:clickable="true"
+                            android:paddingHorizontal="15sp"
+                            android:paddingVertical="5sp"
+                            android:text="Facial"
+                            android:textColor="@color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="5sp"
+                            android:background="@drawable/card"
+                            android:backgroundTint="@color/primary_black"
+                            android:clickable="true"
+                            android:paddingHorizontal="15sp"
+                            android:paddingVertical="5sp"
+                            android:text="Facial"
+                            android:textColor="@color/white" />
+
+                    </LinearLayout>
+
+                </HorizontalScrollView>
+
+            </LinearLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20sp"
+                android:background="@drawable/card"
+                android:backgroundTint="@color/white_dark"
+                android:padding="10sp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="10sp"
+                        android:fontFamily="@font/opensansbold"
+                        android:text="@string/reviews"
+                        android:textColor="@color/primary_black"
+                        android:textSize="18sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/card"
+                            android:backgroundTint="@color/primary_black"
+                            android:fontFamily="@font/opensanssemibold"
+                            android:paddingHorizontal="10sp"
+                            android:paddingVertical="3sp"
+                            android:text="@string/username"
+                            android:textColor="@color/white"
+                            android:textSize="13sp" />
+
+                        <RatingBar
+                            android:id="@+id/userRating"
+                            style="@style/Base.Widget.AppCompat.RatingBar.Small"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="10sp"
+                            android:isIndicator="true"
+                            android:max="5"
+                            android:numStars="5"
+                            android:rating="3"
+                            android:stepSize=".5" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/userReview1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5sp"
+                        android:fontFamily="@font/opensanssemibold"
+                        android:text="Any User feedback"
+                        android:textSize="10sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/card"
+                            android:backgroundTint="@color/primary_black"
+                            android:fontFamily="@font/opensanssemibold"
+                            android:onClick="onClickServices"
+                            android:paddingHorizontal="10sp"
+                            android:paddingVertical="3sp"
+                            android:text="@string/username"
+                            android:textColor="@color/white"
+                            android:textSize="13sp" />
+
+                        <RatingBar
+                            android:id="@+id/userRating2"
+                            style="@style/Base.Widget.AppCompat.RatingBar.Small"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="10sp"
+                            android:isIndicator="true"
+                            android:max="5"
+                            android:numStars="5"
+                            android:rating="3"
+                            android:stepSize=".5" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/userReview2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5sp"
+                        android:fontFamily="@font/opensanssemibold"
+                        android:text="Any User feedback"
+                        android:textSize="10sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/card"
+                            android:backgroundTint="@color/primary_black"
+                            android:fontFamily="@font/opensanssemibold"
+                            android:paddingHorizontal="10sp"
+                            android:paddingVertical="3sp"
+                            android:text="@string/username"
+                            android:textColor="@color/white"
+                            android:textSize="13sp" />
+
+                        <RatingBar
+                            android:id="@+id/userRating3"
+                            style="@style/Base.Widget.AppCompat.RatingBar.Small"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="10sp"
+                            android:isIndicator="true"
+                            android:max="5"
+                            android:numStars="5"
+                            android:rating="3"
+                            android:stepSize=".5" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/userReview3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5sp"
+                        android:fontFamily="@font/opensanssemibold"
+                        android:text="Any User feedback"
+                        android:textSize="10sp" />
+
+                </LinearLayout>
+
+            </ScrollView>
+
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
