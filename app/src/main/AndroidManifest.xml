@@ -13,6 +13,8 @@
         <activity android:name=".Summary" />
         <activity android:name=".ManageUpcomingApoointment" />
         <activity android:name=".UpcomingAppointments" />
+        <activity android:name=".Holidays"></activity>
+        <activity android:name=".Calendar" />
         <activity android:name=".Reviews" />
         <activity
             android:name=".ManageServices"

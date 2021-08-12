@@ -20,6 +20,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.hairdo.BothSignUp;
 import com.example.hairdo.EditDetails;
+import com.example.hairdo.Calendar;
 import com.example.hairdo.MainActivity;
 import com.example.hairdo.ManageServices;
 import com.example.hairdo.R;
@@ -53,9 +54,6 @@ public class NotificationsFragment extends Fragment {
         rlt5 = root.findViewById(R.id.summary);
         rlt6 = root.findViewById(R.id.editDetails);
         rlt7 = root.findViewById(R.id.logout);
-
-
-
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -53,5 +53,8 @@
     <string name="totalCancalation">Total Cancelation</string>
     <string name="totalPendings">Total Pendings</string>
     <string name="totalEarnings">Total Earnings</string>
+    <string name="tv_Calendar">CALENADER</string>
+    <string name="btn_holidays">Holidays</string>
+    <string name="tv_holidays">HOLIDAYS</string>
 
 </resources>
