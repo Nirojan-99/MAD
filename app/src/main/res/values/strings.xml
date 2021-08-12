@@ -50,10 +50,10 @@
     <string name="updateStatus">Update</string>
     <string name="appointmentStatus">Appointment Status</string>
     <string name="totalCompletion">Total Completion</string>
-    <string name="totalCancalation">Total Cancelation</string>
-    <string name="totalPendings">Total Pendings</string>
+    <string name="totalCancalation">Total Cancellation</string>
+    <string name="totalPendings">Total Pending</string>
     <string name="totalEarnings">Total Earnings</string>
-    <string name="tv_Calendar">CALENADER</string>
+    <string name="tv_Calendar">CALENDAR</string>
     <string name="btn_holidays">Add Holiday</string>
     <string name="tv_holidays">HOLIDAYS</string>
     <string name="update">Update</string>
