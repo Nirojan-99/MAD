@@ -9,6 +9,7 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.HairDo">
+        <activity android:name=".appointment"></activity>
         <activity android:name=".EditDetails"></activity>
         <activity android:name=".Summary" />
         <activity android:name=".ManageUpcomingApoointment" />
