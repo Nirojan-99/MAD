@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary_orange"
+    android:orientation="vertical"
+    android:padding="15sp"
+    tools:context=".PaymentSummary">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/card"
+        android:backgroundTint="@color/primary_black"
+        android:src="@drawable/payherelogo" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="15sp"
+        android:background="@drawable/card"
+        android:backgroundTint="@color/white_dark"
+        android:gravity="left"
+        android:orientation="vertical"
+        android:padding="15sp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="5sp"
+            android:fontFamily="@font/opensanssemibold"
+            android:text="@string/cardHolderName"
+            android:textColor="@color/primary_black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="5sp"
+            android:fontFamily="@font/opensanssemibold"
+            android:text="@string/cardNumber"
+            android:textColor="@color/primary_black"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1sp"
+            android:layout_marginHorizontal="0sp"
+            android:layout_marginVertical="11sp"
+            android:background="@color/light_black" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/updatePaymentDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="30sp"
+                android:layout_marginVertical="10sp"
+                android:background="@drawable/textview_border"
+                android:backgroundTint="@color/primary_black"
+                android:text="@string/update"
+                android:textColor="@color/white_dark" />
+
+            <TextView
+                android:id="@+id/removePayment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10sp"
+                android:fontFamily="@font/opensansbold"
+                android:gravity="right"
+                android:text="@string/remove"
+                android:textColor="@color/red"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/card"
+        android:backgroundTint="@color/white_dark"
+        android:orientation="vertical">
+        <TextView
+            android:layout_marginVertical="10sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/paymentSummary"
+            android:textColor="@color/primary_black"
+            android:fontFamily="@font/opensanssemibold"
+            android:textSize="18sp"
+            android:layout_gravity="center_horizontal"/>
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/paymentSummaryRecycle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </androidx.recyclerview.widget.RecyclerView>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -56,5 +56,16 @@
     <string name="tv_Calendar">CALENADER</string>
     <string name="btn_holidays">Add Holiday</string>
     <string name="tv_holidays">HOLIDAYS</string>
-
+    <string name="update">Update</string>
+    <string name="deleteAccont">Delete Account</string>
+    <string name="cardNumber">Card Number</string>
+    <string name="cardHolderName">Card Holder Name</string>
+    <string name="month">Month</string>
+    <string name="year">Year</string>
+    <string name="cvc">CVC</string>
+    <string name="emailOfDev">infoHairDo@gmail.com</string>
+    <string name="phoneNumOfDev">021-226-1382</string>
+    <string name="addressOfDev">Main Street, Colombo 9</string>
+    <string name="contactUs">Contact Us</string>
+    <string name="remove">Remove</string>
 </resources>

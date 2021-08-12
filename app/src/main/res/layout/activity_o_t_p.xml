@@ -79,12 +79,12 @@
 
 
                     <Button
-                        android:layout_width="205sp"
-                        android:layout_height="56sp"
+                        android:layout_width="190sp"
+                        android:layout_height="50sp"
                         android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="25dp"
                         android:background="@drawable/custombutton"
-                        android:fontFamily="@font/robotoblack"
+                        android:fontFamily="@font/opensansbold"
                         android:onClick="onOTPSubmitClick"
                         android:shadowColor="#A1000000"
                         android:text="@string/verify"
