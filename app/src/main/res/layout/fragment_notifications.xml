@@ -114,8 +114,8 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/manageOffers"
                 android:clickable="true"
-                android:onClick="nulla"
                 android:layout_width="match_parent"
                 android:layout_height="60sp"
                 android:background="@drawable/card"
@@ -124,7 +124,6 @@
                 android:layout_marginBottom="20sp">
 
                 <TextView
-                    android:id="@+id/dummy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
@@ -156,8 +155,8 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/manageAppointments"
                 android:clickable="true"
-                android:onClick="nulla"
                 android:layout_width="match_parent"
                 android:layout_height="60sp"
                 android:background="@drawable/card"
@@ -166,7 +165,6 @@
                 android:layout_marginBottom="20sp">
 
                 <TextView
-                    android:id="@+id/dummy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
@@ -198,8 +196,8 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/viewCalendar"
                 android:clickable="true"
-                android:onClick="nulla"
                 android:layout_width="match_parent"
                 android:layout_height="60sp"
                 android:background="@drawable/card"
@@ -208,7 +206,6 @@
                 android:layout_marginBottom="20sp">
 
                 <TextView
-                    android:id="@+id/dummy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
@@ -240,8 +237,8 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/summary"
                 android:clickable="true"
-                android:onClick="nulla"
                 android:layout_width="match_parent"
                 android:layout_height="60sp"
                 android:background="@drawable/card"
@@ -250,7 +247,6 @@
                 android:layout_marginBottom="20sp">
 
                 <TextView
-                    android:id="@+id/dummy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
@@ -283,7 +279,7 @@
 
             <RelativeLayout
                 android:clickable="true"
-                android:onClick="nulla"
+                android:id="@+id/editDetails"
                 android:layout_width="match_parent"
                 android:layout_height="60sp"
                 android:background="@drawable/card"
@@ -292,7 +288,6 @@
                 android:layout_marginBottom="20sp">
 
                 <TextView
-                    android:id="@+id/dummy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
@@ -324,22 +319,23 @@
             </RelativeLayout>
 
             <LinearLayout
+                android:id="@+id/logout"
                 android:clickable="true"
-                android:layout_width="match_parent"
+                android:layout_width="250sp"
                 android:layout_height="wrap_content"
                 android:padding="10sp"
                 android:background="@drawable/card"
-                android:backgroundTint="@color/secondary_blue"
-                android:gravity="center_horizontal"
-                android:layout_gravity="center_vertical"
+                android:backgroundTint="@color/primary_black"
+                android:gravity="center"
+                android:layout_gravity="center"
                 android:layout_marginBottom="20sp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="@string/logout"
-                    android:textSize="15sp"
-                    android:textColor="@color/primary_black"
+                    android:textSize="17sp"
+                    android:textColor="@color/white"
                     android:fontFamily="@font/opensansbold"
                     android:gravity="center_horizontal"
                     android:layout_gravity="center_vertical"

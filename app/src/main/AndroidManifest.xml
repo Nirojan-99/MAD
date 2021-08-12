@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HairDo">
         <activity android:name=".appointment"></activity>
+        <activity android:name=".EditDetails"></activity>
+        <activity android:name=".Summary" />
+        <activity android:name=".ManageUpcomingApoointment" />
+        <activity android:name=".UpcomingAppointments" />
+        <activity android:name=".Holidays"></activity>
+        <activity android:name=".Calendar" />
         <activity android:name=".Reviews" />
         <activity
             android:name=".ManageServices"
