@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Summary"
+    android:background="@color/primary_orange">
+    <LinearLayout
+        android:padding="15sp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60sp"
+            android:layout_marginBottom="20sp"
+            android:background="@drawable/card"
+            android:backgroundTint="@color/white_dark"
+            android:clickable="true"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/opensansbold"
+                android:gravity="start|center_vertical"
+                android:paddingLeft="20sp"
+                android:text="@string/totalCompletion"
+                android:textAlignment="viewStart"
+                android:textColor="@color/primary_black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:textSize="20sp"
+                android:fontFamily="@font/opensansbold"
+                android:textColor="@color/secondary_blue"
+                android:gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="right|end"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="0dp"
+                android:layout_marginBottom="5dp"
+                android:text="100"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60sp"
+            android:layout_marginBottom="20sp"
+            android:background="@drawable/card"
+            android:backgroundTint="@color/white_dark"
+            android:clickable="true"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/opensansbold"
+                android:gravity="start|center_vertical"
+                android:paddingLeft="20sp"
+                android:text="@string/totalCancalation"
+                android:textAlignment="viewStart"
+                android:textColor="@color/primary_black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:textSize="20sp"
+                android:fontFamily="@font/opensansbold"
+                android:textColor="@color/secondary_blue"
+                android:gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="right|end"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="0dp"
+                android:layout_marginBottom="5dp"
+                android:text="10"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60sp"
+            android:layout_marginBottom="20sp"
+            android:background="@drawable/card"
+            android:backgroundTint="@color/white_dark"
+            android:clickable="true"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/opensansbold"
+                android:gravity="start|center_vertical"
+                android:paddingLeft="20sp"
+                android:text="@string/totalPendings"
+                android:textAlignment="viewStart"
+                android:textColor="@color/primary_black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:textSize="20sp"
+                android:fontFamily="@font/opensansbold"
+                android:textColor="@color/secondary_blue"
+                android:gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="right|end"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="0dp"
+                android:layout_marginBottom="5dp"
+                android:text="15"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60sp"
+            android:layout_marginBottom="20sp"
+            android:background="@drawable/card"
+            android:backgroundTint="@color/white_dark"
+            android:clickable="true"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/opensansbold"
+                android:gravity="start|center_vertical"
+                android:paddingLeft="20sp"
+                android:text="@string/totalEarnings"
+                android:textAlignment="viewStart"
+                android:textColor="@color/primary_black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:textSize="20sp"
+                android:fontFamily="@font/opensansbold"
+                android:textColor="@color/secondary_blue"
+                android:gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="right|end"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="0dp"
+                android:layout_marginBottom="5dp"
+                android:text="10,000"/>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

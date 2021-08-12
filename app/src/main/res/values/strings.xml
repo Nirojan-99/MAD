@@ -46,6 +46,13 @@
     <string name="serviceName">Service Name</string>
     <string name="add">ADD</string>
     <string name="reply">REPLY</string>
+    <string name="cancelAppointment">Cancel Appointment</string>
+    <string name="updateStatus">Update</string>
+    <string name="appointmentStatus">Appointment Status</string>
+    <string name="totalCompletion">Total Completion</string>
+    <string name="totalCancalation">Total Cancelation</string>
+    <string name="totalPendings">Total Pendings</string>
+    <string name="totalEarnings">Total Earnings</string>
     <string name="tv_Calendar">CALENADER</string>
     <string name="btn_holidays">Holidays</string>
     <string name="tv_holidays">HOLIDAYS</string>
