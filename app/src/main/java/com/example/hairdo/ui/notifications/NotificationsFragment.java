@@ -86,7 +86,7 @@ public class NotificationsFragment extends Fragment {
         rlt4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //startActivity(new Intent(getActivity(), Reviews.class));
+                startActivity(new Intent(getActivity(), Calendar.class));
             }
         });
 
