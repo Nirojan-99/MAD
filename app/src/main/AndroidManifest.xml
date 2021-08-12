@@ -9,7 +9,11 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.HairDo">
-        <activity android:name=".Reviews"></activity>
+        <activity android:name=".EditDetails"></activity>
+        <activity android:name=".Summary" />
+        <activity android:name=".ManageUpcomingApoointment" />
+        <activity android:name=".UpcomingAppointments" />
+        <activity android:name=".Reviews" />
         <activity
             android:name=".ManageServices"
             android:parentActivityName=".SalonProfile" />
