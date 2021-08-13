@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BothSignUp"
+    android:background="@color/primary_orange">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="370dp"
+        android:layout_height="390dp"
+        app:cardBackgroundColor="@color/gray"
+        app:cardCornerRadius="40dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="246dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="398dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_editor_absoluteX="-16dp">
+
+                <TextView
+                    android:id="@+id/textView21"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/opensansbold"
+                    android:text="@string/customer1"
+                    android:textSize="18sp"
+                    tools:layout_editor_absoluteX="9dp"
+                    tools:layout_editor_absoluteY="33dp" />
+
+                <TextView
+                    android:id="@+id/textView23"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="23-07-2020"
+                    android:textSize="12sp"
+                    tools:layout_editor_absoluteX="9dp"
+                    tools:layout_editor_absoluteY="57dp" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="372dp"
+                android:layout_height="218dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+
+                app:srcCompat="@drawable/salonhome_image" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="122dp"
+                android:layout_height="27dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:fontFamily="@font/opensansbold"
+                android:text="@string/address1"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="53dp"
+                tools:layout_editor_absoluteY="300dp" />
+
+            <RatingBar
+                android:id="@+id/smallRating"
+                style="?android:attr/ratingBarStyleIndicator"
+                android:layout_width="186dp"
+                android:layout_height="39dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:progressTint="@color/primary_orange_dark"
+                android:rating="3"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="261dp" />
+
+            <ImageButton
+                android:id="@+id/imageButton10"
+                android:layout_width="37dp"
+                android:layout_height="27dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:backgroundTint="@color/gray"
+                app:srcCompat="@drawable/location_2"
+                tools:ignore="VectorDrawableCompat"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="300dp" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="148dp"
+                android:layout_height="37dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="140dp"
+                android:fontFamily="@font/opensansbold"
+                android:gravity="center_vertical"
+                android:text="@string/customer"
+                android:textAlignment="gravity"
+                android:textSize="28sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:layout_editor_absoluteX="16dp" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="65dp"
+                android:layout_height="31dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:text="(104)"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="196dp"
+                tools:layout_editor_absoluteY="269dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@drawable/dashline"
+                android:layerType="software"
+                tools:layout_editor_absoluteX="2dp"
+                tools:layout_editor_absoluteY="327dp" />
+
+            <Button
+                android:id="@+id/button13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="@color/dark_black"
+                android:text="@string/time1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:layout_editor_absoluteX="16dp" />
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="@color/dark_black"
+                android:text="@string/time2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:layout_editor_absoluteX="113dp" />
+
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:backgroundTint="@color/dark_black"
+                android:text="@string/time3"
+                tools:layout_editor_absoluteX="219dp"
+                tools:layout_editor_absoluteY="334dp" />
+
+            <Button
+                android:id="@+id/button6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:backgroundTint="@color/dark_black"
+                android:text="@string/time4"
+                tools:layout_editor_absoluteX="324dp"
+                tools:layout_editor_absoluteY="334dp" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <RelativeLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="413dp"
+        android:layout_height="87dp"
+        android:background="@color/gray"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="114dp">
+
+        <SearchView
+            android:id="@+id/simpleSearchView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="55dp"
+            android:layout_marginRight="55dp"
+            android:layout_marginBottom="20dp"
+            android:background="@color/primary_orange"
+            android:iconifiedByDefault="false"
+            android:outlineSpotShadowColor="@color/primary_orange_dark"
+            android:queryHint="Search Here" />
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="413dp"
+        android:layout_height="110dp"
+        android:background="@color/primary_orange_dark"
+        android:orientation="vertical"
+        tools:ignore="DuplicateIds,MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="88dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_toStartOf="@+id/textView5"
+            android:layout_toLeftOf="@+id/textView5"
+            android:background="@color/primary_orange_dark"
+            android:tint="@color/white"
+            app:srcCompat="?attr/actionModeCloseDrawable"
+            tools:ignore="UseAppTint" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="147dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="189dp"
+            android:layout_marginRight="189dp"
+            android:fontFamily="@font/robotoblack"
+            android:gravity="center_vertical"
+            android:text="@string/search"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="102dp" />
+
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="361dp"
+        android:layout_height="103dp"
+
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/salloon"
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="670dp"
+        tools:ignore="MissingConstraints" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

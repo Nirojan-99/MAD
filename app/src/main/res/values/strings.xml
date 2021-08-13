@@ -19,4 +19,27 @@
     <string name="user">User</string>
     <string name="username">User Name</string>
     <string name="acceptTerms">Accept Terms And Conditions</string>
+    <string name="recentvisit">Recently visited</string>
+    <string name="customer">ROB ROY</string>
+    <string name="customer1">SALON 0</string>
+    <string name="address1">address,lane</string>
+
+    <string name="available">NOT AVAILABLE</string>
+    <string name="time1">8.30AM</string>
+    <string name="time2">10.30AM</string>
+    <string name="time3">12.30PM</string>
+    <string name="time4">4.30PM</string>
+    <string name="place1">COLOMBO</string>
+    <string name="place2">KANDY</string>
+    <string name="place3">GALLE</string>
+    <string name="place4">JAFFNA</string>
+    <string name="place5">KILINOCHI</string>
+
+    <string name="drawer">profile</string>
+    <string name="user1">NIROJAN</string>
+    <string name="mail">nirojanyoga@gmail.com</string>
+    <string name="gender">male</string>
+    <string name="save">Save Changes</string>
+    <string name="_0778862173">0778862173</string>
+    <string name="search">SEARCH</string>
 </resources>

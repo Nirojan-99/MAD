@@ -9,10 +9,18 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.HairDo">
-        <activity android:name=".UserSignUp"></activity>
+        <activity android:name=".userprofiles" />
+        <activity android:name=".searchHome" />
+        <activity android:name=".homepage2" />
+        <activity android:name=".homepages" />
+
+        <meta-data
+            android:name="com.google.android.actions"
+            android:resource="@xml/actions" />
+
+        <activity android:name=".UserSignUp" />
         <activity android:name=".SalonSignUp" />
         <activity android:name=".BothSignUp" />
-        <activity android:name=".offer" />
         <activity android:name=".LogIn" />
         <activity android:name=".MainActivity">
             <intent-filter>

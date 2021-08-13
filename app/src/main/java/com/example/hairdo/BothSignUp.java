@@ -28,8 +28,5 @@ public class BothSignUp extends AppCompatActivity {
         startActivity(intent2);
     }
 
-    public void OnCustomerSignUpClick(View view){
-        Intent intent3 = new Intent(this,offer.class);
-        startActivity(intent3);
-    }
+
 }
