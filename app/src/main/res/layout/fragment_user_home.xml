@@ -3,132 +3,319 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment"
-    android:background="@color/primary_orange">
+    android:background="@color/primary_orange"
+    android:orientation="vertical"
+    tools:context=".ui.home.HomeFragment">
+
     <HorizontalScrollView
-        android:background="@color/gray"
         android:layout_width="match_parent"
-        android:layout_height="150sp">
+        android:layout_height="150sp"
+        android:background="@color/gray">
+
         <LinearLayout
-            android:padding="15sp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="15sp">
 
             <LinearLayout
-                android:layout_marginRight="15sp"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center_horizontal"
                 android:layout_width="115sp"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginRight="15sp"
+                android:background="@drawable/card"
                 android:backgroundTint="@color/primary_orange"
-                android:background="@drawable/card">
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
                 <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="15sp"
+                    android:fontFamily="@font/robotoblack"
                     android:gravity="center_horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="20sp"
                     android:text="@string/salonname"
-                    android:fontFamily="@font/robotoblack" />
+                    android:textSize="20sp" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="15sp"
                     android:gravity="center_horizontal"
-                    android:text="2021-12-31"
-                    android:layout_margin="15sp"/>
+                    android:text="2021-12-31" />
             </LinearLayout>
+
             <LinearLayout
-                android:layout_marginRight="15sp"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center_horizontal"
                 android:layout_width="115sp"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginRight="15sp"
+                android:background="@drawable/card"
                 android:backgroundTint="@color/primary_orange"
-                android:background="@drawable/card">
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
                 <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="15sp"
+                    android:fontFamily="@font/robotoblack"
                     android:gravity="center_horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="20sp"
                     android:text="@string/salonname"
-                    android:fontFamily="@font/robotoblack" />
+                    android:textSize="20sp" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="15sp"
                     android:gravity="center_horizontal"
-                    android:text="2021-12-31"
-                    android:layout_margin="15sp"/>
+                    android:text="2021-12-31" />
             </LinearLayout>
+
             <LinearLayout
-                android:layout_marginRight="15sp"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center_horizontal"
                 android:layout_width="115sp"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginRight="15sp"
+                android:background="@drawable/card"
                 android:backgroundTint="@color/primary_orange"
-                android:background="@drawable/card">
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
                 <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="15sp"
+                    android:fontFamily="@font/robotoblack"
                     android:gravity="center_horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="20sp"
                     android:text="@string/salonname"
-                    android:fontFamily="@font/robotoblack" />
+                    android:textSize="20sp" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="15sp"
                     android:gravity="center_horizontal"
-                    android:text="2021-12-31"
-                    android:layout_margin="15sp"/>
+                    android:text="2021-12-31" />
             </LinearLayout>
 
         </LinearLayout>
     </HorizontalScrollView>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="15sp">
+
             <LinearLayout
-                android:id="@+id/salonViewAsUser"
-                android:clickable="true"
+                android:id="@+id/salonViewAsUser1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="@drawable/card"
+                android:layout_marginBottom="25sp"
+                android:background="@drawable/textview_border"
                 android:backgroundTint="@color/gray"
-                >
+                android:clickable="true"
+                android:orientation="vertical"
+                android:padding="0sp">
+
                 <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="150sp"
+                    android:id="@+id/imageView21"
+                    android:layout_width="372dp"
+                    android:layout_height="218dp"
+                    android:adjustViewBounds="true"
                     android:background="@color/red"
-                    />
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/salon_image"
+                    tools:layout_editor_absoluteX="-5dp"
+                    tools:layout_editor_absoluteY="3dp" />
+
                 <TextView
-                    android:layout_marginVertical="6sp"
-                    android:paddingLeft="10sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/salonname"
-                    android:textSize="27sp"
-                    android:fontFamily="@font/opensansbold"
-                    android:textColor="@color/primary_black"/>
-                <LinearLayout
-                    android:gravity="center_vertical"
                     android:layout_marginVertical="6sp"
-                    android:orientation="horizontal"
+                    android:fontFamily="@font/opensansbold"
+                    android:paddingLeft="10sp"
+                    android:text="@string/salonname"
+                    android:textColor="@color/primary_black"
+                    android:textSize="27sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="6sp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <RatingBar
+                        android:id="@+id/salonRating1"
+                        style="@style/Base.Widget.AppCompat.RatingBar.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="10sp"
+                        android:isIndicator="true"
+                        android:max="5"
+                        android:numStars="5"
+                        android:rating="3"
+                        android:stepSize=".5" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/opensansregular"
+                        android:text="(240)"
+                        android:textColor="@color/primary_black"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="6sp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_location_on_24" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/opensansregular"
+                        android:text="@string/addressOfDev"
+                        android:textColor="@color/primary_black"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1sp"
+                    android:layout_marginVertical="10sp"
+                    android:background="@color/primary_black"
+                    android:backgroundTint="@color/primary_orange" />
+
+                <HorizontalScrollView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="10sp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="10sp"
+                            android:background="@drawable/textview_border"
+                            android:backgroundTint="@color/primary_black"
+                            android:fontFamily="@font/opensanssemibold"
+                            android:padding="10sp"
+                            android:text="8.30AM"
+                            android:textColor="@color/white"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="10sp"
+                            android:background="@drawable/textview_border"
+                            android:backgroundTint="@color/primary_black"
+                            android:fontFamily="@font/opensanssemibold"
+                            android:padding="10sp"
+                            android:text="8.30AM"
+                            android:textColor="@color/white"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="10sp"
+                            android:background="@drawable/textview_border"
+                            android:backgroundTint="@color/primary_black"
+                            android:fontFamily="@font/opensanssemibold"
+                            android:padding="10sp"
+                            android:text="8.30AM"
+                            android:textColor="@color/white"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="10sp"
+                            android:background="@drawable/textview_border"
+                            android:backgroundTint="@color/primary_black"
+                            android:fontFamily="@font/opensanssemibold"
+                            android:padding="10sp"
+                            android:text="8.30AM"
+                            android:textColor="@color/white"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="10sp"
+                            android:background="@drawable/textview_border"
+                            android:backgroundTint="@color/primary_black"
+                            android:fontFamily="@font/opensanssemibold"
+                            android:padding="10sp"
+                            android:text="8.30AM"
+                            android:textColor="@color/white"
+                            android:textSize="13sp" />
+
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginBottom="25sp"
+                android:id="@+id/salonViewAsUser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/textview_border"
+                android:backgroundTint="@color/gray"
+                android:clickable="true"
+                android:orientation="vertical"
+                android:padding="0sp">
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="372dp"
+                    android:layout_height="218dp"
+                    android:adjustViewBounds="true"
+                    android:background="@color/red"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/salon_image"
+                    tools:layout_editor_absoluteX="-5dp"
+                    tools:layout_editor_absoluteY="3dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="6sp"
+                    android:fontFamily="@font/opensansbold"
+                    android:paddingLeft="10sp"
+                    android:text="@string/salonname"
+                    android:textColor="@color/primary_black"
+                    android:textSize="27sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="6sp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
                     <RatingBar
                         android:id="@+id/salonRating"
                         style="@style/Base.Widget.AppCompat.RatingBar.Small"
@@ -140,108 +327,120 @@
                         android:numStars="5"
                         android:rating="3"
                         android:stepSize=".5" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/opensansregular"
                         android:text="(240)"
-                        android:textSize="12sp"
-                        android:fontFamily="@font/opensansregular"
-                        android:textColor="@color/primary_black"/>
+                        android:textColor="@color/primary_black"
+                        android:textSize="12sp" />
                 </LinearLayout>
+
                 <LinearLayout
-                    android:layout_gravity="center_vertical"
-                    android:gravity="center_vertical"
-                    android:layout_marginLeft="6sp"
-                    android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                   <ImageView
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:src="@drawable/ic_baseline_location_on_24"/>
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="6sp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_location_on_24" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/addressOfDev"
-                        android:textSize="12sp"
                         android:fontFamily="@font/opensansregular"
-                        android:textColor="@color/primary_black"/>
+                        android:text="@string/addressOfDev"
+                        android:textColor="@color/primary_black"
+                        android:textSize="12sp" />
 
                 </LinearLayout>
+
                 <View
-                    android:backgroundTint="@color/primary_orange"
                     android:layout_width="match_parent"
                     android:layout_height="1sp"
                     android:layout_marginVertical="10sp"
-                    android:background="@color/primary_black" />
+                    android:background="@color/primary_black"
+                    android:backgroundTint="@color/primary_orange" />
+
                 <HorizontalScrollView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
+
                     <LinearLayout
-                        android:padding="10sp"
                         android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:layout_height="wrap_content">
+                        android:padding="10sp">
+
                         <TextView
-                            android:layout_marginRight="10sp"
-                            android:padding="10sp"
-                            android:background="@drawable/textview_border"
-                            android:backgroundTint="@color/primary_black"
-                            android:textColor="@color/white"
-                            android:textSize="13sp"
-                            android:fontFamily="@font/opensanssemibold"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="8.30AM"/>
-                        <TextView
                             android:layout_marginRight="10sp"
-                            android:padding="10sp"
                             android:background="@drawable/textview_border"
                             android:backgroundTint="@color/primary_black"
-                            android:textColor="@color/white"
-                            android:textSize="13sp"
                             android:fontFamily="@font/opensanssemibold"
+                            android:padding="10sp"
+                            android:text="8.30AM"
+                            android:textColor="@color/white"
+                            android:textSize="13sp" />
+
+                        <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="8.30AM"/>
-                        <TextView
                             android:layout_marginRight="10sp"
-                            android:padding="10sp"
                             android:background="@drawable/textview_border"
                             android:backgroundTint="@color/primary_black"
-                            android:textColor="@color/white"
-                            android:textSize="13sp"
                             android:fontFamily="@font/opensanssemibold"
+                            android:padding="10sp"
+                            android:text="8.30AM"
+                            android:textColor="@color/white"
+                            android:textSize="13sp" />
+
+                        <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="8.30AM"/>
-                        <TextView
                             android:layout_marginRight="10sp"
-                            android:padding="10sp"
                             android:background="@drawable/textview_border"
                             android:backgroundTint="@color/primary_black"
-                            android:textColor="@color/white"
-                            android:textSize="13sp"
                             android:fontFamily="@font/opensanssemibold"
+                            android:padding="10sp"
+                            android:text="8.30AM"
+                            android:textColor="@color/white"
+                            android:textSize="13sp" />
+
+                        <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="8.30AM"/>
-                        <TextView
                             android:layout_marginRight="10sp"
-                            android:padding="10sp"
                             android:background="@drawable/textview_border"
                             android:backgroundTint="@color/primary_black"
-                            android:textColor="@color/white"
-                            android:textSize="13sp"
                             android:fontFamily="@font/opensanssemibold"
+                            android:padding="10sp"
+                            android:text="8.30AM"
+                            android:textColor="@color/white"
+                            android:textSize="13sp" />
+
+                        <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="8.30AM"/>
+                            android:layout_marginRight="10sp"
+                            android:background="@drawable/textview_border"
+                            android:backgroundTint="@color/primary_black"
+                            android:fontFamily="@font/opensanssemibold"
+                            android:padding="10sp"
+                            android:text="8.30AM"
+                            android:textColor="@color/white"
+                            android:textSize="13sp" />
 
                     </LinearLayout>
                 </HorizontalScrollView>
 
-            </LinearLayout>          
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 

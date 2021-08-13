@@ -79,6 +79,10 @@
     <string name="gender">Gender</string>
     <string name="email">Email</string>
     <string name="location">Location</string>
+    <string name="viewLocation">View Location</string>
+    <string name="reserve">Reserve</string>
+    <string name="gallery">Gallery</string>
+    <string name="search">search..</string>
 
     <string name="menu_home">Home</string>
     <string name="menu_profile">Profile</string>

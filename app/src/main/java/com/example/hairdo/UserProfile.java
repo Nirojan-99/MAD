@@ -13,12 +13,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.google.android.material.navigation.NavigationView;
 
 public class UserProfile  extends AppCompatActivity
 
         implements NavigationView.OnNavigationItemSelectedListener {
+
+//    ImageView search;
+
     @Override
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +35,9 @@ public class UserProfile  extends AppCompatActivity
 //        if (getSupportActionBar() != null) {
 //            getSupportActionBar().hide();
 //        }
+
+
+//        search = findViewById(R.id.tool_search);
 
 
 
@@ -52,6 +60,12 @@ public class UserProfile  extends AppCompatActivity
         NavigationView navigationView = findViewById(R.id. nav_view_user ) ;
         navigationView.setNavigationItemSelectedListener( this ) ;
     }
+
+    public  void onSearchClick(View v){
+        Intent inte = new Intent(this,SearchSalon.class);
+        startActivity(inte);
+    }
+
     @Override
     public void onBackPressed () {
         DrawerLayout drawer = findViewById(R.id. drawer_layout ) ;
@@ -119,6 +133,14 @@ public class UserProfile  extends AppCompatActivity
             Intent intent = new Intent(this,ContactUs.class);
             startActivity(intent);
         }
+
+//        search.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent searchInt = new Intent(v.getContext(),SearchSalon.class);
+//                startActivity(searchInt);
+//            }
+//        });
 
         DrawerLayout drawer = findViewById(R.id. drawer_layout ) ;
         drawer.closeDrawer(GravityCompat. START ) ;

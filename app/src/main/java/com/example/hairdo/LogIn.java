@@ -27,7 +27,7 @@ public class LogIn extends AppCompatActivity {
     }
 
     public void onClickSignUp(View view){
-        Intent intSign = new Intent(this,UserProfile.class);
+        Intent intSign = new Intent(this,BothSignUp.class);
         startActivity(intSign);
         finish();
     }

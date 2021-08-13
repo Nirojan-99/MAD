@@ -195,17 +195,18 @@
                     </LinearLayout>
 
                     <Button
+                        android:id="@+id/userSignUp"
                         android:layout_width="285sp"
                         android:layout_height="56sp"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="10dp"
                         android:background="@drawable/custombutton"
+                        android:clickable="true"
                         android:fontFamily="@font/robotoblack"
                         android:shadowColor="#A1000000"
                         android:text="@string/signup"
                         android:textColor="@color/primary_black"
-                        android:textSize="23sp"
-                        android:clickable="true"/>
+                        android:textSize="23sp" />
 
 
                 </LinearLayout>
