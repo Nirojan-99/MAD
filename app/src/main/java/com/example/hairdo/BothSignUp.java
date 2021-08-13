@@ -13,7 +13,7 @@ public class BothSignUp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_both_sign_up);
 
-        getSupportActionBar().hide();
+        //getSupportActionBar().hide();
 
 
     }

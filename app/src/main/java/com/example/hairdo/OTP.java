@@ -13,7 +13,7 @@ public class OTP extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_o_t_p);
 
-        getSupportActionBar().hide();
+        //getSupportActionBar().hide();
     }
 
     public void OnResendOTPClick(View view) {

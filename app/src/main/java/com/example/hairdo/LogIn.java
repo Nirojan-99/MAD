@@ -13,7 +13,7 @@ public class LogIn extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
 
-        getSupportActionBar().hide();
+        //getSupportActionBar().hide();
 
 
     }
@@ -27,7 +27,7 @@ public class LogIn extends AppCompatActivity {
     }
 
     public void onClickSignUp(View view){
-        Intent intSign = new Intent(this,BothSignUp.class);
+        Intent intSign = new Intent(this,UserProfile.class);
         startActivity(intSign);
         finish();
     }
