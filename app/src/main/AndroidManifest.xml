@@ -13,9 +13,12 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.HairDo">
-        <activity android:name=".SalonGallery"
-            android:theme="@style/Theme.HairDo.NoActionBar"
-            ></activity>
+        <activity
+            android:name=".AppointmentSummary"
+            android:theme="@style/Theme.HairDo.NoActionBar"/>
+        <activity
+            android:name=".SalonGallery"
+            android:theme="@style/Theme.HairDo.NoActionBar" />
         <activity
             android:name=".EditOffer"
             android:theme="@style/Theme.HairDo.NoActionBar" />

@@ -98,8 +98,8 @@ public class UserProfile  extends AppCompatActivity
         }
         else if (id == R.id. nav_summary ) {
 
-//            Intent intent = new Intent(this,ContactUs.class);
-//            startActivity(intent);
+            Intent intent = new Intent(this,AppointmentSummary.class);
+            startActivity(intent);
         }
         else if (id == R.id. nav_notification ) {
 
