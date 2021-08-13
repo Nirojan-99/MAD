@@ -83,6 +83,8 @@
     <string name="reserve">Reserve</string>
     <string name="gallery">Gallery</string>
     <string name="search">search..</string>
+    <string name="addPhoto">Add Photo</string>
+    <string name="delete">Delete</string>
 
     <string name="menu_home">Home</string>
     <string name="menu_profile">Profile</string>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:padding="15sp"
+    android:gravity="center"
+    android:background="@color/primary_orange"
+    android:layout_height="match_parent"
+    tools:context=".EditOffer">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/gray"
+        app:cardCornerRadius="20dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="15dp"
+        tools:layout_editor_absoluteY="104dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="left"
+            android:orientation="vertical"
+            android:padding="15sp">
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginVertical="10sp"
+                android:fontFamily="@font/opensansregular"
+                android:gravity="center_vertical"
+                android:text="Offer Title"
+                android:textColor="@color/dark_black"
+                android:textSize="15sp" />
+
+            <EditText
+                android:text="10% OFF"
+                android:id="@+id/textView8"
+                android:layout_width="329dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/textview_border"
+                android:fontFamily="@font/opensansbold"
+                android:maxLines="1"
+                android:padding="10dp"
+                android:textColor="@color/dark_black"
+                android:textSize="20sp"
+
+                />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="184dp"
+                android:layout_height="51dp"
+                android:layout_gravity="left"
+                android:fontFamily="@font/opensansregular"
+                android:gravity="center_vertical"
+                android:text="Offer Description"
+                android:textColor="@color/dark_black"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/textView10"
+                android:layout_width="331dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/textview_border"
+                android:fontFamily="@font/opensansbold"
+                android:maxLines="1"
+                android:padding="10dp"
+                android:textColor="@color/dark_black"
+                android:textSize="20sp"
+
+                />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="184dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginTop="10sp"
+                android:fontFamily="@font/opensansregular"
+                android:gravity="center_vertical"
+                android:text="Valid Until"
+                android:textColor="@color/dark_black"
+                android:textSize="15sp" />
+            <TextView
+                android:textAllCaps="true"
+                android:gravity="right"
+                android:clickable="true"
+                android:layout_marginBottom="5sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/pickdate"
+                android:textSize="19sp"
+                android:textColor="@color/secondary_blue"/>
+            <EditText
+                android:text="2021/10/12"
+                android:layout_marginBottom="10sp"
+                android:inputType="date"
+                android:id="@+id/textView12"
+                android:layout_width="331dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/textview_border"
+                android:fontFamily="@font/opensansbold"
+                android:maxLines="1"
+                android:padding="10dp"
+                android:textColor="@color/dark_black"
+                android:textSize="20sp"
+
+                />
+
+
+
+            <Button
+                android:letterSpacing=".1"
+                android:background="@drawable/textview_border"
+                android:id="@+id/button3"
+                android:layout_width="200sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginVertical="10sp"
+                android:layout_marginBottom="10sp"
+                android:fontFamily="@font/opensansbold"
+                android:text="@string/update"
+                android:textColor="@color/white"
+                app:backgroundTint="@color/primary_black" />
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

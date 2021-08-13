@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary_orange"
+    android:orientation="vertical"
+    android:padding="15sp"
+    tools:context=".SalonGallery">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10sp"
+        android:background="@drawable/textview_border"
+        android:backgroundTint="@color/white_dark"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="10sp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/textview_border"
+            android:backgroundTint="@color/primary_black"
+            android:gravity="center"
+            android:text="@string/addPhoto"
+            android:textColor="@color/white_dark" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/textview_border"
+            android:backgroundTint="@color/white_dark"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="10sp">
+
+
+
+            <ImageView
+                android:layout_marginVertical="5sp"
+                android:layout_gravity="center"
+                android:src="@drawable/salon2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+               />
+            <TextView
+                android:layout_marginRight="5sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/delete"
+                android:gravity="right"
+                android:textSize="17sp"
+                android:textColor="@color/red"/>
+            <ImageView
+                android:layout_marginVertical="5sp"
+                android:layout_gravity="center"
+                android:src="@drawable/salon1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                />
+            <TextView
+                android:layout_marginRight="5sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/delete"
+                android:gravity="right"
+                android:textSize="17sp"
+                android:textColor="@color/red"/>
+            <ImageView
+                android:layout_marginVertical="5sp"
+                android:layout_gravity="center"
+                android:src="@drawable/salon2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                />
+            <TextView
+                android:layout_marginRight="5sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/delete"
+                android:gravity="right"
+                android:textSize="17sp"
+                android:textColor="@color/red"/>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

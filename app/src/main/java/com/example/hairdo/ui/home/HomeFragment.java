@@ -15,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.hairdo.BothSignUp;
 import com.example.hairdo.R;
+import com.example.hairdo.SalonViewInUser;
 
 public class HomeFragment extends Fragment {
 
@@ -29,4 +30,10 @@ public class HomeFragment extends Fragment {
         Intent intent = new Intent(view.getContext(), BothSignUp.class);
         startActivity(intent);
     }
+    public void onClickSalons(View v){
+        Intent intent = new Intent(v.getContext(), SalonViewInUser.class);
+        startActivity(intent);
+    }
+
+
 }

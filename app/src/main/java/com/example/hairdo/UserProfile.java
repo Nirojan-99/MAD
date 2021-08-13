@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -22,35 +23,16 @@ public class UserProfile  extends AppCompatActivity
 
         implements NavigationView.OnNavigationItemSelectedListener {
 
-//    ImageView search;
+    LinearLayout lr;
 
     @Override
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile2);
-        //
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        //getSupportActionBar().hide();
-//        if (getSupportActionBar() != null) {
-//            getSupportActionBar().hide();
-//        }
 
-
-//        search = findViewById(R.id.tool_search);
-
-
-
-
-//        FloatingActionButton fab = findViewById(R.id. fab ) ;
-//        fab.setOnClickListener( new View.OnClickListener() {
-//            @Override
-//            public void onClick (View view) {
-//                Snackbar. make (view , "Replace with your own action" ,
-//                        Snackbar. LENGTH_LONG )
-//                        .setAction( "Action" , null ).show() ;
-//            }
-//        }) ;
         DrawerLayout drawer = findViewById(R.id. drawer_layout ) ;
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer ,toolbar, R.string. navigation_drawer_open ,
@@ -65,6 +47,7 @@ public class UserProfile  extends AppCompatActivity
         Intent inte = new Intent(this,SearchSalon.class);
         startActivity(inte);
     }
+
 
     @Override
     public void onBackPressed () {

@@ -13,38 +13,90 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.HairDo">
-        <activity android:name=".SearchSalon" android:theme="@style/Theme.HairDo.NoActionBar"></activity>
-        <activity android:name=".SalonViewInUser" android:theme="@style/Theme.HairDo.NoActionBar"/>
-        <activity android:name=".UserProfile" android:theme="@style/Theme.HairDo.NoActionBar"/>
+        <activity android:name=".SalonGallery"
+            android:theme="@style/Theme.HairDo.NoActionBar"
+            ></activity>
+        <activity
+            android:name=".EditOffer"
+            android:theme="@style/Theme.HairDo.NoActionBar" />
+        <activity
+            android:name=".SearchSalon"
+            android:theme="@style/Theme.HairDo.NoActionBar" />
+        <activity
+            android:name=".SalonViewInUser"
+            android:theme="@style/Theme.HairDo.NoActionBar" />
+        <activity
+            android:name=".UserProfile"
+            android:theme="@style/Theme.HairDo.NoActionBar" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity android:name=".PaymentSummary" android:theme="@style/Theme.HairDo.NoActionBar"/>
-        <activity android:name=".ContactUs" android:theme="@style/Theme.HairDo.NoActionBar"/>
-        <activity android:name=".Payment" android:theme="@style/Theme.HairDo.NoActionBar"/>
-        <activity android:name=".appointment" android:theme="@style/Theme.HairDo.NoActionBar"/>
-        <activity android:name=".EditDetails" android:theme="@style/Theme.HairDo.NoActionBar"/>
-        <activity android:name=".Summary" android:theme="@style/Theme.HairDo.NoActionBar"/>
-        <activity android:name=".ManageUpcomingApoointment" android:theme="@style/Theme.HairDo.NoActionBar"/>
-        <activity android:name=".UpcomingAppointments" android:theme="@style/Theme.HairDo.NoActionBar"/>
-        <activity android:name=".Holidays" android:theme="@style/Theme.HairDo.NoActionBar"/>
-        <activity android:name=".Calendar" android:theme="@style/Theme.HairDo.NoActionBar"/>
-        <activity android:name=".Reviews" android:theme="@style/Theme.HairDo.NoActionBar"/>
+        <activity
+            android:name=".PaymentSummary"
+            android:theme="@style/Theme.HairDo.NoActionBar" />
+        <activity
+            android:name=".ContactUs"
+            android:theme="@style/Theme.HairDo.NoActionBar" />
+        <activity
+            android:name=".Payment"
+            android:theme="@style/Theme.HairDo.NoActionBar" />
+        <activity
+            android:name=".appointment"
+            android:theme="@style/Theme.HairDo.NoActionBar" />
+        <activity
+            android:name=".EditDetails"
+            android:theme="@style/Theme.HairDo.NoActionBar" />
+        <activity
+            android:name=".Summary"
+            android:theme="@style/Theme.HairDo.NoActionBar" />
+        <activity
+            android:name=".ManageUpcomingApoointment"
+            android:theme="@style/Theme.HairDo.NoActionBar" />
+        <activity
+            android:name=".UpcomingAppointments"
+            android:theme="@style/Theme.HairDo.NoActionBar" />
+        <activity
+            android:name=".Holidays"
+            android:theme="@style/Theme.HairDo.NoActionBar" />
+        <activity
+            android:name=".Calendar"
+            android:theme="@style/Theme.HairDo.NoActionBar" />
+        <activity
+            android:name=".Reviews"
+            android:theme="@style/Theme.HairDo.NoActionBar" />
         <activity
             android:name=".ManageServices"
-            android:parentActivityName=".SalonProfile" android:theme="@style/Theme.HairDo.NoActionBar"/>
+            android:parentActivityName=".SalonProfile"
+            android:theme="@style/Theme.HairDo.NoActionBar" />
         <activity
             android:name=".SalonProfile"
             android:label="@string/title_activity_salon_profile" />
-        <activity android:name=".OTP" android:theme="@style/Theme.HairDo.NoActionBar"/>
-        <activity android:name=".UserSignUp" android:theme="@style/Theme.HairDo.NoActionBar"/>
-        <activity android:name=".SalonSignUp" android:theme="@style/Theme.HairDo.NoActionBar" />
-        <activity android:name=".BothSignUp" android:theme="@style/Theme.HairDo.NoActionBar"/>
-        <activity android:name=".offer" android:theme="@style/Theme.HairDo.NoActionBar"/>
-        <activity android:name=".LogIn" android:theme="@style/Theme.HairDo.NoActionBar"/>
-        <activity android:name=".MainActivity" android:theme="@style/Theme.HairDo.NoActionBar">
+        <activity
+            android:name=".OTP"
+            android:theme="@style/Theme.HairDo.NoActionBar" />
+        <activity
+            android:name=".UserSignUp"
+            android:theme="@style/Theme.HairDo.NoActionBar" />
+        <activity
+            android:name=".SalonSignUp"
+            android:theme="@style/Theme.HairDo.NoActionBar" />
+        <activity
+            android:name=".BothSignUp"
+            android:theme="@style/Theme.HairDo.NoActionBar" />
+        <activity
+            android:name=".offer"
+            android:theme="@style/Theme.HairDo.NoActionBar" />
+        <activity
+            android:name=".LogIn"
+            android:theme="@style/Theme.HairDo.NoActionBar" />
+        <activity
+            android:name=".SalonLocation"
+            android:theme="@style/Theme.HairDo.NoActionBar" />
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/Theme.HairDo.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Gallery;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -28,6 +29,7 @@ import com.example.hairdo.ManageServices;
 import com.example.hairdo.PaymentSummary;
 import com.example.hairdo.R;
 import com.example.hairdo.Reviews;
+import com.example.hairdo.SalonGallery;
 import com.example.hairdo.SalonProfile;
 import com.example.hairdo.Summary;
 import com.example.hairdo.UpcomingAppointments;
@@ -44,6 +46,7 @@ public class NotificationsFragment extends Fragment {
     RelativeLayout rlt6;
     LinearLayout rlt7;
     RelativeLayout rlt8;
+    RelativeLayout rlt9;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -59,6 +62,7 @@ public class NotificationsFragment extends Fragment {
         rlt6 = root.findViewById(R.id.editDetails);
         rlt7 = root.findViewById(R.id.logout);
         rlt8 = root.findViewById(R.id.contactUs);
+        rlt9 = root.findViewById(R.id.gallery);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -120,6 +124,13 @@ public class NotificationsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(), ContactUs.class));
+            }
+        });
+
+        rlt9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), SalonGallery.class));
             }
         });
 
