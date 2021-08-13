@@ -13,7 +13,7 @@ public class SalonSignUp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_salon_sign_up);
 
-        getSupportActionBar().hide();
+        //getSupportActionBar().hide();
     }
     public void OnSignUpClick(View view){
         Intent intentotp = new Intent(this,OTP.class);

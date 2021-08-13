@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="@string/menu_home" />
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_baseline_supervised_user_circle_24"
+            android:title="@string/menu_profile" />
+<!--        <item-->
+<!--            android:id="@+id/nav_slideshow"-->
+<!--            android:icon="@drawable/ic_menu_slideshow"-->
+<!--            android:title="@string/menu_slideshow" />-->
+<!--        <item-->
+<!--            android:id="@+id/nav_slideshows"-->
+<!--            android:icon="@drawable/ic_menu_slideshow"-->
+<!--            android:title="@string/menu_slideshow" />-->
+    </group>
+    <item android:title= "Appointments" >
+        <menu>
+            <item
+                android:id= "@+id/nav_upcoming_appointments"
+                android:icon= "@drawable/ic_calendar"
+                android:title= "@string/menu_upcomingA" />
+            <item
+                android:id= "@+id/nav_summary"
+                android:icon= "@drawable/ic_baseline_history_24"
+                android:title= "@string/menu_Appointment_summary" />
+        </menu>
+    </item>
+    <item android:title="Common">
+        <menu>
+            <item
+                android:id= "@+id/nav_notification"
+                android:icon= "@drawable/ic_notifications_black_24dp"
+                android:title= "@string/menu_Notification" />
+            <item
+                android:id= "@+id/nav_payments"
+                android:icon= "@drawable/ic_baseline_payments_24"
+                android:title= "@string/menu_Payments" />
+            <item
+                android:id= "@+id/nav_ContactUs"
+                android:icon= "@drawable/ic_baseline_email_24"
+                android:title= "@string/contactUs" />
+            <item
+                android:id= "@+id/nav_logOut"
+                android:icon= "@drawable/ic_baseline_login_24"
+                android:title= "@string/menu_logout" />
+        </menu>
+    </item>
+</menu>
