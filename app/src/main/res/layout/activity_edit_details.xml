@@ -71,6 +71,36 @@
             android:maxLines="1"
             android:layout_height="wrap_content"
             />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Advancepayment"
+            android:textSize="13sp"
+            android:fontFamily="@font/opensanssemibold"
+            android:layout_gravity="left"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:id="@+id/salonNewAdvancePayment"
+            android:fontFamily="@font/opensansbold"
+            android:textSize="15sp"
+            android:maxLines="1"
+            android:layout_height="wrap_content"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/password"
+            android:textSize="13sp"
+            android:fontFamily="@font/opensanssemibold"
+            android:layout_gravity="left"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:id="@+id/salonNewPassword"
+            android:fontFamily="@font/opensansbold"
+            android:textSize="15sp"
+            android:maxLines="1"
+            android:layout_height="wrap_content"
+            />
         <Button
             android:clickable="true"
             android:layout_marginTop="10sp"

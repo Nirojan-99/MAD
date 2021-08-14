@@ -2,7 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
-
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
@@ -12,16 +11,8 @@
             android:id="@+id/nav_profile"
             android:icon="@drawable/ic_baseline_supervised_user_circle_24"
             android:title="@string/menu_profile" />
-<!--        <item-->
-<!--            android:id="@+id/nav_slideshow"-->
-<!--            android:icon="@drawable/ic_menu_slideshow"-->
-<!--            android:title="@string/menu_slideshow" />-->
-<!--        <item-->
-<!--            android:id="@+id/nav_slideshows"-->
-<!--            android:icon="@drawable/ic_menu_slideshow"-->
-<!--            android:title="@string/menu_slideshow" />-->
     </group>
-    <item android:title= "Appointments" >
+    <item android:title= "@string/Appointment" >
         <menu>
             <item
                 android:id= "@+id/nav_upcoming_appointments"
@@ -33,7 +24,7 @@
                 android:title= "@string/menu_Appointment_summary" />
         </menu>
     </item>
-    <item android:title="Common">
+    <item android:title="@string/common">
         <menu>
             <item
                 android:id= "@+id/nav_notification"

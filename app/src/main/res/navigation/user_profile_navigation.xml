@@ -4,23 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/nav_home_user">
-
     <fragment
         android:id="@+id/nav_home_user"
         android:name="com.example.hairdo.UserHome"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_user_home" />
-
     <fragment
         android:id="@+id/nav_home"
         android:name="com.example.hairdo.UserProfileEdit"
         android:label="@string/menu_profile"
         tools:layout="@layout/fragment_user_profile_edit" />
-
-<!--    <fragment-->
-<!--        android:id="@+id/nav_UA"-->
-<!--        android:name="com.example.hairdo.UserHome"-->
-<!--        android:label="@string/upComingAppintments"-->
-<!--        tools:layout="@layout/fragment_user_upcoming_appointment" />-->
-
 </navigation>

@@ -18,6 +18,17 @@
         <activity android:name=".QR_Scanner"></activity>
         <activity android:name=".QR_Generator" />
         <activity android:name=".Notification" />
+        <activity android:name=".UserUpcomingAppointment"></activity>
+        <activity
+            android:name=".AppointmentSummary"
+            android:theme="@style/Theme.HairDo.NoActionBar" />
+        <activity
+            android:name=".SalonGallery"
+            android:theme="@style/Theme.HairDo.NoActionBar" />
+        <activity
+            android:name=".EditOffer"
+            android:theme="@style/Theme.HairDo.NoActionBar" />
+
         <activity
             android:name=".SearchSalon"
             android:theme="@style/Theme.HairDo.NoActionBar" />
@@ -91,6 +102,11 @@
             android:name=".LogIn"
             android:theme="@style/Theme.HairDo.NoActionBar" />
         <activity
+
+            android:name=".SalonLocation"
+            android:theme="@style/Theme.HairDo.NoActionBar" />
+        <activity
+
             android:name=".MainActivity"
             android:theme="@style/Theme.HairDo.NoActionBar">
             <intent-filter>

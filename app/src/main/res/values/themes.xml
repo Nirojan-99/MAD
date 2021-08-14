@@ -1,24 +1,17 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
     <style name="Theme.HairDo" parent="Theme.MaterialComponents.DayNight.DarkActionBar.Bridge">
-        <!-- Primary brand color. -->
         <item name="colorPrimary">@color/primary_orange_dark</item>
         <item name="colorPrimaryVariant">@color/primary_orange_dark</item>
         <item name="colorOnPrimary">@color/white</item>
-        <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/gray</item>
         <item name="colorSecondaryVariant">@color/secondary_blue</item>
         <item name="colorOnSecondary">@color/primary_black</item>
-        <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
     </style>
     <style name="Theme.HairDo.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
-
     <style name="Theme.SampleDrawer.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
     <style name="Theme.SampleDrawer.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

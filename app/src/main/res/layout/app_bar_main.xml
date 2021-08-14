@@ -25,23 +25,23 @@
 
                <ImageView
                    android:id="@+id/tool_search"
-                   android:layout_width="match_parent"
+                   android:layout_width="30dp"
 
-                   android:layout_height="wrap_content"
+                   android:layout_height="30sp"
                    android:layout_marginLeft="150sp"
                    android:onClick="onSearchClick"
                    android:src="@drawable/ic_baseline_search_24" />
                <ImageView
                    android:id="@+id/tool_location"
                    android:layout_marginHorizontal="10sp"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
+                   android:layout_width="30sp"
+                   android:layout_height="30sp"
                    android:src="@drawable/ic_baseline_location_on_24" />
                <ImageView
                    android:id="@+id/tool_notification"
                    android:layout_marginHorizontal="10sp"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
+                   android:layout_width="30sp"
+                   android:layout_height="30sp"
                    android:src="@drawable/ic_baseline_notifications_white" />
            </LinearLayout>
         </androidx.appcompat.widget.Toolbar>
