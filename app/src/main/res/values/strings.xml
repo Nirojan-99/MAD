@@ -95,5 +95,7 @@
     <string name="menu_Notification">Notification</string>
     <string name="menu_Payments">Payments</string>
     <string name="menu_logout">Log Out</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
