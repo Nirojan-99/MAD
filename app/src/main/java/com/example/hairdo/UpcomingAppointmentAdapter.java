@@ -41,9 +41,11 @@ public class UpcomingAppointmentAdapter extends RecyclerView.Adapter<UpcomingApp
         holder.btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent send = new Intent(v.getContext(), BothSignUp.class);
-                //context.startActivity(send);
-                //Toast.makeText(v.getContext(),data.get(position),Toast.LENGTH_SHORT).show();
+                Intent send = new Intent(v.getContext(), ManageUpcomingApoointment.class);
+                send.putExtra("userName",data.get(position));
+//                send.putExtra("date_time",)
+                v.getContext().startActivity(send);
+//                Toast.makeText(v.getContext(),data.get(position),Toast.LENGTH_SHORT).show();
             }
         });
 

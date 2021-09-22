@@ -7,11 +7,15 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hairdo.ServicesAdapter;
 import com.example.hairdo.R;
+import com.example.hairdo.UpcomingAppointments;
+import com.example.hairdo.upcommingAppointmentsSalon;
 
 public class DashboardFragment extends Fragment {
 
@@ -39,7 +43,13 @@ public class DashboardFragment extends Fragment {
 //        RecyclerView recyclerView = view.findViewById(R.id.upcomingAppointments);
 //        recylerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
 //        recylerView.setAdapter(new AppointmentAdapter(names));
+        Fragment fragment;
 
+        fragment = new upcommingAppointmentsSalon();
+        FragmentManager fm = getChildFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.appointents,fragment);
+        ft.commit();
 
         setHasOptionsMenu(true);
         View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
