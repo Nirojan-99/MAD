@@ -10,19 +10,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.hairdo.model.Customer;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-public class LogIn extends AppCompatActivity {
+public class SalonLogin extends AppCompatActivity {
 
     EditText email, password;
     Button btn;
@@ -31,7 +29,7 @@ public class LogIn extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_log_in);
+        setContentView(R.layout.activity_salon_login);
 
         email = findViewById(R.id.LogInUsername);
         password = findViewById(R.id.LogInPassword);
@@ -59,13 +57,12 @@ public class LogIn extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                           Intent intent = new Intent(LogIn.this,UserProfile.class);
-                           intent.putExtra("userMail",enteredEmail);
-                           startActivity(intent);
-                           finish();
+                            Intent intent = new Intent(SalonLogin.this,SalonProfile.class);
+                            startActivity(intent);
+                            finish();
 
                         } else {
-                            Toast.makeText(LogIn.this, "Failed to login! please check your credentials.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SalonLogin.this, "Failed to login! please check your credentials.", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -84,7 +81,7 @@ public class LogIn extends AppCompatActivity {
         finish();
     }
     public void salonLogin(View view){
-        Intent intSign = new Intent(this, SalonLogin.class);
+        Intent intSign = new Intent(this, LogIn.class);
         startActivity(intSign);
         finish();
     }

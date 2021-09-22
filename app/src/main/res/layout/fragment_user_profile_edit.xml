@@ -17,11 +17,13 @@
         android:padding="15sp">
 
         <ImageView
+            android:id="@+id/userChangeImage"
             android:layout_width="110sp"
             android:layout_height="110sp"
             android:src="@drawable/ic_baseline_supervised_user_circle_24" />
 
         <TextView
+            android:id="@+id/username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/opensansbold"
@@ -56,12 +58,12 @@
                     android:src="@drawable/ic_baseline_email_24" />
 
                 <EditText
+                    android:id="@+id/userEmail"
                     android:layout_width="match_parent"
-android:hint="@string/email"
                     android:layout_height="wrap_content"
+                    android:hint="@string/email"
                     android:maxLines="1"
                     android:padding="6sp"
-
                     android:textColor="@color/primary_black"
                     android:textSize="19sp" />
             </LinearLayout>
@@ -81,12 +83,12 @@ android:hint="@string/email"
                     android:src="@drawable/ic_baseline_supervised_user_circle_24" />
 
                 <EditText
+                    android:id="@+id/userGender"
                     android:layout_width="match_parent"
-
                     android:layout_height="wrap_content"
+                    android:hint="@string/gender"
                     android:maxLines="1"
                     android:padding="6sp"
-                    android:hint="@string/gender"
                     android:textColor="@color/primary_black"
                     android:textSize="19sp" />
             </LinearLayout>
@@ -106,12 +108,12 @@ android:hint="@string/email"
                     android:src="@drawable/ic_baseline_call_24" />
 
                 <EditText
+                    android:id="@+id/userContact"
                     android:layout_width="match_parent"
-                    android:hint="@string/contactnumber"
                     android:layout_height="wrap_content"
+                    android:hint="@string/contactnumber"
                     android:maxLines="1"
                     android:padding="6sp"
-
                     android:textColor="@color/primary_black"
                     android:textSize="19sp" />
             </LinearLayout>
@@ -131,12 +133,12 @@ android:hint="@string/email"
                     android:src="@drawable/ic_baseline_location_on_24" />
 
                 <EditText
+                    android:id="@+id/userAddress"
                     android:layout_width="match_parent"
-                    android:hint="@string/location"
                     android:layout_height="wrap_content"
+                    android:hint="@string/location"
                     android:maxLines="1"
                     android:padding="6sp"
-
                     android:textColor="@color/primary_black"
                     android:textSize="19sp" />
             </LinearLayout>
@@ -156,12 +158,12 @@ android:hint="@string/email"
                     android:src="@drawable/ic_baseline_supervised_user_circle_24" />
 
                 <EditText
+                    android:id="@+id/userName1"
                     android:layout_width="match_parent"
-                        android:hint="@string/username"
                     android:layout_height="wrap_content"
+                    android:hint="@string/username"
                     android:maxLines="1"
                     android:padding="6sp"
-
                     android:textColor="@color/primary_black"
                     android:textSize="19sp" />
             </LinearLayout>
@@ -181,18 +183,19 @@ android:hint="@string/email"
                     android:src="@drawable/ic_baseline_keyboard_hide_24" />
 
                 <EditText
+                    android:id="@+id/userPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/password"
                     android:inputType="textPassword"
                     android:maxLines="1"
                     android:padding="6sp"
-
                     android:textColor="@color/primary_black"
                     android:textSize="19sp" />
             </LinearLayout>
 
             <Button
+                android:id="@+id/saveChanges"
                 android:layout_width="270sp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

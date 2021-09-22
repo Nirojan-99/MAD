@@ -9,4 +9,6 @@
     <string name="time2">1.30PM</string>
     <string name="time3">10.30AM</string>
     <string name="time4">4.30PM</string>
+    <string name="salonlogin">Login as Salon</string>
+    <string name="cuslogin">Login as Customer</string>
 </resources>

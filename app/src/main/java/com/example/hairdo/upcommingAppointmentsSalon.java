@@ -21,10 +21,9 @@ public class upcommingAppointmentsSalon extends Fragment {
     }
 
 
-    public static upcommingAppointmentsSalon newInstance(String param1, String param2) {
+    public static upcommingAppointmentsSalon newInstance() {
         upcommingAppointmentsSalon fragment = new upcommingAppointmentsSalon();
-        Bundle args = new Bundle();
-        fragment.setArguments(args);
+
         return fragment;
     }
     ArrayList<String> myListData = new ArrayList<String>();
