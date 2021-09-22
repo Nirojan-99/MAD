@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "64150480598",
+    "firebase_url": "https://hairdotest-default-rtdb.firebaseio.com",
+    "project_id": "hairdotest",
+    "storage_bucket": "hairdotest.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:64150480598:android:65793788f0c05e9fe08b77",
+        "android_client_info": {
+          "package_name": "com.example.hairdo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "64150480598-8hfoa0ak6d76ri47b6vqq4f8gqdvtcsg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBI8DaIqQyE6anyAo-hCQED2H3hI-CUek8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "64150480598-8hfoa0ak6d76ri47b6vqq4f8gqdvtcsg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
