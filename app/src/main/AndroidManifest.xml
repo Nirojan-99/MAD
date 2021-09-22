@@ -14,9 +14,11 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.HairDo">
+        <activity android:name=".DpUpload"
+            android:theme="@style/Theme.HairDo.NoActionBar" />
         <activity
             android:name=".SalonLogin"
-            android:theme="@style/Theme.HairDo.NoActionBar"/>
+            android:theme="@style/Theme.HairDo.NoActionBar" />
         <activity android:name=".QR_Scanner" />
         <activity android:name=".QR_Generator" />
         <activity android:name=".Notification" />

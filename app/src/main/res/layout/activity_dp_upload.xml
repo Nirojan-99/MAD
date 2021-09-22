@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DpUpload"
+    android:orientation="vertical"
+    android:background="@color/primary_orange"
+    android:padding="10sp">
+
+    <ImageView
+        android:src="@drawable/adddp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="250sp"
+        android:id="@+id/imageToUpload"
+        />
+    <ProgressBar
+        android:id="@+id/progress"
+        android:visibility="invisible"
+        android:layout_width="40sp"
+        android:layout_height="40sp"
+        android:layout_marginTop="30sp"
+        android:layout_gravity="center_horizontal"
+
+        />
+    <Button
+        android:id="@+id/uploadDp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30sp"
+        android:background="@drawable/textview_border"
+        android:backgroundTint="@color/gray"
+        android:text="Upload"
+        android:fontFamily="@font/opensansbold"
+        android:textSize="25sp"
+        android:textColor="@color/primary_black"/>
+    <TextView
+        android:id="@+id/cancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cancel"
+        android:gravity="right"
+        android:layout_marginTop="20sp"
+        android:textSize="20sp"
+        android:fontFamily="@font/robotoblack"
+        android:textColor="@color/red"
+        android:paddingRight="15sp"/>
+
+</LinearLayout>
