@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">HairDo</string>
     <string name="LogInTitle">Log In</string>
+    <string name="LogInTitlecus">Customer Log In</string>
+    <string name="LogInTitlesalon">Salon Log In</string>
     <string name="userName">Email</string>
     <string name="password">Password</string>
     <string name="forgetPassword">Forgot Password?</string>
