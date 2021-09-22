@@ -1,5 +1,7 @@
 package com.example.hairdo.model;
 
+import android.net.Uri;
+
 public class Customer {
     public String name;
     public String email;
@@ -7,6 +9,7 @@ public class Customer {
     public String contact;
     public String password;
     public String gender;
+    public String url;
 
     public  Customer(){}
 

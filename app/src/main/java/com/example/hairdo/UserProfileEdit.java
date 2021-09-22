@@ -1,5 +1,7 @@
 package com.example.hairdo;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -67,6 +69,7 @@ public class UserProfileEdit extends Fragment {
         address = view.findViewById(R.id.userAddress);
         name = view.findViewById(R.id.userName1);
         password = view.findViewById(R.id.userPassword);
+        profile = view.findViewById(R.id.userChangeImage);
 
 
         Query query = FirebaseDatabase.getInstance().getReference("Customer").child(id);
@@ -84,6 +87,7 @@ public class UserProfileEdit extends Fragment {
                         contactNum.setText(cus.contact);
                         address.setText(cus.address);
                         password.setText(cus.password);
+                        profile.setImageURI(Uri.parse(cus.url));
                     }
 
                 }
@@ -153,6 +157,17 @@ public class UserProfileEdit extends Fragment {
                     }
                 });
 
+            }
+        });
+
+        //dpchange
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(),DpUpload.class);
+                intent.putExtra("id",id);
+                intent.putExtra("type","Customer");
+                startActivity(intent);
             }
         });
 
