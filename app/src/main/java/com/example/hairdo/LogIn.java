@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.hairdo.DB.DBHelper;
 import com.example.hairdo.model.Customer;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -27,6 +28,7 @@ public class LogIn extends AppCompatActivity {
     EditText email, password;
     Button btn;
     FirebaseAuth auth;
+    DBHelper dbh;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,10 @@ public class LogIn extends AppCompatActivity {
         password = findViewById(R.id.LogInPassword);
         btn = findViewById(R.id.loginBtn);
         auth = FirebaseAuth.getInstance();
+        dbh =  new DBHelper(this);
+
+
+
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,6 +65,7 @@ public class LogIn extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+//                            boolean res = dbh.insertuserdata();
                            Intent intent = new Intent(LogIn.this,UserProfile.class);
                            intent.putExtra("userMail",enteredEmail);
                            startActivity(intent);
