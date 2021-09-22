@@ -7,6 +7,8 @@ public class Salon {
     public String contact;
     public String password;
 
+    public Salon(){}
+
     public Salon(String name, String email, String address, String contact, String password) {
         this.name = name;
         this.email = email;
