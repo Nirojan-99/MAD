@@ -19,17 +19,17 @@ public class Holidays extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_holidays);
 
-        holidayList.add("15 November 2021");
-        holidayList.add("30 November 2021");
-        holidayList.add("30 August 2021");
-        holidayList.add("15 October 2021");
-        holidayList.add("15 September 2021");
-
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.holidays_RecycleView);
-        ServicesAdapter adapter = new ServicesAdapter(holidayList);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(adapter);
+//        holidayList.add("15 November 2021");
+//        holidayList.add("30 November 2021");
+//        holidayList.add("30 August 2021");
+//        holidayList.add("15 October 2021");
+//        holidayList.add("15 September 2021");
+//
+//        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.holidays_RecycleView);
+//        ServicesAdapter adapter = new ServicesAdapter(holidayList);
+//        recyclerView.setHasFixedSize(true);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        recyclerView.setAdapter(adapter);
     }
 
 

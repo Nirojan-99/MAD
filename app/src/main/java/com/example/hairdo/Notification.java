@@ -16,17 +16,17 @@ public class Notification extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification);
-
-        notificationsList.add("Notification 1");
-        notificationsList.add("Notification 2");
-        notificationsList.add("Notification 3");
-        notificationsList.add("Notification 4");
-        notificationsList.add("Notification 5");
-
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.notification_RecycleView);
-        ServicesAdapter adapter = new ServicesAdapter(notificationsList);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(adapter);
+//
+//        notificationsList.add("Notification 1");
+//        notificationsList.add("Notification 2");
+//        notificationsList.add("Notification 3");
+//        notificationsList.add("Notification 4");
+//        notificationsList.add("Notification 5");
+//
+//        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.notification_RecycleView);
+//        ServicesAdapter adapter = new ServicesAdapter(notificationsList);
+//        recyclerView.setHasFixedSize(true);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        recyclerView.setAdapter(adapter);
     }
 }
