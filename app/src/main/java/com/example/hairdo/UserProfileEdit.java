@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.hairdo.Helper.CircleTransform;
 import com.example.hairdo.model.Customer;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -28,6 +29,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
 
@@ -90,7 +92,10 @@ public class UserProfileEdit extends Fragment {
                         contactNum.setText(cus.contact);
                         address.setText(cus.address);
                         password.setText(cus.password);
-                        profile.setImageURI(Uri.parse(cus.url));
+                        if(cus.url != null){
+                            profile.setPadding(0,0,0,0);
+                            Picasso.with(getContext()).load(Uri.parse(cus.url)).transform(new CircleTransform()).into(profile);
+                        }
 
 
                     }
@@ -152,8 +157,7 @@ public class UserProfileEdit extends Fragment {
                 FirebaseDatabase.getInstance().getReference("Customer").child(id).updateChildren(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-//                        Toast.makeText(UserProfileEdit.this, "Record is updated", Toast.LENGTH_SHORT).show();
-                        //success code
+//                        startActivity(getContext().getIntent());
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -169,9 +173,9 @@ public class UserProfileEdit extends Fragment {
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(),DpUpload.class);
-                intent.putExtra("id",id);
-                intent.putExtra("type","Customer");
+                Intent intent = new Intent(getActivity(), DpUpload.class);
+                intent.putExtra("id", id);
+                intent.putExtra("type", "Customer");
                 startActivity(intent);
             }
         });

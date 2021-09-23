@@ -6,6 +6,8 @@ public class Salon {
     public String address;
     public String contact;
     public String password;
+    public  String advance;
+    public  String url;
 
     public Salon(){}
 

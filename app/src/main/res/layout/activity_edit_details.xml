@@ -4,122 +4,171 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EditDetails"
-    android:orientation="vertical"
+    android:background="@color/primary_orange"
     android:gravity="center_horizontal"
-    android:background="@color/primary_orange">
+    android:orientation="vertical"
+    tools:context=".EditDetails">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15sp"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/card"
+            android:backgroundTint="@color/gray"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginTop="15sp"
+                android:fontFamily="@font/opensanssemibold"
+                android:text="@string/email"
+                android:textSize="13sp" />
+
+            <EditText
+                android:enabled="false"
+                android:focusable="false"
+                android:id="@+id/salonEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/opensansbold"
+                android:maxLines="1"
+                android:textSize="20sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginTop="15sp"
+                android:fontFamily="@font/opensanssemibold"
+                android:text="@string/salonname"
+                android:textSize="13sp" />
+
+            <EditText
+                android:id="@+id/salonNewName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/opensansbold"
+                android:maxLines="1"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:fontFamily="@font/opensanssemibold"
+                android:text="@string/address"
+                android:textSize="13sp" />
+
+            <EditText
+                android:id="@+id/salonNewAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/opensansbold"
+                android:maxLines="1"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:fontFamily="@font/opensanssemibold"
+                android:text="@string/contactnumber"
+                android:textSize="13sp" />
+
+            <EditText
+                android:inputType="phone"
+                android:id="@+id/salonNewContactNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/opensansbold"
+                android:maxLines="1"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:fontFamily="@font/opensanssemibold"
+                android:text="@string/Advancepayment"
+                android:textSize="13sp" />
+
+            <EditText
+                android:id="@+id/salonNewAdvancePayment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/opensansbold"
+                android:maxLines="1"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:fontFamily="@font/opensanssemibold"
+                android:text="@string/password"
+                android:textSize="13sp" />
+
+            <EditText
+                android:inputType="textPassword"
+                android:id="@+id/salonNewPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/opensansbold"
+                android:maxLines="1"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/update"
+                android:layout_width="match_parent"
+                android:layout_height="45sp"
+                android:layout_marginTop="20sp"
+                android:layout_marginBottom="10sp"
+                android:background="@drawable/textview_border"
+                android:backgroundTint="@color/primary_orange"
+                android:clickable="true"
+                android:letterSpacing=".1"
+                android:text="@string/update"
+                android:textColor="@color/primary_black"
+                android:textFontWeight="800"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+    </ScrollView>
+
+
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="15sp"
-        android:layout_marginStart="15dp"
-        android:background="@drawable/card"
-        android:backgroundTint="@color/gray"
-        android:padding="15sp"
-        android:gravity="center"
-        android:layout_marginLeft="15dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginRight="15dp"
         android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-        <TextView
-            android:layout_marginTop="15sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/salonname"
-            android:textSize="13sp"
-            android:fontFamily="@font/opensanssemibold"
-            android:layout_gravity="left"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:id="@+id/salonNewName"
-            android:fontFamily="@font/opensansbold"
-            android:textSize="15sp"
-            android:maxLines="1"
-            android:layout_height="wrap_content"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/address"
-            android:textSize="13sp"
-            android:fontFamily="@font/opensanssemibold"
-            android:layout_gravity="left"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:id="@+id/salonNewAddress"
-            android:fontFamily="@font/opensansbold"
-            android:textSize="15sp"
-            android:maxLines="1"
-            android:layout_height="wrap_content"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/contactnumber"
-            android:textSize="13sp"
-            android:fontFamily="@font/opensanssemibold"
-            android:layout_gravity="left"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:id="@+id/salonNewContactNumber"
-            android:fontFamily="@font/opensansbold"
-            android:textSize="15sp"
-            android:maxLines="1"
-            android:layout_height="wrap_content"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/Advancepayment"
-            android:textSize="13sp"
-            android:fontFamily="@font/opensanssemibold"
-            android:layout_gravity="left"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:id="@+id/salonNewAdvancePayment"
-            android:fontFamily="@font/opensansbold"
-            android:textSize="15sp"
-            android:maxLines="1"
-            android:layout_height="wrap_content"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/password"
-            android:textSize="13sp"
-            android:fontFamily="@font/opensanssemibold"
-            android:layout_gravity="left"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:id="@+id/salonNewPassword"
-            android:fontFamily="@font/opensansbold"
-            android:textSize="15sp"
-            android:maxLines="1"
-            android:layout_height="wrap_content"
-            />
+        android:layout_gravity="bottom"
+        android:gravity="bottom"
+        android:padding="15sp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
         <Button
-            android:clickable="true"
-            android:layout_marginTop="10sp"
-            android:layout_width="wrap_content"
-            android:layout_height="35sp"
-            android:text="@string/update"
-            android:backgroundTint="@color/primary_orange"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/delete"
+            android:layout_width="300sp"
+            android:layout_height="50sp"
             android:background="@drawable/card"
-            android:textColor="@color/white"
-            android:letterSpacing=".1"/>
+            android:backgroundTint="@color/red"
+            android:clickable="true"
+            android:fontFamily="@font/opensansbold"
+            android:text="@string/deleteAccont"
+            android:textSize="17sp" />
     </LinearLayout>
-    <Button
-        android:clickable="true"
-        android:text="@string/deleteAccont"
-        android:textSize="17sp"
-        android:fontFamily="@font/opensansbold"
-        android:layout_width="300sp"
-        android:layout_height="50sp"
-        android:background="@drawable/card"
-        android:backgroundTint="@color/red"/>
+
 
 </LinearLayout>
