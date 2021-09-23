@@ -1,13 +1,17 @@
 package com.example.hairdo;
 
 
+import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,9 +26,11 @@ import java.util.ArrayList;
 public class UserViewSalonList extends RecyclerView.Adapter<UserViewSalonList.ViewHolder> {
 
     ArrayList<Salon> data;
+    Context cont;
 
-    public UserViewSalonList(ArrayList<Salon> data) {
+    public UserViewSalonList(ArrayList<Salon> data,Context con) {
         this.data = data;
+        this.cont = con;
     }
 
     @Override
@@ -44,15 +50,22 @@ public class UserViewSalonList extends RecyclerView.Adapter<UserViewSalonList.Vi
     public void onBindViewHolder(@NonNull UserViewSalonList.ViewHolder holder, int position) {
         Salon ser = data.get(position);
         holder.name.setText(ser.name);
-//        holder.img.
         holder.rtb.setRating(3.0f);
         holder.txt.setText("102");
         holder.location.setText(ser.address);
-        holder.img.setImageURI(Uri.parse(ser.url));
-//        if(ser.url != null){
-//            holder.img.setPadding(0,0,0,0);
-//            Picasso.with(getPosition()).load(Uri.parse(ser.url)).transform(new CircleTransform()).into(holder.img);
-//        }
+        if(ser.url != null){
+            holder.img.setPadding(0,0,0,0);
+            Picasso.with(cont).load(Uri.parse(ser.url)).into(holder.img);
+        }
+
+        holder.clicable.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(cont,SalonViewInUser.class);
+                intent.putExtra("id",ser._id);
+                v.getContext().startActivity(intent);
+            }
+        });
 
     }
 
@@ -68,6 +81,7 @@ public class UserViewSalonList extends RecyclerView.Adapter<UserViewSalonList.Vi
         RatingBar rtb;
         TextView txt;
         TextView location;
+        LinearLayout clicable;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -77,6 +91,7 @@ public class UserViewSalonList extends RecyclerView.Adapter<UserViewSalonList.Vi
             rtb = itemView.findViewById(R.id.salonRating);
             txt = itemView.findViewById(R.id.ratingcount);
             location = itemView.findViewById(R.id.location);
+            clicable = itemView.findViewById(R.id.salonViewAsUser);
 
         }
     }

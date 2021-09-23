@@ -5,6 +5,7 @@ public class Offer {
     public String description;
     public String validDate;
     public String id;
+    public String _id;
 
     public Offer(){}
 
@@ -13,5 +14,9 @@ public class Offer {
         this.description = description;
         this.validDate = validDate;
         this.id = id;
+    }
+
+    public void set_id(String _id) {
+        this._id = _id;
     }
 }

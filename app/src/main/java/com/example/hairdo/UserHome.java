@@ -48,7 +48,7 @@ public class UserHome extends Fragment {
 
         //set adapter
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.salons);
-        adapter = new UserViewSalonList(myListData);
+        adapter = new UserViewSalonList(myListData,view.getContext());
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerView.setAdapter(adapter);
@@ -61,6 +61,7 @@ public class UserHome extends Fragment {
                 if (snapshot.exists()) {
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                         Salon ser = dataSnapshot.getValue(Salon.class);
+                        ser.set_id(dataSnapshot.getKey());
                         myListData.add(ser);
                     }
                     adapter.notifyDataSetChanged();

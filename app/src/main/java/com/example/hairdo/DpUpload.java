@@ -17,6 +17,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.hairdo.model.Gallery;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
@@ -103,47 +104,94 @@ public class DpUpload extends AppCompatActivity {
 
     private void uploadToFirebase(Uri uri){
 
-        final StorageReference fileRef = reference.child(System.currentTimeMillis() + "." + getFileExtension(uri));
-        fileRef.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                    @Override
-                    public void onSuccess(Uri uri) {
+        if(type.contains("Gallery")){
 
-                        HashMap<String, Object> hashMap = new HashMap<>();
-                        hashMap.put("url", uri.toString());
+            final StorageReference fileRef = reference.child(System.currentTimeMillis() + "." + getFileExtension(uri));
+            fileRef.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
 
-                        root.child(id).updateChildren(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void aVoid) {
-                                finish();
-                            }
-                        }).addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                //failure code
-                            }
-                        });
+                            Gallery gallery = new Gallery(uri.toString(),id);
 
-                        pb.setVisibility(View.INVISIBLE);
-                        Toast.makeText(DpUpload.this, "Uploaded Successfully", Toast.LENGTH_SHORT).show();
-                        img.setImageResource(R.drawable.adddp);
-                    }
-                });
-            }
-        }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
-                pb.setVisibility(View.VISIBLE);
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                pb.setVisibility(View.INVISIBLE);
-                Toast.makeText(DpUpload.this, "Uploading Failed !!", Toast.LENGTH_SHORT).show();
-            }
-        });
+                            root.push().setValue(gallery).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    finish();
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    //failure code
+                                }
+                            });
+
+                            pb.setVisibility(View.INVISIBLE);
+                            Toast.makeText(DpUpload.this, "Uploaded Successfully", Toast.LENGTH_SHORT).show();
+                            img.setImageResource(R.drawable.adddp);
+                        }
+                    });
+                }
+            }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
+                    pb.setVisibility(View.VISIBLE);
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    pb.setVisibility(View.INVISIBLE);
+                    Toast.makeText(DpUpload.this, "Uploading Failed !!", Toast.LENGTH_SHORT).show();
+                }
+            });
+
+        }else{
+            final StorageReference fileRef = reference.child(System.currentTimeMillis() + "." + getFileExtension(uri));
+            fileRef.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+
+                            HashMap<String, Object> hashMap = new HashMap<>();
+                            hashMap.put("url", uri.toString());
+
+                            root.child(id).updateChildren(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    finish();
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    //failure code
+                                }
+                            });
+
+                            pb.setVisibility(View.INVISIBLE);
+                            Toast.makeText(DpUpload.this, "Uploaded Successfully", Toast.LENGTH_SHORT).show();
+                            img.setImageResource(R.drawable.adddp);
+                        }
+                    });
+                }
+            }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
+                    pb.setVisibility(View.VISIBLE);
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    pb.setVisibility(View.INVISIBLE);
+                    Toast.makeText(DpUpload.this, "Uploading Failed !!", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+
+
     }
 
     private String getFileExtension(Uri mUri){
