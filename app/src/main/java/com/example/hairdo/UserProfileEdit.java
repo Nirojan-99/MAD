@@ -1,6 +1,9 @@
 package com.example.hairdo;
 
+import android.content.ContentResolver;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -88,6 +91,8 @@ public class UserProfileEdit extends Fragment {
                         address.setText(cus.address);
                         password.setText(cus.password);
                         profile.setImageURI(Uri.parse(cus.url));
+
+
                     }
 
                 }

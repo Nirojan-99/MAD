@@ -1,5 +1,6 @@
 package com.example.hairdo;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.hairdo.model.Offer;
 import com.example.hairdo.model.Service;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
@@ -20,36 +22,37 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ViewHolder> {
+public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.ViewHolder> {
 
-    ArrayList<Service> data;
+    ArrayList<Offer> data;
 
-    public ServicesAdapter(ArrayList<Service> data) {
+    public OffersAdapter(ArrayList<Offer> data) {
         this.data = data;
     }
 
     @Override
-    public int getItemViewType(final int position) { return R.layout.service_recycle_view; }
+    public int getItemViewType(final int position) { return R.layout.offers_recycle_view; }
 
     @NonNull
     @Override
-    public ServicesAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-            View view = layoutInflater.inflate(R.layout.service_recycle_view,parent,false);
-            ViewHolder viewHolder = new ViewHolder(view);
-            return viewHolder;
+    public OffersAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+        View view = layoutInflater.inflate(R.layout.offers_recycle_view,parent,false);
+        ViewHolder viewHolder = new ViewHolder(view);
+        return viewHolder;
     }
 
 
     @Override
-    public void onBindViewHolder(@NonNull ServicesAdapter.ViewHolder holder, int position) {
-        Service ser = data.get(position);
+    public void onBindViewHolder(@NonNull OffersAdapter.ViewHolder holder, int position) {
+        Offer ser = data.get(position);
         holder.seviceName.setText(ser.name);
+        holder.des.setText(ser.description);
 
-        holder.img.setOnClickListener(new View.OnClickListener() {
+        holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Query query = FirebaseDatabase.getInstance().getReference("Services").orderByChild("name").equalTo(ser.name);
+                Query query = FirebaseDatabase.getInstance().getReference("Offer").orderByChild("name").equalTo(ser.name);
                 query.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -70,6 +73,18 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ViewHo
                 });
             }
         });
+
+        holder.edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(),EditOffer.class);
+                intent.putExtra("name",ser.name);
+                intent.putExtra("description",ser.description);
+                intent.putExtra("id",ser.id);
+                intent.putExtra("date",ser.validDate);
+                v.getContext().startActivity(intent);
+            }
+        });
     }
 
 
@@ -80,12 +95,16 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ViewHo
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView seviceName ;
-        ImageView img;
+        TextView des ;
+        ImageView edit;
+        ImageView delete;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            seviceName = itemView.findViewById(R.id.services);
-            img = itemView.findViewById(R.id.delete);
+            seviceName = itemView.findViewById(R.id.name);
+            des = itemView.findViewById(R.id.description);
+            edit = itemView.findViewById(R.id.offerEdit);
+            delete = itemView.findViewById(R.id.delete);
 
         }
     }
