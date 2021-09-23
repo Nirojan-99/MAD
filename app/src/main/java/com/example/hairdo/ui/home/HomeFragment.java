@@ -54,12 +54,6 @@ public class HomeFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
-//        RecyclerView recyclerView = (RecyclerView) root.findViewById(R.id.recylersalon);
-//        adapter = new ServicesSalonAdapter(myListData);
-//        recyclerView.setHasFixedSize(true);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(root.getContext()));
-//        recyclerView.setAdapter(adapter);
-
         //another
         RecyclerView recyclerView = root.findViewById(R.id.recylersalon);
         LinearLayoutManager horizontalLayoutManager
