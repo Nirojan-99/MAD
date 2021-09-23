@@ -49,5 +49,12 @@
         android:fontFamily="@font/opensanssemibold"
         android:text="Any User feedback"
         android:textSize="18sp" />
+    <TextView
+        android:id="@+id/date"
+        android:layout_margin="5sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1999-12-30"
+        />
 
 </LinearLayout>

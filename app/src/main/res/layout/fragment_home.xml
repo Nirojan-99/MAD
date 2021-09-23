@@ -253,20 +253,9 @@
 
             </LinearLayout>
 
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20sp"
-                android:background="@drawable/card"
-                android:backgroundTint="@color/white_dark"
-                android:padding="10sp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
                     <TextView
+                        android:padding="5sp"
+                        android:layout_gravity="left"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginVertical="10sp"
@@ -275,93 +264,10 @@
                         android:textColor="@color/primary_black"
                         android:textSize="18sp" />
 
-
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/card"
-                            android:backgroundTint="@color/primary_black"
-                            android:fontFamily="@font/opensanssemibold"
-                            android:onClick="onClickServices"
-                            android:paddingHorizontal="10sp"
-                            android:paddingVertical="3sp"
-                            android:text="@string/username"
-                            android:textColor="@color/white"
-                            android:textSize="13sp" />
-
-                        <RatingBar
-                            android:id="@+id/userRating2"
-                            style="@style/Base.Widget.AppCompat.RatingBar.Small"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginHorizontal="10sp"
-                            android:isIndicator="true"
-                            android:max="5"
-                            android:numStars="5"
-                            android:rating="3"
-                            android:stepSize=".5" />
-                    </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/userReview2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5sp"
-                        android:fontFamily="@font/opensanssemibold"
-                        android:text="Any User feedback"
-                        android:textSize="10sp" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/card"
-                            android:backgroundTint="@color/primary_black"
-                            android:fontFamily="@font/opensanssemibold"
-                            android:paddingHorizontal="10sp"
-                            android:paddingVertical="3sp"
-                            android:text="@string/username"
-                            android:textColor="@color/white"
-                            android:textSize="13sp" />
-
-                        <RatingBar
-                            android:id="@+id/userRating3"
-                            style="@style/Base.Widget.AppCompat.RatingBar.Small"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginHorizontal="10sp"
-                            android:isIndicator="true"
-                            android:max="5"
-                            android:numStars="5"
-                            android:rating="3"
-                            android:stepSize=".5" />
-                    </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/userReview3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5sp"
-                        android:fontFamily="@font/opensanssemibold"
-                        android:text="Any User feedback"
-                        android:textSize="10sp" />
-
-                </LinearLayout>
-
-            </ScrollView>
-
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/recycleReviewSalon"/>
 
         </LinearLayout>
     </ScrollView>

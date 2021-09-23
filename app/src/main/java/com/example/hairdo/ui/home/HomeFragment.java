@@ -27,6 +27,8 @@ import com.example.hairdo.R;
 import com.example.hairdo.SalonViewInUser;
 import com.example.hairdo.ServicesAdapter;
 import com.example.hairdo.ServicesSalonAdapter;
+import com.example.hairdo.UserViewReviewAdapter;
+import com.example.hairdo.model.Review;
 import com.example.hairdo.model.Salon;
 import com.example.hairdo.model.Service;
 import com.google.firebase.database.DataSnapshot;
@@ -50,9 +52,42 @@ public class HomeFragment extends Fragment {
     TextView address, mail, contact, likes, name;
     RatingBar rtb;
 
+    //review adapter
+    ArrayList<Review>  reviews1 = new ArrayList<Review>();
+    UserViewReviewAdapter adapter1 ;
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
+
+        //recycle review
+        RecyclerView recyclerView1 = (RecyclerView) root.findViewById(R.id.recycleReviewSalon);
+        adapter1 = new UserViewReviewAdapter(reviews1);
+        recyclerView1.setHasFixedSize(true);
+        recyclerView1.setLayoutManager(new LinearLayoutManager(root.getContext()));
+        recyclerView1.setAdapter(adapter1);
+
+        //getting reviews
+        Query query5 = FirebaseDatabase.getInstance().getReference("Review").orderByChild("salonid").equalTo(id);
+        query5.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                        Review ser = dataSnapshot.getValue(Review.class);
+                        ser.set_id(dataSnapshot.getKey());
+                        reviews1.add(ser);
+                    }
+                    adapter1.notifyDataSetChanged();
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(root.getContext(), "no servies available", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         //another
         RecyclerView recyclerView = root.findViewById(R.id.recylersalon);

@@ -47,6 +47,7 @@ public class UserViewReviewAdapter extends RecyclerView.Adapter<UserViewReviewAd
         holder.userName.setText(ser.userName);
         holder.rtb.setRating(ser.star);
         holder.feedback.setText(ser.feedback);
+        holder.date.setText(ser.date);
 
     }
 
@@ -57,7 +58,7 @@ public class UserViewReviewAdapter extends RecyclerView.Adapter<UserViewReviewAd
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        TextView feedback,userName ;
+        TextView feedback,userName ,date;
         RatingBar rtb;
 
         public ViewHolder(@NonNull View itemView) {
@@ -66,6 +67,7 @@ public class UserViewReviewAdapter extends RecyclerView.Adapter<UserViewReviewAd
             feedback = itemView.findViewById(R.id.userReview1);
             userName = itemView.findViewById(R.id.userName);
             rtb = itemView.findViewById(R.id.userRating);
+            date = itemView.findViewById(R.id.date);
 
         }
     }
