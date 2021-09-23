@@ -61,24 +61,6 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ViewHo
                         Toast.makeText(v.getContext(), "Unable to delete", Toast.LENGTH_SHORT).show();
                     }
                 });
-//                .addListenerForSingleValueEvent(new ValueEventListener() {
-//                    @Override
-//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                        for (DataSnapshot dataSnapshot: snapshot.getChildren()) {
-//                            dataSnapshot.getRef().removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
-//                                @Override
-//                                public void onSuccess(Void aVoid) {
-//                                    Toast.makeText(v.getContext(), "deleted!", Toast.LENGTH_SHORT).show();
-//                                }
-//                            });
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onCancelled(@NonNull DatabaseError error) {
-//                        Toast.makeText(v.getContext(), "Unable to delete", Toast.LENGTH_SHORT).show();
-//                    }
-//                });
             }
         });
     }
