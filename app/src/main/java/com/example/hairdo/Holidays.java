@@ -18,6 +18,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 import android.widget.DatePicker;
 
@@ -37,6 +38,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Holidays extends AppCompatActivity {
+    ProgressBar pg;
     ImageButton selectDate;
     Button addHolidayBtn;
     EditText selectedDate;
@@ -64,6 +66,7 @@ public class Holidays extends AppCompatActivity {
         selectDate = findViewById(R.id.btnHoliDate);
         selectedDate = findViewById(R.id.picked_holiDate);
         remark = findViewById(R.id.Holidayremark);
+        pg=findViewById(R.id.holidayPG);
 
 
         setDateforRecyclerview();
@@ -78,11 +81,13 @@ public class Holidays extends AppCompatActivity {
                 String Fmonth = Integer.toString(Dmonth);
                 String Fday = Integer.toString(DdayOfMonth);
                 String Fyear = Integer.toString(Dyear);
-                Holiday holiday = new Holiday(FDate, FRemark, Fyear, Fmonth, Fday);
+                Holiday holiday = new Holiday(FDate, FRemark);
 
 
                 FirebaseDatabase.getInstance().getReference("Holiday").push().setValue(holiday).addOnSuccessListener(suc -> {
                     Toast.makeText(Holidays.this, "Successfully added Holiday ", Toast.LENGTH_SHORT).show();
+                    finish();
+                    startActivity(getIntent());
                 }).addOnFailureListener(er -> {
                     Toast.makeText(Holidays.this, "Not Added. Error is: " + er.getMessage(), Toast.LENGTH_SHORT).show();
                 });
@@ -101,10 +106,12 @@ public class Holidays extends AppCompatActivity {
                 for (DataSnapshot data : snapshot.getChildren()) {
 
                     Holiday h = data.getValue(Holiday.class);
+                    h.setFbKey(data.getKey());
                     holidayList.add(h);
 
 
                 }
+                pg.setVisibility(View.GONE);
                 holidaysRvAd.notifyDataSetChanged();
             }
 
