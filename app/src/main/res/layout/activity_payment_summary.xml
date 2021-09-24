@@ -21,56 +21,48 @@
         android:layout_height="wrap_content"
         android:layout_marginVertical="15sp"
         android:background="@drawable/card"
-        android:backgroundTint="@color/white_dark"
+        android:backgroundTint="@color/gray"
         android:gravity="left"
         android:orientation="vertical"
         android:padding="15sp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="5sp"
-            android:fontFamily="@font/opensanssemibold"
-            android:text="@string/cardHolderName"
-            android:textColor="@color/primary_black"
-            android:textSize="16sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="5sp"
-            android:fontFamily="@font/opensanssemibold"
-            android:text="@string/cardNumber"
-            android:textColor="@color/primary_black"
-            android:textSize="16sp" />
-
-        <View
+        <ProgressBar
             android:layout_width="match_parent"
-            android:layout_height="1sp"
-            android:layout_marginHorizontal="0sp"
-            android:layout_marginVertical="11sp"
-            android:background="@color/light_black" />
+            android:layout_height="wrap_content"
+            android:id="@+id/cardProgress"/>
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/holder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="5sp"
+            android:fontFamily="@font/opensanssemibold"
+            android:textColor="@color/primary_black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="5sp"
+            android:fontFamily="@font/opensanssemibold"
+            android:textColor="@color/primary_black"
+            android:textSize="16sp" />
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:layout_gravity="right"
+            android:gravity="right"
+            android:orientation="vertical">
 
-            <Button
-                android:id="@+id/updatePaymentDetails"
-                android:layout_width="wrap_content"
-                android:layout_height="30sp"
-                android:layout_marginVertical="10sp"
-                android:background="@drawable/textview_border"
-                android:backgroundTint="@color/primary_black"
-                android:text="@string/update"
-                android:textColor="@color/white_dark" />
 
             <TextView
+                android:visibility="gone"
                 android:id="@+id/removePayment"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10sp"
                 android:fontFamily="@font/opensansbold"
@@ -84,28 +76,49 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@drawable/card"
         android:backgroundTint="@color/white_dark"
         android:orientation="vertical">
+
         <TextView
-            android:layout_marginVertical="10sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginVertical="10sp"
+            android:fontFamily="@font/opensanssemibold"
             android:text="@string/paymentSummary"
             android:textColor="@color/primary_black"
-            android:fontFamily="@font/opensanssemibold"
-            android:textSize="18sp"
-            android:layout_gravity="center_horizontal"/>
+            android:textSize="18sp" />
 
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
+
+                <ProgressBar
+                    android:id="@+id/paymentProgress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_marginBottom="15sp"
+                    android:id="@+id/nothing"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_horizontal"
+                    android:text="No payment details available!"
+                    android:textColor="@color/red"
+                    android:textFontWeight="800"
+                    android:textSize="15sp"
+                    android:visibility="gone" />
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/paymentSummaryRecycle"
                     android:layout_width="match_parent"

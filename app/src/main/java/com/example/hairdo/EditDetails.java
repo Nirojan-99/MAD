@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 
 import com.example.hairdo.model.Customer;
 import com.example.hairdo.model.Salon;
@@ -26,8 +28,10 @@ public class EditDetails extends AppCompatActivity {
     String id = "ejHLtEYSByaRAt0p7zp5yMaD9Na2";
     //        String id = auth.getCurrentUser().getUid();
 
-    EditText name,address,contact,password,advance,email;
-    Button btn,delete;
+    EditText name, address, contact, password, advance, email;
+    Button btn, delete;
+    ProgressBar pgs;
+    LinearLayout ll;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +46,8 @@ public class EditDetails extends AppCompatActivity {
         email = findViewById(R.id.salonEmail);
         btn = findViewById(R.id.update);
         delete = findViewById(R.id.delete);
+        pgs = findViewById(R.id.detailsProgress);
+        ll = findViewById(R.id.bg);
 
         //get data
         Query query = FirebaseDatabase.getInstance().getReference("Salon").child(id);
@@ -59,7 +65,8 @@ public class EditDetails extends AppCompatActivity {
                         password.setText(cus.password);
                         advance.setText(cus.advance);
                     }
-
+                    pgs.setVisibility(View.GONE);
+                    ll.setVisibility(View.GONE);
                 }
             }
 

@@ -14,7 +14,11 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.HairDo">
-        <activity android:name=".DpUpload"
+        <activity
+            android:name=".HolidaysEdit"
+            android:theme="@style/Theme.HairDo.NoActionBar"/>
+        <activity
+            android:name=".DpUpload"
             android:theme="@style/Theme.HairDo.NoActionBar" />
         <activity
             android:name=".SalonLogin"

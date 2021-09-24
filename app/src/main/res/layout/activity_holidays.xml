@@ -51,9 +51,16 @@
             android:layout_height="match_parent"
             android:layout_margin="15sp"
             android:orientation="vertical">
+            <ProgressBar
+                android:id="@+id/holidayPG"
+                android:visibility="visible"
+                android:layout_marginTop="30sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/holidays_RecycleView"
+                android:id="@+id/holidays_rv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -110,6 +117,8 @@
 
 
                         />
+
+
                 </RelativeLayout>
 
                 <TextView
