@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         new android.os.Handler(Looper.getMainLooper()).postDelayed(
                 new Runnable() {
                     public void run() {
-                        Intent send = new Intent(MainActivity.this, SalonViewInUser.class);
+                        Intent send = new Intent(MainActivity.this, UserProfile.class);
                         startActivity(send);
                         finish();
                     }

@@ -19,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hairdo.Helper.CircleTransform;
+import com.example.hairdo.Helper.GetRating;
 import com.example.hairdo.model.Customer;
 import com.example.hairdo.model.Follow;
 import com.example.hairdo.model.Gallery;
@@ -122,7 +123,8 @@ public class SalonViewInUser extends AppCompatActivity {
         });
 
         //fetch rating
-
+        GetRating getRating= new GetRating();
+        getRating.getRating(id,rtb,ratingCount);
 
         //add rating
         btn.setOnClickListener(new View.OnClickListener() {
@@ -216,8 +218,6 @@ public class SalonViewInUser extends AppCompatActivity {
                 if (snapshot.exists()) {
                     Salon cus = snapshot.getValue(Salon.class);
                     name.setText(cus.name);
-                    rtb.setRating(3.5f);
-                    ratingCount.setText("102");
                     address.setText(cus.address);
                     contact.setText(cus.contact);
                     if (cus.url != null) {
@@ -306,32 +306,6 @@ public class SalonViewInUser extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void getRating() {
-
-//        FirebaseDatabase.getInstance().getReference("Review").orderByChild("salonid").equalTo(id).addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                if (snapshot.exists()) {
-//                    Float loop = 0.0f;
-//                    Float rating = 0.0f;
-//                    Float rate = 0.0f;
-//                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-//                        Review ser = dataSnapshot.getValue(Review.class);
-//                        loop++;
-//                        rating += ser.star;
-//                    }
-//                     rate = rating / loop;
-//                    return rate;
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
-//        return  null;
-    }
 
     public void onViewLocationClick(View v) {
         Intent intent = new Intent(this, SalonLocation.class);

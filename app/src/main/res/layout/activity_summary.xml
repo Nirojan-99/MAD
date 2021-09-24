@@ -17,7 +17,7 @@
             android:layout_height="60sp"
             android:layout_marginBottom="20sp"
             android:background="@drawable/card"
-            android:backgroundTint="@color/white_dark"
+            android:backgroundTint="@color/primary_black"
             android:clickable="true"
             android:gravity="center_vertical">
 
@@ -33,10 +33,11 @@
                 android:paddingLeft="20sp"
                 android:text="@string/totalCompletion"
                 android:textAlignment="viewStart"
-                android:textColor="@color/primary_black"
+                android:textColor="@color/white"
                 android:textSize="15sp" />
 
             <TextView
+                android:id="@+id/completion"
                 android:textSize="20sp"
                 android:fontFamily="@font/opensansbold"
                 android:textColor="@color/secondary_blue"
@@ -52,7 +53,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="0dp"
                 android:layout_marginBottom="5dp"
-                android:text="100"/>
+               />
 
         </RelativeLayout>
 
@@ -61,7 +62,7 @@
             android:layout_height="60sp"
             android:layout_marginBottom="20sp"
             android:background="@drawable/card"
-            android:backgroundTint="@color/white_dark"
+            android:backgroundTint="@color/primary_black"
             android:clickable="true"
             android:gravity="center_vertical">
 
@@ -77,10 +78,11 @@
                 android:paddingLeft="20sp"
                 android:text="@string/totalCancalation"
                 android:textAlignment="viewStart"
-                android:textColor="@color/primary_black"
+                android:textColor="@color/white"
                 android:textSize="15sp" />
 
             <TextView
+                android:id="@+id/cancelation"
                 android:textSize="20sp"
                 android:fontFamily="@font/opensansbold"
                 android:textColor="@color/secondary_blue"
@@ -95,8 +97,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="0dp"
-                android:layout_marginBottom="5dp"
-                android:text="10"/>
+                android:layout_marginBottom="5dp" />
 
         </RelativeLayout>
 
@@ -105,7 +106,7 @@
             android:layout_height="60sp"
             android:layout_marginBottom="20sp"
             android:background="@drawable/card"
-            android:backgroundTint="@color/white_dark"
+            android:backgroundTint="@color/primary_black"
             android:clickable="true"
             android:gravity="center_vertical">
 
@@ -121,10 +122,11 @@
                 android:paddingLeft="20sp"
                 android:text="@string/totalPendings"
                 android:textAlignment="viewStart"
-                android:textColor="@color/primary_black"
+                android:textColor="@color/white"
                 android:textSize="15sp" />
 
             <TextView
+                android:id="@+id/pendings"
                 android:textSize="20sp"
                 android:fontFamily="@font/opensansbold"
                 android:textColor="@color/secondary_blue"
@@ -139,8 +141,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="0dp"
-                android:layout_marginBottom="5dp"
-                android:text="15"/>
+                android:layout_marginBottom="5dp" />
 
         </RelativeLayout>
 
@@ -149,7 +150,7 @@
             android:layout_height="60sp"
             android:layout_marginBottom="20sp"
             android:background="@drawable/card"
-            android:backgroundTint="@color/white_dark"
+            android:backgroundTint="@color/primary_black"
             android:clickable="true"
             android:gravity="center_vertical">
 
@@ -165,10 +166,11 @@
                 android:paddingLeft="20sp"
                 android:text="@string/totalEarnings"
                 android:textAlignment="viewStart"
-                android:textColor="@color/primary_black"
+                android:textColor="@color/white"
                 android:textSize="15sp" />
 
             <TextView
+                android:id="@+id/earnings"
                 android:textSize="20sp"
                 android:fontFamily="@font/opensansbold"
                 android:textColor="@color/secondary_blue"
@@ -183,8 +185,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="0dp"
-                android:layout_marginBottom="5dp"
-                android:text="10,000"/>
+                android:layout_marginBottom="5dp" />
 
         </RelativeLayout>
     </LinearLayout>
