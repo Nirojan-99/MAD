@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,6 +7,10 @@
     android:background="@color/primary_orange"
     android:orientation="vertical"
     tools:context=".UserProfile">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,6 +21,7 @@
         android:padding="15sp">
 
         <ImageView
+            android:background="@drawable/ic_baseline_supervised_user_circle_24"
             android:id="@+id/userChangeImage"
             android:layout_width="110sp"
             android:layout_height="110sp"
@@ -58,6 +63,8 @@
                     android:src="@drawable/ic_baseline_email_24" />
 
                 <EditText
+                    android:backgroundTint="@color/gray"
+                    android:background="@drawable/textview_border"
                     android:enabled="false"
                     android:focusable="false"
                     android:id="@+id/userEmail"
@@ -85,6 +92,8 @@
                     android:src="@drawable/ic_baseline_supervised_user_circle_24" />
 
                 <EditText
+                    android:backgroundTint="@color/gray"
+                    android:background="@drawable/textview_border"
                     android:id="@+id/userGender"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -110,6 +119,8 @@
                     android:src="@drawable/ic_baseline_call_24" />
 
                 <EditText
+                    android:backgroundTint="@color/gray"
+                    android:background="@drawable/textview_border"
                     android:id="@+id/userContact"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -135,6 +146,8 @@
                     android:src="@drawable/ic_baseline_location_on_24" />
 
                 <EditText
+                    android:backgroundTint="@color/gray"
+                    android:background="@drawable/textview_border"
                     android:id="@+id/userAddress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -160,6 +173,8 @@
                     android:src="@drawable/ic_baseline_supervised_user_circle_24" />
 
                 <EditText
+                    android:backgroundTint="@color/gray"
+                    android:background="@drawable/textview_border"
                     android:id="@+id/userName1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -185,6 +200,8 @@
                     android:src="@drawable/ic_baseline_keyboard_hide_24" />
 
                 <EditText
+                    android:backgroundTint="@color/gray"
+                    android:background="@drawable/textview_border"
                     android:id="@+id/userPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -211,5 +228,18 @@
 
         </LinearLayout>
     </ScrollView>
-
-</LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/bg"
+        android:gravity="center_vertical"
+        android:background="@color/gray"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ProgressBar
+            android:id="@+id/userdetailsprogress"
+            android:layout_gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="45sp"
+            />
+    </LinearLayout>
+</RelativeLayout>

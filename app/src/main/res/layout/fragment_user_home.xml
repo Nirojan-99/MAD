@@ -113,6 +113,11 @@
             android:orientation="vertical"
             android:padding="15sp">
 
+            <ProgressBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/salonsProgress"/>
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/salons"
                 android:layout_width="match_parent"
