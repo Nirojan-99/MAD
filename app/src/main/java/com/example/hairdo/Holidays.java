@@ -53,7 +53,7 @@ public class Holidays extends AppCompatActivity {
     int DdayOfMonth;
 
     RecyclerView recyclerView;
-    ArrayList<Holiday> holidayList=new ArrayList<>();
+    ArrayList<Holiday> holidayList = new ArrayList<>();
     HolidaysRvAd holidaysRvAd;
 
     @Override
@@ -94,34 +94,13 @@ public class Holidays extends AppCompatActivity {
     }
 
     private void setDateforRecyclerview() {
-//        holidayList.add(new Holiday("adadadsad","dasdasdasd","dasdadas","asdad","dasdjadj"));
-//        holidayList.add(new Holiday("qqqqq","121212","dc","as121dad","qwd"));
-//        holidayList.add(new Holiday("wwwww","dqdw","dasdadas","asdad","dasdjadj"));
-//        holidayList.add(new Holiday("eeeee","dasddww11asdasd","dasdadas","asdad","dasdjadj"));
-
-//        FirebaseDatabase.getInstance().getReference(Holiday.class.getSimpleName()).child("Holiday").addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull @NotNull DataSnapshot dataSnapshot) {
-//                for (DataSnapshot snapshot:dataSnapshot.getChildren()){
-//                   Holiday h=snapshot.getValue(Holiday.class);
-//                   holidayList.add(h);
-////                    Toast.makeText(Holidays.this, "-----"+snapshot.getValue(), Toast.LENGTH_SHORT).show();
-////                    System.out.println("hsdfdfdfdfdfdfdfdfdfdfdfdfdfdfj "+ snapshot.getValue());
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull @NotNull DatabaseError error) {
-//
-//            }
-//        });
 
         FirebaseDatabase.getInstance().getReference(Holiday.class.getSimpleName()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
-                for (DataSnapshot data:snapshot.getChildren()){
+                for (DataSnapshot data : snapshot.getChildren()) {
 
-                    Holiday h=data.getValue(Holiday.class);
+                    Holiday h = data.getValue(Holiday.class);
                     holidayList.add(h);
 
 
@@ -138,10 +117,10 @@ public class Holidays extends AppCompatActivity {
 
 
     private void setAdapter() {
-        recyclerView=findViewById(R.id.holidays_rv);
-        RecyclerView.LayoutManager layoutManager=new LinearLayoutManager(this);
+        recyclerView = findViewById(R.id.holidays_rv);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        holidaysRvAd=new HolidaysRvAd(this,holidayList);
+        holidaysRvAd = new HolidaysRvAd(this, holidayList);
         recyclerView.setAdapter(holidaysRvAd);
 
 
