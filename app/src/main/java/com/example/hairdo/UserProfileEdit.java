@@ -10,12 +10,15 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.os.Process;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,6 +44,8 @@ public class UserProfileEdit extends Fragment {
     Button btn;
     TextView titleName;
     FirebaseAuth auth;
+    LinearLayout ll;
+    ProgressBar pgs;
 
     public UserProfileEdit() {
 
@@ -75,6 +80,8 @@ public class UserProfileEdit extends Fragment {
         name = view.findViewById(R.id.userName1);
         password = view.findViewById(R.id.userPassword);
         profile = view.findViewById(R.id.userChangeImage);
+        pgs = view.findViewById(R.id.userdetailsprogress);
+        ll = view.findViewById(R.id.bg);
 
 
         Query query = FirebaseDatabase.getInstance().getReference("Customer").child(id);
@@ -92,14 +99,13 @@ public class UserProfileEdit extends Fragment {
                         contactNum.setText(cus.contact);
                         address.setText(cus.address);
                         password.setText(cus.password);
-                        if(cus.url != null){
-                            profile.setPadding(0,0,0,0);
+                        if (cus.url != null) {
+                            profile.setPadding(0, 0, 0, 0);
                             Picasso.with(getContext()).load(Uri.parse(cus.url)).transform(new CircleTransform()).into(profile);
                         }
-
-
                     }
-
+                    pgs.setVisibility(View.GONE);
+                    ll.setVisibility(View.GONE);
                 }
             }
 

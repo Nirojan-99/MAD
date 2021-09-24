@@ -20,11 +20,18 @@
                 android:layout_height="wrap_content"
                 android:text="@string/reviews"
                 android:background="@drawable/card"
-                android:backgroundTint="@color/gray"
+                android:backgroundTint="@color/primary_black"
                 android:padding="15sp"
                 android:textSize="18sp"
                 android:fontFamily="@font/robotoblack"
-                android:textColor="@color/primary_black"/>
+                android:textColor="@color/white"/>
+            <ProgressBar
+                android:id="@+id/progress"
+                android:visibility="visible"
+                android:layout_marginTop="30sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/reviewsRecycleLayout"
                 android:layout_marginTop="15sp"
