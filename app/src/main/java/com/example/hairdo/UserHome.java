@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.hairdo.model.Salon;
@@ -33,12 +34,12 @@ public class UserHome extends Fragment {
     String id = "ejHLtEYSByaRAt0p7zp5yMaD9Na2";
     ArrayList<Salon> myListData = new ArrayList<Salon>();
     UserViewSalonList adapter ;
+    ProgressBar pgs;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -53,6 +54,9 @@ public class UserHome extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerView.setAdapter(adapter);
 
+        //initialize
+        pgs = view.findViewById(R.id.salonsProgress);
+
         //fetch salons
         Query query = FirebaseDatabase.getInstance().getReference("Salon");
         query.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -64,6 +68,7 @@ public class UserHome extends Fragment {
                         ser.set_id(dataSnapshot.getKey());
                         myListData.add(ser);
                     }
+                    pgs.setVisibility(View.GONE);
                     adapter.notifyDataSetChanged();
 
                 }
