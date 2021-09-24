@@ -56,7 +56,7 @@
     <string name="totalPendings">Total Pending</string>
     <string name="totalEarnings">Total Earnings</string>
     <string name="tv_Calendar">CALENDAR</string>
-    <string name="btn_holidays">Add Holiday</string>
+    <string name="btn_holidays">Holidays</string>
     <string name="tv_holidays">HOLIDAYS</string>
     <string name="update">Update</string>
     <string name="deleteAccont">Delete Account</string>
