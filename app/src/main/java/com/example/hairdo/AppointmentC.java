@@ -9,6 +9,7 @@ import android.view.View;
 import java.util.Calendar;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -23,8 +24,9 @@ public class AppointmentC extends AppCompatActivity {
     Button selectDate;
     TextView date ;
     TextView Advancepayment;
-    RadioButton timeradioButton;
-    RadioGroup radioGroup;
+    EditText taketime;
+//    RadioButton timeradioButton;
+//    RadioGroup radioGroup;
 
     DatePickerDialog datePickerDialog;
     int year;
@@ -43,15 +45,16 @@ public class AppointmentC extends AppCompatActivity {
         selectDate = findViewById(R.id.btnDate);
         date = findViewById(R.id.tvSelectedDate);
         Advancepayment = findViewById(R.id.Advancepayment);
-        radioGroup=(RadioGroup)findViewById(R.id.radioGroup);
+        taketime = findViewById(R.id.entertime);
+
 
 
     }
 
 
     public void onClickCompletePayment(View v){
-        int selectedId = radioGroup.getCheckedRadioButtonId();
-        timeradioButton = (RadioButton) findViewById(selectedId);
+//        int selectedId = radioGroup.getCheckedRadioButtonId();
+//        timeradioButton = (RadioButton) findViewById(selectedId);
 //        if(selectedId<=0){//Grp is your radio group object
 //            timeradioButton.setError("Select time");//Set error to  Radio button
 //        }
@@ -60,12 +63,18 @@ public class AppointmentC extends AppCompatActivity {
 //        }
 
          String enterdate = date.getText().toString().trim();
-         String entertime = timeradioButton.getText().toString().trim();
-         String enterAdvancepayment = Advancepayment.getText().toString().trim();
+         String entertime = taketime.getText().toString().trim();
+//         String enterAdvancepayment = Advancepayment.getText().toString().trim();
+
 
 
         if(enterdate.isEmpty()){
             date.setError("select the date");
+            date.requestFocus();
+            return;
+
+        }  if(entertime.isEmpty()){
+            date.setError("select the time");
             date.requestFocus();
             return;
 
@@ -74,7 +83,7 @@ public class AppointmentC extends AppCompatActivity {
 
 
 
-       Appointment Appointment = new com.example.hairdo.model.Appointment("Nirojan","HairWizard",enterdate,entertime,"350");
+       Appointment Appointment = new Appointment("sid","cid","HairWizard","sayanthan",enterdate,entertime,"350","complete");
 
         FirebaseDatabase.getInstance().getReference("Appointment").push().setValue(Appointment).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
