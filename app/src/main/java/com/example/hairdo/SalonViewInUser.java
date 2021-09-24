@@ -223,7 +223,7 @@ public class SalonViewInUser extends AppCompatActivity {
     }
 
     public void OnReserveClick(View v) {
-        Intent intent = new Intent(this, appointment.class);
+        Intent intent = new Intent(this, AppointmentC.class);
         intent.putExtra("id", id);
         startActivity(intent);
     }
