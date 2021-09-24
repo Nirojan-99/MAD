@@ -18,6 +18,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 import android.widget.DatePicker;
 
@@ -37,6 +38,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Holidays extends AppCompatActivity {
+    ProgressBar pg;
     ImageButton selectDate;
     Button addHolidayBtn;
     EditText selectedDate;
@@ -64,6 +66,7 @@ public class Holidays extends AppCompatActivity {
         selectDate = findViewById(R.id.btnHoliDate);
         selectedDate = findViewById(R.id.picked_holiDate);
         remark = findViewById(R.id.Holidayremark);
+        pg=findViewById(R.id.holidayPG);
 
 
         setDateforRecyclerview();
@@ -101,10 +104,12 @@ public class Holidays extends AppCompatActivity {
                 for (DataSnapshot data : snapshot.getChildren()) {
 
                     Holiday h = data.getValue(Holiday.class);
+                    h.setFbKey(data.getKey());
                     holidayList.add(h);
 
 
                 }
+                pg.setVisibility(View.GONE);
                 holidaysRvAd.notifyDataSetChanged();
             }
 

@@ -1,6 +1,6 @@
 package com.example.hairdo.model;
 public class Holiday {
-//    public String fbKey;
+    public String fbKey;
     public String selected_Date;
     public String remark;
     public String year;
@@ -59,11 +59,11 @@ public class Holiday {
         this.day = day;
     }
 
-//    public String getFbKey() {
-//        return fbKey;
-//    }
-//
-//    public void setFbKey(String fbKey) {
-//        this.fbKey = fbKey;
-//    }
+    public String getFbKey() {
+        return fbKey;
+    }
+
+    public void setFbKey(String fbKey) {
+        this.fbKey = fbKey;
+    }
 }
