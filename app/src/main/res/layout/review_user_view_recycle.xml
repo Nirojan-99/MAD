@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_marginBottom="20sp"
+    android:padding="10sp"
+    android:background="@drawable/textview_border"
+    android:backgroundTint="@color/gray"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/textview_border"
+            android:backgroundTint="@color/primary_orange"
+            android:fontFamily="@font/opensanssemibold"
+            android:paddingHorizontal="10sp"
+            android:paddingVertical="5sp"
+            android:text="@string/username"
+            android:textColor="@color/primary_black"
+            android:textSize="13sp" />
+
+        <RatingBar
+            android:id="@+id/userRating"
+            style="@style/Base.Widget.AppCompat.RatingBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10sp"
+            android:isIndicator="true"
+            android:max="5"
+            android:numStars="5"
+            android:rating="0"
+            android:stepSize=".5" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/userReview1"
+        android:textColor="@color/primary_black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5sp"
+        android:fontFamily="@font/opensanssemibold"
+        android:text="Any User feedback"
+        android:textSize="18sp" />
+
+</LinearLayout>

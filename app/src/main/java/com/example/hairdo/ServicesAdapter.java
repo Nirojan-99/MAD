@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hairdo.model.Service;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -49,22 +50,14 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ViewHo
         holder.img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Query query = FirebaseDatabase.getInstance().getReference("Services").orderByChild("name").equalTo(ser.name);
-                query.addListenerForSingleValueEvent(new ValueEventListener() {
+                FirebaseDatabase.getInstance().getReference("Services").child(ser._id).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        for (DataSnapshot dataSnapshot: snapshot.getChildren()) {
-                            dataSnapshot.getRef().removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void aVoid) {
-                                    Toast.makeText(v.getContext(), "deleted!", Toast.LENGTH_SHORT).show();
-                                }
-                            });
-                        }
+                    public void onSuccess(Void aVoid) {
+                        Toast.makeText(v.getContext(), "deleted!", Toast.LENGTH_SHORT).show();
                     }
-
+                }).addOnFailureListener(new OnFailureListener() {
                     @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
+                    public void onFailure(@NonNull Exception e) {
                         Toast.makeText(v.getContext(), "Unable to delete", Toast.LENGTH_SHORT).show();
                     }
                 });

@@ -10,6 +10,7 @@ public class Customer {
     public String password;
     public String gender;
     public String url;
+    public String _id;
 
     public  Customer(){}
 
@@ -19,5 +20,9 @@ public class Customer {
         this.address = address;
         this.contact = contact;
         this.password = password;
+    }
+
+    public void set_id(String _id) {
+        this._id = _id;
     }
 }

@@ -30,7 +30,7 @@ public class ManageServices extends AppCompatActivity {
     Button btn;
     EditText etx;
     //        String id = auth.getCurrentUser().getUid();
-    String id = "oJO7CwPSZjXFTJIungGeaQZQvo33";
+    String id = "ejHLtEYSByaRAt0p7zp5yMaD9Na2";
     ArrayList<Service>  myListData = new ArrayList<Service>();
     HashMap<String, Object> hashMap = new HashMap<>();
     ServicesAdapter adapter ;
@@ -53,6 +53,7 @@ public class ManageServices extends AppCompatActivity {
                 if (snapshot.exists()) {
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                         Service ser = dataSnapshot.getValue(Service.class);
+                        ser.set_id(dataSnapshot.getKey());
                         myListData.add(ser);
                     }
                     adapter.notifyDataSetChanged();
@@ -65,14 +66,6 @@ public class ManageServices extends AppCompatActivity {
                 Toast.makeText(ManageServices.this, "no servies available", Toast.LENGTH_SHORT).show();
             }
         });
-
-//        myListData.add("Facial");
-//        myListData.add("wix");
-//        myListData.add("massage");
-//        myListData.add("any");
-//        myListData.add("any");
-
-
 
         btn = findViewById(R.id.addServices);
         etx = findViewById(R.id.newService);

@@ -6,6 +6,9 @@ public class Salon {
     public String address;
     public String contact;
     public String password;
+    public  String advance;
+    public  String url;
+    public  String _id;
 
     public Salon(){}
 
@@ -15,5 +18,9 @@ public class Salon {
         this.address = address;
         this.contact = contact;
         this.password = password;
+    }
+
+    public void set_id(String _id) {
+        this._id = _id;
     }
 }
