@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -49,8 +50,9 @@ public class HomeFragment extends Fragment {
     HashMap<String, Object> hashMap = new HashMap<>();
     ServicesSalonAdapter adapter;
     ImageView dp,dpchange;
-    TextView address, mail, contact, likes, name;
+    TextView address, mail, contact, likes, name,nothing,noreviews;
     RatingBar rtb;
+    ProgressBar pgs1,pgs2;
 
     //review adapter
     ArrayList<Review>  reviews1 = new ArrayList<Review>();
@@ -78,7 +80,11 @@ public class HomeFragment extends Fragment {
                         ser.set_id(dataSnapshot.getKey());
                         reviews1.add(ser);
                     }
+                    pgs2.setVisibility(View.GONE);
                     adapter1.notifyDataSetChanged();
+                    if(reviews1 == null){
+                        noreviews.setVisibility(View.VISIBLE);
+                    }
 
                 }
             }
@@ -106,6 +112,10 @@ public class HomeFragment extends Fragment {
         name = root.findViewById(R.id.name);
         rtb = root.findViewById(R.id.salonRating);
         dpchange = root.findViewById(R.id.touch);
+        pgs1 = root.findViewById(R.id.serviceProgress);
+        pgs2 = root.findViewById(R.id.reviewProgress);
+        nothing = root.findViewById(R.id.noService);
+        noreviews = root.findViewById(R.id.noreviews);
 
         //dp change
         dpchange.setOnClickListener(new View.OnClickListener() {
@@ -161,7 +171,11 @@ public class HomeFragment extends Fragment {
                         Service ser = dataSnapshot.getValue(Service.class);
                         myListData.add(ser);
                     }
+                    pgs1.setVisibility(View.GONE);
                     adapter.notifyDataSetChanged();
+                    if(myListData == null){
+                        nothing.setVisibility(View.VISIBLE);
+                    }
 
                 }
             }

@@ -9,7 +9,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="50sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,21 +48,19 @@
                         android:layout_height="120sp"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginVertical="10sp"
-                        android:background="@drawable/rounded_corner"
-                        android:backgroundTint="@color/gray"
-                        android:padding="20sp"
-                        android:src="@drawable/ic_friends" />
+                        android:background="@drawable/salonloaderround"
+                        android:padding="20sp" />
 
                     <ImageView
                         android:id="@+id/touch"
-                        android:layout_width="40sp"
-                        android:layout_height="40sp"
+                        android:layout_width="35sp"
+                        android:layout_height="35sp"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentBottom="true"
                         android:layout_marginEnd="0dp"
-                        android:layout_marginRight="0dp"
-                        android:layout_marginBottom="8dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="10dp"
                         android:clickable="true"
                         android:src="@drawable/ic_baseline_photo_library_24" />
 
@@ -231,10 +229,22 @@
 
                     <LinearLayout
 
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginVertical="10sp"
                         android:orientation="horizontal">
+                        <ProgressBar
+                            android:layout_width="match_parent"
+                            android:layout_height="20sp"
+                            android:id="@+id/serviceProgress"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/noService"
+                            android:visibility="gone"
+                            android:text="No services available!"
+                            android:gravity="center_horizontal"
+                            android:layout_gravity="center"/>
 
 
                             <androidx.recyclerview.widget.RecyclerView
@@ -263,6 +273,19 @@
                         android:text="@string/reviews"
                         android:textColor="@color/primary_black"
                         android:textSize="18sp" />
+            <ProgressBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/reviewProgress"/>
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/noreviews"
+                android:layout_marginVertical="15sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="No Reviews available!"
+                android:textColor="@color/primary_black"
+                android:gravity="center"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"

@@ -56,5 +56,28 @@
         android:layout_height="wrap_content"
         android:text="1999-12-30"
         />
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/owner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/textview_border"
+        android:backgroundTint="@color/secondary_blue"
+        android:fontFamily="@font/opensanssemibold"
+        android:paddingHorizontal="10sp"
+        android:paddingVertical="5sp"
+        android:text="Owner"
+        android:textColor="@color/primary_black"
+        android:textSize="13sp" />
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/ownerReply"
+        android:textColor="@color/primary_black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5sp"
+        android:fontFamily="@font/opensanssemibold"
+        android:text="Any User feedback"
+        android:textSize="18sp" />
 
 </LinearLayout>
