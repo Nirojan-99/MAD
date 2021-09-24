@@ -1,5 +1,6 @@
 package com.example.hairdo;
 
+import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hairdo.model.Offer;
 import com.example.hairdo.model.Service;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -25,7 +27,6 @@ import java.util.ArrayList;
 public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.ViewHolder> {
 
     ArrayList<Offer> data;
-
     public OffersAdapter(ArrayList<Offer> data) {
         this.data = data;
     }
@@ -52,23 +53,16 @@ public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.ViewHolder
         holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Query query = FirebaseDatabase.getInstance().getReference("Offer").orderByChild("name").equalTo(ser.name);
-                query.addListenerForSingleValueEvent(new ValueEventListener() {
+                FirebaseDatabase.getInstance().getReference("Offer").child(ser._id).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        for (DataSnapshot dataSnapshot: snapshot.getChildren()) {
-                            dataSnapshot.getRef().removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void aVoid) {
-                                    Toast.makeText(v.getContext(), "deleted!", Toast.LENGTH_SHORT).show();
-                                }
-                            });
-                        }
+                    public void onSuccess(Void aVoid) {
+                        Toast.makeText(v.getContext(), "deleted!", Toast.LENGTH_SHORT).show();
+                        notifyDataSetChanged();
                     }
-
+                }).addOnFailureListener(new OnFailureListener() {
                     @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-                        Toast.makeText(v.getContext(), "Unable to delete", Toast.LENGTH_SHORT).show();
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(v.getContext(), "Unable to deleted!", Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -80,7 +74,7 @@ public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.ViewHolder
                 Intent intent = new Intent(v.getContext(),EditOffer.class);
                 intent.putExtra("name",ser.name);
                 intent.putExtra("description",ser.description);
-                intent.putExtra("id",ser.id);
+                intent.putExtra("id",ser._id);
                 intent.putExtra("date",ser.validDate);
                 v.getContext().startActivity(intent);
             }

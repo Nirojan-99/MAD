@@ -12,11 +12,26 @@
 <ScrollView
     android:padding="15sp"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+        <ProgressBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/offerID"/>
+        <TextView
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Currently No offers available!"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textColor="@color/red"
+            android:layout_marginVertical="15sp"
+            android:id="@+id/nothing"
+            />
 
 
         <androidx.recyclerview.widget.RecyclerView
@@ -58,10 +73,10 @@
 
                 <EditText
                     android:id="@+id/textView8"
-                    android:layout_width="329dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/textview_border"
-                    android:fontFamily="@font/opensansbold"
+                    android:fontFamily="@font/opensanssemibold"
                     android:maxLines="1"
                     android:padding="10dp"
                     android:textColor="@color/dark_black"
@@ -82,10 +97,10 @@
 
                 <EditText
                     android:id="@+id/textView10"
-                    android:layout_width="331dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/textview_border"
-                    android:fontFamily="@font/opensansbold"
+                    android:fontFamily="@font/opensanssemibold"
                     android:maxLines="1"
                     android:padding="10dp"
                     android:textColor="@color/dark_black"
@@ -107,20 +122,36 @@
 
                 <Button
                     android:id="@+id/button2"
-                    android:layout_width="329dp"
+                    android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:layout_gravity="center_horizontal"
-                    android:background="@drawable/card"
+                    android:background="@drawable/textview_border"
                     android:fontFamily="@font/opensansbold"
                     android:text="PICK DATE"
                     app:backgroundTint="@color/secondary_blue" />
+                <EditText
+                    android:editable="false"
+                    android:focusable="false"
+                    android:layout_marginTop="15sp"
+                    android:id="@+id/textView101"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/textview_border"
+                    android:fontFamily="@font/opensanssemibold"
+                    android:maxLines="1"
+                    android:padding="10dp"
+                    android:textColor="@color/dark_black"
+                    android:textSize="20sp"
+
+                    />
 
                 <Button
+                    android:background="@drawable/card"
                     android:id="@+id/button3"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginVertical="10sp"
+                    android:layout_marginVertical="20sp"
                     android:layout_marginBottom="10sp"
                     android:fontFamily="@font/opensansbold"
                     android:text="@string/add"

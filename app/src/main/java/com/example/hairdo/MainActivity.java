@@ -8,6 +8,8 @@ import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 
+import com.example.hairdo.model.Offer;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -19,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         new android.os.Handler(Looper.getMainLooper()).postDelayed(
                 new Runnable() {
                     public void run() {
-                        Intent send = new Intent(MainActivity.this, LogIn.class);
+                        Intent send = new Intent(MainActivity.this, SalonViewInUser.class);
                         startActivity(send);
                         finish();
                     }

@@ -7,6 +7,8 @@ public class Appointment {
     public  String time;
     public String advancepayment;
     public String _id;
+    public String cid;
+    public String status;
 
     public Appointment() {
     }
