@@ -56,7 +56,7 @@
             android:name=".Payment"
             android:theme="@style/Theme.HairDo.NoActionBar" />
         <activity
-            android:name=".appointment"
+            android:name=".AppointmentC"
             android:theme="@style/Theme.HairDo.NoActionBar" />
         <activity
             android:name=".EditDetails"
