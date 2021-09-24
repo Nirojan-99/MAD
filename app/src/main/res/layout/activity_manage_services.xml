@@ -17,6 +17,22 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+            <ProgressBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/progressService"/>
+            <TextView
+                android:visibility="gone"
+                android:textColor="@color/red"
+                android:layout_marginVertical="20sp"
+                android:fontFamily="@font/opensanssemibold"
+                android:textSize="17sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/nothing"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:text="Currently No Services available!"/>
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/serviceRecycleView"
                 android:layout_width="match_parent"
@@ -50,6 +66,7 @@
                     android:textColor="@color/primary_black"
                     />
                 <EditText
+                    android:inputType="textCapWords"
                     android:id="@+id/newService"
                     android:maxLines="1"
                     android:layout_marginBottom="5sp"
@@ -66,7 +83,7 @@
                     android:layout_width="160sp"
                     android:layout_height="43sp"
                     android:layout_marginVertical="5sp"
-                    android:background="@drawable/card"
+                    android:background="@drawable/textview_border"
                     android:backgroundTint="@color/primary_black"
                     android:clickable="true"
                     android:fontFamily="@font/opensansbold"

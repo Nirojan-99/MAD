@@ -15,6 +15,7 @@
         android:padding="15sp">
 
         <LinearLayout
+            android:paddingBottom="60sp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
