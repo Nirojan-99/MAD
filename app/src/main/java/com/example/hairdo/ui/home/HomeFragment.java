@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,6 +28,8 @@ import com.example.hairdo.R;
 import com.example.hairdo.SalonViewInUser;
 import com.example.hairdo.ServicesAdapter;
 import com.example.hairdo.ServicesSalonAdapter;
+import com.example.hairdo.UserViewReviewAdapter;
+import com.example.hairdo.model.Review;
 import com.example.hairdo.model.Salon;
 import com.example.hairdo.model.Service;
 import com.google.firebase.database.DataSnapshot;
@@ -47,12 +50,50 @@ public class HomeFragment extends Fragment {
     HashMap<String, Object> hashMap = new HashMap<>();
     ServicesSalonAdapter adapter;
     ImageView dp,dpchange;
-    TextView address, mail, contact, likes, name;
+    TextView address, mail, contact, likes, name,nothing,noreviews;
     RatingBar rtb;
+    ProgressBar pgs1,pgs2;
+
+    //review adapter
+    ArrayList<Review>  reviews1 = new ArrayList<Review>();
+    UserViewReviewAdapter adapter1 ;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
+
+        //recycle review
+        RecyclerView recyclerView1 = (RecyclerView) root.findViewById(R.id.recycleReviewSalon);
+        adapter1 = new UserViewReviewAdapter(reviews1);
+        recyclerView1.setHasFixedSize(true);
+        recyclerView1.setLayoutManager(new LinearLayoutManager(root.getContext()));
+        recyclerView1.setAdapter(adapter1);
+
+        //getting reviews
+        Query query5 = FirebaseDatabase.getInstance().getReference("Review").orderByChild("salonid").equalTo(id);
+        query5.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                        Review ser = dataSnapshot.getValue(Review.class);
+                        ser.set_id(dataSnapshot.getKey());
+                        reviews1.add(ser);
+                    }
+                    pgs2.setVisibility(View.GONE);
+                    adapter1.notifyDataSetChanged();
+                    if(reviews1 == null){
+                        noreviews.setVisibility(View.VISIBLE);
+                    }
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(root.getContext(), "no servies available", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         //another
         RecyclerView recyclerView = root.findViewById(R.id.recylersalon);
@@ -71,6 +112,10 @@ public class HomeFragment extends Fragment {
         name = root.findViewById(R.id.name);
         rtb = root.findViewById(R.id.salonRating);
         dpchange = root.findViewById(R.id.touch);
+        pgs1 = root.findViewById(R.id.serviceProgress);
+        pgs2 = root.findViewById(R.id.reviewProgress);
+        nothing = root.findViewById(R.id.noService);
+        noreviews = root.findViewById(R.id.noreviews);
 
         //dp change
         dpchange.setOnClickListener(new View.OnClickListener() {
@@ -126,7 +171,11 @@ public class HomeFragment extends Fragment {
                         Service ser = dataSnapshot.getValue(Service.class);
                         myListData.add(ser);
                     }
+                    pgs1.setVisibility(View.GONE);
                     adapter.notifyDataSetChanged();
+                    if(myListData == null){
+                        nothing.setVisibility(View.VISIBLE);
+                    }
 
                 }
             }

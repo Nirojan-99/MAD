@@ -8,7 +8,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/card"
+        android:background="@drawable/textview_border"
         android:backgroundTint="@color/gray"
         android:padding="10sp"
         android:layout_marginVertical="5sp"
@@ -24,13 +24,13 @@
                 android:id="@+id/reviewUsername"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/card"
-                android:backgroundTint="@color/primary_black"
+                android:background="@drawable/textview_border"
+                android:backgroundTint="@color/primary_orange"
                 android:fontFamily="@font/opensanssemibold"
                 android:paddingHorizontal="10sp"
                 android:paddingVertical="3sp"
                 android:text="@string/username"
-                android:textColor="@color/white"
+                android:textColor="@color/primary_black"
                 android:textSize="13sp" />
 
             <RatingBar
@@ -42,28 +42,67 @@
                 android:isIndicator="true"
                 android:max="5"
                 android:numStars="5"
-                android:rating="3"
+                android:rating="0"
                 android:stepSize=".5" />
         </LinearLayout>
 
         <TextView
+            android:textColor="@color/primary_black"
             android:id="@+id/userReview"
+            android:textFontWeight="800"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5sp"
-            android:fontFamily="@font/opensanssemibold"
+            android:fontFamily="@font/opensansbold"
             android:text="Any User feedback"
-            android:textSize="10sp" />
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_marginBottom="10sp"
+            android:layout_marginLeft="5sp"
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1999/12/12"
+            android:textColor="@color/primary_black"
+            android:textSize="12sp" />
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/owner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/textview_border"
+            android:backgroundTint="@color/secondary_blue"
+            android:fontFamily="@font/opensanssemibold"
+            android:paddingHorizontal="10sp"
+            android:paddingVertical="3sp"
+            android:text="Owner"
+            android:textColor="@color/primary_black"
+            android:textSize="13sp" />
+        <TextView
+            android:visibility="gone"
+            android:textColor="@color/primary_black"
+            android:id="@+id/ownerreply"
+            android:textFontWeight="800"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5sp"
+            android:fontFamily="@font/opensansbold"
+            android:text="Any User feedback"
+            android:textSize="15sp" />
         <EditText
+            android:inputType="text"
+            android:id="@+id/salonreply"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/primary_black"
-            android:textSize="10sp"
+            android:textSize="17sp"
             android:fontFamily="@font/opensanssemibold"/>
         <Button
+            android:id="@+id/saolReplySubmit"
             android:layout_gravity="end"
             android:backgroundTint="@color/primary_black"
-            android:background="@drawable/card"
+            android:background="@drawable/textview_border"
             android:layout_width="wrap_content"
             android:layout_height="30sp"
             android:text="@string/reply"

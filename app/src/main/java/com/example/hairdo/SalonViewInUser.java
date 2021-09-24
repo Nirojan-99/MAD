@@ -96,7 +96,6 @@ public class SalonViewInUser extends AppCompatActivity {
                         Review ser = dataSnapshot.getValue(Review.class);
                         ser.set_id(dataSnapshot.getKey());
                         reviews1.add(ser);
-                        Toast.makeText(SalonViewInUser.this, ser.feedback, Toast.LENGTH_SHORT).show();
                     }
                     adapter1.notifyDataSetChanged();
 

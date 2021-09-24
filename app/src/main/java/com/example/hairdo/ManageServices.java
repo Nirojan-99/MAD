@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hairdo.model.Customer;
@@ -29,6 +31,8 @@ public class ManageServices extends AppCompatActivity {
 
     Button btn;
     EditText etx;
+    ProgressBar pgs;
+    TextView nothng;
     //        String id = auth.getCurrentUser().getUid();
     String id = "ejHLtEYSByaRAt0p7zp5yMaD9Na2";
     ArrayList<Service>  myListData = new ArrayList<Service>();
@@ -39,6 +43,9 @@ public class ManageServices extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_services);
+
+        pgs=findViewById(R.id.progressService);
+        nothng=findViewById(R.id.nothing);
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.serviceRecycleView);
         adapter = new ServicesAdapter(myListData);
@@ -56,6 +63,10 @@ public class ManageServices extends AppCompatActivity {
                         ser.set_id(dataSnapshot.getKey());
                         myListData.add(ser);
                     }
+                    if(myListData.isEmpty()){
+                        nothng.setVisibility(View.VISIBLE);
+                    }
+                    pgs.setVisibility(View.GONE);
                     adapter.notifyDataSetChanged();
 
                 }
