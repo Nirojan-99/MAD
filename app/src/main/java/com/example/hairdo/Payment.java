@@ -79,10 +79,10 @@ public class Payment extends AppCompatActivity {
                     return;
                 }
 
-                PaymentModel paymentModel = new PaymentModel(enteredName,enteredNumber,enteredCvc,enteredMonth,enteredYear,currentDate,salonId,amount);
+                PaymentModel paymentModel = new PaymentModel(enteredName,enteredNumber,enteredCvc,enteredMonth,enteredYear,currentDate,salonId,amount,id);
 
                 //add to database
-                FirebaseDatabase.getInstance().getReference("Payment").child(id).setValue(paymentModel).addOnSuccessListener(new OnSuccessListener<Void>() {
+                FirebaseDatabase.getInstance().getReference("Payment").push().setValue(paymentModel).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
                         Toast.makeText(Payment.this, "payment completed", Toast.LENGTH_SHORT).show();
