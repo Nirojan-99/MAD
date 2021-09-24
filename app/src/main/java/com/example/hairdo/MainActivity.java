@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         new android.os.Handler(Looper.getMainLooper()).postDelayed(
                 new Runnable() {
                     public void run() {
-                        Intent send = new Intent(MainActivity.this, SalonProfile.class);
+                        Intent send = new Intent(MainActivity.this, AppointmentC.class);
                         startActivity(send);
                         finish();
                     }

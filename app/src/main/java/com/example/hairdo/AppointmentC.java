@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import java.util.Calendar;
@@ -16,9 +17,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hairdo.model.Appointment;
+import com.example.hairdo.model.Customer;
+import com.example.hairdo.model.Review;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
+import org.jetbrains.annotations.NotNull;
 
 public class AppointmentC extends AppCompatActivity {
     Button selectDate;
@@ -27,7 +37,7 @@ public class AppointmentC extends AppCompatActivity {
     EditText taketime;
 //    RadioButton timeradioButton;
 //    RadioGroup radioGroup;
-
+      FirebaseAuth auth;
     DatePickerDialog datePickerDialog;
     int year;
     int month;
@@ -49,10 +59,17 @@ public class AppointmentC extends AppCompatActivity {
 
 
 
+
+
+
+
+
     }
 
 
     public void onClickCompletePayment(View v){
+
+
 //        int selectedId = radioGroup.getCheckedRadioButtonId();
 //        timeradioButton = (RadioButton) findViewById(selectedId);
 //        if(selectedId<=0){//Grp is your radio group object
@@ -61,9 +78,41 @@ public class AppointmentC extends AppCompatActivity {
 //        if(selectedId==-1){
 //            Toast.makeText(AppointmentC.this,"please select the time", Toast.LENGTH_SHORT).show();
 //        }
+        Intent intent = getIntent();
+        String sid = intent.getStringExtra("id").toString();
+
+        auth = FirebaseAuth.getInstance();
+        String cid = auth.getUid().toString();
 
          String enterdate = date.getText().toString().trim();
          String entertime = taketime.getText().toString().trim();
+
+//        Query query6 = FirebaseDatabase.getInstance().getReference("Customer").orderByChild("salonid").equalTo(sid);
+//        query6.addListenerForSingleValueEvent(new ValueEventListener() {
+//                                                  @Override
+//                                                  public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                                                      if (snapshot.exists()) {
+//                                                          for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+//                                                              Customer ser = dataSnapshot.getValue(Customer.class);
+//
+//
+//                                                          }
+//
+//
+//                                                      } else {
+//
+//                                                      }
+//
+//
+//                                                      @Override
+//                                                      public void onCancelled (@NonNull @NotNull DatabaseError error){
+//
+//                                                      }
+//                                                  }
+//                                              });
+
+
+
 //         String enterAdvancepayment = Advancepayment.getText().toString().trim();
 
 
@@ -73,7 +122,7 @@ public class AppointmentC extends AppCompatActivity {
             date.requestFocus();
             return;
 
-        }  if(entertime.isEmpty()){
+        } if(entertime.isEmpty()){
             date.setError("select the time");
             date.requestFocus();
             return;
@@ -83,7 +132,7 @@ public class AppointmentC extends AppCompatActivity {
 
 
 
-       Appointment Appointment = new Appointment("sid","cid","HairWizard","sayanthan",enterdate,entertime,"350","complete");
+       Appointment Appointment = new Appointment(sid,cid,"HairWizard","sayanthan",enterdate,entertime,"350","");
 
         FirebaseDatabase.getInstance().getReference("Appointment").push().setValue(Appointment).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override

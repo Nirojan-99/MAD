@@ -64,6 +64,7 @@
                     android:layout_marginLeft="100dp"
                     android:layout_marginTop="140dp"
                     android:gravity="center"
+                    android:fontFamily="@font/opensansbold"
                     android:text=""
                     android:textColor="@color/primary_black"
                     android:textSize="20dp" />
@@ -74,24 +75,24 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="25dp"
                     android:layout_marginTop="190dp"
-                    android:fontFamily="@font/opensansregular"
                     android:gravity="center_vertical"
                     android:text="@string/Time"
+                    android:fontFamily="@font/opensanssemibold"
                     android:textColor="@color/dark_black"
                     android:textSize="20sp" />
 
                 <EditText
                     android:id="@+id/entertime"
-                    android:layout_width="329dp"
+                    android:layout_width="315dp"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="10dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
                     android:layout_marginTop="230dp"
                     android:background="@drawable/textview_border"
                     android:fontFamily="@font/opensansbold"
-
                     android:maxLines="1"
                     android:padding="10dp"
-
                     android:textColor="@color/dark_black"
                     android:textSize="20sp" />
 
@@ -170,6 +171,7 @@
                     android:layout_marginHorizontal="35sp"
                     android:layout_marginTop="315dp"
                     android:text="@string/Advancepayment"
+                    android:fontFamily="@font/opensanssemibold"
                     android:textSize="20dp" />
 
                 <TextView
