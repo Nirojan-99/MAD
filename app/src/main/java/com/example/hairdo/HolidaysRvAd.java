@@ -14,13 +14,14 @@ import com.example.hairdo.model.Holiday;
 import org.jetbrains.annotations.NotNull;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class HolidaysRvAd extends  RecyclerView.Adapter<HolidaysRvAd.ViewHolder>{
     public Context context;
-    public List<Holiday> holidayList;
+    public ArrayList<Holiday> holidayList;
 
-    public HolidaysRvAd(Context context, List<Holiday> holidayList) {
+    public HolidaysRvAd(Context context, ArrayList<Holiday> holidayList) {
         this.context = context;
         this.holidayList = holidayList;
     }

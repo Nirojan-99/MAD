@@ -1,5 +1,6 @@
 package com.example.hairdo;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,6 +12,7 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.icu.util.Freezable;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.system.Int64Ref;
 import android.view.View;
 import android.widget.Button;
@@ -20,6 +22,7 @@ import android.widget.Toast;
 import android.widget.DatePicker;
 
 import com.example.hairdo.model.Holiday;
+import com.example.hairdo.model.Offer;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -27,6 +30,8 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,7 +53,7 @@ public class Holidays extends AppCompatActivity {
     int DdayOfMonth;
 
     RecyclerView recyclerView;
-    List<Holiday> holidayList;
+    ArrayList<Holiday> holidayList=new ArrayList<>();
     HolidaysRvAd holidaysRvAd;
 
     @Override
@@ -60,23 +65,9 @@ public class Holidays extends AppCompatActivity {
         selectedDate = findViewById(R.id.picked_holiDate);
         remark = findViewById(R.id.Holidayremark);
 
-        holidayList=new ArrayList<>();
-        setAdapter();
+
         setDateforRecyclerview();
-
-
-
-//        holidayList.add("15 November 2021");
-//        holidayList.add("30 November 2021");
-//        holidayList.add("30 August 2021");
-//        holidayList.add("15 October 2021");
-//        holidayList.add("15 September 2021");
-//
-//        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.holidays_RecycleView);
-//        ServicesAdapter adapter = new ServicesAdapter(holidayList);
-//        recyclerView.setHasFixedSize(true);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-//        recyclerView.setAdapter(adapter);
+        setAdapter();
 
         addHolidayBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,11 +94,46 @@ public class Holidays extends AppCompatActivity {
     }
 
     private void setDateforRecyclerview() {
-        holidayList.add(new Holiday("adadadsad","dasdasdasd","dasdadas","asdad","dasdjadj"));
-        holidayList.add(new Holiday("qqqqq","121212","dc","as121dad","qwd"));
-        holidayList.add(new Holiday("wwwww","dqdw","dasdadas","asdad","dasdjadj"));
-        holidayList.add(new Holiday("eeeee","dasddww11asdasd","dasdadas","asdad","dasdjadj"));
+//        holidayList.add(new Holiday("adadadsad","dasdasdasd","dasdadas","asdad","dasdjadj"));
+//        holidayList.add(new Holiday("qqqqq","121212","dc","as121dad","qwd"));
+//        holidayList.add(new Holiday("wwwww","dqdw","dasdadas","asdad","dasdjadj"));
+//        holidayList.add(new Holiday("eeeee","dasddww11asdasd","dasdadas","asdad","dasdjadj"));
 
+//        FirebaseDatabase.getInstance().getReference(Holiday.class.getSimpleName()).child("Holiday").addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull @NotNull DataSnapshot dataSnapshot) {
+//                for (DataSnapshot snapshot:dataSnapshot.getChildren()){
+//                   Holiday h=snapshot.getValue(Holiday.class);
+//                   holidayList.add(h);
+////                    Toast.makeText(Holidays.this, "-----"+snapshot.getValue(), Toast.LENGTH_SHORT).show();
+////                    System.out.println("hsdfdfdfdfdfdfdfdfdfdfdfdfdfdfj "+ snapshot.getValue());
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull @NotNull DatabaseError error) {
+//
+//            }
+//        });
+
+        FirebaseDatabase.getInstance().getReference(Holiday.class.getSimpleName()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                for (DataSnapshot data:snapshot.getChildren()){
+
+                    Holiday h=data.getValue(Holiday.class);
+                    holidayList.add(h);
+
+
+                }
+                holidaysRvAd.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
+            }
+        });
     }
 
 
