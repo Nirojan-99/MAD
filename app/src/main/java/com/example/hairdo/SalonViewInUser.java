@@ -12,12 +12,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hairdo.Helper.CircleTransform;
+import com.example.hairdo.Helper.GetRating;
 import com.example.hairdo.model.Customer;
+import com.example.hairdo.model.Follow;
 import com.example.hairdo.model.Gallery;
 import com.example.hairdo.model.Review;
 import com.example.hairdo.model.Salon;
@@ -39,21 +43,27 @@ import java.util.HashMap;
 public class SalonViewInUser extends AppCompatActivity {
 
     ImageView img;
-    TextView name, address, ratingCount, contact,userName;
-    RatingBar rtb,userRtb;
+    TextView name, address, ratingCount, contact, userName;
+    RatingBar rtb, userRtb;
     EditText rating;
+    ImageView like;
     Button btn;
+    ProgressBar pgs;
+    LinearLayout ll;
+
     String id;
     String cusid;
     String cusName;
+    Boolean isLiked = false;
+    Follow likedData = new Follow();
 
     //gallery adapter
     ArrayList<Gallery> myListData = new ArrayList<Gallery>();
     UserViewgalleryAdapter adapter;
 
     //review adapter
-    ArrayList<Review>  reviews1 = new ArrayList<Review>();
-    UserViewReviewAdapter adapter1 ;
+    ArrayList<Review> reviews1 = new ArrayList<Review>();
+    UserViewReviewAdapter adapter1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +73,7 @@ public class SalonViewInUser extends AppCompatActivity {
         //intents
         Intent intent = getIntent();
 //        id = intent.getStringExtra("id");
-        id ="ejHLtEYSByaRAt0p7zp5yMaD9Na2";
+        id = "ejHLtEYSByaRAt0p7zp5yMaD9Na2";
         cusid = "oJO7CwPSZjXFTJIungGeaQZQvo33";
 
         //initialize
@@ -74,10 +84,14 @@ public class SalonViewInUser extends AppCompatActivity {
         ratingCount = findViewById(R.id.count);
         contact = findViewById(R.id.contact);
         userName = findViewById(R.id.reviewUsername);
+        like = findViewById(R.id.liking);
+        pgs = findViewById(R.id.progress2);
+        ll = findViewById(R.id.overlay);
 
         btn = findViewById(R.id.addReview);
         userRtb = findViewById(R.id.userRating);
         rating = findViewById(R.id.userReview);
+
 
         //recycle review
         RecyclerView recyclerView1 = (RecyclerView) findViewById(R.id.reviewrecycler1);
@@ -108,6 +122,9 @@ public class SalonViewInUser extends AppCompatActivity {
             }
         });
 
+        //fetch rating
+        GetRating getRating= new GetRating();
+        getRating.getRating(id,rtb,ratingCount);
 
         //add rating
         btn.setOnClickListener(new View.OnClickListener() {
@@ -119,13 +136,13 @@ public class SalonViewInUser extends AppCompatActivity {
                 Date date = new Date();
                 String currentDate = formatter.format(date).toString();
 
-                if(enteredRating.isEmpty()){
+                if (enteredRating.isEmpty()) {
                     rating.setError("Require valid feedback");
                     rating.requestFocus();
                     return;
                 }
 
-                Review review = new Review(enteredRating,currentDate,star,cusid,cusName,id);
+                Review review = new Review(enteredRating, currentDate, star, cusid, cusName, id);
 
                 //add review
                 FirebaseDatabase.getInstance().getReference("Review").push().setValue(review).addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -150,7 +167,7 @@ public class SalonViewInUser extends AppCompatActivity {
         LinearLayoutManager horizontalLayoutManager
                 = new LinearLayoutManager(SalonViewInUser.this, LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(horizontalLayoutManager);
-        adapter = new UserViewgalleryAdapter(myListData,SalonViewInUser.this);
+        adapter = new UserViewgalleryAdapter(myListData, SalonViewInUser.this);
         recyclerView.setAdapter(adapter);
 
 //        //fetch gallery data
@@ -186,6 +203,7 @@ public class SalonViewInUser extends AppCompatActivity {
                     cusName = cus.name;
                 }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
@@ -200,32 +218,94 @@ public class SalonViewInUser extends AppCompatActivity {
                 if (snapshot.exists()) {
                     Salon cus = snapshot.getValue(Salon.class);
                     name.setText(cus.name);
-                    rtb.setRating(3.5f);
-                    ratingCount.setText("102");
                     address.setText(cus.address);
                     contact.setText(cus.contact);
                     if (cus.url != null) {
                         img.setPadding(0, 0, 0, 0);
                         Picasso.with(SalonViewInUser.this).load(Uri.parse(cus.url)).into(img);
                     }
-
+                    ll.setVisibility(View.GONE);
+                    pgs.setVisibility(View.GONE);
                 }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                ll.setVisibility(View.GONE);
+                pgs.setVisibility(View.GONE);
             }
         });
 
+        //like
+        like.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!isLiked) {
+                    isLiked = true;
+                    like.setImageResource(R.drawable.liked);
+                    Follow follow = new Follow(id, cusid);
+                    FirebaseDatabase.getInstance().getReference("Follow").push().setValue(follow).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            isLiked = false;
+                            like.setImageResource(R.drawable.like);
+                        }
+                    }).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            getLikeddata();
+                        }
+                    });
+                } else {
+                    isLiked = false;
+                    like.setImageResource(R.drawable.like);
+                    FirebaseDatabase.getInstance().getReference("Follow").child(likedData._id).removeValue().addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            isLiked = true;
+                            like.setImageResource(R.drawable.liked);
+                        }
+                    });
+                }
+            }
+        });
 
+        getLikeddata();
+
+
+    }
+
+    public void getLikeddata() {
+        //fetch like data
+        FirebaseDatabase.getInstance().getReference("Follow").orderByChild("cid").equalTo(cusid).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                        Follow ser = dataSnapshot.getValue(Follow.class);
+                        if (ser.sid.equals(id)) {
+                            like.setImageResource(R.drawable.liked);
+                            isLiked = true;
+                            likedData._id = dataSnapshot.getKey();
+                        } else {
+
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
     }
 
     public void OnReserveClick(View v) {
-        Intent intent = new Intent(this, appointment.class);
+        Intent intent = new Intent(this, AppointmentC.class);
         intent.putExtra("id", id);
         startActivity(intent);
     }
+
 
     public void onViewLocationClick(View v) {
         Intent intent = new Intent(this, SalonLocation.class);

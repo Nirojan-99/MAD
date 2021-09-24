@@ -4,15 +4,19 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.hairdo.R;
 
+import com.example.hairdo.UpcomingAppointmentAdapter;
 import com.example.hairdo.upcommingAppointmentsSalon;
 
 public class DashboardFragment extends Fragment {
@@ -25,7 +29,6 @@ public class DashboardFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
 
         Fragment fragment;
-
         fragment = new upcommingAppointmentsSalon();
         FragmentManager fm = getChildFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();

@@ -18,10 +18,10 @@
             android:layout_height="49sp"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
-            android:background="@drawable/card"
+            android:background="@drawable/appoint"
             android:backgroundTint="@color/gray"
-            android:padding="10sp"
-            android:src="@drawable/ic_friends"
+            android:padding="2sp"
+            android:src="@drawable/appoint"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -52,6 +52,7 @@
                 android:textSize="15sp" />
 
             <TextView
+                android:id="@+id/datetime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/opensansbold"

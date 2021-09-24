@@ -17,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hairdo.Helper.CircleTransform;
+import com.example.hairdo.Helper.GetRating;
 import com.example.hairdo.model.Salon;
 import com.example.hairdo.model.Service;
 import com.squareup.picasso.Picasso;
@@ -49,9 +50,10 @@ public class UserViewSalonList extends RecyclerView.Adapter<UserViewSalonList.Vi
     @Override
     public void onBindViewHolder(@NonNull UserViewSalonList.ViewHolder holder, int position) {
         Salon ser = data.get(position);
+
+        GetRating getRating = new GetRating();
+        getRating.getRating(ser._id,holder.rtb,holder.txt);
         holder.name.setText(ser.name);
-        holder.rtb.setRating(3.0f);
-        holder.txt.setText("102");
         holder.location.setText(ser.address);
         if(ser.url != null){
             holder.img.setPadding(0,0,0,0);
