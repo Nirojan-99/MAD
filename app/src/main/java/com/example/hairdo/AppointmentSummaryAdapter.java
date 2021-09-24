@@ -8,20 +8,30 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.hairdo.model.Appointment;
+
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class AppointmentSummaryAdapter extends RecyclerView.Adapter<AppointmentSummaryAdapter.ViewHolder> {
-    ArrayList<String> salonName;
-    ArrayList<String> Date;
-    ArrayList<String> time;
+//    ArrayList<String> data;
+    List<Appointment> appointmentList;
+//    ArrayList<String> salonName;
+//    ArrayList<String> Date;
 
-    public AppointmentSummaryAdapter(ArrayList<String> salonName, ArrayList<String> date, ArrayList<String> time) {
-        this.salonName = salonName;
-        Date = date;
-        this.time = time;
+    public AppointmentSummaryAdapter(List<Appointment> appointmentList) {
+        this.appointmentList = appointmentList;
     }
+
+//    ArrayList<String> time;
+
+//    public AppointmentSummaryAdapter(ArrayList<String> salonName, ArrayList<String> date, ArrayList<String> time) {
+//        this.salonName = salonName;
+//        Date = date;
+//        this.time = time;
+//    }
 
     @Override
     public int getItemViewType(final int position) { return R.layout.appointment_summary_recycle_view; }
@@ -38,15 +48,21 @@ public class AppointmentSummaryAdapter extends RecyclerView.Adapter<AppointmentS
 
     @Override
     public void onBindViewHolder(@NonNull @NotNull AppointmentSummaryAdapter.ViewHolder holder, int position) {
-        holder.Date.setText(Date.get(position));
-        holder.time.setText(time.get(position));
-        holder.salonName.setText(salonName.get(position));
+//        Appointment ap = data.get(position);
+//        holder.Date.setText(Date.get(position));
+//        holder.time.setText(time.get(position));
+//        holder.salonName.setText(salonName.get(position));
+        ViewHolder viewHolder = (ViewHolder)holder;
+        Appointment appointment = appointmentList.get(position);
+        viewHolder.salonName.setText(appointment.getSname());
+        viewHolder.Date.setText(appointment.getDate());
+        viewHolder.time.setText(appointment.getTime());
     }
 
     @Override
     public int getItemCount() {
 
-        return salonName.size();
+        return appointmentList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
