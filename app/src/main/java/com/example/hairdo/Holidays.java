@@ -81,11 +81,13 @@ public class Holidays extends AppCompatActivity {
                 String Fmonth = Integer.toString(Dmonth);
                 String Fday = Integer.toString(DdayOfMonth);
                 String Fyear = Integer.toString(Dyear);
-                Holiday holiday = new Holiday(FDate, FRemark, Fyear, Fmonth, Fday);
+                Holiday holiday = new Holiday(FDate, FRemark);
 
 
                 FirebaseDatabase.getInstance().getReference("Holiday").push().setValue(holiday).addOnSuccessListener(suc -> {
                     Toast.makeText(Holidays.this, "Successfully added Holiday ", Toast.LENGTH_SHORT).show();
+                    finish();
+                    startActivity(getIntent());
                 }).addOnFailureListener(er -> {
                     Toast.makeText(Holidays.this, "Not Added. Error is: " + er.getMessage(), Toast.LENGTH_SHORT).show();
                 });

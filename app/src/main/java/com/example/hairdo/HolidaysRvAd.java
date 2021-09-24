@@ -1,6 +1,7 @@
 package com.example.hairdo;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,9 +48,20 @@ public class HolidaysRvAd extends  RecyclerView.Adapter<HolidaysRvAd.ViewHolder>
             FirebaseDatabase.getInstance().getReference(Holiday.class.getSimpleName()).child(holiday.getFbKey()).removeValue().addOnSuccessListener(suc->{
                 Toast.makeText(context, "Holiday is removed", Toast.LENGTH_SHORT).show();
                 notifyItemRemoved(position);
+                Intent intent1=new Intent(context,Holidays.class);
+                context.startActivity(intent1);
             }).addOnFailureListener(er->{
                 Toast.makeText(context, "Not Removed: "+er.getMessage(), Toast.LENGTH_SHORT).show();
             });
+
+        });
+
+        holder.editBtn.setOnClickListener(v->{
+            Intent intent=new Intent(context,HolidaysEdit.class);
+            intent.putExtra("editKey",holiday.getFbKey());
+            intent.putExtra("OldDate",holiday.getSelected_Date());
+            intent.putExtra("OldRemark",holiday.getRemark());
+            context.startActivity(intent);
 
         });
 
