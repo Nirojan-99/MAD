@@ -80,6 +80,7 @@ public class AppointmentC extends AppCompatActivity {
 //        }
         Intent intent = getIntent();
         String sid = intent.getStringExtra("id").toString();
+        String cname = intent.getStringExtra("cusName").toString();
 
         auth = FirebaseAuth.getInstance();
         String cid = auth.getUid().toString();
@@ -87,7 +88,7 @@ public class AppointmentC extends AppCompatActivity {
          String enterdate = date.getText().toString().trim();
          String entertime = taketime.getText().toString().trim();
 
-//        Query query6 = FirebaseDatabase.getInstance().getReference("Customer").orderByChild("salonid").equalTo(sid);
+//        Query query6 = FirebaseDatabase.getInstance().getReference("Salon").orderByChild("_id").equalTo(sid);
 //        query6.addListenerForSingleValueEvent(new ValueEventListener() {
 //                                                  @Override
 //                                                  public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -132,7 +133,7 @@ public class AppointmentC extends AppCompatActivity {
 
 
 
-       Appointment Appointment = new Appointment(sid,cid,"HairWizard","sayanthan",enterdate,entertime,"350","");
+       Appointment Appointment = new Appointment(sid,cid,cname,"sayanthan",enterdate,entertime,"350","");
 
         FirebaseDatabase.getInstance().getReference("Appointment").push().setValue(Appointment).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
