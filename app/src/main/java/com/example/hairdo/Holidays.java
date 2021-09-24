@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+
 import java.util.Calendar;
 
 import android.app.DatePickerDialog;
@@ -28,9 +29,9 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Holidays extends AppCompatActivity {
-    ArrayList<String> holidayList = new ArrayList<String>();
     ImageButton selectDate;
     Button addHolidayBtn;
     EditText selectedDate;
@@ -46,6 +47,9 @@ public class Holidays extends AppCompatActivity {
     int Dmonth;
     int DdayOfMonth;
 
+    RecyclerView recyclerView;
+    List<Holiday> holidayList;
+    HolidaysRvAd holidaysRvAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +59,11 @@ public class Holidays extends AppCompatActivity {
         selectDate = findViewById(R.id.btnHoliDate);
         selectedDate = findViewById(R.id.picked_holiDate);
         remark = findViewById(R.id.Holidayremark);
+
+        holidayList=new ArrayList<>();
+        setAdapter();
+        setDateforRecyclerview();
+
 
 
 //        holidayList.add("15 November 2021");
@@ -89,6 +98,25 @@ public class Holidays extends AppCompatActivity {
 
             }
         });
+
+
+    }
+
+    private void setDateforRecyclerview() {
+        holidayList.add(new Holiday("adadadsad","dasdasdasd","dasdadas","asdad","dasdjadj"));
+        holidayList.add(new Holiday("qqqqq","121212","dc","as121dad","qwd"));
+        holidayList.add(new Holiday("wwwww","dqdw","dasdadas","asdad","dasdjadj"));
+        holidayList.add(new Holiday("eeeee","dasddww11asdasd","dasdadas","asdad","dasdjadj"));
+
+    }
+
+
+    private void setAdapter() {
+        recyclerView=findViewById(R.id.holidays_rv);
+        RecyclerView.LayoutManager layoutManager=new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        holidaysRvAd=new HolidaysRvAd(this,holidayList);
+        recyclerView.setAdapter(holidaysRvAd);
 
 
     }
