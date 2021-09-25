@@ -17,32 +17,16 @@ public class QR_Generator extends AppCompatActivity {
 
     Button button;
     ImageView imageView;
-    String content ="MkLJpwNLEilvlb61gUB";
+    String content ="-MkLJpwNLEilvlb61gUB";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qr_generator);
 
-//        button = (Button)findViewById(R.id.btn_qrGenrator);
         imageView = (ImageView)findViewById(R.id.imageview);
         genarateQR();
 
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
-//
-//                try{
-//                    BitMatrix bitMatrix = multiFormatWriter.encode(content,BarcodeFormat.QR_CODE,500,500);
-//                    BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
-//                    Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
-//                    imageView.setImageBitmap(bitmap);
-//                }catch (Exception e){
-//                    e.printStackTrace();
-//                }
-//            }
-//        });
     }
 
     public void genarateQR() {

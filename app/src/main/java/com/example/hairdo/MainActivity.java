@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-      id = FirebaseAuth.getInstance().getCurrentUser().getUid();
+//      id = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         if(id != null){
             FirebaseDatabase.getInstance().getReference("Customer").child(id).addValueEventListener(new ValueEventListener() {
