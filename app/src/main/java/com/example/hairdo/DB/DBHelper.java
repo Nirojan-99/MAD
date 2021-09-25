@@ -37,7 +37,7 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 
-    
+
 
     public Boolean deletedata (String email)
     {
