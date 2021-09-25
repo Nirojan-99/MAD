@@ -37,11 +37,11 @@ public class DpUpload extends AppCompatActivity {
     ProgressBar pb;
     StorageReference stf = FirebaseStorage.getInstance().getReference();
     Uri imageUri;
-    DatabaseReference root ;
+    DatabaseReference root;
     StorageReference reference = FirebaseStorage.getInstance().getReference();
 
     //        String id = auth.getCurrentUser().getUid();
-    String id ;
+    String id;
     String type;
 
     @Override
@@ -66,18 +66,17 @@ public class DpUpload extends AppCompatActivity {
                 Intent galleryIntent = new Intent();
                 galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
                 galleryIntent.setType("image/*");
-                startActivityForResult(galleryIntent , 2);
+                startActivityForResult(galleryIntent, 2);
             }
         });
-
 
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (imageUri != null){
+                if (imageUri != null) {
                     uploadToFirebase(imageUri);
-                }else{
+                } else {
                     Toast.makeText(DpUpload.this, "Please Select Image", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -90,11 +89,12 @@ public class DpUpload extends AppCompatActivity {
             }
         });
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode ==2 && resultCode == RESULT_OK && data != null){
+        if (requestCode == 2 && resultCode == RESULT_OK && data != null) {
 
             imageUri = data.getData();
             img.setImageURI(imageUri);
@@ -102,9 +102,9 @@ public class DpUpload extends AppCompatActivity {
         }
     }
 
-    private void uploadToFirebase(Uri uri){
+    private void uploadToFirebase(Uri uri) {
 
-        if(type.contains("Gallery")){
+        if (type.contains("Gallery")) {
 
             final StorageReference fileRef = reference.child(System.currentTimeMillis() + "." + getFileExtension(uri));
             fileRef.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -114,7 +114,7 @@ public class DpUpload extends AppCompatActivity {
                         @Override
                         public void onSuccess(Uri uri) {
 
-                            Gallery gallery = new Gallery(uri.toString(),id);
+                            Gallery gallery = new Gallery(uri.toString(), id);
 
                             root.push().setValue(gallery).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
@@ -147,7 +147,7 @@ public class DpUpload extends AppCompatActivity {
                 }
             });
 
-        }else{
+        } else {
             final StorageReference fileRef = reference.child(System.currentTimeMillis() + "." + getFileExtension(uri));
             fileRef.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
@@ -194,7 +194,7 @@ public class DpUpload extends AppCompatActivity {
 
     }
 
-    private String getFileExtension(Uri mUri){
+    private String getFileExtension(Uri mUri) {
 
         ContentResolver cr = getContentResolver();
         MimeTypeMap mime = MimeTypeMap.getSingleton();
