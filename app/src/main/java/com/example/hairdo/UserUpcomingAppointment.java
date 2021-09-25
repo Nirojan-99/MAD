@@ -16,17 +16,17 @@ public class UserUpcomingAppointment extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_upcoming_appointment);
-//        salonName.add("salonName");
-//        salonName.add("salonName1");
-//        salonName.add("salonName2");
-//
-//        date.add("12.08.2021");
-//        date.add("14.08.2021");
-//        date.add("17.08.2021");
-//
-//        time.add("8.30AM");
-//        time.add("3.30AM");
-//        time.add("5.30AM");
+        salonName.add("salonName");
+        salonName.add("salonName1");
+        salonName.add("salonName2");
+
+        date.add("12.08.2021");
+        date.add("14.08.2021");
+        date.add("17.08.2021");
+
+        time.add("8.30AM");
+        time.add("3.30AM");
+        time.add("5.30AM");
 
 
         RecyclerView recyclerView = findViewById(R.id.cancel_upcoming_appointment_recylerview);

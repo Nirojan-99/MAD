@@ -34,6 +34,7 @@ import com.google.firebase.database.ValueEventListener;
 import org.jetbrains.annotations.NotNull;
 
 public class AppointmentC extends AppCompatActivity {
+    // inistailze
     Button selectDate;
     EditText date ;
     TextView Advancepayment;
@@ -77,7 +78,7 @@ public class AppointmentC extends AppCompatActivity {
 //        if(selectedId==-1){
 //            Toast.makeText(AppointmentC.this,"please select the time", Toast.LENGTH_SHORT).show();
 //        }
-        Intent intent = getIntent();
+          Intent intent = getIntent();
           String sid = intent.getStringExtra("id").toString();
 //        String cname = intent.getStringExtra("cusName").toString();
 
