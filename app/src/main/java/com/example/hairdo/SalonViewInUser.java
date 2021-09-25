@@ -265,10 +265,7 @@ public class SalonViewInUser extends AppCompatActivity {
                             isLiked = true;
                             like.setImageResource(R.drawable.liked);
                         }
-                    });
-                }
-            }
-        });
+                    }); } }});
 
         getLikeddata();
 

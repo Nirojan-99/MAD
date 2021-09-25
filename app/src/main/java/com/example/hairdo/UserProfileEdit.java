@@ -85,6 +85,7 @@ public class UserProfileEdit extends Fragment {
         ll = view.findViewById(R.id.bg);
 
 
+        //fetch user data
         Query query = FirebaseDatabase.getInstance().getReference("Customer").child(id);
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -160,7 +161,6 @@ public class UserProfileEdit extends Fragment {
                 hashMap.put("password", enteredPassword.toString());
                 hashMap.put("address", enteredAddress.toString());
 
-
                 FirebaseDatabase.getInstance().getReference("Customer").child(id).updateChildren(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
@@ -172,7 +172,6 @@ public class UserProfileEdit extends Fragment {
                         //failure code
                     }
                 });
-
             }
         });
 

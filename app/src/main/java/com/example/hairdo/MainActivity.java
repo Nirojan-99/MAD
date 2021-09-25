@@ -27,7 +27,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        id = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        if(FirebaseAuth.getInstance().getCurrentUser() == null){
+            id = null;
+        }else {
+
+            id = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        }
 
         if(id != null){
             FirebaseDatabase.getInstance().getReference("Customer").child(id).addValueEventListener(new ValueEventListener() {
@@ -63,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                     1000);
         }
 
-//        Intent send = new Intent(MainActivity.this, AppointmentSummary.class);
+//        Intent send = new Intent(MainActivity.this, Payment.class);
 //                            startActivity(send);
 //                            finish();
 

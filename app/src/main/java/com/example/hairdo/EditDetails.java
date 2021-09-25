@@ -70,9 +70,7 @@ public class EditDetails extends AppCompatActivity {
                     }
                     pgs.setVisibility(View.GONE);
                     ll.setVisibility(View.GONE);
-                }
-            }
-
+                } }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 

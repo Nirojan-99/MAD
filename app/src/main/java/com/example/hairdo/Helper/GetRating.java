@@ -18,29 +18,21 @@ public class GetRating {
     String id;
 
     public  void getRating(String id , RatingBar rtb , TextView ratingCount) {
-
         FirebaseDatabase.getInstance().getReference("Review").orderByChild("salonid").equalTo(id).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
                 if (snapshot.exists()) {
-
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                         Review ser = dataSnapshot.getValue(Review.class);
                         loop++;
                         ratings += ser.star;
-
                     }
                     rate = ratings / loop;
                     rtb.setRating(rate);
                     ratingCount.setText("("+loop+")");
-                }
-
-            }
-
+                } }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
 
@@ -51,21 +43,16 @@ public class GetRating {
         FirebaseDatabase.getInstance().getReference("Follow").orderByChild("sid").equalTo(id).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
                 if (snapshot.exists()) {
-
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                         Review ser = dataSnapshot.getValue(Review.class);
                         looplikes++;
                     }
                     txt.setText("("+looplikes+")");
                 }
-
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
     }
