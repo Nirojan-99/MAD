@@ -68,8 +68,9 @@ public class UserProfileEdit extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_user_profile_edit, container, false);
         auth = FirebaseAuth.getInstance();
-//        String id = auth.getCurrentUser().getUid();
-        String id = "oJO7CwPSZjXFTJIungGeaQZQvo33";
+
+        String id ;
+        id = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         btn = view.findViewById(R.id.saveChanges);
         titleName = view.findViewById(R.id.username);

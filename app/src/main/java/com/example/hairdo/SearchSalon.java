@@ -28,8 +28,6 @@ public class SearchSalon extends AppCompatActivity {
     ImageButton imbt;
     ProgressBar pgs;
     TextView nothing;
-    //        String id = auth.getCurrentUser().getUid();
-    String id = "ejHLtEYSByaRAt0p7zp5yMaD9Na2";
     ArrayList<Salon> myListData = new ArrayList<Salon>();
     UserViewSalonList adapter;
 

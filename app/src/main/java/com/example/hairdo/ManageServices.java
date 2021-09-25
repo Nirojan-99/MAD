@@ -18,6 +18,7 @@ import com.example.hairdo.model.Customer;
 import com.example.hairdo.model.Service;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -33,8 +34,8 @@ public class ManageServices extends AppCompatActivity {
     EditText etx;
     ProgressBar pgs;
     TextView nothng;
-    //        String id = auth.getCurrentUser().getUid();
-    String id = "ejHLtEYSByaRAt0p7zp5yMaD9Na2";
+
+    String id;
     ArrayList<Service>  myListData = new ArrayList<Service>();
     HashMap<String, Object> hashMap = new HashMap<>();
     ServicesAdapter adapter ;
@@ -43,6 +44,8 @@ public class ManageServices extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_services);
+
+        id = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         pgs=findViewById(R.id.progressService);
         nothng=findViewById(R.id.nothing);

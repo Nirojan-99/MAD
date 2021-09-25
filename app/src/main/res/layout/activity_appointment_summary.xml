@@ -18,6 +18,18 @@
             android:layout_margin="10dp"
             android:orientation="vertical">
 
+            <TextView
+                android:fontFamily="@font/robotoblack"
+                android:layout_marginBottom="20sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="APPOINTMENTS"
+                android:textColor="@color/white_dark"
+                android:background="@drawable/textview_border"
+                android:gravity="center_horizontal"
+                android:paddingVertical="15sp"
+                android:textSize="20sp"
+                android:backgroundTint="@color/primary_black"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
