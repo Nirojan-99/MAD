@@ -35,7 +35,8 @@ public class AppointmentSummary extends AppCompatActivity {
        List<Appointment> appointment;
       AppointmentSummaryAdapter Adapter;
 
-      ProgressBar  pgs1 ;
+
+//      ProgressBar  pgs1 ;
       TextView nothing;
 
     String id ;
