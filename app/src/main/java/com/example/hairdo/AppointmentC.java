@@ -82,6 +82,7 @@ public class AppointmentC extends AppCompatActivity {
         String sid = intent.getStringExtra("id").toString();
         String cname = intent.getStringExtra("cusName").toString();
 
+
         auth = FirebaseAuth.getInstance();
         String cid = auth.getUid().toString();
 
