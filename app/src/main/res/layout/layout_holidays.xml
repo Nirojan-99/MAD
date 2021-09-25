@@ -16,6 +16,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5sp"
             android:layout_marginBottom="5sp"
+            android:layout_marginLeft="3sp"
+            android:layout_marginRight="3sp"
             android:background="@drawable/card"
             android:backgroundTint="@color/white_dark"
             android:orientation="vertical"
@@ -47,27 +49,33 @@
 
                     <LinearLayout
                         android:id="@+id/hdUDid"
-                        android:layout_width="65sp"
+                        android:layout_width="75sp"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:layout_gravity="right"
-                        android:gravity="center">
+                        android:gravity="center"
+                        android:layout_marginRight="2sp"
+                        android:layout_marginLeft="2sp">
 
                         <ImageView
                             android:id="@+id/hdEditBtn"
-                            android:layout_width="34sp"
-                            android:layout_height="34sp"
+                            android:layout_width="35sp"
+                            android:layout_height="35sp"
+                            android:layout_marginLeft="2sp"
+                            android:layout_marginRight="2sp"
                             android:background="@drawable/card"
-                            android:backgroundTint="@color/gray"
+                            android:backgroundTint="@color/white_dark"
                             android:clickable="true"
                             android:src="@drawable/ic_baseline_edit_24" />
 
                         <ImageView
                             android:id="@+id/hdDeletBtn"
-                            android:layout_width="34sp"
-                            android:layout_height="34sp"
+                            android:layout_width="35sp"
+                            android:layout_height="35sp"
                             android:background="@drawable/card"
-                            android:backgroundTint="@color/gray"
+                            android:layout_marginLeft="2sp"
+                            android:layout_marginRight="2sp"
+                            android:backgroundTint="@color/white_dark"
                             android:clickable="true"
                             android:src="@drawable/ic_baseline_delete_24" />
 

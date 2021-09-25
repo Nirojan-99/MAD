@@ -108,7 +108,7 @@
                         android:id="@+id/btnHoliDate"
                         android:layout_width="60dp"
                         android:layout_height="35dp"
-                        android:layout_marginHorizontal="290dp"
+                        android:layout_marginHorizontal="280dp"
                         android:background="@color/light_black"
                         android:onClick="PickDate"
                         android:tint="@color/white"
