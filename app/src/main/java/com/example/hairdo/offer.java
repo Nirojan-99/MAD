@@ -19,6 +19,7 @@ import com.example.hairdo.model.Offer;
 import com.example.hairdo.model.Service;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -44,8 +45,7 @@ public class offer extends AppCompatActivity {
     ProgressBar pgs;
     TextView nothing;
 
-    //        String id = auth.getCurrentUser().getUid();
-    String id = "oJO7CwPSZjXFTJIungGeaQZQvo33";
+    String id;
     ArrayList<Offer> myListData = new ArrayList<Offer>();
     OffersAdapter adapter;
 
@@ -53,6 +53,8 @@ public class offer extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_offer);
+
+        id = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         name = findViewById(R.id.textView8);
         des = findViewById(R.id.textView10);

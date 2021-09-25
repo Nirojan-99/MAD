@@ -18,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class UserProfile  extends AppCompatActivity
 
@@ -48,6 +49,10 @@ public class UserProfile  extends AppCompatActivity
         startActivity(inte);
     }
 
+    public  void onNotifcationClicked(View v){
+        Intent inte = new Intent(this,Notification.class);
+        startActivity(inte);
+    }
 
     @Override
     public void onBackPressed () {
@@ -91,11 +96,12 @@ public class UserProfile  extends AppCompatActivity
             ft.replace(R.id.nav_host_fragment_user,fragment);
             ft.commit();
 
-        } else if (id == R.id. nav_upcoming_appointments ) {
-
-//            Intent intent = new Intent(this,.class);
-//            startActivity(intent);
         }
+//        else if (id == R.id. nav_upcoming_appointments ) {
+//
+////            Intent intent = new Intent(this,.class);
+////            startActivity(intent);
+//        }
         else if (id == R.id. nav_summary ) {
 
             Intent intent = new Intent(this,AppointmentSummary.class);
@@ -103,8 +109,8 @@ public class UserProfile  extends AppCompatActivity
         }
         else if (id == R.id. nav_notification ) {
 
-//            Intent intent = new Intent(this,ContactUs.class);
-//            startActivity(intent);
+            Intent intent = new Intent(this,Notification.class);
+            startActivity(intent);
         }
         else if (id == R.id. nav_payments ) {
 
@@ -114,6 +120,11 @@ public class UserProfile  extends AppCompatActivity
         else if (id == R.id. nav_ContactUs ) {
 
             Intent intent = new Intent(this,ContactUs.class);
+            startActivity(intent);
+        }
+        else if (id == R.id. nav_logOut ) {
+            Intent intent = new Intent(this,LogIn.class);
+            finish();
             startActivity(intent);
         }
 

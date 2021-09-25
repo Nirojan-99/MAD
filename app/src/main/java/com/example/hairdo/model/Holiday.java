@@ -3,6 +3,7 @@ public class Holiday {
     public String fbKey;
     public String selected_Date;
     public String remark;
+    public String date;
 //    public String year;
 //    public String month;
 //    public String day;
@@ -11,9 +12,10 @@ public class Holiday {
 
     }
 
-    public Holiday(String selected_Date, String remark) {
+    public Holiday(String selected_Date, String remark,String formatDate) {
         this.selected_Date = selected_Date;
         this.remark = remark;
+        this.date=formatDate;
 //        this.year = year;
 //        this.month = month;
 //        this.day = day;
@@ -65,5 +67,13 @@ public class Holiday {
 
     public void setFbKey(String fbKey) {
         this.fbKey = fbKey;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }

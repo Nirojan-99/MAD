@@ -86,9 +86,6 @@ public class Appointment {
         return status;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
 
     public String get_id() {
         return _id;
@@ -97,5 +94,12 @@ public class Appointment {
     public void set_id(String _id) {
         this._id = _id;
     }
+
+
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
 
 }

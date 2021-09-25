@@ -27,14 +27,17 @@ public class HolidaysEdit extends AppCompatActivity {
     int year;
     int month;
     int dayOfMonth;
+    String formatDate;
     Calendar calendar;
     String monthName;
+
+    Holiday Oldholiday = new Holiday();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_holidays_edit);
-        Holiday Oldholiday = new Holiday();
+//        Holiday Oldholiday = new Holiday();
         updateHolidayBtn = findViewById(R.id.btn_editHD);
         selectDate = findViewById(R.id.editDatePicker);
         selectedDate = findViewById(R.id.editedDate);
@@ -43,9 +46,7 @@ public class HolidaysEdit extends AppCompatActivity {
         Oldholiday.setFbKey(intent.getStringExtra("editKey"));
         Oldholiday.setSelected_Date(intent.getStringExtra("OldDate"));
         Oldholiday.setRemark(intent.getStringExtra("OldRemark"));
-
-//         Oldholiday.setSelected_Date("17/01/2020");
-//        Oldholiday.setRemark("dhaidjpoi");
+        Oldholiday.setDate(intent.getStringExtra("OldFormatDate"));
 
 
 
@@ -58,9 +59,11 @@ public class HolidaysEdit extends AppCompatActivity {
 
                 String FDate = selectedDate.getText().toString().trim();
                 String FRemark = remark.getText().toString().trim();
+                String FformatDate=Oldholiday.getDate().trim();
                 HashMap<String,Object>hashMap=new HashMap<>();
                 hashMap.put("selected_Date",FDate);
                 hashMap.put("remark",FRemark);
+                hashMap.put("date",FformatDate);
 
 
 
@@ -139,6 +142,8 @@ public class HolidaysEdit extends AppCompatActivity {
                 monthName = getMonthName(month + 1);
 //                selectedDate.setText(day + " / " + (month + 1) + " / " + year);
                 selectedDate.setText(monthName + " " + day + " , " + year);
+                Oldholiday.setDate(day+"/"+(month+1)+"/"+year);
+
 
 
             }

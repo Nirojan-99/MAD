@@ -14,14 +14,14 @@
     </group>
     <item android:title= "@string/Appointment" >
         <menu>
-            <item
-                android:id= "@+id/nav_upcoming_appointments"
-                android:icon= "@drawable/ic_calendar"
-                android:title= "@string/menu_upcomingA" />
+<!--            <item-->
+<!--                android:id= "@+id/nav_upcoming_appointments"-->
+<!--                android:icon= "@drawable/ic_calendar"-->
+<!--                android:title= "@string/menu_upcomingA" />-->
             <item
                 android:id= "@+id/nav_summary"
                 android:icon= "@drawable/ic_baseline_history_24"
-                android:title= "@string/menu_Appointment_summary" />
+                android:title= "@string/menu_upcomingA" />
         </menu>
     </item>
     <item android:title="@string/common">
