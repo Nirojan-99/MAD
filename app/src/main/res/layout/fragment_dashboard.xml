@@ -153,11 +153,11 @@
                     android:background="@color/primary_black" />
 
 
+
                 <FrameLayout
                     android:id="@+id/appointents"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    />
+                    android:layout_height="wrap_content" />
 
 
             </LinearLayout>
@@ -178,9 +178,9 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:backgroundTint="@color/primary_black"
                         android:layout_width="36sp"
                         android:layout_height="36sp"
+                        android:backgroundTint="@color/primary_black"
                         android:src="@drawable/ic_baseline_monetization_on_24" />
 
                     <TextView
@@ -206,61 +206,63 @@
                     android:layout_height="wrap_content">
 
                     <TableRow
-                        android:layout_marginVertical="10sp"
-                        android:gravity="center_horizontal"
                         android:layout_gravity="center_horizontal"
-                        android:layout_marginHorizontal="15sp">
+                        android:layout_marginHorizontal="15sp"
+                        android:layout_marginVertical="10sp"
+                        android:gravity="center_horizontal">
 
                         <TextView
-                            android:layout_marginHorizontal="35sp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/todayPayout"
+                            android:layout_marginHorizontal="35sp"
                             android:fontFamily="@font/opensansbold"
-                            android:textSize="15sp"
-                            android:textColor="@color/primary_black"/>
+                            android:text="@string/todayPayout"
+                            android:textColor="@color/primary_black"
+                            android:textSize="15sp" />
+
                         <TextView
-                            android:textAlignment="center"
-                            android:gravity="center_horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="35sp"
                             android:width="75sp"
                             android:background="@drawable/card"
                             android:backgroundTint="@color/primary_black"
-                            android:layout_marginHorizontal="35sp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="1200/-"
                             android:fontFamily="@font/opensanssemibold"
-                            android:textSize="14sp"
-                            android:textColor="@color/white"/>
+                            android:gravity="center_horizontal"
+                            android:text="1200/-"
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
                     </TableRow>
 
                     <TableRow
-                        android:layout_marginVertical="10sp"
-                        android:gravity="center_horizontal"
                         android:layout_gravity="center_horizontal"
-                        android:layout_marginHorizontal="15sp">
+                        android:layout_marginHorizontal="15sp"
+                        android:layout_marginVertical="10sp"
+                        android:gravity="center_horizontal">
 
                         <TextView
-                            android:layout_marginHorizontal="35sp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/previousPayout"
+                            android:layout_marginHorizontal="35sp"
                             android:fontFamily="@font/opensansbold"
-                            android:textSize="15sp"
-                            android:textColor="@color/primary_black"/>
+                            android:text="@string/previousPayout"
+                            android:textColor="@color/primary_black"
+                            android:textSize="15sp" />
+
                         <TextView
-                            android:textAlignment="center"
-                            android:gravity="center_horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="35sp"
                             android:width="75sp"
                             android:background="@drawable/card"
                             android:backgroundTint="@color/primary_black"
-                            android:layout_marginHorizontal="35sp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="1200/-"
                             android:fontFamily="@font/opensanssemibold"
-                            android:textSize="14sp"
-                            android:textColor="@color/white"/>
+                            android:gravity="center_horizontal"
+                            android:text="1200/-"
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
                     </TableRow>
                 </TableLayout>
 

@@ -23,6 +23,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.hairdo.BothSignUp;
 import com.example.hairdo.DpUpload;
 import com.example.hairdo.Helper.CircleTransform;
+import com.example.hairdo.Helper.GetRating;
 import com.example.hairdo.ManageServices;
 import com.example.hairdo.R;
 import com.example.hairdo.SalonViewInUser;
@@ -50,7 +51,7 @@ public class HomeFragment extends Fragment {
     HashMap<String, Object> hashMap = new HashMap<>();
     ServicesSalonAdapter adapter;
     ImageView dp,dpchange;
-    TextView address, mail, contact, likes, name,nothing,noreviews;
+    TextView address, mail, contact, likes, name,nothing,noreviews,count;
     RatingBar rtb;
     ProgressBar pgs1,pgs2;
 
@@ -116,6 +117,7 @@ public class HomeFragment extends Fragment {
         pgs2 = root.findViewById(R.id.reviewProgress);
         nothing = root.findViewById(R.id.noService);
         noreviews = root.findViewById(R.id.noreviews);
+        count = root.findViewById(R.id.count);
 
         //dp change
         dpchange.setOnClickListener(new View.OnClickListener() {
@@ -135,21 +137,19 @@ public class HomeFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
-                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-
+                        GetRating getRating = new GetRating();
                         Salon cus = snapshot.getValue(Salon.class);
+                        getRating.getRating(snapshot.getKey(),rtb,count);
+                        getRating.getLikes(snapshot.getKey(),likes);
                         name.setText(cus.name);
                         mail.setText(cus.email);
                         contact.setText(cus.contact);
                         address.setText(cus.address);
-//                        likes.setText(cus.likes);
-                        likes.setText("102");
-                        rtb.setRating(3.0f);
                         if(cus.url != null){
                             dp.setPadding(0,0,0,0);
                             Picasso.with(root.getContext()).load(Uri.parse(cus.url)).transform(new CircleTransform()).into(dp);
                         }
-                    }
+
 
                 }
             }

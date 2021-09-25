@@ -78,7 +78,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/robotoblack"
-                        android:text="@string/salonname"
                         android:textAllCaps="true"
                         android:textColor="@color/dark_black"
                         android:textSize="23sp" />
@@ -94,6 +93,11 @@
                         android:numStars="5"
                         android:rating="3"
                         android:stepSize=".5" />
+
+                    <TextView
+                        android:id="@+id/count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -115,7 +119,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="10sp"
                         android:fontFamily="@font/opensanssemibold"
-                        android:text="address,lane"
                         android:textColor="@color/dark_black"
                         android:textSize="13sp"
 
@@ -141,7 +144,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="10sp"
                         android:fontFamily="@font/opensanssemibold"
-                        android:text="info@gmail.com"
                         android:textColor="@color/dark_black"
                         android:textSize="13sp"
 
@@ -167,7 +169,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="10sp"
                         android:fontFamily="@font/opensanssemibold"
-                        android:text="0778862173"
                         android:textColor="@color/dark_black"
                         android:textSize="13sp"
 
@@ -193,7 +194,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="10sp"
                         android:fontFamily="@font/opensanssemibold"
-                        android:text="(300)"
                         android:textColor="@color/dark_black"
                         android:textSize="13sp"
 
@@ -233,28 +233,29 @@
                         android:layout_height="wrap_content"
                         android:layout_marginVertical="10sp"
                         android:orientation="horizontal">
+
                         <ProgressBar
+                            android:id="@+id/serviceProgress"
                             android:layout_width="match_parent"
-                            android:layout_height="20sp"
-                            android:id="@+id/serviceProgress"/>
+                            android:layout_height="20sp" />
+
                         <TextView
+                            android:id="@+id/noService"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/noService"
-                            android:visibility="gone"
-                            android:text="No services available!"
+                            android:layout_gravity="center"
                             android:gravity="center_horizontal"
-                            android:layout_gravity="center"/>
+                            android:text="No services available!"
+                            android:visibility="gone" />
 
 
-                            <androidx.recyclerview.widget.RecyclerView
-                                android:id="@+id/recylersalon"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal">
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recylersalon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
 
-                            </androidx.recyclerview.widget.RecyclerView>
-
+                        </androidx.recyclerview.widget.RecyclerView>
 
 
                     </LinearLayout>
@@ -263,34 +264,36 @@
 
             </LinearLayout>
 
-                    <TextView
-                        android:padding="5sp"
-                        android:layout_gravity="left"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginVertical="10sp"
-                        android:fontFamily="@font/opensansbold"
-                        android:text="@string/reviews"
-                        android:textColor="@color/primary_black"
-                        android:textSize="18sp" />
-            <ProgressBar
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/reviewProgress"/>
             <TextView
-                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginVertical="10sp"
+                android:fontFamily="@font/opensansbold"
+                android:padding="5sp"
+                android:text="@string/reviews"
+                android:textColor="@color/primary_black"
+                android:textSize="18sp" />
+
+            <ProgressBar
+                android:id="@+id/reviewProgress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
                 android:id="@+id/noreviews"
-                android:layout_marginVertical="15sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginVertical="15sp"
+                android:gravity="center"
                 android:text="No Reviews available!"
                 android:textColor="@color/primary_black"
-                android:gravity="center"/>
+                android:visibility="gone" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycleReviewSalon"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/recycleReviewSalon"/>
+                android:layout_height="wrap_content" />
 
         </LinearLayout>
     </ScrollView>
