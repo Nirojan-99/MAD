@@ -88,7 +88,7 @@ public class AppointmentC extends AppCompatActivity {
          String enterdate = date.getText().toString().trim();
          String entertime = taketime.getText().toString().trim();
 
-//        Query query6 = FirebaseDatabase.getInstance().getReference("Salon").orderByChild("_id").equalTo(sid);
+//        Query query6 = FirebaseDatabase.getInstance().getReference("Salon").orderByChild("sid").equalTo(sid);
 //        query6.addListenerForSingleValueEvent(new ValueEventListener() {
 //                                                  @Override
 //                                                  public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -123,11 +123,15 @@ public class AppointmentC extends AppCompatActivity {
             date.requestFocus();
             return;
 
-        } if(entertime.isEmpty()){
-            date.setError("select the time");
-            date.requestFocus();
+        } else if(entertime.isEmpty()){
+            taketime.setError("select the time");
+            taketime.requestFocus();
             return;
 
+        }else if (!entertime.contains("m") && !entertime.contains("M") ) {
+            taketime.setError("Valid time is required");
+            taketime.requestFocus();
+            return;
         }
 
 
