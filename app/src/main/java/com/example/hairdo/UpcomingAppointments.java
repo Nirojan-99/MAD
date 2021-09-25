@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.hairdo.model.Appointment;
 import com.example.hairdo.model.Service;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -26,7 +27,7 @@ public class UpcomingAppointments extends AppCompatActivity {
 
     ArrayList<Appointment> myListData = new ArrayList<Appointment>();
     //        String id = auth.getCurrentUser().getUid();
-    String id = "ejHLtEYSByaRAt0p7zp5yMaD9Na2";
+    String id ;
     ProgressBar pgs;
     TextView nothing;
 
@@ -34,6 +35,8 @@ public class UpcomingAppointments extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upcoming_appointments);
+
+        id = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         pgs = findViewById(R.id.appointmentProgress);
         nothing = findViewById(R.id.nothing);

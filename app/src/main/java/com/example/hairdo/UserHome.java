@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.example.hairdo.model.Salon;
 import com.example.hairdo.model.Service;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -31,7 +32,7 @@ import java.util.HashMap;
 public class UserHome extends Fragment {
 
     //        String id = auth.getCurrentUser().getUid();
-    String id = "ejHLtEYSByaRAt0p7zp5yMaD9Na2";
+    String id ;
     ArrayList<Salon> myListData = new ArrayList<Salon>();
     UserViewSalonList adapter ;
     ProgressBar pgs;
@@ -46,6 +47,8 @@ public class UserHome extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_user_home, container, false);
+
+        id = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         //set adapter
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.salons);

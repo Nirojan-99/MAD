@@ -34,6 +34,7 @@ import com.example.hairdo.SalonProfile;
 import com.example.hairdo.Summary;
 import com.example.hairdo.UpcomingAppointments;
 import com.example.hairdo.offer;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class NotificationsFragment extends Fragment {
 
@@ -116,7 +117,8 @@ public class NotificationsFragment extends Fragment {
         rlt7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(), PaymentSummary.class));
+                startActivity(new Intent(getActivity(), LogIn.class));
+                getActivity().finish();
             }
         });
 

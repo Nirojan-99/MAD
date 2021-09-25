@@ -81,7 +81,8 @@ public class Holidays extends AppCompatActivity {
                 String Fmonth = Integer.toString(Dmonth);
                 String Fday = Integer.toString(DdayOfMonth);
                 String Fyear = Integer.toString(Dyear);
-                Holiday holiday = new Holiday(FDate, FRemark);
+                String FformatDate=Fday+"/"+Fmonth+"/"+Fyear;
+                Holiday holiday = new Holiday(FDate, FRemark,FformatDate);
 
 
                 FirebaseDatabase.getInstance().getReference("Holiday").push().setValue(holiday).addOnSuccessListener(suc -> {

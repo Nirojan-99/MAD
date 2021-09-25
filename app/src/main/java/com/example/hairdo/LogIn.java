@@ -8,9 +8,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.hairdo.DB.DBHelper;
+import com.example.hairdo.Helper.UserType;
 import com.example.hairdo.model.Customer;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -29,6 +31,7 @@ public class LogIn extends AppCompatActivity {
     Button btn;
     FirebaseAuth auth;
     DBHelper dbh;
+    ProgressBar pgs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,11 +40,10 @@ public class LogIn extends AppCompatActivity {
 
         email = findViewById(R.id.LogInUsername);
         password = findViewById(R.id.LogInPassword);
+        pgs = findViewById(R.id.progress);
         btn = findViewById(R.id.loginBtn);
         auth = FirebaseAuth.getInstance();
-        dbh =  new DBHelper(this);
-
-
+        dbh = new DBHelper(this);
 
 
         btn.setOnClickListener(new View.OnClickListener() {
@@ -60,18 +62,39 @@ public class LogIn extends AppCompatActivity {
                     return;
                 }
 
+                pgs.setVisibility(View.VISIBLE);
 
                 auth.signInWithEmailAndPassword(enteredEmail, enteredPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
 //                            boolean res = dbh.insertuserdata();
-                           Intent intent = new Intent(LogIn.this,UserProfile.class);
-                           intent.putExtra("userMail",enteredEmail);
-                           startActivity(intent);
-                           finish();
+                            String id = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+                            FirebaseDatabase.getInstance().getReference("Customer").child(id).addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    if (snapshot.exists()) {
+                                        Intent intent = new Intent(LogIn.this, UserProfile.class);
+                                        intent.putExtra("userMail", enteredEmail);
+                                        startActivity(intent);
+                                        finish();
+
+                                    } else {
+                                        Intent intent = new Intent(LogIn.this, SalonProfile.class);
+                                        startActivity(intent);
+                                        finish();
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                }
+                            });
 
                         } else {
+                            pgs.setVisibility(View.GONE);
                             Toast.makeText(LogIn.this, "Failed to login! please check your credentials.", Toast.LENGTH_SHORT).show();
                         }
                     }
@@ -90,7 +113,8 @@ public class LogIn extends AppCompatActivity {
         startActivity(intSign);
         finish();
     }
-    public void salonLogin(View view){
+
+    public void salonLogin(View view) {
         Intent intSign = new Intent(this, SalonLogin.class);
         startActivity(intSign);
         finish();

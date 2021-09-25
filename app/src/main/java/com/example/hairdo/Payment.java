@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.example.hairdo.model.PaymentModel;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.SimpleDateFormat;
@@ -26,13 +27,15 @@ public class Payment extends AppCompatActivity {
 //    String amount = getIntent().getStringExtra("amount");
     String salonId = "ejHLtEYSByaRAt0p7zp5yMaD9Na2";
     int amount = 1000;
-    //        String id = auth.getCurrentUser().getUid();
-    String id = "oJO7CwPSZjXFTJIungGeaQZQvo33";
+
+    String id ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
+
+        id = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         //initialize
         number = findViewById(R.id.cardNumber);

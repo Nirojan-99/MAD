@@ -85,24 +85,30 @@
                     <TableRow
                         android:gravity="center_horizontal"
                         android:padding="10sp">
+                        <ProgressBar
+                            android:id="@+id/todaySummary"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
 
                         <TextView
+                            android:id="@+id/total"
+                            android:visibility="gone"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="left"
                             android:layout_marginHorizontal="20sp"
                             android:fontFamily="@font/opensansbold"
-                            android:text="10"
                             android:textColor="@color/secondary_blue"
                             android:textSize="19sp" />
 
                         <TextView
+                            android:id="@+id/completed"
+                            android:visibility="gone"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="right"
                             android:layout_marginHorizontal="20sp"
                             android:fontFamily="@font/opensansbold"
-                            android:text="5"
                             android:textColor="@color/secondary_blue"
                             android:textSize="19sp" />
                     </TableRow>
@@ -221,6 +227,8 @@
                             android:textSize="15sp" />
 
                         <TextView
+                            android:visibility="invisible"
+                            android:id="@+id/todaypayout"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginHorizontal="35sp"
@@ -251,6 +259,8 @@
                             android:textSize="15sp" />
 
                         <TextView
+                            android:visibility="invisible"
+                            android:id="@+id/previousPayout"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginHorizontal="35sp"
