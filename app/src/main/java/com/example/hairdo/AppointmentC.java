@@ -39,8 +39,10 @@ public class AppointmentC extends AppCompatActivity {
     TextView Advancepayment;
     EditText taketime;
     Button timebtn;
-//    RadioButton timeradioButton;
-//    RadioGroup radioGroup;
+
+
+    RadioButton timeradioButton;
+   RadioGroup radioGroup;
       FirebaseAuth auth;
     DatePickerDialog datePickerDialog;
     int year;
