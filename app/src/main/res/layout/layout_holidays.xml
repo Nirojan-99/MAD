@@ -17,7 +17,7 @@
             android:layout_marginTop="5sp"
             android:layout_marginBottom="5sp"
             android:background="@drawable/card"
-            android:backgroundTint="@color/gray"
+            android:backgroundTint="@color/white_dark"
             android:orientation="vertical"
             android:padding="10sp">
 
