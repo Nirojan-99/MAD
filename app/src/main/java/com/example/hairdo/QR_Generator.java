@@ -17,7 +17,7 @@ public class QR_Generator extends AppCompatActivity {
 
     Button button;
     ImageView imageView;
-    String content ="-MkLJpwNLEilvlb61gUB";
+    String appointID ="-MkLJpwNLEilvlb61gUB";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +33,7 @@ public class QR_Generator extends AppCompatActivity {
         MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
 
         try{
-            BitMatrix bitMatrix = multiFormatWriter.encode(content,BarcodeFormat.QR_CODE,600,600);
+            BitMatrix bitMatrix = multiFormatWriter.encode(appointID,BarcodeFormat.QR_CODE,600,600);
             BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
             Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
             imageView.setImageBitmap(bitmap);

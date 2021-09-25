@@ -83,8 +83,6 @@ public class QR_Scanner extends AppCompatActivity {
             Toast.makeText(this, "Appointment Conformed and Completed ", Toast.LENGTH_SHORT).show();
         }).addOnFailureListener(er->{
             Toast.makeText(this, "Not Completed. Error is: " + er.getMessage(), Toast.LENGTH_SHORT).show();
-
-
         });
     }
 }
