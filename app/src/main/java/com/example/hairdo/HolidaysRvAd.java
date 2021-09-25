@@ -61,6 +61,7 @@ public class HolidaysRvAd extends  RecyclerView.Adapter<HolidaysRvAd.ViewHolder>
             intent.putExtra("editKey",holiday.getFbKey());
             intent.putExtra("OldDate",holiday.getSelected_Date());
             intent.putExtra("OldRemark",holiday.getRemark());
+            intent.putExtra("OldFormatDate",holiday.getDate());
             context.startActivity(intent);
 
         });
