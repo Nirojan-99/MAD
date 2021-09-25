@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         id = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         if(id != null){
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(intent);
                     }else {
                         intent = new Intent(MainActivity.this,SalonProfile.class);
+
                         finish();
                         startActivity(intent);
                     }

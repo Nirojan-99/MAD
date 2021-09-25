@@ -57,85 +57,139 @@
                     android:textSize="16dp"
                     app:backgroundTint="@color/secondary_blue" />
 
-                <TextView
+                <EditText
                     android:id="@+id/tvSelectedDate"
                     android:layout_width="155dp"
-                    android:layout_height="30dp"
+                    android:layout_height="45dp"
                     android:layout_marginLeft="100dp"
                     android:layout_marginTop="140dp"
                     android:gravity="center"
-                    android:text=""
+                    android:fontFamily="@font/opensansbold"
+                    android:hint=""
+                    android:textColor="@color/primary_black"
+                    android:textSize="20dp" />
+                <Button
+                    android:id="@+id/btn_time"
+                    android:layout_width="155dp"
+                    android:layout_height="43dp"
+                    android:gravity="center"
+                    android:fontFamily="@font/opensanssemibold"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginTop="200dp"
+                    android:background="@drawable/card"
+                    android:text="@string/pickdate"
+                    android:onClick="PickTime"
+                    android:textColor="@color/primary_black"
+                    android:textSize="16dp"
+                    app:backgroundTint="@color/secondary_blue" />
+
+                <EditText
+                    android:id="@+id/in_time"
+                    android:layout_width="155dp"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginTop="250dp"
+                    android:gravity="center"
+                    android:fontFamily="@font/opensansbold"
+                    android:hint=""
                     android:textColor="@color/primary_black"
                     android:textSize="20dp" />
 
-                <RadioGroup
-                    android:id="@+id/radioGroup"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="50dp"
-                    android:layout_marginTop="170dp"
-                    android:gravity="left"
-                    android:orientation="vertical">
+<!--                <TextView-->
+<!--                    android:id="@+id/in_time"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginLeft="25dp"-->
+<!--                    android:layout_marginTop="190dp"-->
+<!--                    android:gravity="center_vertical"-->
+<!--                    android:text="@string/Time"-->
+<!--                    android:fontFamily="@font/opensanssemibold"-->
+<!--                    android:textColor="@color/dark_black"-->
+<!--                    android:textSize="20sp" />-->
 
-                    <RadioButton
-                        android:buttonTint="@color/secondary_blue"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:padding="5sp"
-                        android:paddingStart="30dp"
-                        android:paddingLeft="20dp"
-                        android:paddingEnd="30dp"
-                        android:paddingRight="30dp"
-                        android:text="@string/time1"
-                        android:textColor="@color/primary_black"
-                        android:textColorHint="@color/secondary_blue"
-                        android:textStyle="bold" />
+<!--                <button-->
+<!--                    android:id="@+id/entertime"-->
+<!--                    android:layout_width="315dp"-->
+<!--                    android:gravity="center_vertical"-->
+<!--                    android:layout_marginLeft="15dp"-->
+<!--                    android:layout_marginRight="10dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="230dp"-->
+<!--                    android:background="@drawable/textview_border"-->
+<!--                    android:fontFamily="@font/opensansbold"-->
+<!--                    android:maxLines="1"-->
+<!--                    android:padding="10dp"-->
+<!--                    android:textColor="@color/dark_black"-->
+<!--                    android:textSize="20sp" />-->
 
+<!--                <RadioGroup-->
+<!--                    android:id="@+id/radioGroup"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginLeft="50dp"-->
+<!--                    android:layout_marginTop="170dp"-->
+<!--                    android:gravity="left"-->
+<!--                    android:orientation="vertical">-->
 
-                    <RadioButton
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:buttonTint="@color/secondary_blue"
-                        android:checked="false"
-                        android:paddingStart="30dp"
-                        android:paddingLeft="30dp"
-                        android:paddingEnd="20dp"
-                        android:paddingRight="20dp"
-                        android:text="@string/time2"
-                        android:textColor="@color/primary_black"
-                        android:textColorHint="@color/secondary_blue"
-                        android:textStyle="bold" />
-
-                    <RadioButton
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:buttonTint="@color/secondary_blue"
-                        android:checked="false"
-                        android:paddingStart="30dp"
-                        android:paddingLeft="30dp"
-                        android:paddingEnd="20dp"
-                        android:paddingRight="20dp"
-                        android:text="@string/time3"
-                        android:textColor="@color/primary_black"
-                        android:textColorHint="@color/secondary_blue"
-                        android:textStyle="bold" />
-
-                    <RadioButton
-
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:buttonTint="@color/secondary_blue"
-                        android:checked="false"
-                        android:paddingStart="30dp"
-                        android:paddingLeft="30dp"
-                        android:paddingEnd="20dp"
-                        android:paddingRight="20dp"
-                        android:text="@string/time4"
-                        android:textColor="@color/primary_black"
-                        android:textStyle="bold" />
+<!--                    <RadioButton-->
+<!--                        android:buttonTint="@color/secondary_blue"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:padding="5sp"-->
+<!--                        android:paddingStart="30dp"-->
+<!--                        android:paddingLeft="20dp"-->
+<!--                        android:paddingEnd="30dp"-->
+<!--                        android:paddingRight="30dp"-->
+<!--                        android:text="@string/time1"-->
+<!--                        android:textColor="@color/primary_black"-->
+<!--                        android:textColorHint="@color/secondary_blue"-->
+<!--                        android:textStyle="bold" />-->
 
 
-                </RadioGroup>
+<!--                    <RadioButton-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:buttonTint="@color/secondary_blue"-->
+<!--                        android:checked="false"-->
+<!--                        android:paddingStart="30dp"-->
+<!--                        android:paddingLeft="30dp"-->
+<!--                        android:paddingEnd="20dp"-->
+<!--                        android:paddingRight="20dp"-->
+<!--                        android:text="@string/time2"-->
+<!--                        android:textColor="@color/primary_black"-->
+<!--                        android:textColorHint="@color/secondary_blue"-->
+<!--                        android:textStyle="bold" />-->
+
+<!--                    <RadioButton-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:buttonTint="@color/secondary_blue"-->
+<!--                        android:checked="false"-->
+<!--                        android:paddingStart="30dp"-->
+<!--                        android:paddingLeft="30dp"-->
+<!--                        android:paddingEnd="20dp"-->
+<!--                        android:paddingRight="20dp"-->
+<!--                        android:text="@string/time3"-->
+<!--                        android:textColor="@color/primary_black"-->
+<!--                        android:textColorHint="@color/secondary_blue"-->
+<!--                        android:textStyle="bold" />-->
+
+<!--                    <RadioButton-->
+
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:buttonTint="@color/secondary_blue"-->
+<!--                        android:checked="false"-->
+<!--                        android:paddingStart="30dp"-->
+<!--                        android:paddingLeft="30dp"-->
+<!--                        android:paddingEnd="20dp"-->
+<!--                        android:paddingRight="20dp"-->
+<!--                        android:text="@string/time4"-->
+<!--                        android:textColor="@color/primary_black"-->
+<!--                        android:textStyle="bold" />-->
+
+
+<!--                </RadioGroup>-->
 
                 <TextView
                     android:layout_width="match_parent"
@@ -143,6 +197,7 @@
                     android:layout_marginHorizontal="35sp"
                     android:layout_marginTop="315dp"
                     android:text="@string/Advancepayment"
+                    android:fontFamily="@font/opensanssemibold"
                     android:textSize="20dp" />
 
                 <TextView
