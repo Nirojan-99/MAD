@@ -10,6 +10,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
 
+
+import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import com.example.hairdo.model.Appointment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -28,17 +34,26 @@ public class AppointmentSummary extends AppCompatActivity {
 
        List<Appointment> appointment;
       AppointmentSummaryAdapter Adapter;
-    //        String id = auth.getCurrentUser().getUid();
+
+      ProgressBar  pgs1 ;
+      TextView nothing;
+
     String id ;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        ProgressBar pgs1 = (ProgressBar)findViewById(R.id.cardProgress);
+        nothing = findViewById(R.id.nothing);
+
+
         id = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         setContentView(R.layout.activity_appointment_summary);
         RecyclerView recyclerView = findViewById(R.id.appointment_summary_recycleview2);
+
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -48,12 +63,19 @@ public class AppointmentSummary extends AppCompatActivity {
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
-                for(DataSnapshot dataSnapshot: snapshot.getChildren()){
-                    Appointment data = dataSnapshot.getValue(Appointment.class);
-                    appointment.add(data);
+                if (snapshot.exists()) {
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                        Appointment data = dataSnapshot.getValue(Appointment.class);
+                        appointment.add(data);
+                    }
+                    Adapter = new AppointmentSummaryAdapter(appointment);
+                    recyclerView.setAdapter(Adapter);
+                    Adapter.notifyDataSetChanged();
+
+                }else{
+
+                    Toast.makeText(AppointmentSummary.this, "no data", Toast.LENGTH_SHORT).show();
                 }
-                Adapter = new AppointmentSummaryAdapter(appointment);
-                recyclerView.setAdapter(Adapter);
             }
 
             @Override

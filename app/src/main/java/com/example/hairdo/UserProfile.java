@@ -49,6 +49,10 @@ public class UserProfile  extends AppCompatActivity
         startActivity(inte);
     }
 
+    public  void onNotifcationClicked(View v){
+        Intent inte = new Intent(this,Notification.class);
+        startActivity(inte);
+    }
 
     @Override
     public void onBackPressed () {

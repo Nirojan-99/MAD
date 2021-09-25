@@ -17,7 +17,9 @@ import java.util.List;
 
 public class AppointmentSummaryAdapter extends RecyclerView.Adapter<AppointmentSummaryAdapter.ViewHolder> {
 
+
     List<Appointment> appointmentList;
+
 
     public AppointmentSummaryAdapter(List<Appointment> appointmentList) {
         this.appointmentList = appointmentList;
