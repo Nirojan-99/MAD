@@ -73,8 +73,7 @@ public class SalonViewInUser extends AppCompatActivity {
 
         //intents
         Intent intent = getIntent();
-//        id = intent.getStringExtra("id");
-        id = "ejHLtEYSByaRAt0p7zp5yMaD9Na2";
+        id = intent.getStringExtra("id");
         cusid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         //initialize
