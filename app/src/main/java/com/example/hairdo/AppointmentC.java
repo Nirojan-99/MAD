@@ -45,9 +45,6 @@ public class AppointmentC extends AppCompatActivity {
     Calendar calendar;
 
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +53,7 @@ public class AppointmentC extends AppCompatActivity {
         date = findViewById(R.id.tvSelectedDate);
         Advancepayment = findViewById(R.id.Advancepayment);
         taketime = findViewById(R.id.entertime);
+
 
 
 
@@ -78,40 +76,40 @@ public class AppointmentC extends AppCompatActivity {
 //        if(selectedId==-1){
 //            Toast.makeText(AppointmentC.this,"please select the time", Toast.LENGTH_SHORT).show();
 //        }
-        Intent intent = getIntent();
-        String sid = intent.getStringExtra("id").toString();
-        String cname = intent.getStringExtra("cusName").toString();
+  //      Intent intent = getIntent();
+//        String sid = intent.getStringExtra("id").toString();
+//        String cname = intent.getStringExtra("cusName").toString();
 
 
-        auth = FirebaseAuth.getInstance();
-        String cid = auth.getUid().toString();
+//        auth = FirebaseAuth.getInstance();
+//        String cusid = auth.getUid().toString();
 
          String enterdate = date.getText().toString().trim();
          String entertime = taketime.getText().toString().trim();
+         String cid = "oJO7CwPSZjXFTJIungGeaQZQvo33";
+         String sid = "ejHLtEYSByaRAt0p7zp5yMaD9Na2";
 
-//        Query query6 = FirebaseDatabase.getInstance().getReference("Salon").orderByChild("sid").equalTo(sid);
+
+//        Query query6 = FirebaseDatabase.getInstance().getReference("Salon").orderByChild("salonid").equalTo(sid);
 //        query6.addListenerForSingleValueEvent(new ValueEventListener() {
-//                                                  @Override
-//                                                  public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                                                      if (snapshot.exists()) {
-//                                                          for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-//                                                              Customer ser = dataSnapshot.getValue(Customer.class);
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                if (snapshot.exists()) {
+//                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
 //
 //
-//                                                          }
+//                    }
 //
 //
-//                                                      } else {
-//
-//                                                      }
+//                }
 //
 //
-//                                                      @Override
-//                                                      public void onCancelled (@NonNull @NotNull DatabaseError error){
+//                @Override
+//                public void onCancelled (@NonNull  DatabaseError error){
 //
-//                                                      }
-//                                                  }
-//                                              });
+//                }
+//            }
+//        });
 
 
 
@@ -138,7 +136,7 @@ public class AppointmentC extends AppCompatActivity {
 
 
 
-       Appointment Appointment = new Appointment(sid,cid,cname,"sayanthan",enterdate,entertime,"350","");
+       Appointment Appointment = new Appointment(sid,cid,"salon23","sayanthan",enterdate,entertime,"350","Complete");
 
         FirebaseDatabase.getInstance().getReference("Appointment").push().setValue(Appointment).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override

@@ -10,8 +10,7 @@ public class Appointment {
     public String advancepayment;
     public String status;
     public String _id;
-    public String cid;
-    public String status;
+
 
     public Appointment() {
     }
