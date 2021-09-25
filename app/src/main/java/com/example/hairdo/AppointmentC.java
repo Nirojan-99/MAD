@@ -41,8 +41,8 @@ public class AppointmentC extends AppCompatActivity {
     Button timebtn;
 
 
-    RadioButton timeradioButton;
-   RadioGroup radioGroup;
+//    RadioButton timeradioButton;
+//   RadioGroup radioGroup;
       FirebaseAuth auth;
     DatePickerDialog datePickerDialog;
     int year;
@@ -77,8 +77,8 @@ public class AppointmentC extends AppCompatActivity {
 //        if(selectedId==-1){
 //            Toast.makeText(AppointmentC.this,"please select the time", Toast.LENGTH_SHORT).show();
 //        }
-  //      Intent intent = getIntent();
-//        String sid = intent.getStringExtra("id").toString();
+        Intent intent = getIntent();
+          String sid = intent.getStringExtra("id").toString();
 //        String cname = intent.getStringExtra("cusName").toString();
 
 
@@ -87,8 +87,9 @@ public class AppointmentC extends AppCompatActivity {
 
          String enterdate = date.getText().toString().trim();
          String entertime = taketime.getText().toString().trim();
-         String cid = "oJO7CwPSZjXFTJIungGeaQZQvo33";
-         String sid = "ejHLtEYSByaRAt0p7zp5yMaD9Na2";
+        // String cid = "oJO7CwPSZjXFTJIungGeaQZQvo33";
+        // String sid = "ejHLtEYSByaRAt0p7zp5yMaD9Na2";
+       String id = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
 
 
@@ -124,7 +125,7 @@ public class AppointmentC extends AppCompatActivity {
                         }
                         else{
                             Toast.makeText(AppointmentC.this, "add", Toast.LENGTH_SHORT).show();
-                            Appointment Appointment = new Appointment(sid, cid, "salon23", "sayanthan", enterdate, entertime, "350", "Complete");
+                            Appointment Appointment = new Appointment(sid, id, "salon23", "sayanthan", enterdate, entertime, "350", "Complete");
 
                             FirebaseDatabase.getInstance().getReference("Appointment").push().setValue(Appointment).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
