@@ -32,7 +32,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class AppointmentC extends AppCompatActivity {
     Button selectDate;
-    TextView date ;
+    EditText date ;
     TextView Advancepayment;
     EditText taketime;
 //    RadioButton timeradioButton;
@@ -53,14 +53,6 @@ public class AppointmentC extends AppCompatActivity {
         date = findViewById(R.id.tvSelectedDate);
         Advancepayment = findViewById(R.id.Advancepayment);
         taketime = findViewById(R.id.entertime);
-
-
-
-
-
-
-
-
 
     }
 
@@ -90,32 +82,6 @@ public class AppointmentC extends AppCompatActivity {
          String sid = "ejHLtEYSByaRAt0p7zp5yMaD9Na2";
 
 
-//        Query query6 = FirebaseDatabase.getInstance().getReference("Salon").orderByChild("salonid").equalTo(sid);
-//        query6.addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                if (snapshot.exists()) {
-//                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-//
-//
-//                    }
-//
-//
-//                }
-//
-//
-//                @Override
-//                public void onCancelled (@NonNull  DatabaseError error){
-//
-//                }
-//            }
-//        });
-
-
-
-//         String enterAdvancepayment = Advancepayment.getText().toString().trim();
-
-
 
         if(enterdate.isEmpty()){
             date.setError("select the date");
@@ -134,23 +100,84 @@ public class AppointmentC extends AppCompatActivity {
         }
 
 
-
-
-       Appointment Appointment = new Appointment(sid,cid,"salon23","sayanthan",enterdate,entertime,"350","Complete");
-
-        FirebaseDatabase.getInstance().getReference("Appointment").push().setValue(Appointment).addOnSuccessListener(new OnSuccessListener<Void>() {
+        Query query = FirebaseDatabase.getInstance().getReference("Appointment").orderByChild("id").equalTo(sid);
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onSuccess(Void aVoid) {
-                Toast.makeText(AppointmentC.this, "Appointment is Added", Toast.LENGTH_SHORT).show();
-                finish();
-                startActivity(getIntent());
-            }
-        }).addOnFailureListener(new OnFailureListener() {
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                        Appointment ser = dataSnapshot.getValue(Appointment.class);
+//                        ser.set_id(dataSnapshot.getKey());
+//                        ser.set_id(dataSnapshot.getKey());
+
+                        if(ser.time == entertime && ser.date == enterdate){
+                             //entertime.setError("this already booking given");
+                            Toast.makeText(AppointmentC.this, "this time & date already booking ", Toast.LENGTH_SHORT).show();
+                           // Toast.makeText(AppointmentC.this, "please select another time to  after 30 mins ", Toast.LENGTH_SHORT).show();
+
+
+                        }
+                        else{
+                            Toast.makeText(AppointmentC.this, "add", Toast.LENGTH_SHORT).show();
+                            Appointment Appointment = new Appointment(sid, cid, "salon23", "sayanthan", enterdate, entertime, "350", "Complete");
+
+                            FirebaseDatabase.getInstance().getReference("Appointment").push().setValue(Appointment).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Toast.makeText(AppointmentC.this, "Appointment is Added", Toast.LENGTH_SHORT).show();
+                                    finish();
+                                    startActivity(getIntent());
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(AppointmentC.this, "Appointment is not Added", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+
+
+                        }
+//
+                    }
+                }
+
+                }
+
             @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(AppointmentC.this, "Appointment is not Added", Toast.LENGTH_SHORT).show();
+            public void onCancelled(@NonNull DatabaseError error) {
+               // pgs.setVisibility(View.GONE);
+               // nothing.setVisibility(View.VISIBLE);
+                Toast.makeText(AppointmentC.this, "no appointments available", Toast.LENGTH_SHORT).show();
             }
         });
+
+
+//         String enterAdvancepayment = Advancepayment.getText().toString().trim();
+
+
+
+
+
+
+
+
+
+
+//        Appointment Appointment = new Appointment(sid, cid, "salon23", "sayanthan", enterdate, entertime, "350", "Complete");
+//
+//        FirebaseDatabase.getInstance().getReference("Appointment").push().setValue(Appointment).addOnSuccessListener(new OnSuccessListener<Void>() {
+//            @Override
+//            public void onSuccess(Void aVoid) {
+//                Toast.makeText(AppointmentC.this, "Appointment is Added", Toast.LENGTH_SHORT).show();
+//                finish();
+//                startActivity(getIntent());
+//            }
+//        }).addOnFailureListener(new OnFailureListener() {
+//            @Override
+//            public void onFailure(@NonNull Exception e) {
+//                Toast.makeText(AppointmentC.this, "Appointment is not Added", Toast.LENGTH_SHORT).show();
+//            }
+//        });
 
 //        Intent intent = new Intent(this,Payment.class);
 //        startActivity(intent);

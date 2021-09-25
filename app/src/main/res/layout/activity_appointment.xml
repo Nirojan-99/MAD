@@ -57,15 +57,15 @@
                     android:textSize="16dp"
                     app:backgroundTint="@color/secondary_blue" />
 
-                <TextView
+                <EditText
                     android:id="@+id/tvSelectedDate"
                     android:layout_width="155dp"
-                    android:layout_height="30dp"
+                    android:layout_height="45dp"
                     android:layout_marginLeft="100dp"
                     android:layout_marginTop="140dp"
                     android:gravity="center"
                     android:fontFamily="@font/opensansbold"
-                    android:text=""
+                    android:hint=""
                     android:textColor="@color/primary_black"
                     android:textSize="20dp" />
 

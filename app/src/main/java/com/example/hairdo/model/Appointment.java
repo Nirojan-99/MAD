@@ -1,7 +1,7 @@
 package com.example.hairdo.model;
 
 public class Appointment {
-    public String sid;
+    public String id;
     public String cid;
     public String cname;
     public String sname;
@@ -15,8 +15,8 @@ public class Appointment {
     public Appointment() {
     }
 
-    public Appointment(String sid, String cid, String cname, String sname, String date, String time, String advancepayment, String status) {
-        this.sid = sid;
+    public Appointment(String id, String cid, String cname, String sname, String date, String time, String advancepayment, String status) {
+        this.id = id;
         this.cid = cid;
         this.cname = cname;
         this.sname = sname;
@@ -26,12 +26,12 @@ public class Appointment {
         this.status = status;
     }
 
-    public String getSid() {
-        return sid;
+    public String getId() {
+        return id;
     }
 
-    public void setSid(String sid) {
-        this.sid = sid;
+    public void setId(String sid) {
+        this.id = id;
     }
 
     public String getCid() {
