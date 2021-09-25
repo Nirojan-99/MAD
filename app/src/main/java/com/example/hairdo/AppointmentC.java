@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import com.example.hairdo.model.Appointment;
 import com.example.hairdo.model.Customer;
+import com.example.hairdo.model.Holiday;
 import com.example.hairdo.model.Review;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -102,17 +103,17 @@ public class AppointmentC extends AppCompatActivity {
         }
 
 
-        Query query = FirebaseDatabase.getInstance().getReference("Appointment").orderByChild("id").equalTo(sid);
-        query.addListenerForSingleValueEvent(new ValueEventListener() {
+//        Query query = FirebaseDatabase.getInstance().getReference("Appointment").orderByChild("id").equalTo(sid);
+//        query.addListenerForSingleValueEvent(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference("Appointment").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                         Appointment ser = dataSnapshot.getValue(Appointment.class);
-//                        ser.set_id(dataSnapshot.getKey());
-//                        ser.set_id(dataSnapshot.getKey());
+//
 
-                        if(ser.time == entertime && ser.date == enterdate){
+                        if(ser.time.equals(entertime)  || ser.date .equals(enterdate) ){
                              //entertime.setError("this already booking given");
                             Toast.makeText(AppointmentC.this, "this time & date already booking ", Toast.LENGTH_SHORT).show();
                            // Toast.makeText(AppointmentC.this, "please select another time to  after 30 mins ", Toast.LENGTH_SHORT).show();
