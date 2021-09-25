@@ -22,11 +22,13 @@ import com.google.firebase.database.ValueEventListener;
 
 public class SalonLogin extends AppCompatActivity {
 
+
     EditText email, password;
     Button btn;
     FirebaseAuth auth;
 
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_salon_login);
@@ -35,6 +37,7 @@ public class SalonLogin extends AppCompatActivity {
         password = findViewById(R.id.LogInPassword);
         btn = findViewById(R.id.loginBtn);
         auth = FirebaseAuth.getInstance();
+
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,6 +73,7 @@ public class SalonLogin extends AppCompatActivity {
         });
     }
 
+
     public void onClickFogetPassword(View view) {
 
     }
@@ -80,6 +84,7 @@ public class SalonLogin extends AppCompatActivity {
         startActivity(intSign);
         finish();
     }
+
     public void salonLogin(View view){
         Intent intSign = new Intent(this, LogIn.class);
         startActivity(intSign);

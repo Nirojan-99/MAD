@@ -68,17 +68,18 @@
                     android:hint=""
                     android:textColor="@color/primary_black"
                     android:textSize="20dp" />
+
                 <Button
                     android:id="@+id/btn_time"
                     android:layout_width="155dp"
                     android:layout_height="43dp"
-                    android:gravity="center"
-                    android:fontFamily="@font/opensanssemibold"
                     android:layout_marginLeft="100dp"
                     android:layout_marginTop="200dp"
                     android:background="@drawable/card"
-                    android:text="@string/pickdate"
-                    android:onClick="PickTime"
+                    android:fontFamily="@font/opensanssemibold"
+                    android:gravity="center"
+                    android:onClick="@string/PickTime"
+                    android:text="Pick Time"
                     android:textColor="@color/primary_black"
                     android:textSize="16dp"
                     app:backgroundTint="@color/secondary_blue" />

@@ -21,6 +21,8 @@ public class UpcomingAppointmentAdapter extends RecyclerView.Adapter<UpcomingApp
     //    String data[];
     ArrayList<Appointment> data;
 
+
+
     public UpcomingAppointmentAdapter(ArrayList<Appointment> data ) {
         this.data = data;
     }

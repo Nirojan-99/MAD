@@ -17,6 +17,7 @@ public class UserUpcomingAppointmentAdapter extends RecyclerView.Adapter<UserUpc
     ArrayList<String> Date;
     ArrayList<String> time;
 
+
     public UserUpcomingAppointmentAdapter(ArrayList<String> salonName, ArrayList<String> date, ArrayList<String> time) {
         this.salonName= salonName;
         Date= date;
