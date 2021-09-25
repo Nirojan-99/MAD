@@ -17,8 +17,25 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:orientation="vertical">
+            <ProgressBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cardProgress"/>
 
 
+            <TextView
+
+                android:layout_marginBottom="15sp"
+                android:id="@+id/nothing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:text="No Appointment details available!"
+                android:textColor="@color/red"
+                android:textFontWeight="800"
+                android:textSize="15sp"
+                android:visibility="gone" />
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

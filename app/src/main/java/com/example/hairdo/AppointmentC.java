@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +15,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.example.hairdo.model.Appointment;
@@ -35,6 +37,7 @@ public class AppointmentC extends AppCompatActivity {
     EditText date ;
     TextView Advancepayment;
     EditText taketime;
+    Button timebtn;
 //    RadioButton timeradioButton;
 //    RadioGroup radioGroup;
       FirebaseAuth auth;
@@ -43,6 +46,8 @@ public class AppointmentC extends AppCompatActivity {
     int month;
     int dayOfMonth;
     Calendar calendar;
+    int mHour,mMinute;
+
 
 
     @Override
@@ -52,7 +57,8 @@ public class AppointmentC extends AppCompatActivity {
         selectDate = findViewById(R.id.btnDate);
         date = findViewById(R.id.tvSelectedDate);
         Advancepayment = findViewById(R.id.Advancepayment);
-        taketime = findViewById(R.id.entertime);
+        taketime = findViewById(R.id.in_time);
+        timebtn = findViewById(R.id.btn_time);
 
     }
 
@@ -93,10 +99,6 @@ public class AppointmentC extends AppCompatActivity {
             taketime.requestFocus();
             return;
 
-        }else if (!entertime.contains("m") && !entertime.contains("M") ) {
-            taketime.setError("Valid time is required");
-            taketime.requestFocus();
-            return;
         }
 
 
@@ -201,5 +203,24 @@ public class AppointmentC extends AppCompatActivity {
         datePickerDialog.show();
 
     }
+    public void PickTime(View v){
+        final Calendar c = Calendar.getInstance();
+        mHour = c.get(Calendar.HOUR_OF_DAY);
+        mMinute = c.get(Calendar.MINUTE);
+
+        // Launch Time Picker Dialog
+        TimePickerDialog timePickerDialog = new TimePickerDialog(this,
+                new TimePickerDialog.OnTimeSetListener() {
+
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+
+                        taketime.setText(hourOfDay + ":" + minute);
+                    }
+                }, mHour, mMinute, false);
+        timePickerDialog.show();
+    }
+
 
 }
+

@@ -17,7 +17,7 @@ import java.util.List;
 
 public class AppointmentSummaryAdapter extends RecyclerView.Adapter<AppointmentSummaryAdapter.ViewHolder> {
 //    ArrayList<String> data;
-    List<Appointment> appointmentList;
+    List<Appointment> appointmentList ;
 //    ArrayList<String> salonName;
 //    ArrayList<String> Date;
 
