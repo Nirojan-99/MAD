@@ -15,6 +15,7 @@ import com.example.hairdo.model.Customer;
 import com.example.hairdo.model.Salon;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -25,8 +26,8 @@ import java.util.HashMap;
 
 public class EditDetails extends AppCompatActivity {
 
-    String id = "ejHLtEYSByaRAt0p7zp5yMaD9Na2";
-    //        String id = auth.getCurrentUser().getUid();
+    String id ;
+
 
     EditText name, address, contact, password, advance, email;
     Button btn, delete;
@@ -37,6 +38,8 @@ public class EditDetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_details);
+
+        id = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         name = findViewById(R.id.salonNewName);
         address = findViewById(R.id.salonNewAddress);

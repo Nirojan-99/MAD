@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/opensansbold"
             android:text="User Name"
-            android:textColor="@color/primary_black"
+            android:textColor="@color/secondary_blue"
             android:textSize="15sp" />
 
         <TextView

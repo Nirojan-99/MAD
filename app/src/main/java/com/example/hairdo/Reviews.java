@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.example.hairdo.model.Review;
 import com.example.hairdo.model.Service;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -23,14 +24,16 @@ import java.util.ArrayList;
 public class Reviews extends AppCompatActivity {
 
     ArrayList<Review> data = new ArrayList<>();
-    //        String id = auth.getCurrentUser().getUid();
-    String id = "ejHLtEYSByaRAt0p7zp5yMaD9Na2";
+
+    String id ;
     ProgressBar pg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reviews);
+
+        id = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         pg = findViewById(R.id.progress);
 
