@@ -86,9 +86,6 @@ public class Appointment {
         return status;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
 
     public String get_id() {
         return _id;
@@ -98,20 +95,11 @@ public class Appointment {
         this._id = _id;
     }
 
-    public String getStatus() {
-        return status;
-    }
+
 
     public void setStatus(String status) {
         this.status = status;
     }
 
 
-    public String getCid() {
-        return cid;
-    }
-
-    public void setCid(String cid) {
-        this.cid = cid;
-    }
 }

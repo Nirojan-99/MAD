@@ -63,7 +63,9 @@ public class MainActivity extends AppCompatActivity {
                     1000);
         }
 
-
+//        Intent send = new Intent(MainActivity.this, AppointmentSummary.class);
+//                            startActivity(send);
+//                            finish();
 
     }
 }

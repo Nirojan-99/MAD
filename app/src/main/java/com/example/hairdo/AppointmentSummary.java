@@ -38,7 +38,6 @@ public class AppointmentSummary extends AppCompatActivity {
       ProgressBar  pgs1 ;
       TextView nothing;
 
-    //        String id = auth.getCurrentUser().getUid();
     String id ;
 
 
@@ -68,30 +67,13 @@ public class AppointmentSummary extends AppCompatActivity {
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                         Appointment data = dataSnapshot.getValue(Appointment.class);
                         appointment.add(data);
-
-
                     }
-
-
                     Adapter = new AppointmentSummaryAdapter(appointment);
                     recyclerView.setAdapter(Adapter);
                     Adapter.notifyDataSetChanged();
 
-                    if (appointment.isEmpty()) {
-
-                        nothing.setVisibility(View.VISIBLE);
-                    }
-                    else{
-                        Toast.makeText(AppointmentSummary.this, " data", Toast.LENGTH_SHORT).show();
-                        //pgs1.setVisibility(View.GONE);
-
-                    }
-
-
-
                 }else{
-                    pgs1.setVisibility(View.GONE);
-                    nothing.setVisibility(View.VISIBLE);
+
                     Toast.makeText(AppointmentSummary.this, "no data", Toast.LENGTH_SHORT).show();
                 }
             }
