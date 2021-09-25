@@ -97,7 +97,7 @@ public class ManageServices extends AppCompatActivity {
             @Override
             public void onSuccess(Void aVoid) {
                 Toast.makeText(ManageServices.this, "Service is updated", Toast.LENGTH_SHORT).show();
-//                finish();
+                finish();
                 startActivity(getIntent());
             }
         }).addOnFailureListener(new OnFailureListener() {

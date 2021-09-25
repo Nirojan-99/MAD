@@ -104,6 +104,7 @@ public class HomeFragment extends Fragment {
         adapter = new ServicesSalonAdapter(myListData);
         recyclerView.setAdapter(adapter);
 
+
         //initialize
         dp = root.findViewById(R.id.dp);
         address = root.findViewById(R.id.address);
