@@ -346,7 +346,7 @@
 
     </LinearLayout>
 <LinearLayout
-    android:visibility="invisible"
+    android:visibility="visible"
     android:gravity="center_horizontal"
     android:id="@+id/overlay"
     android:background="@color/gray"

@@ -161,9 +161,10 @@
         <Button
             android:layout_gravity="center_horizontal"
             android:id="@+id/delete"
-            android:layout_width="300sp"
+            android:textColor="@color/white_dark"
+            android:layout_width="match_parent"
             android:layout_height="50sp"
-            android:background="@drawable/card"
+            android:background="@drawable/textview_border"
             android:backgroundTint="@color/red"
             android:clickable="true"
             android:fontFamily="@font/opensansbold"
@@ -171,6 +172,7 @@
             android:textSize="17sp" />
     </LinearLayout>
     <LinearLayout
+        android:visibility="visible"
         android:id="@+id/bg"
         android:background="@color/gray"
         android:gravity="center_horizontal"
