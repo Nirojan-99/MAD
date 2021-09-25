@@ -36,6 +36,8 @@ public class SalonLocation extends FragmentActivity implements OnMapReadyCallbac
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         // Add a marker in Sydney and move the camera
+
+
         LatLng TutorialsPoint = new LatLng(9.139316250265466, 80.44423634715886);
         mMap.addMarker(new
                 MarkerOptions().position(TutorialsPoint).title("Tutorialspoint.com"));

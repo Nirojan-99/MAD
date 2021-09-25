@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import com.example.hairdo.model.Appointment;
 import com.example.hairdo.model.Customer;
+import com.example.hairdo.model.Holiday;
 import com.example.hairdo.model.Review;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -33,13 +34,16 @@ import com.google.firebase.database.ValueEventListener;
 import org.jetbrains.annotations.NotNull;
 
 public class AppointmentC extends AppCompatActivity {
+    // inistailze
     Button selectDate;
     EditText date ;
     TextView Advancepayment;
     EditText taketime;
     Button timebtn;
+
+
 //    RadioButton timeradioButton;
-//    RadioGroup radioGroup;
+//   RadioGroup radioGroup;
       FirebaseAuth auth;
     DatePickerDialog datePickerDialog;
     int year;
@@ -74,8 +78,8 @@ public class AppointmentC extends AppCompatActivity {
 //        if(selectedId==-1){
 //            Toast.makeText(AppointmentC.this,"please select the time", Toast.LENGTH_SHORT).show();
 //        }
-  //      Intent intent = getIntent();
-//        String sid = intent.getStringExtra("id").toString();
+          Intent intent = getIntent();
+          String sid = intent.getStringExtra("id").toString();
 //        String cname = intent.getStringExtra("cusName").toString();
 
 
@@ -84,8 +88,9 @@ public class AppointmentC extends AppCompatActivity {
 
          String enterdate = date.getText().toString().trim();
          String entertime = taketime.getText().toString().trim();
-         String cid = "oJO7CwPSZjXFTJIungGeaQZQvo33";
-         String sid = "ejHLtEYSByaRAt0p7zp5yMaD9Na2";
+        // String cid = "oJO7CwPSZjXFTJIungGeaQZQvo33";
+        // String sid = "ejHLtEYSByaRAt0p7zp5yMaD9Na2";
+       String id = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
 
 
@@ -102,17 +107,17 @@ public class AppointmentC extends AppCompatActivity {
         }
 
 
-        Query query = FirebaseDatabase.getInstance().getReference("Appointment").orderByChild("id").equalTo(sid);
-        query.addListenerForSingleValueEvent(new ValueEventListener() {
+//        Query query = FirebaseDatabase.getInstance().getReference("Appointment").orderByChild("id").equalTo(sid);
+//        query.addListenerForSingleValueEvent(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference("Appointment").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                         Appointment ser = dataSnapshot.getValue(Appointment.class);
-//                        ser.set_id(dataSnapshot.getKey());
-//                        ser.set_id(dataSnapshot.getKey());
+//
 
-                        if(ser.time == entertime && ser.date == enterdate){
+                        if(ser.time.equals(entertime)  || ser.date .equals(enterdate) ){
                              //entertime.setError("this already booking given");
                             Toast.makeText(AppointmentC.this, "this time & date already booking ", Toast.LENGTH_SHORT).show();
                            // Toast.makeText(AppointmentC.this, "please select another time to  after 30 mins ", Toast.LENGTH_SHORT).show();
@@ -121,7 +126,7 @@ public class AppointmentC extends AppCompatActivity {
                         }
                         else{
                             Toast.makeText(AppointmentC.this, "add", Toast.LENGTH_SHORT).show();
-                            Appointment Appointment = new Appointment(sid, cid, "salon23", "sayanthan", enterdate, entertime, "350", "Complete");
+                            Appointment Appointment = new Appointment(sid, id, "salon23", "sayanthan", enterdate, entertime, "350", "Complete");
 
                             FirebaseDatabase.getInstance().getReference("Appointment").push().setValue(Appointment).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
