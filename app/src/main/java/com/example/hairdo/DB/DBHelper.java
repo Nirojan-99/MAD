@@ -38,23 +38,6 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
 
-//    public Boolean updateuserdata(String name, String contact, String dob) {
-//        SQLiteDatabase DB = this.getWritableDatabase();
-//        ContentValues contentValues = new ContentValues();
-//        contentValues.put("contact", contact);
-//        contentValues.put("dob", dob);
-//        Cursor cursor = DB.rawQuery("Select * from Userdetails where name = ?", new String[]{name});
-//        if (cursor.getCount() > 0) {
-//            long result = DB.update("Userdetails", contentValues, "name=?", new String[]{name});
-//            if (result == -1) {
-//                return false;
-//            } else {
-//                return true;
-//            }
-//        } else {
-//            return false;
-//        }}
-
 
     public Boolean deletedata (String email)
     {
