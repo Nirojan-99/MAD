@@ -34,9 +34,9 @@ public class AppointmentSummary extends AppCompatActivity {
 
        List<Appointment> appointment;
       AppointmentSummaryAdapter Adapter;
+      
 
-
-//      ProgressBar  pgs1 ;
+      ProgressBar  pgs1 ;
       TextView nothing;
 
     String id ;
@@ -59,7 +59,7 @@ public class AppointmentSummary extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         appointment = new ArrayList<>();
-
+        // appointment summary
         Query query = FirebaseDatabase.getInstance().getReference("Appointment").orderByChild("cid").equalTo(id);
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

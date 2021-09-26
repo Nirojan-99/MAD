@@ -117,6 +117,7 @@ public class NotificationsFragment extends Fragment {
         rlt7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(getActivity(), LogIn.class));
                 getActivity().finish();
             }
