@@ -11,8 +11,10 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.hairdo.model.Appointment;
+import com.example.hairdo.model.Follow;
 import com.example.hairdo.model.Holiday;
 import com.example.hairdo.model.NotificationM;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -27,7 +29,7 @@ public class Notification extends AppCompatActivity {
     ProgressBar pg;
     RecyclerView recyclerView;
     NotificationRvAd notificationRvAd;
-    ArrayList<NotificationM> notifList=new ArrayList<>();
+    ArrayList<NotificationM> notifList = new ArrayList<>();
 
 
     int year;
@@ -35,40 +37,67 @@ public class Notification extends AppCompatActivity {
     int dayOfMonth;
     Calendar calendar;
     String today;
-    String cid="oJO7CwPSZjXFTJIungGeaQZQvo33";
-
-
-
+    String cid;
+    String sid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification);
-        pg=findViewById(R.id.nfPG);
-        today=getTodayDate().trim();
+        pg = findViewById(R.id.nfPG);
+        today = getTodayDate().trim();
+        cid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+//        cid = "wNRfHTezSmNNdBO4qBlFxCftWc63";
+        getSalonID(cid);
 
 
-
-        setDataforRecyclerView();
-        setAdapter();
+//        setDataforRecyclerView(sid);
+//        setAdapter();
     }
 
-    private void setDataforRecyclerView() {
+    private void getSalonID(String cid) {
 
-        FirebaseDatabase.getInstance().getReference(Holiday.class.getSimpleName()).addValueEventListener(new ValueEventListener() {
+
+        FirebaseDatabase.getInstance().getReference("Follow").orderByChild("cid").equalTo(cid).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+               if(snapshot.exists()){
+                   for (DataSnapshot data : snapshot.getChildren()) {
+                       Follow f = data.getValue(Follow.class);
+                       sid = f.sid;
+
+                       setDataforRecyclerView(sid);
+                       setAdapter();
+                   }
+                   
+               }
+               else {
+                   pg.setVisibility(View.GONE);
+                   Toast.makeText(Notification.this, "No Notification to you Today", Toast.LENGTH_SHORT).show();
+               }
+
+            }
+            @Override
+            public void onCancelled(@NonNull @NotNull DatabaseError error) {
+            }
+        });
+
+    }
+
+    private void setDataforRecyclerView(String sid) {
+
+        FirebaseDatabase.getInstance().getReference(Holiday.class.getSimpleName()).orderByChild("sid").equalTo(sid).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
                 for (DataSnapshot data : snapshot.getChildren()) {
-
                     Holiday h = data.getValue(Holiday.class);
-
-                   if(today.equals(h.getDate())){
-                       NotificationM n=new NotificationM();
-                       n.setTitle("Today is Holiday!!!");
-                       n.setDate(h.getDate());
-                       n.setSub(h.getRemark());
-                       notifList.add(n);
-                   }
+                    if (today.equals(h.getDate())) {
+                        NotificationM n = new NotificationM();
+                        n.setTitle("Today is Holiday!!!");
+                        n.setDate(h.getDate());
+                        n.setSub(h.getRemark());
+                        notifList.add(n);
+                    }
 
                 }
                 pg.setVisibility(View.GONE);
@@ -81,30 +110,26 @@ public class Notification extends AppCompatActivity {
             }
         });
 
-        FirebaseDatabase.getInstance().getReference("Appointment").addValueEventListener(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference("Appointment").orderByChild("cid").equalTo(cid).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
 
                 for (DataSnapshot data : snapshot.getChildren()) {
-                    Appointment a=data.getValue(Appointment.class);
+                    Appointment a = data.getValue(Appointment.class);
 
-                    if(today.equals(a.getDate()) || (!(a.getStatus().equals("complete"))) ){
-                        if (a.getCid().equals(cid)){
-                            NotificationM nA=new NotificationM();
-                            nA.setTitle("You have Appointment on");
-                            nA.setDate(a.getDate());
-                            nA.setSub(a.getTime());
+                    if (today.equals(a.getDate()) || (!(a.getStatus().equals("complete")))) {
+                        if (a.getCid().equals(cid)) {
+                            NotificationM nA = new NotificationM();
+                            nA.setTitle("You have Appointment");
+                            nA.setDate("on " + a.getDate() + " at " + a.getTime());
+                            nA.setSub("Status: " + a.getStatus());
                             notifList.add(nA);
                         }
-
                     }
-
                 }
                 pg.setVisibility(View.GONE);
                 notificationRvAd.notifyDataSetChanged();
-
             }
-
             @Override
             public void onCancelled(@NonNull @NotNull DatabaseError error) {
 
@@ -114,10 +139,10 @@ public class Notification extends AppCompatActivity {
     }
 
     private void setAdapter() {
-        recyclerView=findViewById(R.id.notification_RecycleView);
+        recyclerView = findViewById(R.id.notification_RecycleView);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        notificationRvAd=new NotificationRvAd(this,notifList);
+        notificationRvAd = new NotificationRvAd(this, notifList);
         recyclerView.setAdapter(notificationRvAd);
     }
 
@@ -127,7 +152,7 @@ public class Notification extends AppCompatActivity {
         month = calendar.get(Calendar.MONTH);
         dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
 
-        String today=dayOfMonth+"/"+(month+1)+"/"+year;
+        String today = dayOfMonth + "/" + (month + 1) + "/" + year;
         return today;
 
     }

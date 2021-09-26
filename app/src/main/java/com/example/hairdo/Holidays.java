@@ -24,6 +24,7 @@ import android.widget.DatePicker;
 
 import com.example.hairdo.model.Holiday;
 import com.example.hairdo.model.Offer;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -49,6 +50,7 @@ public class Holidays extends AppCompatActivity {
     int dayOfMonth;
     Calendar calendar;
     String monthName;
+    String id;
 
     int Dyear;
     int Dmonth;
@@ -67,6 +69,8 @@ public class Holidays extends AppCompatActivity {
         selectedDate = findViewById(R.id.picked_holiDate);
         remark = findViewById(R.id.Holidayremark);
         pg=findViewById(R.id.holidayPG);
+        id = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
 
 
         setDateforRecyclerview();
@@ -82,7 +86,7 @@ public class Holidays extends AppCompatActivity {
                 String Fday = Integer.toString(DdayOfMonth);
                 String Fyear = Integer.toString(Dyear);
                 String FformatDate=Fday+"/"+Fmonth+"/"+Fyear;
-                Holiday holiday = new Holiday(FDate, FRemark,FformatDate);
+                Holiday holiday = new Holiday(FDate, FRemark,FformatDate,id);
 
 
                 FirebaseDatabase.getInstance().getReference("Holiday").push().setValue(holiday).addOnSuccessListener(suc -> {
@@ -101,15 +105,14 @@ public class Holidays extends AppCompatActivity {
 
     private void setDateforRecyclerview() {
 
-        FirebaseDatabase.getInstance().getReference(Holiday.class.getSimpleName()).addValueEventListener(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference(Holiday.class.getSimpleName()).orderByChild("sid").equalTo(id).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
                 for (DataSnapshot data : snapshot.getChildren()) {
 
                     Holiday h = data.getValue(Holiday.class);
-                    h.setFbKey(data.getKey());
-                    holidayList.add(h);
-
+                        h.setFbKey(data.getKey());
+                        holidayList.add(h);
 
                 }
                 pg.setVisibility(View.GONE);

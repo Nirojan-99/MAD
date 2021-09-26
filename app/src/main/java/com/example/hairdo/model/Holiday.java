@@ -1,6 +1,7 @@
 package com.example.hairdo.model;
 public class Holiday {
     public String fbKey;
+    public String sid;
     public String selected_Date;
     public String remark;
     public String date;
@@ -12,10 +13,11 @@ public class Holiday {
 
     }
 
-    public Holiday(String selected_Date, String remark,String formatDate) {
+    public Holiday(String selected_Date, String remark,String formatDate,String cid) {
         this.selected_Date = selected_Date;
         this.remark = remark;
         this.date=formatDate;
+        this.sid=cid;
 //        this.year = year;
 //        this.month = month;
 //        this.day = day;
@@ -75,5 +77,13 @@ public class Holiday {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getSid() {
+        return sid;
+    }
+
+    public void setSid(String sid) {
+        this.sid = sid;
     }
 }
