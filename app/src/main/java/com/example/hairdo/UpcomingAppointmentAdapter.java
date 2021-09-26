@@ -56,6 +56,16 @@ public class UpcomingAppointmentAdapter extends RecyclerView.Adapter<UpcomingApp
             }
         });
 
+        holder.qrScBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(),QR_Scanner.class);
+                intent.putExtra("SaApId",ser._id);
+                v.getContext().startActivity(intent);
+
+            }
+        });
+
     }
 
 
@@ -67,11 +77,13 @@ public class UpcomingAppointmentAdapter extends RecyclerView.Adapter<UpcomingApp
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView userName,date ;
         ImageView btn;
+        ImageView qrScBtn;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             btn = itemView.findViewById(R.id.editAppointments);
             userName = itemView.findViewById(R.id.appointmentUsername);
             date = itemView.findViewById(R.id.datetime);
+            qrScBtn=itemView.findViewById(R.id.apQRSc);
 
         }
     }
