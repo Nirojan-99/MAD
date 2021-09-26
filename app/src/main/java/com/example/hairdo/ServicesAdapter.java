@@ -47,6 +47,7 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ViewHo
         Service ser = data.get(position);
         holder.seviceName.setText(ser.name);
 
+        //delete service
         holder.img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
