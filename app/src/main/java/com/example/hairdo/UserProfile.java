@@ -123,6 +123,7 @@ public class UserProfile  extends AppCompatActivity
             startActivity(intent);
         }
         else if (id == R.id. nav_logOut ) {
+            FirebaseAuth.getInstance().signOut();
             Intent intent = new Intent(this,LogIn.class);
             finish();
             startActivity(intent);
