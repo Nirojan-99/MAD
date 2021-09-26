@@ -22,13 +22,16 @@ import java.util.HashMap;
 public class QR_Scanner extends AppCompatActivity {
 
     Button btScan;
+    String SaApId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qr_scanner);
+        btScan = findViewById(R.id.bt_scan);
 
-        btScan=findViewById(R.id.bt_scan);
+        Intent intent = getIntent();
+        SaApId = intent.getStringExtra("SaApId");
 
         btScan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,6 +46,7 @@ public class QR_Scanner extends AppCompatActivity {
             }
         });
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable @org.jetbrains.annotations.Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -54,11 +58,19 @@ public class QR_Scanner extends AppCompatActivity {
             AlertDialog.Builder builder = new AlertDialog.Builder(
                     QR_Scanner.this
             );
+
+
+            String appointmentID = intentResult.getContents();
             builder.setTitle("Result");
-            String appointmentID=intentResult.getContents();
-            builder.setMessage("Appointment Conformed and Completed ");
 
+            if (appointmentID.equals(SaApId)) {
+                builder.setMessage("Appointment Conformed and Completed ");
+                updateStatus(appointmentID);
+            } else {
+                builder.setMessage("Un Conformed Appointment");
+                Toast.makeText(getApplicationContext(), "Un Conformed Appointment", Toast.LENGTH_SHORT).show();
 
+            }
             builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
@@ -67,7 +79,7 @@ public class QR_Scanner extends AppCompatActivity {
             });
 
             builder.show();
-            updateStatus(appointmentID);
+
         } else {
             Toast.makeText(getApplicationContext(), "You did not Scan", Toast.LENGTH_SHORT).show();
         }
@@ -75,13 +87,13 @@ public class QR_Scanner extends AppCompatActivity {
     }
 
     private void updateStatus(String appointmentID) {
-        HashMap<String,Object> hashMap=new HashMap<>();
-        Appointment qrA=new Appointment();
+        HashMap<String, Object> hashMap = new HashMap<>();
+        Appointment qrA = new Appointment();
         qrA.setStatus("completed");
-        hashMap.put("status",qrA.getStatus());
-        FirebaseDatabase.getInstance().getReference("Appointment").child(appointmentID).updateChildren(hashMap).addOnSuccessListener(suc->{
+        hashMap.put("status", qrA.getStatus());
+        FirebaseDatabase.getInstance().getReference("Appointment").child(appointmentID).updateChildren(hashMap).addOnSuccessListener(suc -> {
             Toast.makeText(this, "Appointment Conformed and Completed ", Toast.LENGTH_SHORT).show();
-        }).addOnFailureListener(er->{
+        }).addOnFailureListener(er -> {
             Toast.makeText(this, "Not Completed. Error is: " + er.getMessage(), Toast.LENGTH_SHORT).show();
         });
     }
