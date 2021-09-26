@@ -41,7 +41,7 @@ public class LogIn extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         dbh = new DBHelper(this);
 
-
+        // Login
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
