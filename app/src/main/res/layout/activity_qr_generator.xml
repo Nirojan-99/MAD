@@ -14,27 +14,24 @@
         android:background="@color/primary_orange_dark"
         android:layout_marginBottom="150dp">
 
-        <ImageButton
-            android:id="@+id/back_btn_in_qrGenerator"
-            android:layout_width="88dp"
-            android:layout_height="match_parent"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:background="@color/primary_orange_dark"
-            android:tint="@color/white"
-            app:srcCompat="?attr/actionModeCloseDrawable"
-            tools:ignore="UseAppTint" />
+<!--        <ImageButton-->
+<!--            android:id="@+id/back_btn_in_qrGenerator"-->
+<!--            android:layout_width="88dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_marginEnd="8dp"-->
+<!--            android:layout_marginRight="8dp"-->
+<!--            android:background="@color/primary_orange_dark"-->
+<!--            android:tint="@color/white"-->
+<!--            app:srcCompat="?attr/actionModeCloseDrawable"-->
+<!--            tools:ignore="UseAppTint" />-->
 
         <TextView
-            android:layout_width="150dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginEnd="189dp"
-            android:layout_marginRight="189dp"
+           android:layout_marginLeft="100sp"
             android:fontFamily="@font/robotoblack"
             android:gravity="center_vertical"
-            android:text="QR Generator"
+            android:text="QR for your Appointment"
             android:textColor="@color/white"
             android:textSize="20dp"
             tools:ignore="MissingConstraints"

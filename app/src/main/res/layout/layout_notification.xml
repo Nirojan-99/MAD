@@ -19,6 +19,7 @@
             android:backgroundTint="@color/white_dark"
             android:orientation="vertical"
             android:padding="10sp">
+
             <TextView
                 android:id="@+id/nfTit"
                 android:layout_width="match_parent"
@@ -27,8 +28,9 @@
                 android:layout_marginBottom="2dp"
                 android:fontFamily="@font/opensanssemibold"
                 android:text="Text"
-                android:textColor="@color/primary_black"
-                android:textSize="18sp" />
+                android:textColor="@color/secondary_blue"
+                android:textSize="19sp"
+                android:textStyle="bold" />
             <TextView
                 android:id="@+id/nfDate"
                 android:layout_width="match_parent"
@@ -37,7 +39,8 @@
                 android:fontFamily="@font/opensanssemibold"
                 android:text="Text"
                 android:textColor="@color/primary_black"
-                android:textSize="15sp"
+                android:textSize="16sp"
+                android:textStyle="bold"
                 />
             <TextView
                 android:id="@+id/nfSub"
@@ -47,7 +50,8 @@
                 android:fontFamily="@font/opensanssemibold"
                 android:text="Text"
                 android:textColor="@color/primary_black"
-                android:textSize="12sp"
+                android:textSize="14sp"
+                android:textStyle="bold"
                 />
 
 

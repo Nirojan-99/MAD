@@ -56,7 +56,7 @@ public class QR_Scanner extends AppCompatActivity {
             );
             builder.setTitle("Result");
             String appointmentID=intentResult.getContents();
-            builder.setMessage("Appointment Conformed.ID is: " + appointmentID);
+            builder.setMessage("Appointment Conformed and Completed ");
 
 
             builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -77,7 +77,7 @@ public class QR_Scanner extends AppCompatActivity {
     private void updateStatus(String appointmentID) {
         HashMap<String,Object> hashMap=new HashMap<>();
         Appointment qrA=new Appointment();
-        qrA.setStatus("complete");
+        qrA.setStatus("completed");
         hashMap.put("status",qrA.getStatus());
         FirebaseDatabase.getInstance().getReference("Appointment").child(appointmentID).updateChildren(hashMap).addOnSuccessListener(suc->{
             Toast.makeText(this, "Appointment Conformed and Completed ", Toast.LENGTH_SHORT).show();
