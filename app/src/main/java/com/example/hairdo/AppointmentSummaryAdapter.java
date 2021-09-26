@@ -1,11 +1,13 @@
 package com.example.hairdo;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hairdo.model.Appointment;
@@ -47,6 +49,17 @@ public class AppointmentSummaryAdapter extends RecyclerView.Adapter<AppointmentS
         viewHolder.salonName.setText(appointment.getSname());
         viewHolder.Date.setText(appointment.getDate());
         viewHolder.time.setText(appointment.getTime());
+
+        viewHolder.apCL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(v.getContext(),QR_Generator.class);
+                intent.putExtra("apID", appointment.get_id());
+                v.getContext().startActivity(intent);
+            }
+        });
+
+
     }
 
     @Override
@@ -59,11 +72,13 @@ public class AppointmentSummaryAdapter extends RecyclerView.Adapter<AppointmentS
         TextView salonName;
         TextView Date;
         TextView time;
+        ConstraintLayout apCL;
         public ViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
             salonName = itemView.findViewById(R.id.salon_name);
             Date = itemView.findViewById(R.id.date);
             time = itemView.findViewById(R.id.time);
+            apCL=itemView.findViewById(R.id.apCL);
         }
     }
 }

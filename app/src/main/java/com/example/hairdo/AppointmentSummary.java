@@ -67,6 +67,7 @@ public class AppointmentSummary extends AppCompatActivity {
                 if (snapshot.exists()) {
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                         Appointment data = dataSnapshot.getValue(Appointment.class);
+                        data.set_id(dataSnapshot.getKey());
                         appointment.add(data);
                     }
                     Adapter = new AppointmentSummaryAdapter(appointment);

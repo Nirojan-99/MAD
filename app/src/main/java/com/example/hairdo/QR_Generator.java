@@ -2,11 +2,13 @@ package com.example.hairdo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
@@ -17,19 +19,20 @@ public class QR_Generator extends AppCompatActivity {
 
     Button button;
     ImageView imageView;
-    String appointID ="-MkLJpwNLEilvlb61gUB";
+    String appointID ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qr_generator);
-
         imageView = (ImageView)findViewById(R.id.imageview);
-        genarateQR();
+        Intent intent=getIntent();
+        appointID=intent.getStringExtra("apID");
+        genarateQR(appointID);
 
     }
 
-    public void genarateQR() {
+    public void genarateQR(String appointID) {
         MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
 
         try{

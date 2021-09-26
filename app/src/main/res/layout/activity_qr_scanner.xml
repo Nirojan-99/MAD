@@ -12,29 +12,29 @@
         android:layout_height="73dp"
         android:background="@color/primary_orange_dark">
 
-        <ImageButton
-            android:id="@+id/back_btn_in_qrScanner"
-            android:layout_width="88dp"
-            android:layout_height="match_parent"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:background="@color/primary_orange_dark"
-            android:tint="@color/white"
-            app:srcCompat="?attr/actionModeCloseDrawable"
-            tools:ignore="UseAppTint"/>
+<!--        <ImageButton-->
+<!--            android:id="@+id/back_btn_in_qrScanner"-->
+<!--            android:layout_width="88dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_marginEnd="8dp"-->
+<!--            android:layout_marginRight="8dp"-->
+<!--            android:background="@color/primary_orange_dark"-->
+<!--            android:tint="@color/white"-->
+<!--            app:srcCompat="?attr/actionModeCloseDrawable"-->
+<!--            tools:ignore="UseAppTint"/>-->
 
         <TextView
             android:layout_width="150dp"
             android:layout_height="match_parent"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_marginEnd="189dp"
+            android:layout_marginEnd="110dp"
             android:layout_marginRight="189dp"
             android:fontFamily="@font/robotoblack"
             android:gravity="center_vertical"
             android:text="QR Scanner"
             android:textColor="@color/white"
-            android:textSize="20dp"
+            android:textSize="23dp"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="102dp"/>
     </RelativeLayout>

@@ -93,7 +93,7 @@ public class Notification extends AppCompatActivity {
                     Holiday h = data.getValue(Holiday.class);
                     if (today.equals(h.getDate())) {
                         NotificationM n = new NotificationM();
-                        n.setTitle("Today is Holiday!!!");
+                        n.setTitle("Today is Holiday !!!");
                         n.setDate(h.getDate());
                         n.setSub(h.getRemark());
                         notifList.add(n);
@@ -117,11 +117,11 @@ public class Notification extends AppCompatActivity {
                 for (DataSnapshot data : snapshot.getChildren()) {
                     Appointment a = data.getValue(Appointment.class);
 
-                    if (today.equals(a.getDate()) || (!(a.getStatus().equals("complete")))) {
+                    if (today.equals(a.getDate()) || (!(a.getStatus().equals("completed")))) {
                         if (a.getCid().equals(cid)) {
                             NotificationM nA = new NotificationM();
                             nA.setTitle("You have Appointment");
-                            nA.setDate("on " + a.getDate() + " at " + a.getTime());
+                            nA.setDate(a.getDate() + " | " + a.getTime());
                             nA.setSub("Status: " + a.getStatus());
                             notifList.add(nA);
                         }
