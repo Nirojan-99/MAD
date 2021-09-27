@@ -94,6 +94,11 @@ public class ManageUpcomingApoointment extends AppCompatActivity {
                     status.requestFocus();
                     return;
                 }
+                else if(enteredStatus.contains("waiting")){
+                    status.setError("entered status as cancel");
+                    status.requestFocus();
+                    return;
+                }
 
                 HashMap<String, Object> hashMap = new HashMap<>();
                 hashMap.put("status", enteredStatus);
