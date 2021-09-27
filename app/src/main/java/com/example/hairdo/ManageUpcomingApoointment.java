@@ -77,10 +77,20 @@ public class ManageUpcomingApoointment extends AppCompatActivity {
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                // validation
                 String enteredStatus = status.getText().toString().trim();
                 if(enteredStatus.isEmpty()){
                     status.setError("Required valid status");
+                    status.requestFocus();
+                    return;
+                }
+                else if(enteredStatus.contains("completed")){
+                    status.setError("entered status as completed");
+                    status.requestFocus();
+                    return;
+                }
+                else if(enteredStatus.contains("cancel")){
+                    status.setError("entered status as cancel");
                     status.requestFocus();
                     return;
                 }
