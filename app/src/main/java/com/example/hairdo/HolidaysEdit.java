@@ -37,7 +37,6 @@ public class HolidaysEdit extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_holidays_edit);
-//        Holiday Oldholiday = new Holiday();
         updateHolidayBtn = findViewById(R.id.btn_editHD);
         selectDate = findViewById(R.id.editDatePicker);
         selectedDate = findViewById(R.id.editedDate);
@@ -48,10 +47,9 @@ public class HolidaysEdit extends AppCompatActivity {
         Oldholiday.setRemark(intent.getStringExtra("OldRemark"));
         Oldholiday.setDate(intent.getStringExtra("OldFormatDate"));
 
-
-
         selectedDate.setText(Oldholiday.getSelected_Date());
         remark.setText(Oldholiday.getRemark());
+        formatDate=Oldholiday.getDate();
 
         updateHolidayBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,14 +57,31 @@ public class HolidaysEdit extends AppCompatActivity {
 
                 String FDate = selectedDate.getText().toString().trim();
                 String FRemark = remark.getText().toString().trim();
-                String FformatDate=Oldholiday.getDate().trim();
+//              String FformatDate=Oldholiday.getDate().trim();
+                String FformatDate=formatDate;
+
+                if (FRemark.isEmpty() || FRemark.length() < 4) {
+                    remark.setError("Invalid Remark Field.");
+                    remark.requestFocus();
+                    return;
+                }
+                if (FformatDate.equals("0/0/0")) {
+                    selectedDate.setError("Invalid Date Field.");
+                    selectedDate.requestFocus();
+                    return;
+                }
+
+
                 HashMap<String,Object>hashMap=new HashMap<>();
-                hashMap.put("selected_Date",FDate);
-                hashMap.put("remark",FRemark);
-                hashMap.put("date",FformatDate);
+                if (!FformatDate.equals(Oldholiday.getDate())){
+                    hashMap.put("date",FformatDate);
+                    hashMap.put("selected_Date",FDate);
 
+                }
+                if (!remark.equals(Oldholiday.getRemark())){
+                    hashMap.put("remark",FRemark);
 
-
+                }
 
                 FirebaseDatabase.getInstance().getReference(Holiday.class.getSimpleName()).child(Oldholiday.getFbKey()).updateChildren(hashMap).addOnSuccessListener(suc -> {
                     Toast.makeText(HolidaysEdit.this, "Successfully updated Holiday ", Toast.LENGTH_SHORT).show();
@@ -142,7 +157,8 @@ public class HolidaysEdit extends AppCompatActivity {
                 monthName = getMonthName(month + 1);
 //                selectedDate.setText(day + " / " + (month + 1) + " / " + year);
                 selectedDate.setText(monthName + " " + day + " , " + year);
-                Oldholiday.setDate(day+"/"+(month+1)+"/"+year);
+//                Oldholiday.setDate(day+"/"+(month+1)+"/"+year);
+                formatDate=day+"/"+(month+1)+"/"+year;
 
 
 

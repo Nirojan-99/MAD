@@ -39,6 +39,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Holidays extends AppCompatActivity {
+    ImageButton bkBtn;
     ProgressBar pg;
     ImageButton selectDate;
     Button addHolidayBtn;
@@ -68,9 +69,9 @@ public class Holidays extends AppCompatActivity {
         selectDate = findViewById(R.id.btnHoliDate);
         selectedDate = findViewById(R.id.picked_holiDate);
         remark = findViewById(R.id.Holidayremark);
-        pg=findViewById(R.id.holidayPG);
+        pg = findViewById(R.id.holidayPG);
+        bkBtn=findViewById(R.id.back_btn_in_holidays);
         id = FirebaseAuth.getInstance().getCurrentUser().getUid();
-
 
 
         setDateforRecyclerview();
@@ -85,8 +86,19 @@ public class Holidays extends AppCompatActivity {
                 String Fmonth = Integer.toString(Dmonth);
                 String Fday = Integer.toString(DdayOfMonth);
                 String Fyear = Integer.toString(Dyear);
-                String FformatDate=Fday+"/"+Fmonth+"/"+Fyear;
-                Holiday holiday = new Holiday(FDate, FRemark,FformatDate,id);
+                String FformatDate = Fday + "/" + Fmonth + "/" + Fyear;
+
+                if (FRemark.isEmpty() || FRemark.length() < 4) {
+                    remark.setError("Invalid Remark Field.");
+                    remark.requestFocus();
+                    return;
+                }
+                if (FformatDate.equals("0/0/0")) {
+                    selectedDate.setError("Invalid Date Field.");
+                    selectedDate.requestFocus();
+                    return;
+                }
+                Holiday holiday = new Holiday(FDate, FRemark, FformatDate, id);
 
 
                 FirebaseDatabase.getInstance().getReference("Holiday").push().setValue(holiday).addOnSuccessListener(suc -> {
@@ -100,6 +112,15 @@ public class Holidays extends AppCompatActivity {
             }
         });
 
+        bkBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Holidays.this, Calendar.class);
+                startActivity(intent);
+
+            }
+        });
+
 
     }
 
@@ -108,15 +129,23 @@ public class Holidays extends AppCompatActivity {
         FirebaseDatabase.getInstance().getReference(Holiday.class.getSimpleName()).orderByChild("sid").equalTo(id).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
-                for (DataSnapshot data : snapshot.getChildren()) {
+                if (snapshot.exists()) {
+                    for (DataSnapshot data : snapshot.getChildren()) {
 
-                    Holiday h = data.getValue(Holiday.class);
+                        Holiday h = data.getValue(Holiday.class);
                         h.setFbKey(data.getKey());
                         holidayList.add(h);
 
+                    }
+                    pg.setVisibility(View.GONE);
+                    holidaysRvAd.notifyDataSetChanged();
+
+                } else {
+                    pg.setVisibility(View.GONE);
+                    Toast.makeText(Holidays.this, "You have not add any holiday", Toast.LENGTH_SHORT).show();
+
                 }
-                pg.setVisibility(View.GONE);
-                holidaysRvAd.notifyDataSetChanged();
+
             }
 
             @Override
@@ -138,10 +167,11 @@ public class Holidays extends AppCompatActivity {
     }
 
 
-    public void goToCalender(View view) {
-        Intent intent = new Intent(this, Calendar.class);
-        startActivity(intent);
-    }
+//    public void goToCalender(View view) {
+//        Intent intent = new Intent(this, Calendar.class);
+//        startActivity(intent);
+//    }
+
 
     public String getMonthName(int m) {
         String mName = null;
