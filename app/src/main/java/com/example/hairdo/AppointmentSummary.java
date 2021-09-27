@@ -68,7 +68,18 @@ public class AppointmentSummary extends AppCompatActivity {
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                         Appointment data = dataSnapshot.getValue(Appointment.class);
                         data.set_id(dataSnapshot.getKey());
-                        appointment.add(data);
+                        if(data.status != null){
+                            if(data.status.contains("completed")){
+                                appointment.add(data);
+                            }else {
+
+                            }
+                        }
+
+                    if (appointment.isEmpty()) {
+                        nothing.setVisibility(View.VISIBLE);
+                    }
+
                     }
                     Adapter = new AppointmentSummaryAdapter(appointment);
                     recyclerView.setAdapter(Adapter);
