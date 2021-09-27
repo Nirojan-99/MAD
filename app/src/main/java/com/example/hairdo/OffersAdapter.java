@@ -1,10 +1,16 @@
 package com.example.hairdo;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,6 +33,13 @@ import java.util.ArrayList;
 public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.ViewHolder> {
 
     ArrayList<Offer> data;
+    Context cont;
+
+    public OffersAdapter(ArrayList<Offer> data, Context cont) {
+        this.data = data;
+        this.cont = cont;
+    }
+
     public OffersAdapter(ArrayList<Offer> data) {
         this.data = data;
     }
@@ -53,18 +66,7 @@ public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.ViewHolder
         holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseDatabase.getInstance().getReference("Offer").child(ser._id).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Toast.makeText(v.getContext(), "deleted!", Toast.LENGTH_SHORT).show();
-                        notifyDataSetChanged();
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(v.getContext(), "Unable to deleted!", Toast.LENGTH_SHORT).show();
-                    }
-                });
+                showDialog(ser._id,position);
             }
         });
 
@@ -101,5 +103,51 @@ public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.ViewHolder
             delete = itemView.findViewById(R.id.delete);
 
         }
+    }
+
+    private void showDialog(String id,int position) {
+
+        final Dialog dialog = new Dialog(cont);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.delete_confirm_popup);
+
+        Button btn = dialog.findViewById(R.id.delete12);
+        TextView txt = dialog.findViewById(R.id.cancel12);
+
+        txt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                                FirebaseDatabase.getInstance().getReference("Offer").child(id).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Toast.makeText(v.getContext(), "deleted!", Toast.LENGTH_SHORT).show();
+                        data.remove(position);
+                        notifyDataSetChanged();
+                        dialog.dismiss();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(v.getContext(), "Unable to deleted!", Toast.LENGTH_SHORT).show();
+                        dialog.dismiss();
+                    }
+                });
+            }
+        });
+
+
+        dialog.show();
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+        dialog.getWindow().setGravity(Gravity.CENTER_VERTICAL);
+
     }
 }

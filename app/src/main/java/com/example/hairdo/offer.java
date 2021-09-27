@@ -63,7 +63,7 @@ public class offer extends AppCompatActivity {
         nothing = findViewById(R.id.nothing);
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.offerRecycle);
-        adapter = new OffersAdapter(myListData);
+        adapter = new OffersAdapter(myListData,offer.this);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
@@ -143,8 +143,9 @@ public class offer extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void aVoid) {
                         Toast.makeText(offer.this, "offer is updated", Toast.LENGTH_SHORT).show();
-                        finish();
-                        startActivity(getIntent());
+                        myListData.add(offer);
+                        adapter.notifyDataSetChanged();
+                        nothing.setVisibility(View.GONE);
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override

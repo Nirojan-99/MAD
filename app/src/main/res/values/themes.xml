@@ -14,4 +14,8 @@
     </style>
     <style name="Theme.SampleDrawer.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="Theme.SampleDrawer.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="DialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/slide_in_bottom</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_bottom</item>
+    </style>
 </resources>

@@ -16,17 +16,25 @@
         android:theme="@style/Theme.HairDo">
         <activity
             android:name=".HolidaysEdit"
-            android:theme="@style/Theme.HairDo.NoActionBar"/>
+            android:theme="@style/Theme.HairDo.NoActionBar" />
         <activity
             android:name=".DpUpload"
             android:theme="@style/Theme.HairDo.NoActionBar" />
         <activity
             android:name=".SalonLogin"
             android:theme="@style/Theme.HairDo.NoActionBar" />
-        <activity android:name=".QR_Scanner" />
-        <activity android:name=".QR_Generator" />
-        <activity android:name=".Notification" />
-        <activity android:name=".UserUpcomingAppointment" />
+        <activity
+            android:name=".QR_Scanner"
+            android:theme="@style/Theme.HairDo.NoActionBar" />
+        <activity
+            android:name=".QR_Generator"
+            android:theme="@style/Theme.HairDo.NoActionBar" />
+        <activity
+            android:name=".Notification"
+            android:theme="@style/Theme.HairDo.NoActionBar" />
+        <activity
+            android:name=".UserUpcomingAppointment"
+            android:theme="@style/Theme.HairDo.NoActionBar" />
         <activity
             android:name=".AppointmentSummary"
             android:theme="@style/Theme.HairDo.NoActionBar" />

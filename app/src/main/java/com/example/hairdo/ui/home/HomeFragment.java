@@ -33,6 +33,7 @@ import com.example.hairdo.UserViewReviewAdapter;
 import com.example.hairdo.model.Review;
 import com.example.hairdo.model.Salon;
 import com.example.hairdo.model.Service;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -45,8 +46,7 @@ import java.util.HashMap;
 
 public class HomeFragment extends Fragment {
 
-    //        String id = auth.getCurrentUser().getUid();
-    String id = "ejHLtEYSByaRAt0p7zp5yMaD9Na2";
+    String id ;
     ArrayList<Service> myListData = new ArrayList<Service>();
     HashMap<String, Object> hashMap = new HashMap<>();
     ServicesSalonAdapter adapter;
@@ -70,6 +70,8 @@ public class HomeFragment extends Fragment {
         recyclerView1.setLayoutManager(new LinearLayoutManager(root.getContext()));
         recyclerView1.setAdapter(adapter1);
 
+        id= FirebaseAuth.getInstance().getCurrentUser().getUid();
+
         //getting reviews
         Query query5 = FirebaseDatabase.getInstance().getReference("Review").orderByChild("salonid").equalTo(id);
         query5.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -87,6 +89,9 @@ public class HomeFragment extends Fragment {
                         noreviews.setVisibility(View.VISIBLE);
                     }
 
+                }else{
+                    pgs2.setVisibility(View.GONE);
+                    noreviews.setVisibility(View.VISIBLE);
                 }
             }
 
@@ -132,7 +137,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        //fetch data
+        //fetch rating data
         Query query = FirebaseDatabase.getInstance().getReference("Salon").child(id);
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -162,7 +167,7 @@ public class HomeFragment extends Fragment {
         });
 
 
-        //fetch data
+        //fetch services data
         Query query1 = FirebaseDatabase.getInstance().getReference("Services").orderByChild("id").equalTo(id);
         query1.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -178,6 +183,9 @@ public class HomeFragment extends Fragment {
                         nothing.setVisibility(View.VISIBLE);
                     }
 
+                }else {
+                    nothing.setVisibility(View.VISIBLE);
+                    pgs1.setVisibility(View.GONE);
                 }
             }
 

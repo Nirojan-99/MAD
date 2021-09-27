@@ -403,11 +403,11 @@
             <LinearLayout
                 android:id="@+id/logout"
                 android:clickable="true"
-                android:layout_width="250sp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10sp"
-                android:background="@drawable/card"
-                android:backgroundTint="@color/primary_black"
+                android:background="@drawable/textview_border"
+                android:backgroundTint="@color/gray"
                 android:gravity="center"
                 android:layout_gravity="center"
                 android:layout_marginBottom="20sp">

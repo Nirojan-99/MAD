@@ -51,7 +51,7 @@ public class ManageServices extends AppCompatActivity {
         nothng=findViewById(R.id.nothing);
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.serviceRecycleView);
-        adapter = new ServicesAdapter(myListData);
+        adapter = new ServicesAdapter(myListData,ManageServices.this);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
@@ -72,6 +72,9 @@ public class ManageServices extends AppCompatActivity {
                     pgs.setVisibility(View.GONE);
                     adapter.notifyDataSetChanged();
 
+                }else{
+                    pgs.setVisibility(View.GONE);
+                    nothng.setVisibility(View.VISIBLE);
                 }
             }
 
@@ -100,8 +103,10 @@ public class ManageServices extends AppCompatActivity {
             @Override
             public void onSuccess(Void aVoid) {
                 Toast.makeText(ManageServices.this, "Service is updated", Toast.LENGTH_SHORT).show();
-                finish();
-                startActivity(getIntent());
+                Service newS = new Service();
+                newS.name=newService;
+                myListData.add(newS);
+                adapter.notifyDataSetChanged();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
