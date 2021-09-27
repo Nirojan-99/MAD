@@ -47,16 +47,28 @@ public class LogIn extends AppCompatActivity {
             public void onClick(View v) {
                 String enteredEmail = email.getText().toString().trim();
                 String enteredPassword = password.getText().toString().trim();
+                // validation
+//                if (!enteredEmail.contains("@") || !enteredEmail.contains(".com")) {
+//                    email.setError("Valid email is required");
+//                    email.requestFocus();
+//                    return;
+//                } else if (enteredPassword.length() < 6) {
+//                    password.setError("Valid password is required");
+//                    password.requestFocus();
+//                    return;
+//                }
 
-                if (!enteredEmail.contains("@") || !enteredEmail.contains(".com")) {
-                    email.setError("Valid email is required");
+                if (enteredEmail.isEmpty()) {
+                    email.setError("please enter Email ");
                     email.requestFocus();
                     return;
-                } else if (enteredPassword.length() < 6) {
-                    password.setError("Valid password is required");
+                }
+                else if (enteredPassword.isEmpty()) {
+                    password.setError("please enter password ");
                     password.requestFocus();
                     return;
                 }
+
 
                 pgs.setVisibility(View.VISIBLE);
 
