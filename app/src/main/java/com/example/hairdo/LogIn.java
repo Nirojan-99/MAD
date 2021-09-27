@@ -58,16 +58,6 @@ public class LogIn extends AppCompatActivity {
                     return;
                 }
 
-//                if (enteredEmail.isEmpty()) {
-//                    email.setError("please enter Email ");
-//                    email.requestFocus();
-//                    return;
-//                }
-//                else if (enteredPassword.isEmpty()) {
-//                    password.setError("please enter password ");
-//                    password.requestFocus();
-//                    return;
-//                }
 
 
                 pgs.setVisibility(View.VISIBLE);
