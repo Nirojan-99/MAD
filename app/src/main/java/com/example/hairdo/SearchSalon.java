@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -41,6 +42,7 @@ public class SearchSalon extends AppCompatActivity {
         imbt = findViewById(R.id.button);
         pgs = findViewById(R.id.searchProgress);
         nothing = findViewById(R.id.nothing);
+        search.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
 
         //set adapter
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.searchedRecycler);
@@ -64,7 +66,7 @@ public class SearchSalon extends AppCompatActivity {
                 }
 
                 //fetch salons
-                Query query = FirebaseDatabase.getInstance().getReference("Salon").orderByChild("name").equalTo(enteredValue);
+                Query query = FirebaseDatabase.getInstance().getReference("Salon").orderByChild("name").startAt(enteredValue).endAt(enteredValue+"\uf8ff");
                 query.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {

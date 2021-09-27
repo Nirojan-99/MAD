@@ -92,7 +92,7 @@
                         android:isIndicator="true"
                         android:max="5"
                         android:numStars="5"
-                        android:rating="3"
+                        android:rating="0"
                         android:stepSize=".5" />
 
                     <TextView

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:backgroundTint="@color/primary_black"
+    android:paddingVertical="15sp"
+    android:paddingHorizontal="10sp"
+    android:orientation="vertical"
+    android:background="#000"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Do You Need to Delete?"
+        android:gravity="center_horizontal"
+        android:textSize="23sp"
+        android:textColor="@color/white_dark"
+        android:fontFamily="@font/robotoblack"/>
+
+    <LinearLayout
+        android:paddingHorizontal="20sp"
+        android:layout_marginTop="40sp"
+        android:layout_marginBottom="20sp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:id="@+id/cancel12"
+            android:textColor="@color/white"
+            android:gravity="center_vertical"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Cancel"
+            />
+        <LinearLayout
+            android:layout_gravity="right"
+            android:gravity="right"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <Button
+                android:paddingHorizontal="30sp"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/robotoblack"
+                android:id="@+id/delete12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/delete"
+
+                android:backgroundTint="@color/red"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+
+</LinearLayout>

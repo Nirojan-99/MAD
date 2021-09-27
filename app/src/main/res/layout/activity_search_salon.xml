@@ -16,6 +16,8 @@
         android:background="@color/gray"
         android:layout_height="75sp">
         <EditText
+            android:lines="@integer/material_motion_duration_long_1"
+            android:inputType="textCapSentences"
             android:id="@+id/searchValue"
             android:hint="@string/search"
             android:backgroundTint="@color/primary_orange"

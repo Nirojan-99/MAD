@@ -27,6 +27,7 @@ public class ReviewsAdapter extends RecyclerView.Adapter<ReviewsAdapter.ViewHold
 
     ArrayList<Review> data;
 
+
     public ReviewsAdapter(ArrayList<Review> data) {
         this.data = data;
     }
@@ -78,6 +79,9 @@ public class ReviewsAdapter extends RecyclerView.Adapter<ReviewsAdapter.ViewHold
                 FirebaseDatabase.getInstance().getReference("Review").child(ser._id).updateChildren(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
+                        data.get(position).reply=reply;
+                        holder.replymsg.setText(null);
+                        notifyDataSetChanged();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override

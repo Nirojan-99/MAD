@@ -68,7 +68,7 @@
     <string name="emailOfDev">infoHairDo@gmail.com</string>
     <string name="phoneNumOfDev">021-226-1382</string>
     <string name="addressOfDev">Main Street, Colombo 9</string>
-    <string name="contactUs">Contact Us</string>
+    <string name="contactUs">CONTACT US</string>
     <string name="remove">Remove</string>
     <string name="title_activity_user_profile">UserProfile</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -83,7 +83,7 @@
     <string name="location">Location</string>
     <string name="viewLocation">View Location</string>
     <string name="reserve">Reserve</string>
-    <string name="gallery">Gallery</string>
+    <string name="gallery">GALLERY</string>
     <string name="search">search..</string>
     <string name="addPhoto">Add Photo</string>
     <string name="delete">Delete</string>\

@@ -46,6 +46,8 @@ public class UserProfileEdit extends Fragment {
     FirebaseAuth auth;
     LinearLayout ll;
     ProgressBar pgs;
+    Customer cus;
+    String id;
 
     public UserProfileEdit() {
 
@@ -69,7 +71,6 @@ public class UserProfileEdit extends Fragment {
         View view = inflater.inflate(R.layout.fragment_user_profile_edit, container, false);
         auth = FirebaseAuth.getInstance();
 
-        String id ;
         id = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         btn = view.findViewById(R.id.saveChanges);
@@ -84,40 +85,10 @@ public class UserProfileEdit extends Fragment {
         pgs = view.findViewById(R.id.userdetailsprogress);
         ll = view.findViewById(R.id.bg);
 
+        //call fetch cus data
+        fetchCusData();
 
-        //fetch user data
-        Query query = FirebaseDatabase.getInstance().getReference("Customer").child(id);
-        query.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()) {
-                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-
-                        Customer cus = snapshot.getValue(Customer.class);
-                        name.setText(cus.name);
-                        email.setText(cus.email);
-                        titleName.setText(cus.name);
-                        gender.setText(cus.gender);
-                        contactNum.setText(cus.contact);
-                        address.setText(cus.address);
-                        password.setText(cus.password);
-                        if (cus.url != null) {
-                            profile.setPadding(0, 0, 0, 0);
-                            Picasso.with(getContext()).load(Uri.parse(cus.url)).transform(new CircleTransform()).into(profile);
-                        }
-                    }
-                    pgs.setVisibility(View.GONE);
-                    ll.setVisibility(View.GONE);
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
-
+        //edit details
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -144,10 +115,8 @@ public class UserProfileEdit extends Fragment {
                     contactNum.setError("Valid contact number is required");
                     contactNum.requestFocus();
                     return;
-                } else if (enteredPassword.length() < 6) {
-                    password.setError("Password should contains uppercase and lowercase characters");
-                    password.requestFocus();
-                    return;
+                } else if (enteredPassword.isEmpty()) {
+
                 } else if (!(enteredGender.contains("male")) || !(enteredGender.contains("female"))) {
                     gender.setError("Gender should be Male or Female");
                     gender.requestFocus();
@@ -155,16 +124,41 @@ public class UserProfileEdit extends Fragment {
                 }
 
                 HashMap<String, Object> hashMap = new HashMap<>();
-                hashMap.put("name", enteredName.toString());
-                hashMap.put("gender", enteredGender.toString());
-                hashMap.put("contact", enteredContact.toString());
-                hashMap.put("password", enteredPassword.toString());
-                hashMap.put("address", enteredAddress.toString());
+                if (!enteredName.equals(cus.name)) {
+                    hashMap.put("name", enteredName.toString());
+                }
+                if (!enteredAddress.equals(cus.address)) {
+                    hashMap.put("address", enteredAddress.toString());
+                }
+                if (!enteredGender.equals(cus.gender)) {
+                    hashMap.put("gender", enteredGender.toString());
+                }
+                if (!enteredContact.equals(cus.contact)) {
+                    hashMap.put("contact", enteredContact.toString());
+                }
+                if (!(enteredPassword.equals(cus.password)) && !(enteredPassword.isEmpty())) {
+                    hashMap.put("password", enteredPassword.toString());
+                }
+
 
                 FirebaseDatabase.getInstance().getReference("Customer").child(id).updateChildren(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-//                        startActivity(getContext().getIntent());
+                        if (!(enteredPassword.equals(cus.password)) && !(enteredPassword.isEmpty())) {
+                            FirebaseAuth.getInstance().getCurrentUser().updatePassword(enteredPassword).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    fetchCusData();
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    //failure
+                                }
+                            });
+                        }else{
+                            fetchCusData();
+                        }
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -185,7 +179,40 @@ public class UserProfileEdit extends Fragment {
                 startActivity(intent);
             }
         });
-
         return view;
+    }
+
+    //fetch cus data
+    public void fetchCusData() {
+        Query query = FirebaseDatabase.getInstance().getReference("Customer").child(id);
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+
+                        cus = snapshot.getValue(Customer.class);
+                        name.setText(cus.name);
+                        email.setText(cus.email);
+                        titleName.setText(cus.name);
+                        gender.setText(cus.gender);
+                        contactNum.setText(cus.contact);
+                        address.setText(cus.address);
+//                        password.setText(cus.password);
+                        if (cus.url != null) {
+                            profile.setPadding(0, 0, 0, 0);
+                            Picasso.with(getContext()).load(Uri.parse(cus.url)).transform(new CircleTransform()).into(profile);
+                        }
+                    }
+                    pgs.setVisibility(View.GONE);
+                    ll.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }

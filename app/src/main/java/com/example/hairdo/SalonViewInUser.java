@@ -149,8 +149,10 @@ public class SalonViewInUser extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void aVoid) {
                         Toast.makeText(SalonViewInUser.this, "review is updated", Toast.LENGTH_SHORT).show();
-                        finish();
-                        startActivity(getIntent());
+                        reviews1.add(review);
+                        rating.setText(null);
+                        userRtb.setRating(0.0f);
+                        adapter1.notifyDataSetChanged();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override

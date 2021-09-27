@@ -20,6 +20,7 @@ import com.example.hairdo.R;
 
 import com.example.hairdo.UpcomingAppointmentAdapter;
 import com.example.hairdo.upcommingAppointmentsSalon;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class DashboardFragment extends Fragment {
 
@@ -27,7 +28,7 @@ public class DashboardFragment extends Fragment {
     ProgressBar pgs;
     TextView total, completed, todayPayout, previousPayout;
     //        String id = auth.getCurrentUser().getUid();
-    String id = "ejHLtEYSByaRAt0p7zp5yMaD9Na2";
+    String id ;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -39,6 +40,8 @@ public class DashboardFragment extends Fragment {
         FragmentTransaction ft = fm.beginTransaction();
         ft.replace(R.id.appointents, fragment);
         ft.commit();
+
+        id= FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         setHasOptionsMenu(true);
         View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
