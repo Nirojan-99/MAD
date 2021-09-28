@@ -379,7 +379,7 @@
                     android:fontFamily="@font/opensansbold"
                     android:gravity="start|center_vertical"
                     android:paddingLeft="20sp"
-                    android:text="@string/contactUs"
+                    android:text="CONTACT US"
                     android:textAlignment="viewStart"
                     android:textColor="@color/primary_black"
                     android:textSize="15sp" />

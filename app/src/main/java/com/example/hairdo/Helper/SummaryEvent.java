@@ -129,7 +129,7 @@ public class SummaryEvent {
                         if (result) {
                             if (!ser.status.equals("cancel")) {
                                 todayTotal++;
-                                if (ser.status.equals("complete")) {
+                                if (ser.status.equals("completed")) {
                                     todayCompleted++;
                                 }
                             }

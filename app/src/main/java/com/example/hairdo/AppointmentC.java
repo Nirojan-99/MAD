@@ -1,14 +1,19 @@
 package com.example.hairdo;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+
+import java.text.ParseException;
 import java.util.Calendar;
+
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -18,6 +23,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.example.hairdo.Helper.DateCompare;
 import com.example.hairdo.model.Appointment;
 import com.example.hairdo.model.Customer;
 import com.example.hairdo.model.Holiday;
@@ -37,7 +43,7 @@ import org.jetbrains.annotations.NotNull;
 public class AppointmentC extends AppCompatActivity {
     // inistailze
     Button selectDate;
-    EditText date ;
+    EditText date;
     TextView Advancepayment;
     EditText taketime;
     Button timebtn;
@@ -47,9 +53,16 @@ public class AppointmentC extends AppCompatActivity {
     int month;
     int dayOfMonth;
     Calendar calendar;
-    int mHour,mMinute;
-    String Sname ;
-    String advancepayment ;
+    int mHour, mMinute;
+    String Sname;
+    String advancepayment;
+    String sid;
+    String cid;
+    String cname;
+    boolean isAppointmentValuable = true;
+    String enterdate;
+    String entertime;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,134 +73,120 @@ public class AppointmentC extends AppCompatActivity {
         taketime = findViewById(R.id.in_time);
         timebtn = findViewById(R.id.btn_time);
 
+        cid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        Intent intent = getIntent();
+        sid = intent.getStringExtra("id");
+        cname = intent.getStringExtra("cusName");
 
-    }
-    public void onClickCompletePayment(View v){
 
-          Intent intent = getIntent();
-          String sid = intent.getStringExtra("id").toString();
-          String cname = intent.getStringExtra("cusName").toString();
-
-         String enterdate = date.getText().toString().trim();
-         String entertime = taketime.getText().toString().trim();
-         //String cid = "oJO7CwPSZjXFTJIungGeaQZQvo33";
-         //String sid = "ejHLtEYSByaRAt0p7zp5yMaD9Na2";
-       String cid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-       // validasion
-        if(enterdate.isEmpty()){
-            date.setError("select the date");
-            date.requestFocus();
-            return;
-
-        } else if(entertime.isEmpty()){
-            taketime.setError("select the time");
-            taketime.requestFocus();
-            return;
-
-        }
-
-        // get Sname and advance
-        Query query8 = FirebaseDatabase.getInstance().getReference("Salon").orderByChild("id").equalTo(cid);
+        // get Salon name and advance
+        Query query8 = FirebaseDatabase.getInstance().getReference("Salon").child(sid);
         query8.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
-                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                        Salon sal = dataSnapshot.getValue(Salon.class);
-                        //Toast.makeText(AppointmentC.this, sal.name, Toast.LENGTH_SHORT).show();
-                         Sname = sal.name;
-                        advancepayment = sal.advance;
-                        Advancepayment.setText(advancepayment);
-                        //Toast.makeText(AppointmentC.this, Sname, Toast.LENGTH_SHORT).show();
-                        //Toast.makeText(AppointmentC.this, advancepayment, Toast.LENGTH_SHORT).show();
 
+                    Salon sal = snapshot.getValue(Salon.class);
+                    Sname = sal.name;
+                    advancepayment = sal.advance;
+                    if (advancepayment == null) {
+                        Advancepayment.setText("Unavilable");
+                    } else {
+                        Advancepayment.setText(advancepayment);
                     }
                 }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
                 Toast.makeText(AppointmentC.this, "no available Sname", Toast.LENGTH_SHORT).show();
             }
         });
+    }
 
+    public void onClickCompletePayment(View v) {
+        enterdate = date.getText().toString().trim();
+        entertime = taketime.getText().toString().trim();
 
+        // validasion
+        if (enterdate.isEmpty()) {
+            date.setError("select the date");
+            date.requestFocus();
+            return;
 
+        } else if (entertime.isEmpty()) {
+            taketime.setError("select the time");
+            taketime.requestFocus();
+            return;
+
+        }
 
 
         // check time and date
-        FirebaseDatabase.getInstance().getReference("Appointment").addValueEventListener(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference("Appointment").orderByChild("id").equalTo(sid).addListenerForSingleValueEvent(new ValueEventListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
-                    if (snapshot.exists()) {
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                         Appointment ser = dataSnapshot.getValue(Appointment.class);
-//                        Toast.makeText(AppointmentC.this, ser.time+"data", Toast.LENGTH_SHORT).show();
-//                        Toast.makeText(AppointmentC.this, entertime, Toast.LENGTH_SHORT).show();
-
-                        if (entertime.equals(ser.time)) {
-                            Toast.makeText(AppointmentC.this, "this time & date already booking ", Toast.LENGTH_SHORT).show();
-                            Toast.makeText(AppointmentC.this, ser.time, Toast.LENGTH_SHORT).show();
-                            //Toast.makeText(AppointmentC.this, "please select another time to  after 30 mins ", Toast.LENGTH_SHORT).show();
-
+                        Boolean result = false;
+                        try {
+                            result = DateCompare.comparedates(enterdate, ser.date);
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+                        if (result) {
+                            boolean timeResult = DateCompare.compareTime(ser.time, entertime);
+                            if (timeResult) {
+                                Toast.makeText(AppointmentC.this, "Time is alredy Taken", Toast.LENGTH_SHORT).show();
+                                isAppointmentValuable = false;
+                                return;
+                            }
+                        } else {
 
                         }
                     }
+                    addAppointment();
 
-                    }
+                } else {
+                    addAppointment();
                 }
+            }
 
-                }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
-                Toast.makeText(AppointmentC.this, "no appointments available", Toast.LENGTH_SHORT).show();
             }
         });
 
 
 
-         //Add appointment
-        Appointment Appointment = new Appointment(sid, cid, cname, Sname, enterdate, entertime, advancepayment, "Complete");
 
-        FirebaseDatabase.getInstance().getReference("Appointment").push().setValue(Appointment).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                Toast.makeText(AppointmentC.this, "Appointment is Added", Toast.LENGTH_SHORT).show();
-                finish();
-                startActivity(getIntent());
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(AppointmentC.this, "Appointment is not Added", Toast.LENGTH_SHORT).show();
-            }
-        });
 
     }
+
     // date picker
     public void PickDate(View v) {
         calendar = Calendar.getInstance();
         year = calendar.get(Calendar.YEAR);
         month = calendar.get(Calendar.MONTH);
         dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
-       // Toast.makeText(this, year+"/"+(month+1)+"/"+dayOfMonth, Toast.LENGTH_SHORT).show();
+        // Toast.makeText(this, year+"/"+(month+1)+"/"+dayOfMonth, Toast.LENGTH_SHORT).show();
         datePickerDialog = new DatePickerDialog(AppointmentC.this, new DatePickerDialog.OnDateSetListener() {
             @Override
-            public  void onDateSet(DatePicker datePicker, int year, int month, int day) {
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 date.setText(day + "/" + (month + 1) + "/" + year);
 
             }
         }, year, month, dayOfMonth);
-
-//        datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis());
-
         datePickerDialog.show();
 
     }
+
     // Time Picker
-    public void PickTime(View v){
+    public void PickTime(View v) {
         final Calendar c = Calendar.getInstance();
         mHour = c.get(Calendar.HOUR_OF_DAY);
         mMinute = c.get(Calendar.MINUTE);
@@ -199,7 +198,7 @@ public class AppointmentC extends AppCompatActivity {
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                         // check AM and PM
-                         String format = "";
+                        String format = "";
 
                         if (hourOfDay == 0) {
                             hourOfDay += 12;
@@ -213,12 +212,30 @@ public class AppointmentC extends AppCompatActivity {
                             format = "AM";
                         }
 
-                        taketime.setText(hourOfDay + ":" + minute+format);
+                        taketime.setText(hourOfDay + ":" + minute + format);
                     }
                 }, mHour, mMinute, false);
         timePickerDialog.show();
     }
 
+    public void addAppointment() {
+        //Add appointment
+        Appointment appointment = new Appointment(sid, cid, cname, Sname, enterdate, entertime, advancepayment, "waiting");
 
+        FirebaseDatabase.getInstance().getReference("Appointment").push().setValue(appointment).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                Toast.makeText(AppointmentC.this, "Appointment is Added", Toast.LENGTH_SHORT).show();
+//                Intent intent = new Intent(AppointmentC.this, Payment.class);
+////                intent.putExtra("id", sid);
+//                startActivity(intent);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(AppointmentC.this, "Appointment is not Added", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 }
 

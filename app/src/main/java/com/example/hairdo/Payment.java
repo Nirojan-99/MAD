@@ -23,11 +23,9 @@ public class Payment extends AppCompatActivity {
 
     EditText number, name, month, year, cvc;
     Button btn;
-    //    String salonId = getIntent().getStringExtra("id");
-//    String amount = getIntent().getStringExtra("amount");
-    String salonId = "ejHLtEYSByaRAt0p7zp5yMaD9Na2";
-    int amount = 1000;
 
+    String salonId = getIntent().getStringExtra("id");
+    int amount ;
     String id ;
 
     @Override
@@ -44,6 +42,7 @@ public class Payment extends AppCompatActivity {
         year = findViewById(R.id.year);
         cvc = findViewById(R.id.cvc);
         btn = findViewById(R.id.submit);
+        amount = 500;
 
         //button click
         btn.setOnClickListener(new View.OnClickListener() {

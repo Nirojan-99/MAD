@@ -14,8 +14,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.hairdo.model.Appointment;
 import com.example.hairdo.model.Salon;
 import com.example.hairdo.model.Service;
 import com.google.firebase.auth.FirebaseAuth;
@@ -49,6 +51,22 @@ public class UserHome extends Fragment {
         View view = inflater.inflate(R.layout.fragment_user_home, container, false);
 
         id = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+        //fetch recent salons
+        FirebaseDatabase.getInstance().getReference("Appointment").orderByChild("cid").equalTo(id).limitToFirst(3).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                        Appointment ser = dataSnapshot.getValue(Appointment.class);
+                    }}
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         //set adapter
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.salons);

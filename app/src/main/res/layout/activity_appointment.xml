@@ -50,7 +50,7 @@
                     android:fontFamily="@font/opensanssemibold"
                     android:layout_marginLeft="100dp"
                     android:layout_marginTop="90dp"
-                    android:background="@drawable/card"
+                    android:background="@drawable/textview_border"
                     android:text="@string/pickdate"
                     android:onClick="PickDate"
                     android:textColor="@color/primary_black"
@@ -75,7 +75,7 @@
                     android:layout_height="43dp"
                     android:layout_marginLeft="100dp"
                     android:layout_marginTop="200dp"
-                    android:background="@drawable/card"
+                    android:background="@drawable/textview_border"
                     android:fontFamily="@font/opensanssemibold"
                     android:gravity="center"
                     android:onClick="@string/PickTime"
@@ -96,101 +96,6 @@
                     android:textColor="@color/primary_black"
                     android:textSize="20dp" />
 
-<!--                <TextView-->
-<!--                    android:id="@+id/in_time"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginLeft="25dp"-->
-<!--                    android:layout_marginTop="190dp"-->
-<!--                    android:gravity="center_vertical"-->
-<!--                    android:text="@string/Time"-->
-<!--                    android:fontFamily="@font/opensanssemibold"-->
-<!--                    android:textColor="@color/dark_black"-->
-<!--                    android:textSize="20sp" />-->
-
-<!--                <button-->
-<!--                    android:id="@+id/entertime"-->
-<!--                    android:layout_width="315dp"-->
-<!--                    android:gravity="center_vertical"-->
-<!--                    android:layout_marginLeft="15dp"-->
-<!--                    android:layout_marginRight="10dp"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginTop="230dp"-->
-<!--                    android:background="@drawable/textview_border"-->
-<!--                    android:fontFamily="@font/opensansbold"-->
-<!--                    android:maxLines="1"-->
-<!--                    android:padding="10dp"-->
-<!--                    android:textColor="@color/dark_black"-->
-<!--                    android:textSize="20sp" />-->
-
-<!--                <RadioGroup-->
-<!--                    android:id="@+id/radioGroup"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginLeft="50dp"-->
-<!--                    android:layout_marginTop="170dp"-->
-<!--                    android:gravity="left"-->
-<!--                    android:orientation="vertical">-->
-
-<!--                    <RadioButton-->
-<!--                        android:buttonTint="@color/secondary_blue"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="match_parent"-->
-<!--                        android:padding="5sp"-->
-<!--                        android:paddingStart="30dp"-->
-<!--                        android:paddingLeft="20dp"-->
-<!--                        android:paddingEnd="30dp"-->
-<!--                        android:paddingRight="30dp"-->
-<!--                        android:text="@string/time1"-->
-<!--                        android:textColor="@color/primary_black"-->
-<!--                        android:textColorHint="@color/secondary_blue"-->
-<!--                        android:textStyle="bold" />-->
-
-
-<!--                    <RadioButton-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:buttonTint="@color/secondary_blue"-->
-<!--                        android:checked="false"-->
-<!--                        android:paddingStart="30dp"-->
-<!--                        android:paddingLeft="30dp"-->
-<!--                        android:paddingEnd="20dp"-->
-<!--                        android:paddingRight="20dp"-->
-<!--                        android:text="@string/time2"-->
-<!--                        android:textColor="@color/primary_black"-->
-<!--                        android:textColorHint="@color/secondary_blue"-->
-<!--                        android:textStyle="bold" />-->
-
-<!--                    <RadioButton-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:buttonTint="@color/secondary_blue"-->
-<!--                        android:checked="false"-->
-<!--                        android:paddingStart="30dp"-->
-<!--                        android:paddingLeft="30dp"-->
-<!--                        android:paddingEnd="20dp"-->
-<!--                        android:paddingRight="20dp"-->
-<!--                        android:text="@string/time3"-->
-<!--                        android:textColor="@color/primary_black"-->
-<!--                        android:textColorHint="@color/secondary_blue"-->
-<!--                        android:textStyle="bold" />-->
-
-<!--                    <RadioButton-->
-
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:buttonTint="@color/secondary_blue"-->
-<!--                        android:checked="false"-->
-<!--                        android:paddingStart="30dp"-->
-<!--                        android:paddingLeft="30dp"-->
-<!--                        android:paddingEnd="20dp"-->
-<!--                        android:paddingRight="20dp"-->
-<!--                        android:text="@string/time4"-->
-<!--                        android:textColor="@color/primary_black"-->
-<!--                        android:textStyle="bold" />-->
-
-
-<!--                </RadioGroup>-->
 
                 <TextView
                     android:layout_width="match_parent"
@@ -202,13 +107,13 @@
                     android:textSize="20dp" />
 
                 <TextView
+                    android:paddingHorizontal="4sp"
                     android:id="@+id/Advancepayment"
-                    android:layout_width="78dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="35dp"
                     android:layout_marginLeft="230dp"
                     android:layout_marginTop="311dp"
-                    android:background="@drawable/card"
-                    android:text="@string/AdvancePaymentbutton"
+                    android:background="@drawable/textview_border"
                     android:fontFamily="@font/opensansbold"
                     android:gravity="center"
                     android:textColor="@color/white"
@@ -223,9 +128,10 @@
                     android:layout_marginTop="380dp"
                     android:layout_marginRight="30dp"
                     android:background="@drawable/custombutton"
-                    android:fontFamily="@font/opensansregular"
+                    android:backgroundTint="@color/gray"
+                    android:fontFamily="@font/opensansbold"
                     android:onClick="onClickCompletePayment"
-                    android:text="@string/completepayment"
+                    android:text="COMPLETE RESERVATION"
                     android:textColor="@color/primary_black"
                     android:textSize="20dp" />
             </RelativeLayout>
