@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.hairdo.model.Holiday;
@@ -19,7 +20,8 @@ import java.util.Calendar;
 import java.util.HashMap;
 
 public class HolidaysEdit extends AppCompatActivity {
-    ImageButton selectDate;
+//    ImageButton selectDate;
+    ImageView selectDate;
     Button updateHolidayBtn;
     EditText selectedDate;
     EditText remark;
@@ -87,6 +89,7 @@ public class HolidaysEdit extends AppCompatActivity {
                     Toast.makeText(HolidaysEdit.this, "Successfully updated Holiday ", Toast.LENGTH_SHORT).show();
                     Intent intent1=new Intent(HolidaysEdit.this,Holidays.class);
                     startActivity(intent1);
+                    finish();
                 }).addOnFailureListener(er -> {
                     Toast.makeText(HolidaysEdit.this, "Not Updated. Error is: " + er.getMessage(), Toast.LENGTH_SHORT).show();
                 });

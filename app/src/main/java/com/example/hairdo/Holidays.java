@@ -18,6 +18,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 import android.widget.DatePicker;
@@ -41,7 +42,8 @@ import java.util.List;
 public class Holidays extends AppCompatActivity {
     ImageButton bkBtn;
     ProgressBar pg;
-    ImageButton selectDate;
+//    ImageButton selectDate;
+    ImageView selectDate;
     Button addHolidayBtn;
     EditText selectedDate;
     EditText remark;
