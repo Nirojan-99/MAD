@@ -38,7 +38,6 @@ public class EditDetails extends AppCompatActivity {
     String password1;
     Salon cus;
 
-
     EditText name, address, contact, password, advance, email;
     Button btn, delete;
     ProgressBar pgs;
@@ -49,6 +48,7 @@ public class EditDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_details);
 
+        //user id
         id = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         name = findViewById(R.id.salonNewName);
