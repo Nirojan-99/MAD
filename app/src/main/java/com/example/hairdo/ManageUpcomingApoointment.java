@@ -91,12 +91,12 @@ public class ManageUpcomingApoointment extends AppCompatActivity {
                 FirebaseDatabase.getInstance().getReference("Appointment").child(id).updateChildren(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        Toast.makeText(ManageUpcomingApoointment.this, "Appointment canceled", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ManageUpcomingApoointment.this, "status updated", Toast.LENGTH_SHORT).show();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(ManageUpcomingApoointment.this, "Unable to cancel the appointment", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ManageUpcomingApoointment.this, "Unable to update status", Toast.LENGTH_SHORT).show();
                     }
                 });
             }

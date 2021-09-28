@@ -37,10 +37,20 @@ public class ExampleUnitTest {
         assertEquals(result,true);
 
         //case false
-        String date3 = "12/02/2021";
-        String date4 = "12/4/2021";
+        String date3 = "02/02/2021";
+        String date4 = "20/2/2021";
         Boolean result1 = DateCompare.comparedates(date3,date4);
 
         assertEquals(result1,false);
+    }
+
+    @Test
+    public void testTimeCompare(){
+        //case true
+        String date1 = "2:30PM";
+        String date2 = "2:30AM";
+        Boolean result = DateCompare.compareTime(date1,date2);
+
+        assertEquals(result,false);
     }
 }

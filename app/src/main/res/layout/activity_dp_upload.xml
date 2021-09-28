@@ -10,6 +10,7 @@
     android:padding="10sp">
 
     <ImageView
+        android:background="@color/gray"
         android:src="@drawable/adddp"
         android:layout_gravity="center_horizontal"
         android:layout_width="match_parent"

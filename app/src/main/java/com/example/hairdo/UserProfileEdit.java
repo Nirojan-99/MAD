@@ -128,7 +128,7 @@ public class UserProfileEdit extends Fragment {
                     address.setError("Valid address is required");
                     address.requestFocus();
                     return;
-                } else if (enteredContact.length() != 10 || enteredContact.startsWith("0")) {
+                } else if (enteredContact.length() != 10 || !enteredContact.startsWith("0")) {
                     contactNum.setError("Valid contact number is required");
                     contactNum.requestFocus();
                     return;
@@ -162,6 +162,7 @@ public class UserProfileEdit extends Fragment {
                                 @Override
                                 public void onSuccess(Void aVoid) {
                                     fetchCusData();
+                                    Toast.makeText(getContext(),"Updated" ,Toast.LENGTH_SHORT).show();
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override

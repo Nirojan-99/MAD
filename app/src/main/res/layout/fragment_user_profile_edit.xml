@@ -251,14 +251,14 @@
     </ScrollView>
     </LinearLayout>
     <LinearLayout
-        android:visibility="gone"
+        android:visibility="visible"
         android:id="@+id/bg"
         android:gravity="center_vertical"
         android:background="@color/gray"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <ProgressBar
-            android:visibility="gone"
+            android:visibility="visible"
             android:id="@+id/userdetailsprogress1"
             android:layout_gravity="center_vertical"
             android:layout_width="match_parent"

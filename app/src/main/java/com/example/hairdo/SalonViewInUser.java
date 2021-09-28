@@ -172,7 +172,7 @@ public class SalonViewInUser extends AppCompatActivity {
         adapter = new UserViewgalleryAdapter(myListData, SalonViewInUser.this);
         recyclerView.setAdapter(adapter);
 
-//        //fetch gallery data
+        //fetch gallery data
         Query query1 = FirebaseDatabase.getInstance().getReference("Gallery").orderByChild("id").equalTo(id);
         query1.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
