@@ -50,6 +50,8 @@ public class AppointmentC extends AppCompatActivity {
     int mHour,mMinute;
     String Sname ;
     String advancepayment ;
+//    Appointment data;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,86 +88,134 @@ public class AppointmentC extends AppCompatActivity {
 
         }
 
-        // get Sname and advance
-        Query query8 = FirebaseDatabase.getInstance().getReference("Salon").orderByChild("id").equalTo(cid);
-        query8.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()) {
-                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                        Salon sal = dataSnapshot.getValue(Salon.class);
-                        //Toast.makeText(AppointmentC.this, sal.name, Toast.LENGTH_SHORT).show();
-                         Sname = sal.name;
-                        advancepayment = sal.advance;
-                        Advancepayment.setText(advancepayment);
-                        //Toast.makeText(AppointmentC.this, Sname, Toast.LENGTH_SHORT).show();
-                        //Toast.makeText(AppointmentC.this, advancepayment, Toast.LENGTH_SHORT).show();
 
-                    }
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
 
-                Toast.makeText(AppointmentC.this, "no available Sname", Toast.LENGTH_SHORT).show();
-            }
-        });
+//        // get Sname and advance
+//        Query query8 = FirebaseDatabase.getInstance().getReference("Salon").orderByChild("id").equalTo(sid);
+//        query8.addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                if (snapshot.exists()) {
+//                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+//                        Salon sal = dataSnapshot.getValue(Salon.class);
+//                        Appointment data = null;
+//                        if(sal != null){
+//                        //Toast.makeText(AppointmentC.this, sal.name, Toast.LENGTH_SHORT).show();
+//                         data.setSname(sal.name);
+//                         data.setAdvancepayment(sal.advance);
+//                         Advancepayment.setText(data.advancepayment);
+//                        }else {
+//                            Toast.makeText(AppointmentC.this, "is null sname", Toast.LENGTH_SHORT).show();
+//                        }
+//                        //Toast.makeText(AppointmentC.this, Sname, Toast.LENGTH_SHORT).show();
+//                        //Toast.makeText(AppointmentC.this, advancepayment, Toast.LENGTH_SHORT).show();
+//
+//                    }
+//                }
+//                else{
+//
+//                }
+//            }
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//                Toast.makeText(AppointmentC.this, "no available Sname", Toast.LENGTH_SHORT).show();
+//            }
+//        });
 
 
 
 
 
         // check time and date
-        FirebaseDatabase.getInstance().getReference("Appointment").addValueEventListener(new ValueEventListener() {
+//        FirebaseDatabase.getInstance().getReference("Appointment").addValueEventListener(new ValueEventListener() {
+        Query query = FirebaseDatabase.getInstance().getReference("Appointment").orderByChild("cid").equalTo(cid);
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+
                 if (snapshot.exists()) {
-                    if (snapshot.exists()) {
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                        Appointment ser = dataSnapshot.getValue(Appointment.class);
-//                        Toast.makeText(AppointmentC.this, ser.time+"data", Toast.LENGTH_SHORT).show();
-//                        Toast.makeText(AppointmentC.this, entertime, Toast.LENGTH_SHORT).show();
+                        Appointment data1 = dataSnapshot.getValue(Appointment.class);
+                        data1.set_id(dataSnapshot.getKey());
+//                            if (data1.time != null) {
+                        if (data1.date.equals(enterdate) || !data1.time.equals(entertime)) {
+                            taketime.getText().clear();
+                            Toast.makeText(AppointmentC.this, data1.date + "data1", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AppointmentC.this, "this date and time already in the database", Toast.LENGTH_SHORT).show();
 
-                        if (entertime.equals(ser.time)) {
-                            Toast.makeText(AppointmentC.this, "this time & date already booking ", Toast.LENGTH_SHORT).show();
-                            Toast.makeText(AppointmentC.this, ser.time, Toast.LENGTH_SHORT).show();
-                            //Toast.makeText(AppointmentC.this, "please select another time to  after 30 mins ", Toast.LENGTH_SHORT).show();
 
+
+                        } else  if (!data1.date.equals(enterdate) || data1.time.equals(entertime)) {
+                            date.getText().clear();
+                            Toast.makeText(AppointmentC.this, data1.date + "data1", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AppointmentC.this, "this date and time already in the database", Toast.LENGTH_SHORT).show();
+                           
+
+                        }
+                        else {
 
                         }
                     }
 
-                    }
-                }
 
+                } else {
+
+                    //Add appointment
+                    Appointment Appointment = new Appointment(sid, cid, cname, Sname, enterdate, entertime, advancepayment, "completed");
+
+                    FirebaseDatabase.getInstance().getReference("Appointment").push().setValue(Appointment).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Toast.makeText(AppointmentC.this, "Appointment is Added", Toast.LENGTH_SHORT).show();
+                            finish();
+                            startActivity(getIntent());
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(AppointmentC.this, "Appointment is not Added", Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 }
+            }
+
+
+
+
+
+
+
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
-                Toast.makeText(AppointmentC.this, "no appointments available", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AppointmentC.this, "no appointments add available", Toast.LENGTH_SHORT).show();
             }
-        });
+        });}
 
 
 
-         //Add appointment
-        Appointment Appointment = new Appointment(sid, cid, cname, Sname, enterdate, entertime, advancepayment, "Complete");
 
-        FirebaseDatabase.getInstance().getReference("Appointment").push().setValue(Appointment).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                Toast.makeText(AppointmentC.this, "Appointment is Added", Toast.LENGTH_SHORT).show();
-                finish();
-                startActivity(getIntent());
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(AppointmentC.this, "Appointment is not Added", Toast.LENGTH_SHORT).show();
-            }
-        });
 
-    }
+//         //Add appointment
+//        Appointment Appointment = new Appointment(sid, cid, cname, Sname, enterdate, entertime, advancepayment, "completed");
+//
+//        FirebaseDatabase.getInstance().getReference("Appointment").push().setValue(Appointment).addOnSuccessListener(new OnSuccessListener<Void>() {
+//            @Override
+//            public void onSuccess(Void aVoid) {
+//                Toast.makeText(AppointmentC.this, "Appointment is Added", Toast.LENGTH_SHORT).show();
+//                finish();
+//                startActivity(getIntent());
+//            }
+//        }).addOnFailureListener(new OnFailureListener() {
+//            @Override
+//            public void onFailure(@NonNull Exception e) {
+//                Toast.makeText(AppointmentC.this, "Appointment is not Added", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+
+
     // date picker
     public void PickDate(View v) {
         calendar = Calendar.getInstance();

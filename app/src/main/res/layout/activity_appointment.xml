@@ -208,9 +208,9 @@
                     android:layout_marginLeft="230dp"
                     android:layout_marginTop="311dp"
                     android:background="@drawable/card"
-                    android:text="@string/AdvancePaymentbutton"
                     android:fontFamily="@font/opensansbold"
                     android:gravity="center"
+                    android:text="199000/-"
                     android:textColor="@color/white"
                     android:textSize="14dp"
                     app:backgroundTint="@color/primary_black" />
