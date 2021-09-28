@@ -63,32 +63,7 @@ public class EditDetails extends AppCompatActivity {
         ll = findViewById(R.id.bg);
 
         //get salon data
-        Query query = FirebaseDatabase.getInstance().getReference("Salon").child(id);
-        query.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()) {
-                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-
-                        cus = snapshot.getValue(Salon.class);
-                        name.setText(cus.name);
-                        email.setText(cus.email);
-                        password1 = cus.password;
-                        contact.setText(cus.contact);
-                        address.setText(cus.address);
-//                        password.setText(cus.password);
-                        advance.setText(cus.advance);
-                    }
-                    pgs.setVisibility(View.GONE);
-                    ll.setVisibility(View.GONE);
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
+        fetchSalonData();
 
 
         //edit details
@@ -114,7 +89,7 @@ public class EditDetails extends AppCompatActivity {
                     address.setError("Valid address is required");
                     address.requestFocus();
                     return;
-                } else if (enteredContact.length() != 10 || enteredAddress.startsWith("0")) {
+                } else if (enteredContact.length() != 10 || !enteredContact.startsWith("0")) {
                     contact.setError("Valid contact number is required");
                     contact.requestFocus();
                     return;
@@ -125,20 +100,21 @@ public class EditDetails extends AppCompatActivity {
                 }
 
                 HashMap<String, Object> hashMap = new HashMap<>();
+
                 if (!enteredAddress.equals(cus.address)) {
-                    hashMap.put("address", enteredAddress.toString());
+                    hashMap.put("address", enteredAddress);
                 }
                 if (!enteredName.equals(cus.name)) {
-                    hashMap.put("name", enteredName.toString());
+                    hashMap.put("name", enteredName);
                 }
                 if (!enteredAdvance.equals(cus.advance)) {
-                    hashMap.put("advance", enteredAdvance.toString());
+                    hashMap.put("advance", enteredAdvance);
                 }
                 if (!enteredContact.equals(cus.contact)) {
-                    hashMap.put("contact", enteredContact.toString());
+                    hashMap.put("contact", enteredContact);
                 }
                 if (!(enteredPassword.equals(cus.password)) && !(enteredPassword.isEmpty())) {
-                    hashMap.put("password", enteredPassword.toString());
+                    hashMap.put("password", enteredPassword);
                 }
 
 
@@ -150,8 +126,8 @@ public class EditDetails extends AppCompatActivity {
                             FirebaseAuth.getInstance().getCurrentUser().updatePassword(enteredPassword).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
-                                    finish();
-                                    startActivity(getIntent());
+                                    fetchSalonData();
+                                    Toast.makeText(EditDetails.this,"Updated" ,Toast.LENGTH_SHORT).show();
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override
@@ -164,7 +140,7 @@ public class EditDetails extends AppCompatActivity {
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        //failure code
+                        Toast.makeText(EditDetails.this, "not updated", Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -205,7 +181,7 @@ public class EditDetails extends AppCompatActivity {
                     return;
                 }
 
-                if (password1.equals(enteredPassword)) {
+                if (cus.password.equals(enteredPassword)) {
                     Toast.makeText(EditDetails.this, "password correct", Toast.LENGTH_SHORT).show();
                     FirebaseAuth.getInstance().getCurrentUser().delete().addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
@@ -229,5 +205,33 @@ public class EditDetails extends AppCompatActivity {
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
         dialog.getWindow().setGravity(Gravity.BOTTOM);
+    }
+
+    public void fetchSalonData(){
+        Query query = FirebaseDatabase.getInstance().getReference("Salon").child(id);
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+
+                        cus = snapshot.getValue(Salon.class);
+                        name.setText(cus.name);
+                        email.setText(cus.email);
+                        password1 = cus.password;
+                        contact.setText(cus.contact);
+                        address.setText(cus.address);
+                        advance.setText(cus.advance);
+                    }
+                    pgs.setVisibility(View.GONE);
+                    ll.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }

@@ -40,9 +40,8 @@ public class DpUpload extends AppCompatActivity {
     DatabaseReference root;
     StorageReference reference = FirebaseStorage.getInstance().getReference();
 
-    //        String id = auth.getCurrentUser().getUid();
-    String id;
-    String type;
+    private String id;
+    private String type;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

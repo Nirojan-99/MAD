@@ -8,100 +8,26 @@
     android:orientation="vertical"
     tools:context=".ui.home.HomeFragment">
 
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="150sp"
-        android:background="@color/gray">
+<!--    <HorizontalScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="150sp"-->
+<!--        android:background="@color/gray">-->
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:padding="15sp">
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:padding="15sp">-->
 
-            <LinearLayout
-                android:layout_width="115sp"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginRight="15sp"
-                android:background="@drawable/card"
-                android:backgroundTint="@color/primary_orange"
-                android:gravity="center_horizontal"
-                android:orientation="vertical">
+<!--           <androidx.recyclerview.widget.RecyclerView-->
+<!--               android:id="@+id/recycle123"-->
+<!--               android:layout_width="wrap_content"-->
+<!--               android:layout_height="match_parent"-->
+<!--               android:orientation="horizontal"/>-->
+<!--            -->
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15sp"
-                    android:fontFamily="@font/robotoblack"
-                    android:gravity="center_horizontal"
-                    android:text="@string/salonname"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="15sp"
-                    android:gravity="center_horizontal"
-                    android:text="2021-12-31" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="115sp"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginRight="15sp"
-                android:background="@drawable/card"
-                android:backgroundTint="@color/primary_orange"
-                android:gravity="center_horizontal"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15sp"
-                    android:fontFamily="@font/robotoblack"
-                    android:gravity="center_horizontal"
-                    android:text="@string/salonname"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="15sp"
-                    android:gravity="center_horizontal"
-                    android:text="2021-12-31" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="115sp"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginRight="15sp"
-                android:background="@drawable/card"
-                android:backgroundTint="@color/primary_orange"
-                android:gravity="center_horizontal"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15sp"
-                    android:fontFamily="@font/robotoblack"
-                    android:gravity="center_horizontal"
-                    android:text="@string/salonname"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="15sp"
-                    android:gravity="center_horizontal"
-                    android:text="2021-12-31" />
-            </LinearLayout>
-
-        </LinearLayout>
-    </HorizontalScrollView>
+<!--        </LinearLayout>-->
+<!--    </HorizontalScrollView>-->
 
     <ScrollView
         android:layout_width="match_parent"
@@ -114,15 +40,14 @@
             android:padding="15sp">
 
             <ProgressBar
+                android:id="@+id/salonsProgress"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/salonsProgress"/>
+                android:layout_height="wrap_content" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/salons"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
+                android:layout_height="wrap_content" />
 
 
         </LinearLayout>

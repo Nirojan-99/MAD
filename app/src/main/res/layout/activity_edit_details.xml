@@ -9,10 +9,25 @@
     android:orientation="vertical"
     tools:context=".EditDetails">
 
-
+    <LinearLayout
+        android:visibility="visible"
+        android:id="@+id/bg"
+        android:background="@color/gray"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ProgressBar
+            android:visibility="visible"
+            android:id="@+id/detailsProgress"
+            android:layout_width="50sp"
+            android:layout_height="match_parent"
+            android:foregroundGravity="center_horizontal"
+            />
+    </LinearLayout>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -171,21 +186,7 @@
             android:text="@string/deleteAccont"
             android:textSize="17sp" />
     </LinearLayout>
-    <LinearLayout
-        android:visibility="visible"
-        android:id="@+id/bg"
-        android:background="@color/gray"
-        android:gravity="center_horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <ProgressBar
-            android:visibility="visible"
-            android:id="@+id/detailsProgress"
-            android:layout_width="50sp"
-            android:layout_height="match_parent"
-            android:foregroundGravity="center_horizontal"
-            />
-    </LinearLayout>
+
 
 
 </LinearLayout>
