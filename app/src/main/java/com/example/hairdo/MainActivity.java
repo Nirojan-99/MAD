@@ -35,44 +35,44 @@ public class MainActivity extends AppCompatActivity {
             id = FirebaseAuth.getInstance().getCurrentUser().getUid();
         }
 
-//
-//        if(id != null){
-//            FirebaseDatabase.getInstance().getReference("Customer").child(id).addValueEventListener(new ValueEventListener() {
-//                @Override
-//                public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                    if(snapshot.exists()){
-//                        intent = new Intent(MainActivity.this,UserProfile.class);
-//                        finish();
-//                        startActivity(intent);
-//                    }else {
-//                        intent = new Intent(MainActivity.this,SalonProfile.class);
-//
-//                        finish();
-//                        startActivity(intent);
-//                    }
-//                }
-//
-//                @Override
-//                public void onCancelled(@NonNull DatabaseError error) {
-//
-//                }
-//            });
-//        }else {
-//
-//            new android.os.Handler(Looper.getMainLooper()).postDelayed(
-//                    new Runnable() {
-//                        public void run() {
-//                            Intent send = new Intent(MainActivity.this, LogIn.class);
-//                            startActivity(send);
-//                            finish();
-//                        }
-//                    },
-//                    1000);
-//        }
 
-        Intent send = new Intent(MainActivity.this, UserProfile.class);
+        if(id != null){
+            FirebaseDatabase.getInstance().getReference("Customer").child(id).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if(snapshot.exists()){
+                        intent = new Intent(MainActivity.this,UserProfile.class);
+                        finish();
+                        startActivity(intent);
+                    }else {
+                        intent = new Intent(MainActivity.this,SalonProfile.class);
+
+                        finish();
+                        startActivity(intent);
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+        }else {
+
+            new android.os.Handler(Looper.getMainLooper()).postDelayed(
+                    new Runnable() {
+                        public void run() {
+                            Intent send = new Intent(MainActivity.this, LogIn.class);
                             startActivity(send);
                             finish();
+                        }
+                    },
+                    1000);
+        }
+
+//        Intent send = new Intent(MainActivity.this, UserProfile.class);
+//                            startActivity(send);
+//                            finish();
 
     }
 }
