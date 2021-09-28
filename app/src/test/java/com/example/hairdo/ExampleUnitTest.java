@@ -2,6 +2,8 @@ package com.example.hairdo;
 
 import com.example.hairdo.Helper.DateCompare;
 import com.example.hairdo.Helper.GetRating;
+import com.example.hairdo.Helper.ValidEmail;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import java.text.ParseException;
@@ -52,5 +54,19 @@ public class ExampleUnitTest {
         Boolean result = DateCompare.compareTime(date1,date2);
 
         assertEquals(result,false);
+    }
+    @Test
+    public void testValidEmail(){
+        //case true
+        String email1="tnarivu2000@gmail.com";
+        Boolean result1= ValidEmail.isValidEmail(email1);
+
+        assertEquals(result1,true);
+
+        //case false
+        String email2="@.com";
+        Boolean result2= ValidEmail.isValidEmail(email2);
+
+        assertEquals(result2,false);
     }
 }

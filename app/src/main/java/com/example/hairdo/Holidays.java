@@ -140,6 +140,7 @@ public class Holidays extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull @NotNull DatabaseError error) {
+                Toast.makeText(Holidays.this, "Error in Data. Error is: " + error.getMessage(), Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -171,6 +172,7 @@ public class Holidays extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull @NotNull DatabaseError error) {
+                Toast.makeText(Holidays.this, "Error in Data. Error is: " + error.getMessage(), Toast.LENGTH_SHORT).show();
 
             }
         });
