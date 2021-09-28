@@ -70,7 +70,7 @@ public class Holidays extends AppCompatActivity {
         selectedDate = findViewById(R.id.picked_holiDate);
         remark = findViewById(R.id.Holidayremark);
         pg = findViewById(R.id.holidayPG);
-        bkBtn=findViewById(R.id.back_btn_in_holidays);
+//        bkBtn=findViewById(R.id.back_btn_in_holidays);
         id = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
 
@@ -112,14 +112,14 @@ public class Holidays extends AppCompatActivity {
             }
         });
 
-        bkBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Holidays.this, Calendar.class);
-                startActivity(intent);
-
-            }
-        });
+//        bkBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(Holidays.this, Calendar.class);
+//                startActivity(intent);
+//
+//            }
+//        });
 
 
     }

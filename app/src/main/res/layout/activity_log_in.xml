@@ -113,7 +113,7 @@
                             android:layout_margin="10dp"
                             android:fontFamily="@font/opensanssemibold"
                             android:gravity="center_horizontal"
-                            android:onClick="onClickFogetPassword"
+                            android:onClick="onClickFogetPasswordU"
                             android:text="@string/forgetPassword"
                             android:textColor="@color/primary_black" />
 
