@@ -27,7 +27,7 @@ public class GetRating {
                         loop++;
                         ratings += ser.star;
                     }
-                    rate = ratings / loop;
+                    rate = calRating(ratings,loop);
                     rtb.setRating(rate);
                     ratingCount.setText("("+loop+")");
                 } }
@@ -36,6 +36,10 @@ public class GetRating {
             }
         });
 
+    }
+
+    public float calRating(Float total,int loop){
+        return total/loop;
     }
 
     int looplikes = 0;

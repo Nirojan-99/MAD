@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
                     1000);
         }
 
-//        Intent send = new Intent(MainActivity.this, ManageServices.class);
+//        Intent send = new Intent(MainActivity.this, UserProfile.class);
 //                            startActivity(send);
 //                            finish();
 

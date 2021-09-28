@@ -34,21 +34,21 @@ import java.util.HashMap;
 
 public class EditDetails extends AppCompatActivity {
 
-    String id;
-    String password1;
-    Salon cus;
+    private String id;
+    private String password1;
+    private Salon cus;
 
-
-    EditText name, address, contact, password, advance, email;
-    Button btn, delete;
-    ProgressBar pgs;
-    LinearLayout ll;
+    private EditText name, address, contact, password, advance, email;
+    private Button btn, delete;
+    private ProgressBar pgs;
+    private LinearLayout ll;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_details);
 
+        //user id
         id = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         name = findViewById(R.id.salonNewName);
@@ -62,7 +62,7 @@ public class EditDetails extends AppCompatActivity {
         pgs = findViewById(R.id.detailsProgress);
         ll = findViewById(R.id.bg);
 
-        //get data
+        //get salon data
         Query query = FirebaseDatabase.getInstance().getReference("Salon").child(id);
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -91,7 +91,7 @@ public class EditDetails extends AppCompatActivity {
         });
 
 
-        //edit
+        //edit details
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -106,7 +106,7 @@ public class EditDetails extends AppCompatActivity {
                     name.setError("Salon name is required");
                     name.requestFocus();
                     return;
-                } else if (enteredEmail.isEmpty() || !enteredEmail.contains("@") || !enteredEmail.contains(".com")) {
+                } else if (enteredEmail.isEmpty() || !enteredEmail.contains("@") || !enteredEmail.endsWith(".com")) {
                     email.setError("Valid email is required");
                     email.requestFocus();
                     return;
@@ -114,12 +114,10 @@ public class EditDetails extends AppCompatActivity {
                     address.setError("Valid address is required");
                     address.requestFocus();
                     return;
-                } else if (enteredContact.length() != 10) {
+                } else if (enteredContact.length() != 10 || enteredAddress.startsWith("0")) {
                     contact.setError("Valid contact number is required");
                     contact.requestFocus();
                     return;
-                } else if (enteredPassword.isEmpty()) {
-
                 } else if (enteredAdvance.isEmpty()) {
                     advance.setError("Advance is required!");
                     advance.requestFocus();
@@ -226,12 +224,10 @@ public class EditDetails extends AppCompatActivity {
             }
         });
 
-
         dialog.show();
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
         dialog.getWindow().setGravity(Gravity.BOTTOM);
-
     }
 }
