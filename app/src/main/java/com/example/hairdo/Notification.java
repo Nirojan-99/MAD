@@ -38,7 +38,7 @@ public class Notification extends AppCompatActivity {
     Calendar calendar;
     String today;
     String cid;
-    String sid;
+    String sid = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,10 +49,10 @@ public class Notification extends AppCompatActivity {
         cid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 //        cid = "wNRfHTezSmNNdBO4qBlFxCftWc63";
         getSalonID(cid);
+        pg.setVisibility(View.VISIBLE);
 
-
-//        setDataforRecyclerView(sid);
-//        setAdapter();
+        setDataforRecyclerView();
+        setAdapter();
     }
 
     private void getSalonID(String cid) {
@@ -61,22 +61,50 @@ public class Notification extends AppCompatActivity {
         FirebaseDatabase.getInstance().getReference("Follow").orderByChild("cid").equalTo(cid).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
-               if(snapshot.exists()){
-                   for (DataSnapshot data : snapshot.getChildren()) {
-                       Follow f = data.getValue(Follow.class);
-                       sid = f.sid;
+                if (snapshot.exists()) {
+                    for (DataSnapshot data : snapshot.getChildren()) {
+                        Follow f = data.getValue(Follow.class);
+                        sid = f.sid;
+                        setHolidayDataforRecyclerView(sid);
 
-                       setDataforRecyclerView(sid);
-                       setAdapter();
-                   }
-                   
-               }
-               else {
-                   pg.setVisibility(View.GONE);
-                   Toast.makeText(Notification.this, "No Notification to you Today", Toast.LENGTH_SHORT).show();
-               }
+//                       setDataforRecyclerView(sid);
+//                       setAdapter();
+                    }
+
+                } else {
+                    pg.setVisibility(View.GONE);
+                    Toast.makeText(Notification.this, "No Holiday", Toast.LENGTH_SHORT).show();
+                }
 
             }
+
+            private void setHolidayDataforRecyclerView(String sid) {
+                FirebaseDatabase.getInstance().getReference(Holiday.class.getSimpleName()).orderByChild("sid").equalTo(sid).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                        for (DataSnapshot data : snapshot.getChildren()) {
+                            Holiday h = data.getValue(Holiday.class);
+                            if (today.equals(h.getDate())) {
+                                NotificationM n = new NotificationM();
+                                n.setTitle("Today is Holiday in "+ h.sname +"!!");
+                                n.setDate(h.getDate());
+                                n.setSub(h.getRemark());
+                                notifList.add(n);
+                            }
+
+                        }
+                        pg.setVisibility(View.GONE);
+                        notificationRvAd.notifyDataSetChanged();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
+                    }
+                });
+
+            }
+
             @Override
             public void onCancelled(@NonNull @NotNull DatabaseError error) {
             }
@@ -84,52 +112,36 @@ public class Notification extends AppCompatActivity {
 
     }
 
-    private void setDataforRecyclerView(String sid) {
-
-        FirebaseDatabase.getInstance().getReference(Holiday.class.getSimpleName()).orderByChild("sid").equalTo(sid).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
-                for (DataSnapshot data : snapshot.getChildren()) {
-                    Holiday h = data.getValue(Holiday.class);
-                    if (today.equals(h.getDate())) {
-                        NotificationM n = new NotificationM();
-                        n.setTitle("Today is Holiday !!!");
-                        n.setDate(h.getDate());
-                        n.setSub(h.getRemark());
-                        notifList.add(n);
-                    }
-
-                }
-                pg.setVisibility(View.GONE);
-                notificationRvAd.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(@NonNull @NotNull DatabaseError error) {
-
-            }
-        });
+    private void setDataforRecyclerView() {
 
         FirebaseDatabase.getInstance().getReference("Appointment").orderByChild("cid").equalTo(cid).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    for (DataSnapshot data : snapshot.getChildren()) {
+                        Appointment a = data.getValue(Appointment.class);
 
-                for (DataSnapshot data : snapshot.getChildren()) {
-                    Appointment a = data.getValue(Appointment.class);
-
-                    if (today.equals(a.getDate()) || (!(a.getStatus().equals("completed")))) {
-                        if (a.getCid().equals(cid)) {
-                            NotificationM nA = new NotificationM();
-                            nA.setTitle("You have Appointment");
-                            nA.setDate(a.getDate() + " | " + a.getTime());
-                            nA.setSub("Status: " + a.getStatus());
-                            notifList.add(nA);
+                        if (today.equals(a.getDate()) || (!(a.getStatus().equals("completed")))) {
+                            if (a.getCid().equals(cid)) {
+                                NotificationM nA = new NotificationM();
+                                nA.setTitle("You have Appointment in "+ a.getSname());
+                                nA.setDate(a.getDate() + " | " + a.getTime());
+                                nA.setSub("Status: " + a.getStatus());
+                                notifList.add(nA);
+                            }
                         }
                     }
+                    pg.setVisibility(View.GONE);
+                    notificationRvAd.notifyDataSetChanged();
+                    
                 }
-                pg.setVisibility(View.GONE);
-                notificationRvAd.notifyDataSetChanged();
+                else {
+                    pg.setVisibility(View.GONE);
+                    Toast.makeText(Notification.this, "No Appointments Today", Toast.LENGTH_SHORT).show();
+
+                }
             }
+
             @Override
             public void onCancelled(@NonNull @NotNull DatabaseError error) {
 

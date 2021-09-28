@@ -25,6 +25,7 @@ import android.widget.DatePicker;
 
 import com.example.hairdo.model.Holiday;
 import com.example.hairdo.model.Offer;
+import com.example.hairdo.model.Salon;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -54,6 +55,7 @@ public class Holidays extends AppCompatActivity {
     Calendar calendar;
     String monthName;
     String id;
+    String sname;
 
     int Dyear;
     int Dmonth;
@@ -74,6 +76,7 @@ public class Holidays extends AppCompatActivity {
         pg = findViewById(R.id.holidayPG);
 //        bkBtn=findViewById(R.id.back_btn_in_holidays);
         id = FirebaseAuth.getInstance().getCurrentUser().getUid();
+       getSalonName(id);
 
 
         setDateforRecyclerview();
@@ -100,7 +103,7 @@ public class Holidays extends AppCompatActivity {
                     selectedDate.requestFocus();
                     return;
                 }
-                Holiday holiday = new Holiday(FDate, FRemark, FformatDate, id);
+                Holiday holiday = new Holiday(FDate, FRemark, FformatDate, id,sname);
 
 
                 FirebaseDatabase.getInstance().getReference("Holiday").push().setValue(holiday).addOnSuccessListener(suc -> {
@@ -124,6 +127,22 @@ public class Holidays extends AppCompatActivity {
 //        });
 
 
+    }
+
+    private void getSalonName(String id) {
+        FirebaseDatabase.getInstance().getReference("Salon").child(id).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                Salon s=snapshot.getValue(Salon.class);
+                sname=s.name;
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
+            }
+        });
     }
 
     private void setDateforRecyclerview() {
