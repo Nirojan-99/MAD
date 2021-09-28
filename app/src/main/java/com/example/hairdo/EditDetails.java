@@ -34,14 +34,14 @@ import java.util.HashMap;
 
 public class EditDetails extends AppCompatActivity {
 
-    String id;
-    String password1;
-    Salon cus;
+    private String id;
+    private String password1;
+    private Salon cus;
 
-    EditText name, address, contact, password, advance, email;
-    Button btn, delete;
-    ProgressBar pgs;
-    LinearLayout ll;
+    private EditText name, address, contact, password, advance, email;
+    private Button btn, delete;
+    private ProgressBar pgs;
+    private LinearLayout ll;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +62,7 @@ public class EditDetails extends AppCompatActivity {
         pgs = findViewById(R.id.detailsProgress);
         ll = findViewById(R.id.bg);
 
-        //get data
+        //get salon data
         Query query = FirebaseDatabase.getInstance().getReference("Salon").child(id);
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -91,7 +91,7 @@ public class EditDetails extends AppCompatActivity {
         });
 
 
-        //edit
+        //edit details
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -224,12 +224,10 @@ public class EditDetails extends AppCompatActivity {
             }
         });
 
-
         dialog.show();
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
         dialog.getWindow().setGravity(Gravity.BOTTOM);
-
     }
 }

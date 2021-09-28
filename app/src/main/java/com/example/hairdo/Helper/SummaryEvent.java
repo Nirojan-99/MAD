@@ -18,6 +18,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -119,7 +120,13 @@ public class SummaryEvent {
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                         Appointment ser = dataSnapshot.getValue(Appointment.class);
                         ser.set_id(dataSnapshot.getKey());
-                        if (ser.date.equals(currentDate)) {
+                        Boolean result = false;
+                        try {
+                            result = DateCompare.comparedates(ser.date,currentDate);
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+                        if (result) {
                             if (!ser.status.equals("cancel")) {
                                 todayTotal++;
                                 if (ser.status.equals("complete")) {
@@ -157,7 +164,13 @@ public class SummaryEvent {
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                         PaymentModel ser = dataSnapshot.getValue(PaymentModel.class);
                         ser.set_id(dataSnapshot.getKey());
-                        if (ser.date.equals(currentDate)) {
+                        Boolean result = false;
+                        try {
+                            result = DateCompare.comparedates(ser.date,currentDate);
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+                        if (result) {
                             todayEarning+=ser.amount;
                         }
                         totalEarning+=ser.amount;
