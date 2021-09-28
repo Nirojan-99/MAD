@@ -91,17 +91,38 @@
                     android:layout_marginRight="10sp"
                     android:src="@drawable/ic_baseline_supervised_user_circle_24" />
 
-                <EditText
-                    android:backgroundTint="@color/gray"
+                <RadioGroup
                     android:background="@drawable/textview_border"
-                    android:id="@+id/userGender"
+                    android:backgroundTint="@color/gray"
+                    android:id="@+id/radiogrp"
+                    android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/gender"
-                    android:maxLines="1"
-                    android:padding="6sp"
-                    android:textColor="@color/primary_black"
-                    android:textSize="19sp" />
+                    android:layout_height="wrap_content">
+                    <RadioButton
+                        android:textColor="@color/primary_black"
+                        android:layout_marginRight="20sp"
+                        android:id="@+id/male"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Male"/>
+                    <RadioButton
+                        android:textColor="@color/primary_black"
+                        android:id="@+id/female"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Female"/>
+                </RadioGroup>
+<!--                <EditText-->
+<!--                    android:backgroundTint="@color/gray"-->
+<!--                    android:background="@drawable/textview_border"-->
+<!--                    android:id="@+id/userGender"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:hint="@string/gender"-->
+<!--                    android:maxLines="1"-->
+<!--                    android:padding="6sp"-->
+<!--                    android:textColor="@color/primary_black"-->
+<!--                    android:textSize="19sp" />-->
             </LinearLayout>
 
             <LinearLayout
@@ -230,13 +251,15 @@
     </ScrollView>
     </LinearLayout>
     <LinearLayout
+        android:visibility="gone"
         android:id="@+id/bg"
         android:gravity="center_vertical"
         android:background="@color/gray"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <ProgressBar
-            android:id="@+id/userdetailsprogress"
+            android:visibility="gone"
+            android:id="@+id/userdetailsprogress1"
             android:layout_gravity="center_vertical"
             android:layout_width="match_parent"
             android:layout_height="45sp"

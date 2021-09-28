@@ -57,7 +57,7 @@ public class SummaryEvent {
                         if (ser.status != null) {
                             if (ser.status.equals("cancel")) {
                                 cancel++;
-                            } else if (ser.status.contains("complete")) {
+                            } else if (ser.status.contains("completed")) {
                                 Complete++;
                             } else {
                                 Pending++;

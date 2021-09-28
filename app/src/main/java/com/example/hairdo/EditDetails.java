@@ -106,7 +106,7 @@ public class EditDetails extends AppCompatActivity {
                     name.setError("Salon name is required");
                     name.requestFocus();
                     return;
-                } else if (enteredEmail.isEmpty() || !enteredEmail.contains("@") || !enteredEmail.contains(".com")) {
+                } else if (enteredEmail.isEmpty() || !enteredEmail.contains("@") || !enteredEmail.endsWith(".com")) {
                     email.setError("Valid email is required");
                     email.requestFocus();
                     return;
@@ -114,12 +114,10 @@ public class EditDetails extends AppCompatActivity {
                     address.setError("Valid address is required");
                     address.requestFocus();
                     return;
-                } else if (enteredContact.length() != 10) {
+                } else if (enteredContact.length() != 10 || enteredAddress.startsWith("0")) {
                     contact.setError("Valid contact number is required");
                     contact.requestFocus();
                     return;
-                } else if (enteredPassword.isEmpty()) {
-
                 } else if (enteredAdvance.isEmpty()) {
                     advance.setError("Advance is required!");
                     advance.requestFocus();
