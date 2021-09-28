@@ -19,6 +19,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,7 +41,7 @@ import java.util.HashMap;
 
 public class UserProfileEdit extends Fragment {
 
-    EditText email, gender, contactNum, address, name, password;
+    EditText email, contactNum, address, name, password;
     ImageView profile;
     Button btn;
     TextView titleName;
@@ -48,6 +50,8 @@ public class UserProfileEdit extends Fragment {
     ProgressBar pgs;
     Customer cus;
     String id;
+    RadioGroup gendergrp;
+    RadioButton male, female;
 
     public UserProfileEdit() {
 
@@ -76,14 +80,16 @@ public class UserProfileEdit extends Fragment {
         btn = view.findViewById(R.id.saveChanges);
         titleName = view.findViewById(R.id.username);
         email = view.findViewById(R.id.userEmail);
-        gender = view.findViewById(R.id.userGender);
+        gendergrp = view.findViewById(R.id.radiogrp);
         contactNum = view.findViewById(R.id.userContact);
         address = view.findViewById(R.id.userAddress);
         name = view.findViewById(R.id.userName1);
         password = view.findViewById(R.id.userPassword);
         profile = view.findViewById(R.id.userChangeImage);
-        pgs = view.findViewById(R.id.userdetailsprogress);
+        pgs = view.findViewById(R.id.userdetailsprogress1);
         ll = view.findViewById(R.id.bg);
+        male = view.findViewById(R.id.male);
+        female = view.findViewById(R.id.female);
 
         //call fetch cus data
         fetchCusData();
@@ -93,17 +99,28 @@ public class UserProfileEdit extends Fragment {
             @Override
             public void onClick(View v) {
                 String enteredEmail = email.getText().toString().trim();
-                String enteredGender = gender.getText().toString().trim();
                 String enteredContact = contactNum.getText().toString().trim();
                 String enteredAddress = address.getText().toString().trim();
                 String enteredName = name.getText().toString().trim();
                 String enteredPassword = password.getText().toString().trim();
+                String gender = null;
+
+                switch (gendergrp.getCheckedRadioButtonId()) {
+                    case R.id.male:
+                        gender = "male";
+                        break;
+                    case R.id.female:
+                        gender = "female";
+                        break;
+                    default:
+                        gender = "nothing";
+                }
 
                 if (enteredName.isEmpty() || enteredName.length() < 5) {
                     name.setError("Salon name is required");
                     name.requestFocus();
                     return;
-                } else if (enteredEmail.isEmpty() || !enteredEmail.contains("@") || !enteredEmail.contains(".com")) {
+                } else if (enteredEmail.isEmpty() || !enteredEmail.contains("@") || !enteredEmail.endsWith(".com")) {
                     email.setError("Valid email is required");
                     email.requestFocus();
                     return;
@@ -111,16 +128,12 @@ public class UserProfileEdit extends Fragment {
                     address.setError("Valid address is required");
                     address.requestFocus();
                     return;
-                } else if (enteredContact.length() != 10) {
+                } else if (enteredContact.length() != 10 || enteredContact.startsWith("0")) {
                     contactNum.setError("Valid contact number is required");
                     contactNum.requestFocus();
                     return;
                 } else if (enteredPassword.isEmpty()) {
 
-                } else if (!(enteredGender.contains("male")) || !(enteredGender.contains("female"))) {
-                    gender.setError("Gender should be Male or Female");
-                    gender.requestFocus();
-                    return;
                 }
 
                 HashMap<String, Object> hashMap = new HashMap<>();
@@ -130,8 +143,8 @@ public class UserProfileEdit extends Fragment {
                 if (!enteredAddress.equals(cus.address)) {
                     hashMap.put("address", enteredAddress.toString());
                 }
-                if (!enteredGender.equals(cus.gender)) {
-                    hashMap.put("gender", enteredGender.toString());
+                if (!gender.equals(cus.gender)) {
+                    hashMap.put("gender", gender.toString());
                 }
                 if (!enteredContact.equals(cus.contact)) {
                     hashMap.put("contact", enteredContact.toString());
@@ -156,7 +169,7 @@ public class UserProfileEdit extends Fragment {
                                     //failure
                                 }
                             });
-                        }else{
+                        } else {
                             fetchCusData();
                         }
                     }
@@ -195,7 +208,14 @@ public class UserProfileEdit extends Fragment {
                         name.setText(cus.name);
                         email.setText(cus.email);
                         titleName.setText(cus.name);
-                        gender.setText(cus.gender);
+                        switch (cus.gender) {
+                            case "male":
+                                male.setChecked(true);
+                                break;
+                            case "female":
+                                female.setChecked(true);
+                                break;
+                        }
                         contactNum.setText(cus.contact);
                         address.setText(cus.address);
 //                        password.setText(cus.password);
