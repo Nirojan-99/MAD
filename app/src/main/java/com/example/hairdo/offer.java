@@ -15,6 +15,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.hairdo.Helper.DateCompare;
 import com.example.hairdo.model.Offer;
 import com.example.hairdo.model.Service;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -26,8 +27,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 
 public class offer extends AppCompatActivity {
@@ -123,6 +127,7 @@ public class offer extends AppCompatActivity {
             public void onClick(View v) {
                 String enteredname = name.getText().toString().trim();
                 String enteredDes = des.getText().toString().trim();
+                String selectedDate = date.getText().toString();
 
                 if (enteredname.isEmpty()) {
                     name.setError("Require valid offer name");
@@ -138,7 +143,26 @@ public class offer extends AppCompatActivity {
                     return;
                 }
 
-                Offer offer = new Offer(enteredname, enteredDes, date.getText().toString(), id);
+
+                //current date
+                SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+                Date date1 = new Date();
+                String currentDate = formatter.format(date1).toString();
+
+                Boolean result =  false;
+                try {
+                   result = DateCompare.comparefuturedates(selectedDate,currentDate);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+                if(result==false){
+                    date.setError("Select future dates");
+                    date.requestFocus();
+                    return;
+                }
+
+                Offer offer = new Offer(enteredname, enteredDes,selectedDate, id);
                 FirebaseDatabase.getInstance().getReference("Offer").push().setValue(offer).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
