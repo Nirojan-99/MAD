@@ -99,7 +99,10 @@ public class LogIn extends AppCompatActivity {
         });
     }
 
-    public void onClickFogetPassword(View view) {
+    public void onClickFogetPasswordU(View view) {
+        Intent intResPass=new Intent(this,ResetPassword.class);
+        startActivity(intResPass);
+        finish();
 
     }
 

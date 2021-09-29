@@ -20,7 +20,6 @@
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:background="@color/primary_orange_dark"
-            android:onClick="goToCalender"
             android:tint="@color/white"
             app:srcCompat="?attr/actionModeCloseDrawable"
             tools:ignore="UseAppTint" />
@@ -104,19 +103,25 @@
                         android:textColor="@color/primary_black"
                         android:textSize="16sp" />
 
-                    <ImageButton
+<!--                    <ImageButton-->
+<!--                        android:id="@+id/btnHoliDate"-->
+<!--                        android:layout_width="32sp"-->
+<!--                        android:layout_height="32sp"-->
+<!--                        android:layout_marginHorizontal="280dp"-->
+<!--                        android:background="@color/light_black"-->
+<!--                        android:onClick="PickDate"-->
+<!--                        android:tint="@color/white"-->
+<!--                        app:srcCompat="?attr/actionModeCloseDrawable"-->
+<!--                        tools:ignore="UseAppTint"-->
+<!--                        />-->
+                    <ImageView
                         android:id="@+id/btnHoliDate"
-                        android:layout_width="60dp"
-                        android:layout_height="35dp"
-                        android:layout_marginHorizontal="280dp"
-                        android:background="@color/light_black"
                         android:onClick="PickDate"
-                        android:tint="@color/white"
-                        app:srcCompat="?attr/actionModeCloseDrawable"
-                        tools:ignore="UseAppTint"
-
-
-                        />
+                        android:clickable="true"
+                        android:layout_width="32sp"
+                        android:layout_height="32sp"
+                        android:src="@drawable/ic_calendar"
+                        android:layout_marginHorizontal="295dp"/>
 
 
                 </RelativeLayout>

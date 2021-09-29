@@ -5,6 +5,7 @@ public class Holiday {
     public String selected_Date;
     public String remark;
     public String date;
+    public String sname;
 //    public String year;
 //    public String month;
 //    public String day;
@@ -13,11 +14,12 @@ public class Holiday {
 
     }
 
-    public Holiday(String selected_Date, String remark,String formatDate,String cid) {
+    public Holiday(String selected_Date, String remark,String formatDate,String cid,String sname) {
         this.selected_Date = selected_Date;
         this.remark = remark;
         this.date=formatDate;
         this.sid=cid;
+        this.sname=sname;
 //        this.year = year;
 //        this.month = month;
 //        this.day = day;

@@ -1,10 +1,16 @@
 package com.example.hairdo;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -45,14 +51,15 @@ public class HolidaysRvAd extends  RecyclerView.Adapter<HolidaysRvAd.ViewHolder>
         holder.tv_Date.setText(holiday.getSelected_Date());
         holder.tv_Remark.setText(holiday.getRemark());
         holder.deleteBtn.setOnClickListener(v -> {
-            FirebaseDatabase.getInstance().getReference(Holiday.class.getSimpleName()).child(holiday.getFbKey()).removeValue().addOnSuccessListener(suc->{
-                Toast.makeText(context, "Holiday is removed", Toast.LENGTH_SHORT).show();
-                notifyItemRemoved(position);
-                Intent intent1=new Intent(context,Holidays.class);
-                context.startActivity(intent1);
-            }).addOnFailureListener(er->{
-                Toast.makeText(context, "Not Removed: "+er.getMessage(), Toast.LENGTH_SHORT).show();
-            });
+            showDialog(holiday.getFbKey(),position);
+//            FirebaseDatabase.getInstance().getReference(Holiday.class.getSimpleName()).child(holiday.getFbKey()).removeValue().addOnSuccessListener(suc->{
+//                Toast.makeText(context, "Holiday is removed", Toast.LENGTH_SHORT).show();
+//                notifyItemRemoved(position);
+//                Intent intent1=new Intent(context,Holidays.class);
+//                context.startActivity(intent1);
+//            }).addOnFailureListener(er->{
+//                Toast.makeText(context, "Not Removed: "+er.getMessage(), Toast.LENGTH_SHORT).show();
+//            });
 
         });
 
@@ -88,5 +95,46 @@ public class HolidaysRvAd extends  RecyclerView.Adapter<HolidaysRvAd.ViewHolder>
             deleteBtn=itemView.findViewById(R.id.hdDeletBtn);
 
         }
+    }
+
+    private void showDialog(String Fbkey,int position){
+        final Dialog dialog = new Dialog(context);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.delete_confirm_popup);
+
+        Button btn = dialog.findViewById(R.id.delete12);
+        TextView txt = dialog.findViewById(R.id.cancel12);
+
+        txt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                FirebaseDatabase.getInstance().getReference(Holiday.class.getSimpleName()).child(Fbkey).removeValue().addOnSuccessListener(suc->{
+                    Toast.makeText(context, "Holiday is removed", Toast.LENGTH_SHORT).show();
+                    notifyItemRemoved(position);
+                    dialog.dismiss();
+                    Intent intent1=new Intent(context,Holidays.class);
+                    context.startActivity(intent1);
+                }).addOnFailureListener(er->{
+                    Toast.makeText(context, "Not Removed: "+er.getMessage(), Toast.LENGTH_SHORT).show();
+                    dialog.dismiss();
+                });
+
+            }
+        });
+
+        dialog.show();
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+        dialog.getWindow().setGravity(Gravity.CENTER_VERTICAL);
+
     }
 }
