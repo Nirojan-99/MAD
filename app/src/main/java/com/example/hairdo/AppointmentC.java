@@ -62,6 +62,8 @@ public class AppointmentC extends AppCompatActivity {
     boolean isAppointmentValuable = true;
     String enterdate;
     String entertime;
+    Intent intent;
+    Button btn3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +74,8 @@ public class AppointmentC extends AppCompatActivity {
         Advancepayment = findViewById(R.id.Advancepayment);
         taketime = findViewById(R.id.in_time);
         timebtn = findViewById(R.id.btn_time);
+        btn3 = findViewById(R.id.complete);
+
 
         cid = FirebaseAuth.getInstance().getCurrentUser().getUid();
         Intent intent = getIntent();
@@ -106,6 +110,7 @@ public class AppointmentC extends AppCompatActivity {
     }
 
     public void onClickCompletePayment(View v) {
+
         enterdate = date.getText().toString().trim();
         entertime = taketime.getText().toString().trim();
 
@@ -123,7 +128,7 @@ public class AppointmentC extends AppCompatActivity {
         }
 
 
-        // check time and date
+//         check time and date
         FirebaseDatabase.getInstance().getReference("Appointment").orderByChild("id").equalTo(sid).addListenerForSingleValueEvent(new ValueEventListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
@@ -160,7 +165,6 @@ public class AppointmentC extends AppCompatActivity {
 
             }
         });
-
 
 
 
@@ -226,9 +230,10 @@ public class AppointmentC extends AppCompatActivity {
             @Override
             public void onSuccess(Void aVoid) {
                 Toast.makeText(AppointmentC.this, "Appointment is Added", Toast.LENGTH_SHORT).show();
-//                Intent intent = new Intent(AppointmentC.this, Payment.class);
-////                intent.putExtra("id", sid);
-//                startActivity(intent);
+                Intent intent = new Intent(AppointmentC.this, Payment.class);
+                intent.putExtra("id", sid);
+                intent.putExtra("advance", advancepayment);
+                startActivity(intent);
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
