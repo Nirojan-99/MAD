@@ -44,4 +44,21 @@ public class ExampleUnitTest {
         assertEquals(result1,false);
     }
 
+    @Test
+    public void testCompareFutureDate() throws ParseException {
+        //case one
+        String date1 = "12/02/2021";
+        String date2 = "13/2/2021";
+        Boolean result = DateCompare.comparefuturedates(date1,date2);
+
+        assertEquals(result,false);
+
+        //case two
+        String date3 = "20/02/2021";
+        String date4 = "20/2/2021";
+        Boolean result1 = DateCompare.comparefuturedates(date3,date4);
+
+        assertEquals(result1,true);
+    }
+
 }
