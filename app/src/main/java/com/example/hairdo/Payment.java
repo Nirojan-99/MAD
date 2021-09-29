@@ -24,7 +24,7 @@ public class Payment extends AppCompatActivity {
     EditText number, name, month, year, cvc;
     Button btn;
 
-    String salonId = getIntent().getStringExtra("id");
+    String salonId ;
     int amount ;
     String id ;
 
@@ -34,6 +34,8 @@ public class Payment extends AppCompatActivity {
         setContentView(R.layout.activity_payment);
 
         id = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        salonId = getIntent().getStringExtra("id");
+        amount = Integer.parseInt(getIntent().getStringExtra("advance"));
 
         //initialize
         number = findViewById(R.id.cardNumber);
@@ -42,7 +44,6 @@ public class Payment extends AppCompatActivity {
         year = findViewById(R.id.year);
         cvc = findViewById(R.id.cvc);
         btn = findViewById(R.id.submit);
-        amount = 500;
 
         //button click
         btn.setOnClickListener(new View.OnClickListener() {
