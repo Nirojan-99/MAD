@@ -38,4 +38,20 @@ public class DateCompare {
 
         return result;
     }
+
+    public static boolean comparefuturedates(String date1, String date2) throws ParseException {
+        Boolean result = false;
+        SimpleDateFormat sdformat = new SimpleDateFormat("dd/MM/yyyy");
+        Date d1 = sdformat.parse(date1);
+        Date d2 = sdformat.parse(date2);
+
+        if (d1.compareTo(d2) > 0) {
+            result = true;
+        } else if (d1.compareTo(d2) < 0) {
+            result = false;
+        } else if (d1.compareTo(d2) == 0) {
+            result = true;
+        }
+        return result;
+    }
 }

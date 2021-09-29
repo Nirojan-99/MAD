@@ -13,11 +13,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.hairdo.Helper.DateCompare;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 
 public class EditOffer extends AppCompatActivity {
@@ -93,6 +97,24 @@ public class EditOffer extends AppCompatActivity {
                     return;
                 } else if (enteredDate.isEmpty() ) {
                     date.setError("Require valid date");
+                    date.requestFocus();
+                    return;
+                }
+
+                //current date
+                SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+                Date date1 = new Date();
+                String currentDate = formatter.format(date1).toString();
+
+                Boolean result =  false;
+                try {
+                    result = DateCompare.comparefuturedates(enteredDate,currentDate);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+                if(result==false){
+                    date.setError("Select future dates");
                     date.requestFocus();
                     return;
                 }

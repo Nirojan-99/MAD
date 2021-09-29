@@ -131,7 +131,7 @@
                     app:backgroundTint="@color/secondary_blue" />
                 <EditText
                     android:editable="false"
-                    android:focusable="false"
+                    android:inputType="none"
                     android:layout_marginTop="15sp"
                     android:id="@+id/textView101"
                     android:layout_width="match_parent"
