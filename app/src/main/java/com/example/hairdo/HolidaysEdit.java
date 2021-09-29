@@ -87,9 +87,13 @@ public class HolidaysEdit extends AppCompatActivity {
 
                 FirebaseDatabase.getInstance().getReference(Holiday.class.getSimpleName()).child(Oldholiday.getFbKey()).updateChildren(hashMap).addOnSuccessListener(suc -> {
                     Toast.makeText(HolidaysEdit.this, "Successfully updated Holiday ", Toast.LENGTH_SHORT).show();
-                    Intent intent1=new Intent(HolidaysEdit.this,Holidays.class);
+                    Intent intent1=new Intent(HolidaysEdit.this, com.example.hairdo.Calendar.class);
+//                    finish();
+//                    startActivity(intent1);
+                    intent1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent1);
                     finish();
+
                 }).addOnFailureListener(er -> {
                     Toast.makeText(HolidaysEdit.this, "Not Updated. Error is: " + er.getMessage(), Toast.LENGTH_SHORT).show();
                 });

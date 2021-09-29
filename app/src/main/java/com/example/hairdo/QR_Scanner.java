@@ -74,7 +74,12 @@ public class QR_Scanner extends AppCompatActivity {
             builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
+
                     dialog.dismiss();
+                    Intent intent=new Intent(QR_Scanner.this,SalonProfile.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                    finish();
                 }
             });
 
@@ -93,6 +98,7 @@ public class QR_Scanner extends AppCompatActivity {
         hashMap.put("status", qrA.getStatus());
         FirebaseDatabase.getInstance().getReference("Appointment").child(appointmentID).updateChildren(hashMap).addOnSuccessListener(suc -> {
             Toast.makeText(this, "Appointment Conformed and Completed ", Toast.LENGTH_SHORT).show();
+
         }).addOnFailureListener(er -> {
             Toast.makeText(this, "Not Completed. Error is: " + er.getMessage(), Toast.LENGTH_SHORT).show();
         });
