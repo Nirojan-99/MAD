@@ -70,6 +70,7 @@ public class DpUpload extends AppCompatActivity {
         });
 
 
+        //submit
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,6 +82,7 @@ public class DpUpload extends AppCompatActivity {
             }
         });
 
+        //cancel
         txt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
