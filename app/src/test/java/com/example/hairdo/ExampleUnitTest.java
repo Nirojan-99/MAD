@@ -47,13 +47,20 @@ public class ExampleUnitTest {
     }
 
     @Test
-    public void testTimeCompare(){
-        //case true
-        String date1 = "2:30PM";
-        String date2 = "2:30AM";
-        Boolean result = DateCompare.compareTime(date1,date2);
+    public void testCompareFutureDate() throws ParseException {
+        //case one
+        String date1 = "12/02/2021";
+        String date2 = "13/2/2021";
+        Boolean result = DateCompare.comparefuturedates(date1,date2);
 
         assertEquals(result,false);
+
+        //case two
+        String date3 = "20/02/2021";
+        String date4 = "20/2/2021";
+        Boolean result1 = DateCompare.comparefuturedates(date3,date4);
+
+        assertEquals(result1,true);
     }
     @Test
     public void testValidEmail(){
@@ -69,4 +76,5 @@ public class ExampleUnitTest {
 
         assertEquals(result2,false);
     }
+
 }
