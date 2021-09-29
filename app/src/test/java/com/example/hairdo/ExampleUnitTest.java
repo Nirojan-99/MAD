@@ -44,13 +44,4 @@ public class ExampleUnitTest {
         assertEquals(result1,false);
     }
 
-    @Test
-    public void testTimeCompare(){
-        //case true
-        String date1 = "2:30PM";
-        String date2 = "2:30AM";
-        Boolean result = DateCompare.compareTime(date1,date2);
-
-        assertEquals(result,false);
-    }
 }

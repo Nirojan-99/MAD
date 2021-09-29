@@ -159,6 +159,7 @@ public class EditDetails extends AppCompatActivity {
 
     }
 
+    //show dialog box
     private void showDialog() {
 
         final Dialog dialog = new Dialog(this);
@@ -207,6 +208,8 @@ public class EditDetails extends AppCompatActivity {
         dialog.getWindow().setGravity(Gravity.BOTTOM);
     }
 
+
+    //fetch salon data
     public void fetchSalonData(){
         Query query = FirebaseDatabase.getInstance().getReference("Salon").child(id);
         query.addListenerForSingleValueEvent(new ValueEventListener() {
