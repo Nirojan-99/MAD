@@ -108,8 +108,11 @@ public class Holidays extends AppCompatActivity {
 
                 FirebaseDatabase.getInstance().getReference("Holiday").push().setValue(holiday).addOnSuccessListener(suc -> {
                     Toast.makeText(Holidays.this, "Successfully added Holiday ", Toast.LENGTH_SHORT).show();
-                    finish();
+//                    finish();
+//                    startActivity(getIntent());
+                    getIntent().addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(getIntent());
+                    finish();
                 }).addOnFailureListener(er -> {
                     Toast.makeText(Holidays.this, "Not Added. Error is: " + er.getMessage(), Toast.LENGTH_SHORT).show();
                 });
@@ -140,6 +143,7 @@ public class Holidays extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull @NotNull DatabaseError error) {
+                Toast.makeText(Holidays.this, "Error in Data. Error is: " + error.getMessage(), Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -171,6 +175,7 @@ public class Holidays extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull @NotNull DatabaseError error) {
+                Toast.makeText(Holidays.this, "Error in Data. Error is: " + error.getMessage(), Toast.LENGTH_SHORT).show();
 
             }
         });

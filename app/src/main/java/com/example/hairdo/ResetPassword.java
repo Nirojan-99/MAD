@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.hairdo.Helper.ValidEmail;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class ResetPassword extends AppCompatActivity {
@@ -36,8 +37,9 @@ public class ResetPassword extends AppCompatActivity {
 
     private void resetPassword(){
         String email=enteredResetEmail.getText().toString().trim();
+        Boolean isValid= ValidEmail.isValidEmail(email);
 
-        if (email.isEmpty() || !email.contains("@") || !email.contains(".com")){
+        if (!isValid){
             enteredResetEmail.setError("Email is required");
             enteredResetEmail.requestFocus();
             return;

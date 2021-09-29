@@ -120,7 +120,8 @@ public class HolidaysRvAd extends  RecyclerView.Adapter<HolidaysRvAd.ViewHolder>
                     Toast.makeText(context, "Holiday is removed", Toast.LENGTH_SHORT).show();
                     notifyItemRemoved(position);
                     dialog.dismiss();
-                    Intent intent1=new Intent(context,Holidays.class);
+                    Intent intent1=new Intent(context,Calendar.class);
+                    intent1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(intent1);
                 }).addOnFailureListener(er->{
                     Toast.makeText(context, "Not Removed: "+er.getMessage(), Toast.LENGTH_SHORT).show();

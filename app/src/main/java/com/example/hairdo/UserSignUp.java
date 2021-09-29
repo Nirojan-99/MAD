@@ -11,6 +11,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.hairdo.Helper.ValidEmail;
 import com.example.hairdo.model.Customer;
 import com.example.hairdo.model.Salon;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -53,7 +54,8 @@ public class UserSignUp extends AppCompatActivity {
                     name.setError("Salon name is required");
                     name.requestFocus();
                     return;
-                } else if (enteredEmail.isEmpty() || !enteredEmail.contains("@") || !enteredEmail.contains(".com")) {
+//                } else if (enteredEmail.isEmpty() || !enteredEmail.contains("@") || !enteredEmail.contains(".com")) {
+                } else if (!ValidEmail.isValidEmail(enteredEmail)) {
                     email.setError("Valid email is required");
                     email.requestFocus();
                     return;
